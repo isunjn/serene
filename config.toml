@@ -5,7 +5,7 @@ base_url = "https://example.com"
 compile_sass = true
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+build_search_index = false
 
 [markdown]
 # Whether to do syntax highlighting
@@ -14,3 +14,7 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+name = "Daenerys Targaryen"
+id = "daenerys"
+bio = "Queen | Khaleesi | Protector"
+avatar = "img/avatar.png"

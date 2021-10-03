@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="home.css" />
+{% endblock css %}
+
+{% block content %}
+
+<div class="info">
+
+    <img src="{{ config.extra.avatar }}" alt="avatar">
+
+    <div class="info-text">
+        <p> <span id="name">{{ config.extra.name }}</span> <span id="id">@{{ config.extra.id }}</span> </p>
+        <p id="bio"> {{ config.extra.bio }} </p>
+    </div>
+
+</div>
+
+<div class="main">{{ section.content | safe }}</div>
+{% endblock content %}
