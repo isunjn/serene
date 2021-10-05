@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block nav %}
+ <a href="/">Home</a>
+ <a href="/blog">Blog</a>
+ <a href="/projects">Projects</a>
+{% endblock nav %}
+
+{% block content %}
+
+{% for post in section.pages %}
+ <h1><a href="{{ post.permalink }}">{{ post.title }}</a></h1>
+ <p>{{ post.date }}</p>
+{% endfor %}
+ 
+{% endblock content %}

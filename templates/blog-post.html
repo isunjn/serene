@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ page.title }}
+{{ page.description }}
+{{ page.date }}
+{{ page.taxonomies.tags }}
+<hr>
+{{ page.content }}
+ 
+{% endblock content %}

@@ -7,15 +7,21 @@
 {% block content %}
 
 <div class="info">
-
     <img src="{{ config.extra.avatar }}" alt="avatar">
-
     <div class="info-text">
         <p> <span id="name">{{ config.extra.name }}</span> <span id="id">@{{ config.extra.id }}</span> </p>
         <p id="bio"> {{ config.extra.bio }} </p>
     </div>
+</div>
 
+<div class="link">
+    <div id="blog"><img src="/icon/quill-pen-line.svg"><a href="/blog">Blog</a></div>
+    <div id="projects"><img src="/icon/hammer-line.svg"><a href="/blog">Projects</a></div>
+    <a class="social-icon" href="#"><img src="icon/github-line.svg"></a>
+    <a class="social-icon" href="#"><img src="icon/twitter-line.svg"></a>
+    <a class="social-icon" href="#"><img src="icon/mail-line.svg"></a>
 </div>
 
 <div class="main">{{ section.content | safe }}</div>
+
 {% endblock content %}
