@@ -4,10 +4,18 @@ body {
     font-family: 'Nunito', sans-serif;
     margin: 0 auto;
     margin-top: 20vh;
-    width: 40vw;
+    // width: 40vw;
+    max-width: 600px;
     background-color: $bg-color;
 }
 
+
+div.info {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.5em;
+}
 div.info img {
     width: 96px;
     height: 96px;
@@ -16,23 +24,16 @@ div.info img {
     border-radius: 50%;
     margin-right: 20px;
 }
-
-div.info {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    font-size: 1.5em;
-}
 div.info-text {
     #name {
         color: $text-color;
         font-size: 1.1em;
         font-weight: bolder;
+        margin-right: 10px;
     }
     #id {
         background-color: $primary-color;
         padding: 2px 10px;
-        margin-left: 10px;
         border-radius: 15px;
         color: $white-color;
         font-size: 0.8em;
@@ -44,38 +45,56 @@ div.info-text {
     }
 }
 
+
 div.link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 25px;
-    div img {
-        display: inline-block;
-        width: 28px;
-        margin-right: 4px;
-    }
-    div {
-        height: 30px;
-        display: inline-block;
-        border-radius: 5px;
-        margin-right: 30px;
-        font-size: 1.3em;
-        text-decoration: underline;
+    height: 36px;
+
+    .left {
         position: relative;
-        
-        a, a:visited {
-            color: $text-color;
+    }
+    .left img {
+        display: inline;
+        width: 28px;
+        margin-top: 5px;
+    }
+    .left a {
+        display: inline-block;
+        height: 36px;
+        margin-right: 20px;
+
+        span {
+            display: inline-block;
+            font-size: 1.3em;
+            text-decoration: underline;
             position: relative;
             top: -5px;
         }
 
-        &#projects {
-            margin-right: 250px;
+        &:visited {
+            color: $text-color;
+        }
+
+        &:hover {
+            transform: scale(1.05);
         }
     }
-    .social-icon {
+
+    .right {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+    .right a img {
         display: inline;
-        img {
-            display: inline;
-            width: 28px;
-            margin-right: 8px;
+        width: 28px;
+        margin-top: 5px;
+        margin-left: 8px;
+        &:hover {
+            transform: scale(1.05);
         }
     }
 }
@@ -87,12 +106,12 @@ div.main {
     line-height: 1.5;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
     body {
-        width: 95vw;
+        width: 90vw;
         margin-top: 10vh;
     }
     div.info {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 }

@@ -15,11 +15,15 @@
 </div>
 
 <div class="link">
-    <div id="blog"><img src="/icon/quill-pen-line.svg"><a href="/blog">Blog</a></div>
-    <div id="projects"><img src="/icon/hammer-line.svg"><a href="/blog">Projects</a></div>
-    <a class="social-icon" href="#"><img src="icon/github-line.svg"></a>
-    <a class="social-icon" href="#"><img src="icon/twitter-line.svg"></a>
-    <a class="social-icon" href="#"><img src="icon/mail-line.svg"></a>
+    <div class="left">
+        <a href="/blog" id="blog"><img src="/icon/quill-pen-line.svg"><span>Blog</span></a>
+        <a href="/projects" id="projects"><img src="/icon/hammer-line.svg"><span>Projects</span></a>
+    </div>
+    <div class="right">
+        <a href="#"><img src="icon/github-line.svg"></a>
+        <a href="#"><img src="icon/twitter-line.svg"></a>
+        <a href="#"><img src="icon/mail-line.svg"></a>
+    </div>
 </div>
 
 <div class="main">{{ section.content | safe }}</div>
