@@ -1,9 +1,79 @@
 @import 'partial/var';
-@import 'partial/header';
 @import 'partial/footer';
 
+body {
+    font-size: 0.8em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 1.2em;
+  
+    nav {
+        a.back {
+            text-decoration: none;
+            color: $text-light-color;
+            i {
+                margin-right: 2px;
+            }
+            span {
+                font-size: 1.1em;
+            } 
+        }
+        a.blog {
+            text-decoration: none;
+            margin-left: 30px;
+            i {
+                margin-right: 3px;
+            }
+            color: $text-primary-color;
+            span {
+                font-size: 1.5em;
+            } 
+        }
+    }
+    div {
+        a {
+            text-decoration: none;
+            color: $text-primary-color;
+            margin-right: 20px;
+        }
+    }
+  }
+  
 
 main {
     max-width: 700px;
     margin: 0 auto;
+}
+
+.brief p {
+    font-size: 1.5em;
+    color: $text-second-color;
+    margin: 20px 0 40px 0;
+    padding: 0 15px;
+}
+
+.post {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    &:hover {
+        transform: translate(-5px, 0px);
+        transition: all 0.3s;
+        background-color: $primary-light-2-color;
+    }
+    text-decoration: none;
+    color: $primary-color;
+    .date {
+        color: $primary-color;
+    }
 }

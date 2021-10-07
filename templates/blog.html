@@ -10,13 +10,33 @@
 
 {% block content %}
 
-{% include "partial/_header.html" %}
+<header>
+    <nav>
+        <a class="back" href="/"><i class="ri-arrow-left-line ri-sm"></i><span>Home</span></a>
+        <a class="blog" href="/blog"><i class="ri-quill-pen-line ri-xl"></i><span>Blog</span></a>
+    </nav>
+    <div>
+        <a href="/feed"><i class="ri-rss-line ri-lg"></i></a>
+        <a href="javascript;"><i class="ri-moon-line ri-lg"></i></a>
+    </div>
+</header>
 
 <main>
-{% for post in section.pages %}
- <div class="post"><a href="{{ post.permalink }}">{{ post.title }}</a><span class="date">{{ post.date }}</span></div>
-{% endfor %}
- </main>
+    <div class="brief">
+        <p>To write is to live</p>
+    </div>
+
+    <div class="post-list">
+        {% for post in section.pages %}
+        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date }}</span></a>
+        {% endfor %}
+    </div>
+    <div class="post-list">
+        {% for post in section.pages %}
+        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date }}</span></a>
+        {% endfor %}
+    </div>
+</main>
 {% endblock content %}
 
 {% include "parial/_footer.html" %}
