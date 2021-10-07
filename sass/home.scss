@@ -1,47 +1,43 @@
-@import 'partial/base';
+@import 'partial/var';
 
 body {
-    font-family: 'Nunito', sans-serif;
     margin: 0 auto;
-    margin-top: 20vh;
-    // width: 40vw;
+    margin-top: 15vh;
     max-width: 600px;
     background-color: $bg-color;
 }
-
 
 div.info {
     display: flex;
     justify-content: start;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 div.info img {
-    width: 96px;
-    height: 96px;
-    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
-    border: 3px rgba(245, 245, 245, 0.527) solid;
+    width: 80px;
+    height: 80px;
+    box-shadow: rgba(100, 100, 111, 0.5) 3px 7px 29px 0px;
+    // border: 1px rgba(245, 245, 245, 0.527) solid;
     border-radius: 50%;
     margin-right: 20px;
 }
 div.info-text {
     #name {
-        color: $text-color;
+        color: $text-primary-color;
         font-size: 1.1em;
-        font-weight: bolder;
+        // font-weight: bolder;
         margin-right: 10px;
     }
     #id {
         background-color: $primary-color;
-        padding: 2px 10px;
+        padding: 1px 12px 2px 12px;
         border-radius: 15px;
-        color: $white-color;
-        font-size: 0.8em;
-        box-shadow: rgba(100, 100, 111, 0.4) 3px 3px 29px 0px;
+        color: #fff;
+        font-size: 0.7em;
     }
     #bio {
-        color: $text-color;
-        font-size: 0.85em;
+        color: $text-second-color;
+        font-size: 0.8em;
     }
 }
 
@@ -53,33 +49,24 @@ div.link {
     margin-top: 25px;
     height: 36px;
 
-    .left {
-        position: relative;
-    }
-    .left img {
-        display: inline;
-        width: 28px;
-        margin-top: 5px;
-    }
     .left a {
         display: inline-block;
-        height: 36px;
-        margin-right: 20px;
-
+        text-align: center;
+        margin-right: 25px;
+        text-decoration: none;
+        i {
+            margin-right: 2px;
+        }
         span {
             display: inline-block;
             font-size: 1.3em;
-            text-decoration: underline;
-            position: relative;
-            top: -5px;
+            text-decoration: underline $primary-color;
         }
-
         &:visited {
-            color: $text-color;
+            color: $text-primary-color;
         }
-
         &:hover {
-            transform: scale(1.05);
+            color: $primary-color;
         }
     }
 
@@ -87,21 +74,23 @@ div.link {
         display: flex;
         justify-content: end;
         align-items: center;
-    }
-    .right a img {
-        display: inline;
-        width: 28px;
-        margin-top: 5px;
-        margin-left: 8px;
-        &:hover {
-            transform: scale(1.05);
+        a {
+            text-decoration: none;
+            color: $text-primary-color;
+            margin-right: 10px;
+        }
+        a:visited {
+            color: $text-primary-color;
+        }
+        a:hover {
+            color: $primary-color;
         }
     }
 }
 
 
 div.main {
-    color: $text-color;
+    color: $text-primary-color;
     font-size: 1.5em;
     line-height: 1.5;
 }

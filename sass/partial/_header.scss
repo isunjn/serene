@@ -1,0 +1,36 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+
+  nav {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 1.5em;
+    a {
+      padding: 3px 15px;
+      color: $text-primary-color;
+      border-radius: 4px;
+      text-decoration: none;
+      &:hover {
+        background-color: #64a06c70;
+      }
+      &:visited {
+        color: $text-primary-color;
+      }
+    }
+    // a img {
+    //   width: 24px;
+    //   height: 24px;
+    // }
+  }
+}

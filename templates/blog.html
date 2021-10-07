@@ -1,16 +1,22 @@
-{% extends "base.html" %}
+{% extends "_base.html" %}
+<!---------------------------------------------------------->
 
-{% block nav %}
- <a href="/">Home</a>
- <a href="/blog">Blog</a>
- <a href="/projects">Projects</a>
-{% endblock nav %}
+{% block css %}
+ <link rel="stylesheet" href="blog.css"/>
+{% endblock css %}
+
+<!---------------------------------------------------------->
+
 
 {% block content %}
 
+{% include "partial/_header.html" %}
+
+<main>
 {% for post in section.pages %}
- <h1><a href="{{ post.permalink }}">{{ post.title }}</a></h1>
- <p>{{ post.date }}</p>
+ <div class="post"><a href="{{ post.permalink }}">{{ post.title }}</a><span class="date">{{ post.date }}</span></div>
 {% endfor %}
- 
+ </main>
 {% endblock content %}
+
+{% include "parial/_footer.html" %}

@@ -1,2 +1,9 @@
-@import 'partial/base';
+@import 'partial/var';
+@import 'partial/header';
+@import 'partial/footer';
 
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+}
