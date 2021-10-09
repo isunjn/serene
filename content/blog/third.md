@@ -9,6 +9,7 @@ updated = 2021-09-30
 
 [taxonomies]
 tags = ["rust", "web"]
+categories = ["Thoughts"]
 
 +++
 

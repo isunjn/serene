@@ -9,6 +9,7 @@ updated = 2021-09-16
 
 [taxonomies]
 tags = ["demo", "theme"]
+categories = ["Tech"]
 
 +++
 

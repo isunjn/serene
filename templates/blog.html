@@ -10,53 +10,40 @@
 
 {% block content %}
 
-<header>
-    <div class="top">
-        <div class="blog" href="/blog"><i class="ri-quill-pen-line ri-2x"></i><span>Blog</span></div>
-        <a class="back" href="/"><i class="ri-arrow-left-line ri-sm"></i><span>Home</span></a>
-        <div class="icon">
-            <a href="/feed"><i class="ri-rss-line ri-xl"></i></a>
-            <a href="javascript;"><i class="ri-moon-line ri-xl"></i></a>
-        </div>
-    </div>
-</header>
+{% include "partial/_blog_header.html" %}
 
 <main>
-    <div class="brief">
-        <p>To write is to live</p>
-    </div>
+    {# <div class="brief">{{ section.description }}</div> #}
+
+    {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") %}
+
+    <div class="title">{{ category }}</div>
 
     <div class="post-list">
-        {% for post in section.pages %}
-        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
-                }}</span></a>
+
+        {% for post in posts | slice(end=10) %}
+        <a class="post post-shown" href="{{ post.permalink }}">
+            <span>{{ post.title }}</span>
+            <span class="date">{{ post.date}}</span>
+        </a>
         {% endfor %}
+
+        {% if posts | length > 10 %}
+            {% for post in posts | slice(start=10) %}
+            <a class="post post-hidden" href="{{ post.permalink }}">
+                <span>{{ post.title }}</span>
+                <span class="date">{{ post.date}}</span>
+            </a>
+            {% endfor %}
+            <div class="showhidden"><a class="btn">More<i class="ri-arrow-down-s-line ri-lg"></i></a></div>
+        {% endif %}
+
     </div>
-    <div class="post-list">
-        {% for post in section.pages %}
-        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
-                }}</span></a>
-        {% endfor %}
-    </div>
-    <div class="post-list">
-        {% for post in section.pages %}
-        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
-                }}</span></a>
-        {% endfor %}
-    </div>
-    <div class="post-list">
-        {% for post in section.pages %}
-        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
-                }}</span></a>
-        {% endfor %}
-    </div>
-    <div class="post-list">
-        {% for post in section.pages %}
-        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
-                }}</span></a>
-        {% endfor %}
-    </div>
+
+    {% endfor %}
+
 </main>
+
 {% endblock content %}
 
 {% include "parial/_footer.html" %}
