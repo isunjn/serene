@@ -1,12 +1,42 @@
 {% extends "_base.html" %}
 
+{% block css %}
+<link rel="stylesheet" href="/post.css" />
+{% endblock css %}
+
 {% block content %}
 
-{{ page.title }}
-{{ page.description }}
-{{ page.date }}
-{{ page.taxonomies.tags }}
-<hr>
-{{ page.content }}
- 
+{% include "partial/_blog_header.html" %}
+
+<main>
+    <article>
+        <h1>{{ page.title }}</h1>
+        <div class="post-info">
+            <div class="date">
+                <span class="publish">{{ page.date | date }}</span>
+                <span class="update">Updated on {{ page.updated | date }}</span>    
+            </div>
+            <div class="tags">
+                {% for tag in page.taxonomies.tags %}
+                <a class="tag"><i class="ri-hashtag ri-sm"></i><span>{{ tag }}</span></a>
+                {% endfor %}
+            </div>
+        </div>
+
+        {{ page.content | safe }}
+    </article>
+
+    <div class="comment">
+
+    </div>
+</main>
+
+<aside>
+
+</aside>
+
+
+
+{% include "partial/_footer.html" %}
+
 {% endblock content %}

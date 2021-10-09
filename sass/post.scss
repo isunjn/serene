@@ -1,0 +1,121 @@
+@import "partial/var";
+@import "partial/footer";
+
+@import "partial/blog_header";
+
+main {
+    margin: 0 auto;
+    max-width: 750px;
+    margin-bottom: 50px;
+}
+
+article {
+    padding: 0 15px;
+    color: $text-primary-color;
+    .post-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    .date {
+        font-size: 1.2em;
+        color: $text-light-color;
+    }
+    .publish {
+        margin-right: 20px;
+    }
+    .tag {
+        font-size: 20px;
+        color: $primary-color;
+        position: relative;
+        margin-right: 15px;
+        text-decoration: none;
+        span {
+            position: relative;
+            top: -3px;
+        }
+        &:hover {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+
+    h1 {
+        font-size: 2em;
+        font-weight: bolder;
+        margin: 1em 0 0.5em 0;
+    }
+
+    h2 {
+        font-size: 1.6em;
+        margin: 40px 0 20px 0;
+    }
+
+    h3 {
+        font-size: 1.4em;
+        margin: 36px 0 18px 0;
+    }
+
+    h4 {
+        font-size: 1.2em;
+        margin: 30px 0 15px 0;
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    a {
+        color: $primary-color;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline $primary-color;
+        }
+    }
+
+    blockquote {
+        border-left: 4px $primary-light-2-color solid;
+        padding-left: 16px;
+        margin: 0 0 24px 0;
+        color: $text-light-color;
+    }
+
+    p > code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.8em;
+        padding: 0px 6px;
+        color: #fff;
+        background-color: $primary-color;
+        border-radius: 4px;
+    }
+
+    pre {
+        padding: 12px 16px;
+        line-height: 1.5;
+        border-radius: 6px;
+        overflow: auto;
+        code {
+            font-family: "JetBrains Mono", monospace;
+        }
+    }
+
+    ul,
+    ol {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    li::marker {
+        color: $primary-color;
+    }
+
+    hr {
+        border: none;
+        background-color: $primary-light-2-color;
+        border-radius: 3px;
+        height: 4px;
+        margin: 36px 0;
+    }
+}
