@@ -8,6 +8,7 @@
 <!------------------------------------------------->
 
 {% block content %}
+<main>
 
 <div class="info">
     <img src="{{ config.extra.avatar }}" alt="avatar">
@@ -31,6 +32,8 @@
     </div>
 </div>
 
-<div class="main">{{ section.content | safe }}</div>
+<div class="brief">{{ section.content | safe }}</div>
+
+</main>
 
 {% endblock content %}

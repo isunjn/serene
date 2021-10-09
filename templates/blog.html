@@ -2,7 +2,7 @@
 <!---------------------------------------------------------->
 
 {% block css %}
- <link rel="stylesheet" href="blog.css"/>
+<link rel="stylesheet" href="blog.css" />
 {% endblock css %}
 
 <!---------------------------------------------------------->
@@ -11,13 +11,13 @@
 {% block content %}
 
 <header>
-    <nav>
+    <div class="top">
+        <div class="blog" href="/blog"><i class="ri-quill-pen-line ri-2x"></i><span>Blog</span></div>
         <a class="back" href="/"><i class="ri-arrow-left-line ri-sm"></i><span>Home</span></a>
-        <a class="blog" href="/blog"><i class="ri-quill-pen-line ri-xl"></i><span>Blog</span></a>
-    </nav>
-    <div>
-        <a href="/feed"><i class="ri-rss-line ri-lg"></i></a>
-        <a href="javascript;"><i class="ri-moon-line ri-lg"></i></a>
+        <div class="icon">
+            <a href="/feed"><i class="ri-rss-line ri-xl"></i></a>
+            <a href="javascript;"><i class="ri-moon-line ri-xl"></i></a>
+        </div>
     </div>
 </header>
 
@@ -28,12 +28,32 @@
 
     <div class="post-list">
         {% for post in section.pages %}
-        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date }}</span></a>
+        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
+                }}</span></a>
         {% endfor %}
     </div>
     <div class="post-list">
         {% for post in section.pages %}
-        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date }}</span></a>
+        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
+                }}</span></a>
+        {% endfor %}
+    </div>
+    <div class="post-list">
+        {% for post in section.pages %}
+        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
+                }}</span></a>
+        {% endfor %}
+    </div>
+    <div class="post-list">
+        {% for post in section.pages %}
+        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
+                }}</span></a>
+        {% endfor %}
+    </div>
+    <div class="post-list">
+        {% for post in section.pages %}
+        <a class="post" href="{{ post.permalink }}"><span>{{ post.title }}</span><span class="date">{{ post.date
+                }}</span></a>
         {% endfor %}
     </div>
 </main>

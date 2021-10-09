@@ -1,10 +1,9 @@
 @import 'partial/var';
 
-body {
+main {
     margin: 0 auto;
     margin-top: 15vh;
     max-width: 600px;
-    background-color: $bg-color;
 }
 
 div.info {
@@ -12,35 +11,35 @@ div.info {
     justify-content: start;
     align-items: center;
     font-size: 1.4em;
-}
-div.info img {
-    width: 80px;
-    height: 80px;
-    box-shadow: rgba(100, 100, 111, 0.5) 3px 7px 29px 0px;
-    // border: 1px rgba(245, 245, 245, 0.527) solid;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-div.info-text {
-    #name {
-        color: $text-primary-color;
-        font-size: 1.1em;
-        // font-weight: bolder;
-        margin-right: 10px;
-    }
-    #id {
-        background-color: $primary-color;
-        padding: 1px 12px 2px 12px;
-        border-radius: 15px;
-        color: #fff;
-        font-size: 0.7em;
-    }
-    #bio {
-        color: $text-second-color;
-        font-size: 0.8em;
-    }
-}
 
+    img {
+        width: 80px;
+        height: 80px;
+        box-shadow: rgba(0, 0, 0, 0.5) 3px 7px 29px 0px;
+        // border: 3px $primary-color solid;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+    
+    .info-text {
+        #name {
+            color: $text-primary-color;
+            font-size: 1.1em;
+            margin-right: 10px;
+        }
+        #id {
+            background-color: $primary-color;
+            padding: 1px 12px 2px 12px;
+            border-radius: 15px;
+            color: #fff;
+            font-size: 0.8em;
+        }
+        #bio {
+            color: $text-second-color;
+            font-size: 0.8em;
+        }
+    }
+}
 
 div.link {
     display: flex;
@@ -54,49 +53,37 @@ div.link {
         text-align: center;
         margin-right: 25px;
         text-decoration: none;
-        i {
-            margin-right: 2px;
-        }
+        color: $text-primary-color;
         span {
+            margin-left: 2px;
             display: inline-block;
             font-size: 1.3em;
             text-decoration: underline $primary-color;
-        }
-        &:visited {
-            color: $text-primary-color;
         }
         &:hover {
             color: $primary-color;
         }
     }
 
-    .right {
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        a {
-            text-decoration: none;
-            color: $text-primary-color;
-            margin-right: 10px;
-        }
-        a:visited {
-            color: $text-primary-color;
-        }
-        a:hover {
+    .right a {
+        text-decoration: none;
+        color: $text-primary-color;
+        margin-right: 10px;
+        &:hover {
             color: $primary-color;
         }
     }
 }
 
 
-div.main {
+div.brief {
     color: $text-primary-color;
     font-size: 1.5em;
     line-height: 1.5;
 }
 
 @media screen and (max-width: 650px) {
-    body {
+    main {
         width: 90vw;
         margin-top: 10vh;
     }
