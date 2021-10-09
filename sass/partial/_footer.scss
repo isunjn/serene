@@ -4,9 +4,10 @@ footer {
     max-width: 750px;
     display: flex;
     justify-content: space-between;
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: $text-light-color;
-    margin: 15px auto;
+    margin: 0 auto;
+    margin-bottom: 28px;
     a {
         color: $text-light-color;
     }
