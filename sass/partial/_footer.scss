@@ -1,0 +1,16 @@
+@import 'var';
+
+footer {
+    max-width: 750px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: $text-light-color;
+    margin: 15px auto;
+    a {
+        color: $text-light-color;
+    }
+    div {
+        margin: 0 15px;
+    }
+}
