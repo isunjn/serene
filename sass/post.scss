@@ -145,7 +145,7 @@ aside {
         padding-left: 1.5em;
         margin: 0;
     }
-    a {
+    nav a {
         text-decoration: none;
         font-size: 20px;
         display: block;
@@ -157,7 +157,7 @@ aside {
             }
         }
     }
-    a::before {
+    nav a::before {
         display: inline-block;
         content: "";
         width: 4px;
@@ -174,5 +174,21 @@ aside {
     .level-2-li > a {
         color: $text-light-color;
     }
+}
 
+#top {
+    padding-top: 45px;
+    margin-top: -45px;
+}
+
+#back-to-top {
+    padding: 10px 15px;
+    text-decoration: none;
+    position: fixed;
+    bottom: 15px;
+    margin-left: 22px;
+    color: $text-light-color;
+    &:hover {
+        color: $primary-color;
+    }
 }
