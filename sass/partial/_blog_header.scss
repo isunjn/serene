@@ -1,13 +1,21 @@
+@import 'var';
 
 header {
     border-bottom: 2px $primary-color solid;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 43px;
+    background-color: #ffffff50;
+    backdrop-filter: blur(8px);
+    z-index: 100;
 
     div.top {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin: 0 auto;
-        padding: 5px 0;
+        padding: 2px 0 1px 0;
         max-width: 750px;
         position: relative;
     }
