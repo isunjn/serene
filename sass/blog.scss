@@ -8,7 +8,7 @@ main {
     min-height: 82vh;
     margin: 0 auto;
     margin-top: 85px;
-    
+
     // .brief {
     //     font-size: 1.2em;
     //     color: $text-light-color;
@@ -31,8 +31,8 @@ main {
         margin-bottom: 5px;
         font-size: 1.3em;
         &:hover {
-            transform: translate(-1px, 0px);
-            transition: all 0.5s;
+            // transform: translate(-2px, 0px);
+            // transition: transform 0.3s;
             background-color: $primary-light-2-color;
         }
         text-decoration: none;
