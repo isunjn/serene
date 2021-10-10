@@ -8,6 +8,7 @@ header {
     height: 43px;
     background-color: #ffffff50;
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 100;
 
     div.top {
@@ -26,26 +27,29 @@ header {
         left: -80px;
         text-decoration: none;
         color: $text-light-color;
-        padding: 5px 10px;
-        border-radius: 4px;
+        padding: 10px 0;
         span {
-            margin-left: 2px;
-            font-size: 1em;
+            position: relative;
+            top: -1px;
         }
         &:hover {
-            background-color: $primary-light-2-color;
+            color: $primary-color;
         }
     }
     
-    div.blog {
+    a.blog {
         position: relative;
         color: $text-primary-color;
-        padding-left: 5px;
+        padding-left: 10px;
+        text-decoration: none;
         span {
             position: relative;
             top: -6px;
             margin-left: 5px;
             font-size: 1.5em;
+        }
+        &:hover {
+            color: $primary-color;
         }
     }
     
@@ -56,6 +60,9 @@ header {
             text-decoration: none;
             color: $text-primary-color;
             margin-left: 20px;
+            &:hover {
+                color: $primary-color;
+            }
         }
     }
 }
