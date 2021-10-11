@@ -64,8 +64,21 @@ header {
             }
         }
     }
-    
+    #go-home {
+        display: none;
+    }
     #toc-toggle {
         display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        a.back {
+            display: none;
+        }
+        #go-home {
+            display: inline-block;
+        }
     }
 }
