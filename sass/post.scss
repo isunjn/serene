@@ -25,20 +25,21 @@ article {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 40px;
+        flex-wrap: wrap;
+        margin-bottom: 1em;
     }
     .date {
         font-size: 1.2em;
         color: $text-light-color;
+        margin-bottom: 1em;
     }
     .publish {
         margin-right: 20px;
     }
-    .tag {
+    .tag{
         font-size: 20px;
         color: $primary-color;
         position: relative;
-        margin-left: 15px;
         text-decoration: none;
         span {
             position: relative;
@@ -47,6 +48,9 @@ article {
         &:hover {
             text-decoration: none;
             cursor: pointer;
+        }
+        + .tag {
+            margin-left: 15px;
         }
     }
 
