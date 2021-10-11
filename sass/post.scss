@@ -176,6 +176,51 @@ aside {
     }
 }
 
+@media screen and (max-width: 1024px) {
+    header {
+        #toc-toggle {
+            display: inline-block;
+            &.active {
+                color: $primary-color;
+            }
+        }
+    }
+    aside {
+        position: fixed;
+        right: -100%;
+        &.shown {
+            right: 0;
+        }
+        transition: all .5s;
+        top: 45px;
+        margin-top: 0;
+        min-width: 240px;
+        height: 100%;
+        background-color: #ffffff50;
+        box-shadow: rgba(0, 0, 0, 0.2) -2px 0px 20px 0px;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        nav {
+            padding-top: 10px;
+        }
+        ul {
+            padding-left: 10px;
+        }
+        #back-to-top {
+            padding-left: 10px;
+            bottom: 3em;
+        }
+    }
+    div.blank {
+        display: none;
+    }
+    main {
+        margin: 0 auto;
+    }
+}
+
+
+
 #top {
     padding-top: 45px;
     margin-top: -45px;
