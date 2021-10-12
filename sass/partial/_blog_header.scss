@@ -1,13 +1,13 @@
 @import 'var';
 
-header {
-    border-bottom: 2px $primary-color solid;
+header { 
     position: fixed;
     width: 100%;
     top: 0;
-    height: 43px;
+    height: 45px;
     background-color: $bg-color;
     z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 0 8px 0;
 
     div.top {
         display: flex;
@@ -69,6 +69,12 @@ header {
     }
     #toc-toggle {
         display: none;
+    }
+
+    div#progress-bar {
+        height: 2px;
+        width: 0%;
+        background-color: $primary-color;
     }
 }
 

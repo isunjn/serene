@@ -3,6 +3,10 @@
 
 @import "partial/blog_header";
 
+header div#progress-bar {
+    width: 100%;
+}
+
 main {
     max-width: 750px;
     min-height: 80vh;
