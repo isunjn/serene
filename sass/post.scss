@@ -241,7 +241,7 @@ aside {
     }
 }
 
-@media (prefers-color-scheme: dark) {
+body.dark-mode {
     article {
         .date {
             color: $dark-text-light-color;

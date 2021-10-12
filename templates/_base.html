@@ -5,23 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark light">
-    
+    <meta name="color-scheme" content="light dark">
+
     <title>{% block title %}{% endblock title %}</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Jost&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="/base.css">
     {% block css %}{% endblock css %}
 </head>
 
 <body>
-{% block content %}{% endblock content %}
-{% block script %}{% endblock script %}
+    <script>
+        if(localStorage.getItem('theme') == 'dark') {
+            document.body.classList.add('dark-mode'); // avoid flickering on edge
+        }
+    </script>
+    {% block content %}{% endblock content %}
+    <script src="/js/dark.js"></script>
+    {% block script %}{% endblock script %}
 </body>
 
 </html>

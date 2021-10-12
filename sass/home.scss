@@ -115,7 +115,7 @@ div.brief {
 }
 
 
-@media (prefers-color-scheme: dark) {
+body.dark-mode {
     div.info .info-text #bio {
         color: $dark-text-second-color;
     }

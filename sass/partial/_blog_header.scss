@@ -86,7 +86,7 @@ header {
 }
 
 
-@media (prefers-color-scheme: dark) {
+body.dark-mode {
     header {
         background-color: $dark-blur-bg-color;
     }

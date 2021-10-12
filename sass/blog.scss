@@ -72,7 +72,7 @@ main {
     }
 }
 
-@media (prefers-color-scheme: dark) {
+body.dark-mode {
     main .title {
         color: $dark-text-second-color;
     }

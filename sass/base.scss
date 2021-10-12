@@ -13,11 +13,9 @@ body {
     color: $text-primary-color;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
+body.dark-mode {
     background-color: $dark-bg-color;
     color: $dark-text-primary-color;
-  }
 }
 
 

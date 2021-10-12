@@ -22,7 +22,7 @@ footer {
     }
 }
 
-@media (prefers-color-scheme: dark) {
+body.dark-mode {
     footer,
     footer a {
         color: $dark-text-light-color;
