@@ -22,7 +22,6 @@ div.info {
     
     .info-text {
         #name {
-            color: $text-primary-color;
             font-size: 1.1em;
             margin-right: 10px;
         }
@@ -47,17 +46,13 @@ div.link {
     flex-wrap: wrap;
     row-gap: 20px;
     margin-top: 25px;
-    // height: 36px;
 
     .left a {
-        // display: inline-block;
         text-align: center;
         margin-right: 10px;
         text-decoration: none;
         color: $text-primary-color;
         span {
-            // margin-left: 2px;
-            // display: inline-block;
             position: relative;
             top: -3px;
             font-size: 1.3em;
@@ -81,7 +76,6 @@ div.link {
 }
 
 div.brief {
-    color: $text-primary-color;
     font-size: 1.5em;
     line-height: 1.5;
     margin: 15px 0;
@@ -117,5 +111,22 @@ div.brief {
     }
     div.brief {
         font-size: 1.3em;
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    div.info .info-text #bio {
+        color: $dark-text-second-color;
+    }
+    div.link .left a,
+    div.link .right a {
+        color: $dark-text-primary-color;
+        &:visited {
+            color: $dark-text-primary-color;
+        }
+        &:hover {
+            color: $primary-color;
+        }
     }
 }

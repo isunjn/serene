@@ -19,7 +19,6 @@ main {
 
 article {
     padding: 0 15px;
-    color: $text-primary-color;
     .post-info {
         display: flex;
         justify-content: space-between;
@@ -93,7 +92,7 @@ article {
     }
 
     blockquote {
-        border-left: 4px $primary-light-2-color solid;
+        border-left: 4px $primary-light-color solid;
         padding-left: 16px;
         margin: 0 0 24px 0;
         color: $text-light-color;
@@ -130,7 +129,7 @@ article {
 
     hr {
         border: none;
-        background-color: $primary-light-2-color;
+        background-color: $primary-light-color;
         border-radius: 3px;
         height: 4px;
         margin: 36px 0;
@@ -178,7 +177,7 @@ aside {
         color: $primary-color;
     }
     .level-2-li > a {
-        color: $text-light-color;
+        color: $text-second-color;
     }
 }
 
@@ -202,7 +201,7 @@ aside {
         margin-top: 0;
         min-width: 240px;
         height: 100%;
-        background-color: #ffffff50;
+        background-color: $dark-blur-bg-color;
         box-shadow: rgba(0, 0, 0, 0.2) -2px 0px 20px 0px;
         -webkit-backdrop-filter: blur(8px);
         backdrop-filter: blur(8px);
@@ -225,8 +224,6 @@ aside {
     }
 }
 
-
-
 #top {
     padding-top: 45px;
     margin-top: -45px;
@@ -241,5 +238,26 @@ aside {
     color: $text-light-color;
     &:hover {
         color: $primary-color;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    article {
+        .date {
+            color: $dark-text-light-color;
+        }
+        blockquote {
+            color: $dark-text-light-color;
+            border-color: $dark-primary-light-color;
+        }
+        p > code {
+            color: #ddd;
+        }
+        hr {
+            background-color: $dark-primary-light-color;
+        }
+    }
+    aside .level-2-li > a {
+        color: $dark-text-second-color;
     }
 }

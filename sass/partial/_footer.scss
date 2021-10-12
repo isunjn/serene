@@ -21,3 +21,11 @@ footer {
         flex-wrap: wrap;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    footer,
+    footer a {
+        color: $dark-text-light-color;
+    }
+
+}

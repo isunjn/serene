@@ -1,3 +1,5 @@
+@import 'partial/var';
+
 *
 *::before,
 *::after {
@@ -6,7 +8,18 @@
 
 body {
     font-family: 'Jost', sans-serif;
+    min-height: 100%;
+    background-color: $bg-color;
+    color: $text-primary-color;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $dark-bg-color;
+    color: $dark-text-primary-color;
+  }
+}
+
 
 a {
   -webkit-tap-highlight-color: transparent;

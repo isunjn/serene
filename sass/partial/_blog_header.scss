@@ -6,7 +6,7 @@ header {
     width: 100%;
     top: 0;
     height: 43px;
-    background-color: #ffffff50;
+    background-color: $blur-bg-color;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 100;
@@ -81,6 +81,37 @@ header {
         }
         #go-home {
             display: inline-block;
+        }
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    header {
+        background-color: $dark-blur-bg-color;
+    }
+    header a.back {
+        color: $dark-text-light-color;
+        &:visited {
+            color: $dark-text-light-color;
+        }
+        &:hover {
+            color: $primary-color;
+        }
+    }
+    header a.blog {
+        color: $dark-text-primary-color;
+        &:visited {
+            color: $dark-text-primary-color;
+        }
+        &:hover {
+            color: $primary-color;
+        }
+    }
+    header div.icon a {
+        color: $dark-text-primary-color;
+        &:visited {
+            color: $dark-text-primary-color;
         }
     }
 }

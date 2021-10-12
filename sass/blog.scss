@@ -9,13 +9,6 @@ main {
     margin: 0 auto;
     margin-top: 85px;
 
-    // .brief {
-    //     font-size: 1.2em;
-    //     color: $text-light-color;
-    //     margin: 20px 0;
-    //     padding: 0 15px;
-    // }
-    
     .title {
         font-size: 1.6em;
         color: $text-second-color;
@@ -34,7 +27,7 @@ main {
         &:hover {
             // transform: translate(-2px, 0px);
             // transition: transform 0.3s;
-            background-color: $primary-light-2-color;
+            background-color: $primary-light-color;
         }
         text-decoration: none;
         color: $primary-color;
@@ -60,7 +53,7 @@ main {
             font-size: 1.3em;
             color: $primary-color;
             &:hover {
-                background-color: $primary-light-2-color;
+                background-color: $primary-light-color;
             }
             i {
                 position: relative;
@@ -76,5 +69,17 @@ main {
         margin-right: 5px;
         padding-left: 10px;
         padding-right: 10px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    main .title {
+        color: $dark-text-second-color;
+    }
+    main .post:hover {
+        background-color: $dark-primary-light-color;
+    }
+    main .showhidden .btn:hover {
+        background-color: $dark-primary-light-color;
     }
 }
