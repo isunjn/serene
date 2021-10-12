@@ -15,7 +15,6 @@ div.blank {
 
 main {
     max-width: 750px;
-    margin-bottom: 50px;
 }
 
 article {
@@ -35,6 +34,9 @@ article {
     }
     .publish {
         margin-right: 20px;
+    }
+    .tags {
+        margin-bottom: 1em;
     }
     .tag{
         font-size: 20px;
@@ -234,8 +236,8 @@ aside {
     padding: 10px 15px;
     text-decoration: none;
     position: fixed;
-    bottom: 15px;
-    margin-left: 22px;
+    bottom: 18px;
+    margin-left: 20px;
     color: $text-light-color;
     &:hover {
         color: $primary-color;
