@@ -1,6 +1,6 @@
 +++
 
-title = "A demo post for this theme"
+title = "A demo post demo post demo post for this theme"
 
 description = "lormejsa alsdjfla ajsdlfajsl lhgalsdhgalsdhg asldjfasdjfjdsfjlsdafhasd ajdslfjasdljfldsjfljsdljf"
 

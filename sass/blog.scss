@@ -26,6 +26,7 @@ main {
     .post {
         display: flex;
         justify-content: space-between;
+        align-items: flex-end;
         padding: 8px 15px;
         border-radius: 5px;
         margin-bottom: 5px;
@@ -39,6 +40,7 @@ main {
         color: $primary-color;
         .date {
             color: $primary-color;
+            white-space: nowrap;
         }
     }
 
@@ -68,3 +70,11 @@ main {
     }
 }
 
+@media screen and (max-width: 768px) {
+    main .post {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
