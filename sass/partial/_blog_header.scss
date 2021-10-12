@@ -6,9 +6,7 @@ header {
     width: 100%;
     top: 0;
     height: 43px;
-    background-color: $blur-bg-color;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: $bg-color;
     z-index: 100;
 
     div.top {
@@ -74,21 +72,10 @@ header {
     }
 }
 
-@media screen and (max-width: 768px) {
-    header {
-        a.back {
-            display: none;
-        }
-        #go-home {
-            display: inline-block;
-        }
-    }
-}
-
 
 body.dark-mode {
     header {
-        background-color: $dark-blur-bg-color;
+        background-color: $dark-bg-color;
     }
     header a.back {
         color: $dark-text-light-color;
@@ -112,6 +99,28 @@ body.dark-mode {
         color: $dark-text-primary-color;
         &:visited {
             color: $dark-text-primary-color;
+        }
+    }
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    header {
+      background-color: $blur-bg-color;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
+    body.dark-mode header {
+        background-color: $dark-blur-bg-color;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        a.back {
+            display: none;
+        }
+        #go-home {
+            display: inline-block;
         }
     }
 }

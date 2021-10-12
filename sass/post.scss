@@ -196,15 +196,12 @@ aside {
         &.shown {
             right: 0;
         }
-        transition: all .5s;
         top: 45px;
         margin-top: 0;
         min-width: 240px;
         height: 100%;
-        background-color: $dark-blur-bg-color;
+        background-color: $bg-color;
         box-shadow: rgba(0, 0, 0, 0.2) -2px 0px 20px 0px;
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
         nav {
             padding-top: 10px;
         }
@@ -214,6 +211,21 @@ aside {
         #back-to-top {
             padding-left: 10px;
             bottom: 3em;
+        }
+    }
+    body.dark-mode aside {
+        background-color: $dark-bg-color;
+    }
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        aside {
+            background-color: $blur-bg-color;
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+        }
+        body.dark-mode aside {
+            background-color: $dark-blur-bg-color;
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
         }
     }
     div.blank {
