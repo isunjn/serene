@@ -59,8 +59,10 @@ header {
             text-decoration: none;
             color: $text-primary-color;
             margin-left: 20px;
-            &:hover {
-                color: $primary-color;
+            @media (hover: hover) {
+                &:hover {
+                    color: $primary-color;
+                }
             }
         }
     }
