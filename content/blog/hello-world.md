@@ -37,12 +37,20 @@ Lorem ipsum dolor sit, amet [consectetur adipisicing elit](https://example.com).
 #### Start
 
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, sit explicabo sequi ipsa!
+![a pic](/img/test1.jpg)
 
 ### Heading
 
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, sit explicabo sequi ipsa!
 
+![a pic](/img/test2.png)
+
+![a pic](/img/test3.png)
+
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, sit explicabo sequi ipsa!
+
+![a pic](/img/test4.png)
+via
 
 ---
 

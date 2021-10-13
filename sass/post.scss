@@ -85,10 +85,17 @@ article {
 
     a {
         color: $primary-color;
-        text-decoration: none;
+        text-decoration: underline $primary-light-color 2px;
         &:hover {
-            text-decoration: underline $primary-color;
+            text-decoration-color: $primary-color;
         }
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 4px;
     }
 
     blockquote {
@@ -102,15 +109,15 @@ article {
         font-family: "JetBrains Mono", monospace;
         font-size: 0.8em;
         padding: 0px 6px;
-        color: #fff;
-        background-color: $primary-color;
+        color: $primary-color;
+        background-color: $primary-light-color;
         border-radius: 4px;
     }
 
     pre {
         padding: 12px 16px;
         line-height: 1.5;
-        border-radius: 8px;
+        border-radius: 4px;
         overflow: auto;
         code {
             font-family: "JetBrains Mono", monospace;
@@ -262,9 +269,6 @@ body.dark-mode {
         blockquote {
             color: $dark-text-light-color;
             border-color: $dark-primary-light-color;
-        }
-        p > code {
-            color: #ddd;
         }
         hr {
             background-color: $dark-primary-light-color;
