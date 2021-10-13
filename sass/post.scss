@@ -156,27 +156,28 @@ aside {
         display: block;
         margin-bottom: 4px;
         padding: 6px 0px;
-        &:hover {
+        &::before {
+            display: inline-block;
+            content: "";
+            width: 4px;
+            height: 10px;
+            border-radius: 2px;
+            position: relative;
+            top: -2px;
+            margin-right: 8px;
+        }
+        &:hover,
+        &.active {
             &::before {
                 background-color: $primary-color;
             }
         }
     }
-    nav a::before {
-        display: inline-block;
-        content: "";
-        width: 4px;
-        height: 10px;
-        border-radius: 2px;
-        position: relative;
-        top: -2px;
-        margin-right: 8px;
-    }
 
-    .level-1-li > a {
+    .toc-h2 {
         color: $primary-color;
     }
-    .level-2-li > a {
+    .toc-h3 {
         color: $text-second-color;
     }
 }
@@ -269,7 +270,7 @@ body.dark-mode {
             background-color: $dark-primary-light-color;
         }
     }
-    aside .level-2-li > a {
+    aside .toc-h3 {
         color: $dark-text-second-color;
     }
 }

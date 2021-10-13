@@ -10,3 +10,24 @@ function showToc(toggle, toc) {
     }
 }
 showToc('#toc-toggle','aside');
+
+// // active toc item
+
+// let options = {
+//     threshold: 1.0
+// };
+
+// const observer = new IntersectionObserver(entries => {
+//     entries.forEach(entry => {
+//         const id = entry.target.getAttribute('id');
+//         if (entry.isIntersecting) {
+//             document.querySelector(`aside nav a[href="#${id}"]`).classList.add('active');
+//         } else {
+//             document.querySelector(`aside nav a[href="#${id}"]`).classList.remove('active');
+//         }
+//     });
+// }, options);
+
+// document.querySelectorAll('h2, h3').forEach((header) => {
+//     observer.observe(header);
+// });
