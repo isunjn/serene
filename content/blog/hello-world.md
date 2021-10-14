@@ -19,11 +19,26 @@ Lorem ipsum dolor sit, amet **consectetur** adipisicing elit. Praesentium, nisi 
 
 > Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, sit explicabo sequi ipsa!
 
+---
+
+
+> Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+> Praesentium, nisi saepe dolor unde iusto dolore nam, vero 
+>> optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, sit explicabo sequi ipsa!
+
+
+---
+
+> Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+> Praesentium, nisi saepe dolor unde iusto dolore nam, vero 
+>
+> optio consequuntur repudiandae et! Atque libero expedita 
+> laudantium cupiditate, sit explicabo sequi ipsa!
+
+
 Lorem ipsum dolor sit, amet `consectetur` adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita [laudantium](https://example.com) cupiditate, sit explicabo sequi ipsa!
 
-```bash
-pip install foobar
-```
+
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium [cupiditate](https://example.com), sit explicabo sequi ipsa!
 
 ### Heading
@@ -60,7 +75,16 @@ Lorem
 -   example 2
 -   example 3
 
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, sit explicabo sequi ipsa!
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, [sit][1] explicabo sequi ipsa!
+
+Lorem:
+
+[ ] example 1
+[ ] example 2
+[ ] example 3
+[x] example 4
+
+Lorem ipsum <htts://t.tt> sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor [unde][2] iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, sit explicabo sequi ipsa!
 
 Lorem:
 
@@ -72,32 +96,24 @@ Lorem:
 
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, sit explicabo sequi ipsa!
 
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
 
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saepe dolor unde iusto dolore nam, vero optio consequuntur repudiandae et! Atque libero expedita laudantium cupiditate, sit explicabo sequi ipsa!
 
-```
-import foobar
+```js
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        if (entry.isIntersecting) {
+            document.querySelector(`aside nav a[href="#${id}"]`).classList.add('active');
+        } else {
+            document.querySelector(`aside nav a[href="#${id}"]`).classList.remove('active');
+        }
+    });
+}, options);
 
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+document.querySelectorAll('h2, h3').forEach((header) => {
+    observer.observe(header);
+});
 ```
 
 ## Contributing
@@ -107,3 +123,10 @@ Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, nisi saep
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+[1]:
+https://example.com
+
+[2]:
+https://example.com

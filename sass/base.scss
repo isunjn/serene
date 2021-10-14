@@ -14,14 +14,35 @@ body {
 }
 
 body.dark-mode {
-    background-color: $dark-bg-color;
-    color: $dark-text-primary-color;
+  background-color: $dark-bg-color;
+  color: $dark-text-primary-color;
 }
-
 
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aeb7caa1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8a90a1a1;
+}
+
+
+
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
