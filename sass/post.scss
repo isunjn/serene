@@ -14,6 +14,7 @@ div.blank {
 }
 
 main {
+    width: 100%;
     max-width: 750px;
 }
 
@@ -81,6 +82,7 @@ article {
     p {
         font-size: 20px;
         line-height: 1.5;
+        word-wrap: break-word;
     }
 
     a {

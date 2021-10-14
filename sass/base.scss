@@ -22,6 +22,8 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+@media screen and (min-width: 768px) {
+
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -33,14 +35,14 @@ a {
 
 ::-webkit-scrollbar-thumb {
   background: #aeb7caa1;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #8a90a1a1;
 }
 
-
+}
 
 
 
