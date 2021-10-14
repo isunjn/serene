@@ -21,21 +21,23 @@
 
     <div class="post-list">
 
-        {% for post in posts | slice(end=10) %}
-        <a class="post post-shown" href="{{ post.permalink }}">
+        {% for post in posts | slice(end=section.extra.show_post_num) %}
+        <a class="post" href="{{ post.permalink }}">
             <span>{{ post.title }}</span>
             <span class="date">{{ post.date}}</span>
         </a>
         {% endfor %}
 
-        {% if posts | length > 10 %}
-            {% for post in posts | slice(start=10) %}
-            <a class="post post-hidden" href="{{ post.permalink }}">
+        {% if posts | length > section.extra.show_post_num %}
+        <div class="posts-{{category}} hidden">
+            {% for post in posts | slice(start=section.extra.show_post_num) %}
+            <a class="post" href="{{ post.permalink }}">
                 <span>{{ post.title }}</span>
-                <span class="date">{{ post.date}}</span>
+                <span class="date">{{ post.date }}</span>
             </a>
             {% endfor %}
-            <div class="showhidden"><a class="btn">More<i class="ri-arrow-down-s-line ri-lg"></i></a></div>
+        </div>
+        <div class="showhidden"><button data-category="{{category}}">More<i class="ri-arrow-down-s-line ri-lg"></i></button></div>
         {% endif %}
 
     </div>
@@ -47,3 +49,7 @@
 {% include "partial/_footer.html" %}
 
 {% endblock content %}
+
+{% block script %}
+ <script src="/js/more.js"></script>
+{% endblock script %}

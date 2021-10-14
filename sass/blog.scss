@@ -10,8 +10,7 @@ header div#progress-bar {
 main {
     max-width: 750px;
     min-height: 80vh;
-    margin: 0 auto;
-    margin-top: 85px;
+    margin: 85px auto;
 
     .title {
         font-size: 1.6em;
@@ -41,14 +40,16 @@ main {
         }
     }
 
-    .post-hidden {
+    .hidden {
         display: none;
     }
 
     .showhidden {
         display: flex;
         justify-content: end;
-        .btn {
+        button {
+            outline: none;
+            border: 0;
             cursor: pointer;
             position: relative;
             margin-right:8px;
@@ -56,6 +57,7 @@ main {
             border-radius: 4px;
             font-size: 1.3em;
             color: $primary-color;
+            background-color: #0000;
             &:hover {
                 background-color: $primary-light-color;
             }
