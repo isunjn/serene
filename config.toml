@@ -1,44 +1,59 @@
-# The URL the site will be built for
 base_url = "https://example.com"
-
-title = "Serene"
-description = "Demo site of zola-theme-serene"
-
+title = "Serene Demo Site"
+description = "Demo site of zola theme serene."
 default_language = "en"
-
-# Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
-
-# Whether to build a search index to be used later on by a JavaScript library
+minify_html = false
 build_search_index = false
-
 generate_feed = true
-
 feed_filename = "rss.xml"
-
-hard_link_static = true
-
 taxonomies = [
     {name = "tags"},
     {name = "categories"}
 ]
 
-
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+extra_syntaxes = []
 highlight_theme = "nord"
 render_emoji = true
 
-[slugify]
-paths = "safe"
-taxonomies = "safe"
-anchors = "safe"
+[search]
+include_title = true
+include_description = false
+include_path = false
+include_content = true
 
 [extra]
-# Put all your custom variables here
 name = "Daenerys Targaryen"
 id = "daenerys"
-bio = "Queen | Khaleesi | Protector"
+bio = "Queen / Khaleesi / Protector"
 avatar = "img/avatar.png"
+
+show_id = true
+show_projects = true
+show_pgp = false
+blog_icon = ""
+projects_icon = ""
+
+links = [
+    {name = "GitHub", icon = "github-line", url = "https://github.com/<your-username>"},
+    {name = "Twitter", icon = "twitter-line", url = "https://twitter.com/<your-username>"},
+    {name = "Email", icon = "mail-line", url = "mailto:<your-email-address>"}
+    # Your can add more links
+]
+
+only_light_mode = false
+only_dark_mode = false
+blur_effect = true
+comment = true
+toc = true
+author_info_under_post = false
+outdate_warn = false
+outdate_warn_days = 120
+
+
+# comment config
+
+# analysic config
+

@@ -1,33 +1,29 @@
 {% extends "_base.html" %}
-<!---------------------------------------------------------->
+
+
+{%- block lang -%}
+{%- if section.extra.lang -%} {{ section.extra.lang }} 
+{%- else -%} {{ section.lang }} {%- endif -%}
+{%- endblock lang -%}
+
+{% block title %} {{section.title}} {% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="blog.css" />
 {% endblock css %}
 
-<!---------------------------------------------------------->
-
-
 {% block content %}
-
-{% include "partial/_blog_header.html" %}
-
+{% include "_blog_header.html" %}
 <main>
-    {# <div class="brief">{{ section.description }}</div> #}
-
     {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") %}
-
     <div class="title">{{ category }}</div>
-
     <div class="post-list">
-
         {% for post in posts | slice(end=section.extra.show_post_num) %}
         <a class="post" href="{{ post.permalink }}">
             <span>{{ post.title }}</span>
             <span class="date">{{ post.date}}</span>
         </a>
         {% endfor %}
-
         {% if posts | length > section.extra.show_post_num %}
         <div class="posts-{{category}} hidden">
             {% for post in posts | slice(start=section.extra.show_post_num) %}
@@ -37,19 +33,15 @@
             </a>
             {% endfor %}
         </div>
-        <div class="showhidden"><button data-category="{{category}}">More<i class="ri-arrow-down-s-line ri-lg"></i></button></div>
+        <div class="showhidden"><button data-category="{{category}}">More<i
+                    class="ri-arrow-down-s-line ri-lg"></i></button></div>
         {% endif %}
-
     </div>
-
     {% endfor %}
-
 </main>
-
-{% include "partial/_footer.html" %}
-
+{% include "_footer.html" %}
 {% endblock content %}
 
 {% block script %}
- <script src="/js/more.js"></script>
+<script src="/js/more.js"></script>
 {% endblock script %}

@@ -1,0 +1,5 @@
+content/
+
+static/img/*
+
+!static/img/avatar.png

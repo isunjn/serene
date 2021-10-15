@@ -1,74 +1,74 @@
 {% extends "_base.html" %}
 
+{%- block lang -%}
+{% set section = get_section(path="blog/_index.md", metadata_only=true) %}
+{%- if page.extra.lang -%}
+{{page.extra.lang}}
+{%- elif section.extra.lang -%}
+{{section.extra.lang}}
+{%- else -%}
+{{page.lang}}
+{%- endif -%}
+{%- endblock lang -%}
+
+
 {% block css %}
 <link rel="stylesheet" href="/post.css" />
 {% endblock css %}
 
 {% block content %}
-
-{% include "partial/_blog_header.html" %}
-
+{% include "_blog_header.html" %}
 <div class="wrap">
-
-<div class="blank"></div>
-
-<main>
-    <div id="top"></div>
-    <article>
-        <h1>{{ page.title }}</h1>
-        <div class="post-info">
-            <div class="date">
-                <span class="publish">{{ page.date | date }}</span>
-                <span class="update">Updated on {{ page.updated | date }}</span>    
+    <div class="blank"></div>
+    <main>
+        <div id="top"></div>
+        <article>
+            <h1>{{ page.title }}</h1>
+            <div class="post-info">
+                <div class="date">
+                    <span class="publish">{{ page.date | date }}</span>
+                    <span class="update">Updated on {{ page.updated | date }}</span>
+                </div>
+                <div class="tags">
+                    {% for tag in page.taxonomies.tags %}
+                    <a class="tag"><i class="ri-hashtag ri-sm"></i><span>{{ tag }}</span></a>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="tags">
-                {% for tag in page.taxonomies.tags %}
-                <a class="tag"><i class="ri-hashtag ri-sm"></i><span>{{ tag }}</span></a>
-                {% endfor %}
-            </div>
-        </div>
 
-        {{ page.content | safe }}
-    </article>
-
-    <div class="comment">
-
-    </div>
-</main>
-
-<aside>
-    {% if page.toc %}
-    <nav>
-    <ul>
-    {% for h2 in page.toc %}
-        <li>
-            <a class="toc-h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
-            {% if h2.children %}
-                <ul>
-                    {% for h3 in h2.children %}
+            {{ page.content | safe }}
+        </article>
+        <div class="comment"></div>
+    </main>
+    <aside>
+        {% if page.toc %}
+        <nav>
+            <ul>
+                {% for h2 in page.toc %}
+                <li>
+                    <a class="toc-h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
+                    {% if h2.children %}
+                    <ul>
+                        {% for h3 in h2.children %}
                         <li>
                             <a class="toc-h3" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
                         </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </li>
-    {% endfor %}
-    </ul>
-    </nav>
-    {% endif %}
-    <a id="back-to-top" href="#top"><i class="ri-arrow-up-s-line ri-2x"></i></a>
-</aside>
-
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% endif %}
+        <a id="back-to-top" href="#top"><i class="ri-arrow-up-s-line ri-2x"></i></a>
+    </aside>
 </div>
-
-
-{% include "partial/_footer.html" %}
-
+{% include "_footer.html" %}
 {% endblock content %}
 
 {% block script %}
- <script src="/js/toc.js"></script>
- <script src="/js/progress.js"></script>
- <script src="/js/lightense.min.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/progress.js"></script>
+<script src="/js/lightense.min.js"></script>
 {% endblock script %}

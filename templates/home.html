@@ -1,39 +1,35 @@
 {% extends "_base.html" %}
-<!------------------------------------------------->
+
+{% block lang %} {{section.lang}} {% endblock lang %}
+
+{% block title %} {{config.title}} {% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="home.css" />
 {% endblock css %}
 
-<!------------------------------------------------->
-
 {% block content %}
 <main>
-
-<div class="info">
-    <img src="{{ config.extra.avatar }}" alt="avatar">
-    <div class="info-text">
-        <p> <span id="name">{{ config.extra.name }}</span> <span id="id">@{{ config.extra.id }}</span> </p>
-        <p id="bio"> {{ config.extra.bio }} </p>
+    <div class="info">
+        <img src="{{ config.extra.avatar }}" alt="avatar">
+        <div class="info-text">
+            <p> <span id="name">{{ config.extra.name }}</span> <span id="id">@{{ config.extra.id }}</span> </p>
+            <p id="bio"> {{ config.extra.bio }} </p>
+        </div>
     </div>
-</div>
-
-<div class="link">
-    <div class="left">
-        <a href="/blog" id="blog"><i class="ri-quill-pen-line ri-xl"></i><span>Blog</span></a>
-        <a href="/projects" id="projects"><i class="ri-compasses-2-line ri-xl"></i></i><span>Projects</span></a>
+    <div class="link">
+        <div class="left">
+            <a href="/blog" id="blog"><i class="ri-quill-pen-line ri-xl"></i><span>Blog</span></a>
+            <a href="/projects" id="projects"><i class="ri-compasses-2-line ri-xl"></i></i><span>Projects</span></a>
+        </div>
+        <div class="right">
+            <a href="#"><i class="ri-fingerprint-line ri-xl"></i></a>
+            <a href="#"><i class="ri-github-line ri-xl"></i></a>
+            <a href="#"><i class="ri-twitter-line ri-xl"></i></a>
+            <a href="#"><i class="ri-mail-line ri-xl"></i></a>
+            <a id="color-toggle"><i class="ri-moon-line ri-xl"></i></a>
+        </div>
     </div>
-    <div class="right">
-        <a href="#"><i class="ri-fingerprint-line ri-xl"></i></a>
-        <a href="#"><i class="ri-github-line ri-xl"></i></a>
-        <a href="#"><i class="ri-twitter-line ri-xl"></i></a>
-        <a href="#"><i class="ri-mail-line ri-xl"></i></a>
-        <a id="color-toggle" href=""><i class="ri-moon-line ri-xl"></i></a>
-    </div>
-</div>
-
-<div class="brief">{{ section.content | safe }}</div>
-
+    <div class="brief">{{ section.content | safe }}</div>
 </main>
-
 {% endblock content %}

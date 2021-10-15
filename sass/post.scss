@@ -1,12 +1,16 @@
-@import "partial/var";
-@import "partial/footer";
+@import "var";
+@import "footer";
+@import "blog_header";
 
-@import "partial/blog_header";
+html {
+    scroll-behavior: smooth;
+}
 
 div.wrap {
     display: flex;
     justify-content: space-between;
     margin-top: 45px;
+    font-size: 18px;
 }
 
 div.blank {
@@ -28,7 +32,7 @@ article {
         margin-bottom: 1em;
     }
     .date {
-        font-size: 1.2em;
+        font-size: 1em;
         color: $text-light-color;
         margin-bottom: 1em;
     }
@@ -39,7 +43,7 @@ article {
         margin-bottom: 1em;
     }
     .tag{
-        font-size: 20px;
+        font-size: 1em;
         color: $primary-color;
         position: relative;
         text-decoration: none;
@@ -57,31 +61,31 @@ article {
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 1.8em;
         font-weight: bolder;
         margin: 1em 0 0.5em 0;
     }
 
     h2 {
-        font-size: 1.6em;
+        font-size: 1.5em;
         padding-top: 65px;
         margin-top: -45px;
     }
 
     h3 {
-        font-size: 1.4em;
+        font-size: 1.1em;
         padding-top: 65px;
         margin-top: -45px;
     }
 
     h4 {
-        font-size: 1.2em;
+        font-size: 1.05em;
         margin: 30px 0 15px 0;
     }
 
     p {
-        font-size: 20px;
-        line-height: 1.5;
+        font-size: 18px;
+        line-height: 1.75;
         word-wrap: break-word;
     }
 
@@ -109,7 +113,7 @@ article {
 
     p > code {
         font-family: "JetBrains Mono", monospace;
-        font-size: 0.8em;
+        font-size: 0.9em;
         padding: 0px 6px;
         color: $primary-color;
         background-color: $primary-light-color;
@@ -121,6 +125,7 @@ article {
         line-height: 1.5;
         border-radius: 4px;
         overflow: auto;
+        font-size: 0.9em;
         code {
             font-family: "JetBrains Mono", monospace;
         }
@@ -128,8 +133,8 @@ article {
 
     ul,
     ol {
-        font-size: 20px;
-        line-height: 1.5;
+        font-size: 1em;
+        line-height: 1.8;
     }
 
     li::marker {
@@ -148,7 +153,7 @@ article {
 aside {
     width: calc((100% - 750px)/2);
     position: sticky;
-    margin-top: 145px;
+    margin-top: 140px;
     top: 60px;
     height: min-content;
     nav {
@@ -161,7 +166,7 @@ aside {
     }
     nav a {
         text-decoration: none;
-        font-size: 20px;
+        font-size: 1em;
         display: block;
         margin-bottom: 4px;
         padding: 6px 0px;

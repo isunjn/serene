@@ -1,7 +1,6 @@
-@import "partial/var";
-@import "partial/footer";
-
-@import "partial/blog_header";
+@import "var";
+@import "footer";
+@import "blog_header";
 
 header div#progress-bar {
     width: 100%;
@@ -9,7 +8,7 @@ header div#progress-bar {
 
 main {
     max-width: 750px;
-    min-height: 80vh;
+    min-height: 70vh;
     margin: 85px auto;
 
     .title {

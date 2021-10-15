@@ -1,4 +1,4 @@
-@import 'partial/var';
+@import 'var';
 
 main {
     margin: 0 auto;
@@ -66,6 +66,7 @@ div.link {
     .right a {
         text-decoration: none;
         color: $text-primary-color;
+        cursor: pointer;
         + a {
             margin-left: 10px;
         }

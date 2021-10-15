@@ -1,4 +1,4 @@
-@import 'partial/var';
+@import 'var';
 
 *
 *::before,
@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Jost', 'Microsoft YaHei', Arial, Helvetica, sans-serif;
     min-height: 100%;
     background-color: $bg-color;
     color: $text-primary-color;
