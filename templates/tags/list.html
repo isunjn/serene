@@ -1,0 +1,29 @@
+{% extends "_base.html" %}
+
+{%- block lang -%}
+{% set section = get_section(path="blog/_index.md", metadata_only=true) %}
+{%- if section.extra.lang -%} {{ section.extra.lang }}
+{%- else -%} {{ taxonomy.lang }} {%- endif -%}
+{%- endblock lang -%}
+
+{% block title %}Tags{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="/tags_list.css" />
+{% endblock css %}
+
+{% block content %}
+{% include "_blog_header.html" %}
+<main>
+    <div class="title">Tags</div>
+    <div class="tags">
+        {% for tag in terms %}
+        <a class="tag" href="{{ tag.permalink }}">
+            <i class="ri-hashtag"></i>
+            <span>{{ tag.name | lower }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</main>
+{% include "_footer.html" %}
+{% endblock content %}

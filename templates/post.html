@@ -31,14 +31,17 @@
                 </div>
                 <div class="tags">
                     {% for tag in page.taxonomies.tags %}
-                    <a class="tag"><i class="ri-hashtag ri-sm"></i><span>{{ tag }}</span></a>
+                    {% set tag_slugify = tag | slugify %}
+                    <a class="tag" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><i class="ri-hashtag ri-sm"></i><span>{{ tag | lower }}</span></a>
                     {% endfor %}
                 </div>
             </div>
 
             {{ page.content | safe }}
         </article>
-        <div class="comment"></div>
+        {% if config.extra.comment == "gitalk" %}
+        <div id="gitalk-container"></div>
+        {% endif %}
     </main>
     <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
         {% if page.extra.toc %} {% set show_toc = true %}
@@ -71,6 +74,7 @@
 </div>
 {% include "_footer.html" %}
 {% endblock content %}
+
 
 {% block script %}
 {% if page.extra.toc %} {% set show_toc = true %}

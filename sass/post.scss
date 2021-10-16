@@ -43,11 +43,10 @@ article {
     }
     .tag{
         color: $primary-color;
-        position: relative;
         text-decoration: none;
         span {
             position: relative;
-            top: -2px;
+            top: -3px;
         }
         &:hover {
             text-decoration: none;

@@ -1,0 +1,76 @@
+@import "var";
+@import "footer";
+@import "blog_header";
+
+header div#progress-bar {
+    width: 100%;
+}
+
+main {
+    max-width: 750px;
+    min-height: 70vh;
+    margin: 85px auto;
+
+    .title {
+        width: min-content;
+        white-space: nowrap;
+        color: $text-second-color;
+        font-size: 1.8em;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        padding: 0 0 0 60px;
+        span {
+            position: relative;
+            top: -4px;
+            left: -5px;
+        }
+        a {
+            margin-left: 30px;
+            position: relative;
+            top: -4px;
+            font-size: 14px;
+            color: $primary-color;
+            :visited {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .post {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 8px 15px;
+        border-radius: 4px;
+        margin-bottom: 4px;
+        font-size: 1.2em;
+        &:hover {
+            background-color: $primary-light-color;
+        }
+        text-decoration: none;
+        color: $primary-color;
+        .date {
+            color: $primary-color;
+            white-space: nowrap;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main .post {
+        font-size: 1.1em;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+body.dark-mode {
+    main .title {
+        color: $dark-text-second-color;
+    }
+    main .post:hover {
+        background-color: $dark-primary-light-color;
+    }
+}

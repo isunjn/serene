@@ -31,7 +31,7 @@ bio = "Queen / Khaleesi / Protector"
 avatar = "img/avatar.png"
 
 show_id = true
-show_projects = false
+show_projects = false #TODO
 show_pgp = true # TODO
 blog_icon = "ri-quill-pen-line"
 projects_icon = "ri-compasses-2-line"
@@ -43,7 +43,6 @@ links = [
     # Your can add more links
 ]
 
-comment = true # TODO
 toc = true
 blur_effect = true
 back_to_top_button = true
@@ -56,6 +55,16 @@ footer_copyright_year = "2021"
 footer_credits = true
 
 # comment config # TODO
+comment = "none"
+
+[extra.gitalk]
+clientID = "xxxxxxxx"
+clientSecret = "xxxxxxxx"
+repo = "xxxxxxxx"
+owner = "xxxx"
+admin = ["xxxx"]
+distractionFreeMode = false
+
 
 # analysic config # TODO
 
