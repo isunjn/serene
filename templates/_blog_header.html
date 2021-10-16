@@ -1,4 +1,4 @@
-<header>
+<header {% if config.extra.blur_effect %} class="blur" {% endif %}>
     <div class="top">
         <a class="blog" href="/blog"><i class="ri-quill-pen-line ri-2x"></i><span>Blog</span></a>
         <a class="back" href="/"><i class="ri-arrow-left-s-line ri-1x"></i><span>Home</span></a>
@@ -6,7 +6,12 @@
             <a id="go-home" href="/"><i class="ri-user-6-line ri-xl"></i></a>
             <a href="/rss.xml"><i class="ri-rss-line ri-xl"></i></a>
             <a id="color-toggle"><i class="ri-moon-line ri-xl"></i></a>
-            <a id="toc-toggle"><i class="ri-menu-2-line ri-xl"></i></a>
+            {% if page.extra.toc %} {% set show_toc = true %}
+            {% else %} {% set show_toc = config.extra.toc %}
+            {% endif %}
+            {% if show_toc and page %}
+            <a id="toc-toggle"><i class="ri-menu-2-line ri-xl"></i></a>             
+            {% endif %}
         </div>
     </div>
     <div id="progress-bar"></div>

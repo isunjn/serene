@@ -31,29 +31,31 @@ bio = "Queen / Khaleesi / Protector"
 avatar = "img/avatar.png"
 
 show_id = true
-show_projects = true
-show_pgp = false
-blog_icon = ""
-projects_icon = ""
+show_projects = false
+show_pgp = true # TODO
+blog_icon = "ri-quill-pen-line"
+projects_icon = "ri-compasses-2-line"
 
 links = [
-    {name = "GitHub", icon = "github-line", url = "https://github.com/<your-username>"},
-    {name = "Twitter", icon = "twitter-line", url = "https://twitter.com/<your-username>"},
-    {name = "Email", icon = "mail-line", url = "mailto:<your-email-address>"}
+    {name = "GitHub", icon = "ri-github-line", url = "https://github.com/<your-username>"},
+    {name = "Twitter", icon = "ri-twitter-line", url = "https://twitter.com/<your-username>"},
+    {name = "Email", icon = "ri-mail-line", url = "mailto:<your-email-address>"}
     # Your can add more links
 ]
 
-only_light_mode = false
-only_dark_mode = false
-blur_effect = true
-comment = true
+comment = true # TODO
 toc = true
-author_info_under_post = false
-outdate_warn = false
-outdate_warn_days = 120
+blur_effect = true
+back_to_top_button = true
+progress_bar = true
+author_info_under_post = false # TODO
+outdate_warn = false # TODO
+outdate_warn_days = 120 # TODO
+footer_copyright_name = "<your-name>"
+footer_copyright_year = "2021"
+footer_credits = true
 
+# comment config # TODO
 
-# comment config
-
-# analysic config
+# analysic config # TODO
 

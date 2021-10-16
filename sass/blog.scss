@@ -23,12 +23,10 @@ main {
         justify-content: space-between;
         align-items: flex-end;
         padding: 8px 15px;
-        border-radius: 5px;
-        margin-bottom: 5px;
-        font-size: 1.3em;
+        border-radius: 4px;
+        margin-bottom: 4px;
+        font-size: 1.2em;
         &:hover {
-            // transform: translate(-2px, 0px);
-            // transition: transform 0.3s;
             background-color: $primary-light-color;
         }
         text-decoration: none;
@@ -70,6 +68,7 @@ main {
 
 @media screen and (max-width: 768px) {
     main .post {
+        font-size: 1.1em;
         margin-left: 5px;
         margin-right: 5px;
         padding-left: 10px;

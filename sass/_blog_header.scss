@@ -1,6 +1,6 @@
 @import 'var';
 
-header { 
+header {
     position: fixed;
     width: 100%;
     top: 0;
@@ -116,13 +116,24 @@ body.dark-mode {
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    header {
+    header.blur {
       background-color: $blur-bg-color;
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
     }
-    body.dark-mode header {
+    body.dark-mode header.blur {
         background-color: $dark-blur-bg-color;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    header {
+        #toc-toggle {
+            display: inline-block;
+            &.active {
+                color: $primary-color;
+            }
+        }
     }
 }
 

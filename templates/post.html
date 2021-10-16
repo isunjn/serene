@@ -40,8 +40,11 @@
         </article>
         <div class="comment"></div>
     </main>
-    <aside>
-        {% if page.toc %}
+    <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
+        {% if page.extra.toc %} {% set show_toc = true %}
+        {% else %} {% set show_toc = config.extra.toc %}
+        {% endif %}
+        {% if show_toc and page.toc %}
         <nav>
             <ul>
                 {% for h2 in page.toc %}
@@ -61,14 +64,23 @@
             </ul>
         </nav>
         {% endif %}
-        <a id="back-to-top" href="#top"><i class="ri-arrow-up-s-line ri-2x"></i></a>
+        {% if config.extra.back_to_top_button %}
+        <a id="back-to-top" href="#top"><i class="ri-arrow-up-s-line ri-2x"></i></a>         
+        {% endif %}
     </aside>
 </div>
 {% include "_footer.html" %}
 {% endblock content %}
 
 {% block script %}
-<script src="/js/toc.js"></script>
-<script src="/js/progress.js"></script>
+{% if page.extra.toc %} {% set show_toc = true %}
+{% else %} {% set show_toc = config.extra.toc %}
+{% endif %}
+{% if show_toc == true %}
+<script src="/js/toc.js"></script> 
+{% endif %}
+{% if config.extra.progress_bar %}
+<script src="/js/progress.js"></script> 
+{% endif %}
 <script src="/js/lightense.min.js"></script>
 {% endblock script %}

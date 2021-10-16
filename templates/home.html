@@ -13,20 +13,35 @@
     <div class="info">
         <img src="{{ config.extra.avatar }}" alt="avatar">
         <div class="info-text">
-            <p> <span id="name">{{ config.extra.name }}</span> <span id="id">@{{ config.extra.id }}</span> </p>
+            <p>
+                <span id="name">{{ config.extra.name }}</span>
+                {% if config.extra.show_id %}
+                <span id="id">@{{ config.extra.id }}</span>
+                {% endif %}
+            </p>
             <p id="bio"> {{ config.extra.bio }} </p>
         </div>
     </div>
     <div class="link">
         <div class="left">
-            <a href="/blog" id="blog"><i class="ri-quill-pen-line ri-xl"></i><span>Blog</span></a>
-            <a href="/projects" id="projects"><i class="ri-compasses-2-line ri-xl"></i></i><span>Projects</span></a>
+            <a href="/blog" id="blog">
+                <i class="{{ config.extra.blog_icon }} ri-xl"></i>
+                <span>Blog</span>
+            </a>
+            {% if config.extra.show_projects %}
+            <a href="/projects" id="projects">
+                <i class="{{ config.extra.projects_icon }} ri-xl"></i>
+                <span>Projects</span>
+            </a>
+            {% endif %}
         </div>
         <div class="right">
+            {% for link in config.extra.links %}
+            <a href="{{ link.url }}"><i class="{{ link.icon }} ri-xl"></i></a>
+            {% endfor %}
+            {% if config.extra.show_pgp %}
             <a href="#"><i class="ri-fingerprint-line ri-xl"></i></a>
-            <a href="#"><i class="ri-github-line ri-xl"></i></a>
-            <a href="#"><i class="ri-twitter-line ri-xl"></i></a>
-            <a href="#"><i class="ri-mail-line ri-xl"></i></a>
+            {% endif %}
             <a id="color-toggle"><i class="ri-moon-line ri-xl"></i></a>
         </div>
     </div>
