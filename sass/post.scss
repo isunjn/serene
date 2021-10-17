@@ -153,6 +153,20 @@ article {
         margin: 36px 0;
     }
 
+    table {
+        width: 100%;
+        border-spacing: 0;
+    }
+    thead {
+        background-color: $primary-light-color;
+    }
+    th, td {
+        line-height: 2;
+        text-align: center;
+        border: 1px solid $primary-light-color;
+    }
+
+
     blockquote#outdate_warn {
         &.hidden {
             display: none;
