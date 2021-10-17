@@ -101,6 +101,15 @@ article {
         border-radius: $img-border-radius;
     }
 
+    figure {
+        margin: 0 auto;
+    }
+
+    figcaption {
+        width: min-content;
+        margin: 5px auto;
+    }
+
     blockquote {
         border-left: 4px $primary-light-color solid;
         padding-left: 16px;

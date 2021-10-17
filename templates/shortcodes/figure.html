@@ -1,0 +1,8 @@
+<figure>
+    <img src="{{ src }}" {% if alt %} alt="{{ alt }}"{% endif %}>
+    {% if via %}
+    <figcaption><a href="{{via}}">via</a></figcaption>
+    {% else %}
+    <figcaption>{{ caption }}</figcaption>
+    {% endif %}
+</figure>
