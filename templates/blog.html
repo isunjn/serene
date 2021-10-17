@@ -21,7 +21,7 @@
         {% for post in posts | slice(end=section.extra.show_post_num) %}
         <a class="post" href="{{ post.permalink }}">
             <span>{{ post.title }}</span>
-            <span class="date">{{ post.date}}</span>
+            <span class="date">{{ post.date | date}}</span>
         </a>
         {% endfor %}
         {% if posts | length > section.extra.show_post_num %}
@@ -29,7 +29,7 @@
             {% for post in posts | slice(start=section.extra.show_post_num) %}
             <a class="post" href="{{ post.permalink }}">
                 <span>{{ post.title }}</span>
-                <span class="date">{{ post.date }}</span>
+                <span class="date">{{ post.date | date }}</span>
             </a>
             {% endfor %}
         </div>

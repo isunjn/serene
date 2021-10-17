@@ -48,8 +48,12 @@ blur_effect = true
 back_to_top_button = true
 progress_bar = true
 author_info_under_post = false # TODO
-outdate_warn = false # TODO
-outdate_warn_days = 120 # TODO
+
+outdate_warn = true
+outdate_warn_days = 120
+outdate_warn_text1 = "Note: This article was last updated "
+outdate_warn_text2 = " days ago and may be out of date."
+
 footer_copyright_name = "<your-name>"
 footer_copyright_year = "2021"
 footer_credits = true

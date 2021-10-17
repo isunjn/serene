@@ -24,7 +24,7 @@ main {
 
 article {
     padding: 0 15px;
-    .post-info {
+    #post-info {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -34,9 +34,9 @@ article {
     .date {
         color: $text-light-color;
         margin-bottom: 1em;
-    }
-    .publish {
-        margin-right: 20px;
+        #publish {
+            margin-right: 20px;
+        }
     }
     .tags {
         margin-bottom: 1em;
@@ -142,6 +142,25 @@ article {
         background-color: $primary-light-color;
         height: 4px;
         margin: 36px 0;
+    }
+
+    blockquote#outdate_warn {
+        &.hidden {
+            display: none;
+        }
+        display: flex;
+        line-height: 1.75;
+        padding: 8px 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #ff686830;
+        color: #ff6868;
+        i {
+            position: relative;
+            top: 4px;
+            margin-right: 10px;
+        }
     }
 }
 

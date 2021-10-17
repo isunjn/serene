@@ -24,19 +24,34 @@
         <div id="top"></div>
         <article>
             <h1>{{ page.title }}</h1>
-            <div class="post-info">
+            <div id="post-info">
                 <div class="date">
-                    <span class="publish">{{ page.date | date }}</span>
-                    <span class="update">Updated on {{ page.updated | date }}</span>
+                    <span id="publish">{{ page.date | date }}</span>
+                    {% if page.updated != page.date %}
+                    <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
+                    {% endif %}
                 </div>
                 <div class="tags">
                     {% for tag in page.taxonomies.tags %}
                     {% set tag_slugify = tag | slugify %}
-                    <a class="tag" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><i class="ri-hashtag ri-sm"></i><span>{{ tag | lower }}</span></a>
+                    <a class="tag" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><i
+                            class="ri-hashtag ri-sm"></i><span>{{ tag | lower }}</span></a>
                     {% endfor %}
                 </div>
             </div>
 
+            {% if page.extra.outdate_warn is defined %} {% set show_outdate_warn = page.extra.outdate_warn %}
+            {% else %} {% set show_outdate_warn = config.extra.outdate_warn %} {% endif %}
+
+            {% if page.extra.outdate_warn_days is defined %} {% set outdate_warn_days = page.extra.outdate_warn_days %}
+            {% else %} {% set outdate_warn_days = config.extra.outdate_warn_days %} {% endif %}
+
+            {% if show_outdate_warn %}
+            <blockquote id="outdate_warn" class="hidden" data-days="{{ outdate_warn_days }}"
+                data-text1="{{ config.extra.outdate_warn_text1 }}" data-text2="{{ config.extra.outdate_warn_text2 }}">
+                <i class="ri-alarm-warning-line ri-lg"></i><span></span>
+            </blockquote>
+            {% endif %}
             {{ page.content | safe }}
         </article>
         {% if config.extra.comment == "gitalk" %}
@@ -44,9 +59,8 @@
         {% endif %}
     </main>
     <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
-        {% if page.extra.toc %} {% set show_toc = true %}
-        {% else %} {% set show_toc = config.extra.toc %}
-        {% endif %}
+        {% if page.extra.toc is defined %} {% set show_toc = page.extra.toc %}
+        {% else %} {% set show_toc = config.extra.toc %} {% endif %}
         {% if show_toc and page.toc %}
         <nav>
             <ul>
@@ -68,7 +82,7 @@
         </nav>
         {% endif %}
         {% if config.extra.back_to_top_button %}
-        <a id="back-to-top" href="#top"><i class="ri-arrow-up-s-line ri-2x"></i></a>         
+        <a id="back-to-top" href="#top"><i class="ri-arrow-up-s-line ri-2x"></i></a>
         {% endif %}
     </aside>
 </div>
@@ -77,14 +91,23 @@
 
 
 {% block script %}
-{% if page.extra.toc %} {% set show_toc = true %}
-{% else %} {% set show_toc = config.extra.toc %}
+
+{% if page.extra.outdate_warn is defined %} {% set show_outdate_warn = page.extra.outdate_warn %}
+{% else %} {% set show_outdate_warn = config.extra.outdate_warn %} {% endif %}
+{% if show_outdate_warn %}
+<script src="/js/outdate.js"></script>
 {% endif %}
-{% if show_toc == true %}
-<script src="/js/toc.js"></script> 
+
+{% if page.extra.toc is defined %} {% set show_toc = page.extra.toc %}
+{% else %} {% set show_toc = config.extra.toc %} {% endif %}
+{% if show_toc %}
+<script src="/js/toc.js"></script>
 {% endif %}
+
 {% if config.extra.progress_bar %}
-<script src="/js/progress.js"></script> 
+<script src="/js/progress.js"></script>
 {% endif %}
+
 <script src="/js/lightense.min.js"></script>
+
 {% endblock script %}
