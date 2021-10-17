@@ -1,0 +1,9 @@
+<blockquote class="note flag">
+    <i class="ri-flag-2-line ri-lg"></i>
+    <div class="content">
+        {% if header %}
+        <p class="header">{{ header }}</p>
+        {% endif %}
+        {{ body | markdown | safe }}
+    </div>
+</blockquote>

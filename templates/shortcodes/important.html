@@ -1,0 +1,9 @@
+<blockquote class="note important">
+    <i class="ri-error-warning-line ri-lg"></i>
+    <div class="content">
+        {% if header %}
+        <p class="header">{{ header }}</p>
+        {% endif %}
+        {{ body | markdown | safe }}
+    </div>
+</blockquote>

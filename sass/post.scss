@@ -165,24 +165,88 @@ article {
         text-align: center;
         border: 1px solid $primary-light-color;
     }
-
-
-    blockquote#outdate_warn {
-        &.hidden {
-            display: none;
-        }
+    
+    blockquote.note {
         display: flex;
         line-height: 1.75;
         padding: 8px 10px;
         margin-bottom: 20px;
         border: none;
         border-radius: 4px;
-        background-color: #ff686830;
-        color: #ff6868;
         i {
-            position: relative;
-            top: 4px;
-            margin-right: 10px;
+            margin: 5px 10px 0 0;
+        }
+        .header {
+            font-weight: bold;
+        }
+        p {
+            margin: 0;
+            + p {
+                margin-top: 0.5em;
+            }
+        }
+        &#outdate_warn {
+            &.hidden {
+                display: none;
+            }
+            background-color: $note-warning-bg-color;
+            color: $note-wrong-color;
+        }
+        &.info {
+            background-color: $note-info-bg-color;
+            color: $note-info-color;
+        }
+        &.important {
+            background-color: $note-important-bg-color;
+            color: $note-important-color;
+        }
+        &.tip {
+            background-color: $note-tip-bg-color;
+            color: $note-tip-color;
+        }
+        &.question {
+            background-color: $note-question-bg-color;
+            color: $note-question-color;
+        }
+        &.caution {
+            background-color: $note-caution-bg-color;
+            color: $note-caution-color;
+        }
+        &.warning {
+            background-color: $note-warning-bg-color;
+            color: $note-warning-color;
+        }
+        &.star {
+            background-color: $note-star-bg-color;
+            color: $note-star-color;
+        }
+        &.check {
+            background-color: $note-check-bg-color;
+            color: $note-check-color;
+        }
+        &.wrong {
+            background-color: $note-wrong-bg-color;
+            color: $note-wrong-color;
+        }
+        &.good {
+            background-color: $note-good-bg-color;
+            color: $note-good-color;
+        }
+        &.bad {
+            background-color: $note-bad-bg-color;
+            color: $note-bad-color;
+        }
+        &.happy {
+            background-color: $note-happy-bg-color;
+            color: $note-happy-color;
+        }
+        &.unhappy {
+            background-color: $note-unhappy-bg-color;
+            color: $note-unhappy-color;
+        }
+        &.flag {
+            background-color: $note-flag-bg-color;
+            color: $note-flag-color;
         }
     }
 }

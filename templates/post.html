@@ -47,7 +47,7 @@
             {% else %} {% set outdate_warn_days = config.extra.outdate_warn_days %} {% endif %}
 
             {% if show_outdate_warn %}
-            <blockquote id="outdate_warn" class="hidden" data-days="{{ outdate_warn_days }}"
+            <blockquote id="outdate_warn" class="note hidden" data-days="{{ outdate_warn_days }}"
                 data-text1="{{ config.extra.outdate_warn_text1 }}" data-text2="{{ config.extra.outdate_warn_text2 }}">
                 <i class="ri-alarm-warning-line ri-lg"></i><span></span>
             </blockquote>

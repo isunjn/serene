@@ -1,0 +1,9 @@
+<blockquote class="note unhappy">
+    <i class="ri-emotion-unhappy-line ri-lg"></i>
+    <div class="content">
+        {% if header %}
+        <p class="header">{{ header }}</p>
+        {% endif %}
+        {{ body | markdown | safe }}
+    </div>
+</blockquote>
