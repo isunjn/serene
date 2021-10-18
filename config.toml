@@ -60,8 +60,11 @@ footer_copyright_name = "<your-name>"
 footer_copyright_year = "2021"
 footer_credits = true
 
-# comment config # TODO
 comment = "none"
+analytics = "xxxx"
+
+
+# comment config # TODO
 
 [extra.gitalk]
 clientID = "xxxxxxxx"
@@ -73,8 +76,6 @@ distractionFreeMode = false
 
 
 # analytics config # TODO
-
-analytics = "xxxx"
 
 [extra.umami]
 data_website_id = "xxxxx-xxxx-xxxxx"
