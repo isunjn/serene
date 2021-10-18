@@ -18,14 +18,13 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="/base.css">
     {% block css %}{% endblock css %}
+    {% if config.extra.analytics == 'umami' %}
+    <script async defer data-website-id="{{ config.extra.umami.data_website_id }}" src="{{ config.extra.umami.src }}"></script>
+    {% endif %}
 </head>
 
 <body>
-    <script>
-        if(localStorage.getItem('theme') == 'dark') {
-            document.body.classList.add('dark-mode'); // avoid flickering on edge
-        }
-    </script>
+    <script>if(localStorage.getItem('theme')=='dark'){document.body.classList.add('dark-mode');}</script>
     {% block content %}{% endblock content %}
     <script src="/js/dark.js"></script>
     {% block script %}{% endblock script %}

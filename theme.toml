@@ -57,3 +57,9 @@ admin = ["xxxx"]
 distractionFreeMode = false
 
 # analytics config # TODO
+
+analytics = "xxxx"
+
+[extra.umami]
+data_website_id = "xxxxx-xxxx-xxxxx"
+src = "https://xxxxxxxxxxx/umami.js"
