@@ -52,7 +52,17 @@
                 <i class="ri-alarm-warning-line ri-lg"></i><span></span>
             </blockquote>
             {% endif %}
+            
             {{ page.content | safe }}
+
+            {% if config.extra.cc_license %}
+            <blockquote id="cc_license" class="note">
+                <i class="ri-creative-commons-line ri-lg"></i>
+                <div class="content">
+                {{ config.extra.cc_license_info | markdown | safe }}
+                </div>
+            </blockquote>
+            {% endif %}
         </article>
         {% if config.extra.comment == "gitalk" %}
         <div id="gitalk-container"></div>

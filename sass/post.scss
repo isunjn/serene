@@ -189,6 +189,10 @@ article {
             background-color: $note-warning-bg-color;
             color: $note-wrong-color;
         }
+        &#cc_license {
+            background-color: $note-cc-license-bg-color;
+            color: $note-cc-license-color;
+        }
         &.info {
             background-color: $note-info-bg-color;
             color: $note-info-color;
