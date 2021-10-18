@@ -1,8 +1,10 @@
 {% extends "_base.html" %}
 
-{% block lang %} {{section.lang}} {% endblock lang %}
+{% block lang %} {{ section.lang }} {% endblock lang %}
 
-{% block title %} {{config.title}} {% endblock title %}
+{% block title %} {{ config.title }} {% endblock title %}
+
+{% block desc %} {{ config.description }} {% endblock desc %}
 
 {% block css %}
 <link rel="stylesheet" href="home.css" />

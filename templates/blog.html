@@ -6,7 +6,9 @@
 {%- else -%} {{ section.lang }} {%- endif -%}
 {%- endblock lang -%}
 
-{% block title %} {{section.title}} {% endblock title %}
+{% block title %} {{ section.title }} {% endblock title %}
+
+{% block desc %} {{ section.description }} {% endblock desc %}
 
 {% block css %}
 <link rel="stylesheet" href="blog.css" />

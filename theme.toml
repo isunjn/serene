@@ -1,28 +1,13 @@
-base_url = "https://example.com"
-title = "Serene Theme"
-description = "A blog theme for zola."
-default_language = "en"
-compile_sass = true
-minify_html = true
-build_search_index = false
-generate_feed = true
-feed_filename = "rss.xml"
-taxonomies = [
-    {name = "tags"},
-    {name = "categories"}
-]
+name = "serene"
+description = "A classic blog theme"
+license = "MIT"
+homepage = "https://github.com/isunjn/serene"
+min_version = "0.4.0"
+demo = ""
 
-[markdown]
-highlight_code = true
-extra_syntaxes = []
-highlight_theme = "nord"
-render_emoji = true
-
-[search]
-include_title = true
-include_description = false
-include_path = false
-include_content = true
+[author]
+name = "isunjn"
+homepage = "https://github.com/isunjn"
 
 [extra]
 name = "xxxx"
@@ -70,6 +55,5 @@ repo = "xxxxxxxx"
 owner = "xxxx"
 admin = ["xxxx"]
 distractionFreeMode = false
-
 
 # analytics config # TODO
