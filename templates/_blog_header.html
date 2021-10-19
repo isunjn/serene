@@ -4,7 +4,9 @@
         <a class="back" href="/"><i class="ri-arrow-left-s-line ri-1x"></i><span>Home</span></a>
         <div class="icon">
             <a id="go-home" href="/"><i class="ri-user-6-line ri-xl"></i></a>
+            {% if config.generate_feed %} 
             <a href="/rss.xml"><i class="ri-rss-line ri-xl"></i></a>
+            {% endif %}
             <a id="color-toggle"><i class="ri-moon-line ri-xl"></i></a>
             {% if page.extra.toc is defined %} {% set show_toc = page.extra.toc %}
             {% else %} {% set show_toc = config.extra.toc %} {% endif %}
