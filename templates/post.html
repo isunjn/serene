@@ -83,8 +83,8 @@
                 id: location.pathname,
                 distractionFreeMode: {{ config.extra.gitalk.distractionFreeMode }},
                 perPage: {{ config.extra.gitalk.perPage }},
-                pageDirection = "{{ config.extra.gitalk.pageDirection }}",
-                proxy = "{{ config.extra.gitalk.proxy | safe }}"
+                pageDirection: "{{ config.extra.gitalk.pageDirection }}",
+                proxy: "{{ config.extra.gitalk.proxy | safe }}"
               });
             gitalk.render('gitalk-container');      
         </script>
