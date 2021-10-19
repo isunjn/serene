@@ -19,7 +19,10 @@
     <link rel="stylesheet" href="/base.css">
     {% block css %}{% endblock css %}
     {% if config.extra.analytics == 'umami' %}
-    <script async defer data-website-id="{{ config.extra.umami.data_website_id }}" src="{{ config.extra.umami.src }}"></script>
+    <script async defer data-website-id="{{ config.extra.umami.website_id }}" src="{{ config.extra.umami.src }}"></script>
+    {% endif %}
+    {% if config.extra.analytics == 'busuanzi' %}
+    <script async defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     {% endif %}
 </head>
 

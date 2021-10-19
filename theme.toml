@@ -62,5 +62,5 @@ distractionFreeMode = false
 # analytics config # TODO
 
 [extra.umami]
-data_website_id = "xxxxx-xxxx-xxxxx"
+website_id = "xxxxx-xxxx-xxxxx"
 src = "https://xxxxxxxxxxx/umami.js"
