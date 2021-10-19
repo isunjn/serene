@@ -17,6 +17,9 @@
 
 {% block css %}
 <link rel="stylesheet" href="/post.css" />
+{% if config.extra.comment == "gitalk" %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+{% endif %}
 {% endblock css %}
 
 {% block content %}
@@ -69,6 +72,19 @@
         </article>
         {% if config.extra.comment == "gitalk" %}
         <div id="gitalk-container"></div>
+        <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+        <script>
+            let gitalk = new Gitalk({
+                clientID: '{{ config.extra.gitalk.clientID }}',
+                clientSecret: '{{ config.extra.gitalk.clientSecret }}',
+                repo: '{{ config.extra.gitalk.repo }}',
+                owner: '{{ config.extra.gitalk.owner }}',
+                admin: [{% for admin in config.extra.gitalk.admin %}'{{ admin }}',{% endfor %}],
+                id: location.pathname,
+                distractionFreeMode: {{ config.extra.gitalk.distractionFreeMode }}
+              });
+            gitalk.render('gitalk-container');      
+        </script>
         {% endif %}
     </main>
     <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
