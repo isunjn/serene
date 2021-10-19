@@ -5,3 +5,5 @@ content/*
 !content/_index.md
 
 static/img/*
+
+config.toml

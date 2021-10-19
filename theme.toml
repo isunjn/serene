@@ -34,7 +34,7 @@ back_to_top_button = true
 progress_bar = true
 author_info_under_post = false # TODO
 cc_license = true
-cc_license_info = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), please contact the author and indicate the original link for reprinting."
+cc_license_info = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), please contact the author for reprinting."
 
 outdate_warn = true
 outdate_warn_days = 120
@@ -46,9 +46,9 @@ footer_copyright_year = "2021"
 footer_credits = true
 
 comment = "none"
-analytics = "xxxx"
+analytics = "none"
 
-# comment config # TODO
+#======================= Comment =======================
 
 [extra.gitalk]
 clientID = "xxxxxxxx"
@@ -62,7 +62,7 @@ pageDirection = "first"
 proxy = "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"
 
 
-# analytics config # TODO
+#======================= Analytics =======================
 
 [extra.umami]
 website_id = "xxxxx-xxxx-xxxxx"

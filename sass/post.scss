@@ -20,10 +20,10 @@ div.blank {
 main {
     width: 100%;
     max-width: 750px;
-    padding: 0 15px;
 }
 
 article {
+    padding: 0 15px;
     #post-info {
         display: flex;
         justify-content: space-between;
@@ -250,6 +250,10 @@ article {
             color: $note-flag-color;
         }
     }
+}
+
+.comment {
+    padding: 15px;
 }
 
 aside {
