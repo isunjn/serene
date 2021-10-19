@@ -81,7 +81,10 @@
                 owner: '{{ config.extra.gitalk.owner }}',
                 admin: [{% for admin in config.extra.gitalk.admin %}'{{ admin }}',{% endfor %}],
                 id: location.pathname,
-                distractionFreeMode: {{ config.extra.gitalk.distractionFreeMode }}
+                distractionFreeMode: {{ config.extra.gitalk.distractionFreeMode }},
+                perPage: {{ config.extra.gitalk.perPage }},
+                pageDirection = "{{ config.extra.gitalk.pageDirection }}",
+                proxy = "{{ config.extra.gitalk.proxy | safe }}"
               });
             gitalk.render('gitalk-container');      
         </script>

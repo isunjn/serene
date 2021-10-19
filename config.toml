@@ -60,7 +60,7 @@ footer_copyright_name = "<your-name>"
 footer_copyright_year = "2021"
 footer_credits = true
 
-comment = "none"
+comment = "gitalk"
 analytics = "xxxx"
 
 
@@ -73,7 +73,9 @@ repo = "xxxxxxxx"
 owner = "xxxx"
 admin = ["xxxx"]
 distractionFreeMode = false
-
+perPage = 10
+pageDirection = "first"
+proxy = "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"
 
 # analytics config # TODO
 
