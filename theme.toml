@@ -46,7 +46,7 @@ footer_copyright_year = "2021"
 footer_credits = true
 
 comment = "none"
-analytics = "none"
+analytics = "none"  # google_analytics / cloudflare_web_analytics / umami 
 
 #======================= Comment =======================
 
@@ -63,6 +63,13 @@ proxy = "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/ac
 
 
 #======================= Analytics =======================
+
+
+[extra.google_analytics]
+id = "G-XXXXXXXX"  # or UA-XXXXXXXX
+
+[extra.cloudflare_web_analytics]
+token = "xxxxxxxx"
 
 [extra.umami]
 website_id = "xxxxx-xxxx-xxxxx"

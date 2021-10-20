@@ -24,6 +24,12 @@
     {% if config.extra.analytics == 'busuanzi' %}
     <script async defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     {% endif %}
+    {% if config.extra.analytics == 'google_analytics' %}
+    <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.google_analytics.id }}"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '{{ config.extra.google_analytics.id }}');</script>
+    {% if config.extra.analytics == 'cloudflare_web_analytics' %}
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ config.extra.cloudflare_web_analytics.token }}"}'></script><!-- End Cloudflare Web Analytics -->
+    {% endif %}
+    {% endif %}
 </head>
 
 <body>
