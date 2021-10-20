@@ -46,7 +46,7 @@ footer_copyright_year = "2021"
 footer_credits = true
 
 comment = "none"
-analytics = "none"  # google_analytics / cloudflare_web_analytics / umami 
+analytics = "none"  # google_analytics / cloudflare_web_analytics / umami / baidu_tongji
 
 #======================= Comment =======================
 
@@ -74,3 +74,6 @@ token = "xxxxxxxx"
 [extra.umami]
 website_id = "xxxxx-xxxx-xxxxx"
 src = "https://xxxxxxxxxxx/umami.js"
+
+[extra.baidu_tongji]
+token = "xxxxxxxx"

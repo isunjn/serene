@@ -26,9 +26,12 @@
     {% endif %}
     {% if config.extra.analytics == 'google_analytics' %}
     <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.google_analytics.id }}"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '{{ config.extra.google_analytics.id }}');</script>
+    {% endif %}
     {% if config.extra.analytics == 'cloudflare_web_analytics' %}
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ config.extra.cloudflare_web_analytics.token }}"}'></script><!-- End Cloudflare Web Analytics -->
     {% endif %}
+    {% if config.extra.analytics == 'baidu_tongji' %}
+    <script>var _hmt = _hmt || [];(function() {  var hm = document.createElement("script");  hm.src = "https://hm.baidu.com/hm.js?{{ config.extra.baidu_tongji.token }}";  var s = document.getElementsByTagName("script")[0];   s.parentNode.insertBefore(hm, s);})();</script>
     {% endif %}
 </head>
 
