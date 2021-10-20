@@ -45,7 +45,7 @@ footer_copyright_name = "<your-name>"
 footer_copyright_year = "2021"
 footer_credits = true
 
-comment = "none"
+comment = "none"  # gitalk / disqus / disqus_js
 analytics = "none"  # google_analytics / cloudflare_web_analytics / umami / baidu_tongji
 
 #======================= Comment =======================
@@ -60,6 +60,23 @@ distraction_freeMode = false
 per_page = 10
 page_direction = "first"
 proxy = "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"
+
+[extra.disqus]
+shortname = "xxxx"
+
+[extra.disqus_js]
+shortname = "xxxx"
+apikey = "xxxx"
+# site_name = "xxxx"
+# identifier = "xxxx"
+# url = "xxxx"
+# title = "xxxx"
+# api = "xxxx"
+# nesting = 4
+# nocomment = "xxxx"
+# admin = "xxxx"
+# admin_label = "xxxx"
+
 
 
 #======================= Analytics =======================
