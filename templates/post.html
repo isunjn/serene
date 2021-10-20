@@ -75,15 +75,15 @@
         <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
         <script>
             let gitalk = new Gitalk({
-                clientID: '{{ config.extra.gitalk.clientID }}',
-                clientSecret: '{{ config.extra.gitalk.clientSecret }}',
+                clientID: '{{ config.extra.gitalk.client_id }}',
+                clientSecret: '{{ config.extra.gitalk.client_secret }}',
                 repo: '{{ config.extra.gitalk.repo }}',
                 owner: '{{ config.extra.gitalk.owner }}',
                 admin: [{% for admin in config.extra.gitalk.admin %}'{{ admin }}',{% endfor %}],
                 id: location.pathname,
-                distractionFreeMode: {{ config.extra.gitalk.distractionFreeMode }},
-                perPage: {{ config.extra.gitalk.perPage }},
-                pageDirection: "{{ config.extra.gitalk.pageDirection }}",
+                distractionFreeMode: {{ config.extra.gitalk.distraction_freeMode }},
+                perPage: {{ config.extra.gitalk.per_page }},
+                pageDirection: "{{ config.extra.gitalk.page_direction }}",
                 proxy: "{{ config.extra.gitalk.proxy | safe }}"
               });
             gitalk.render('gitalk-container');      
