@@ -36,7 +36,7 @@
             <div id="post-info">
                 <div class="date">
                     <span id="publish">{{ page.date | date }}</span>
-                    {% if page.updated != page.date %}
+                    {% if page.updated is string and page.updated != page.date %}
                     <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
                     {% endif %}
                 </div>
