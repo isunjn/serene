@@ -2,8 +2,8 @@
 
 {%- block lang -%}
 {% set section = get_section(path="blog/_index.md", metadata_only=true) %}
-{%- if section.extra.lang -%} {{ section.extra.lang }}
-{%- else -%} {{ taxonomy.lang }} {%- endif -%}
+{%- if section.extra.lang -%}{{ section.extra.lang }}
+{%- else -%}{{ lang }}{%- endif -%}
 {%- endblock lang -%}
 
 {% block title %}Tags{% endblock title %}

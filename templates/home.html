@@ -1,6 +1,9 @@
 {% extends "_base.html" %}
 
-{% block lang %} {{ section.lang }} {% endblock lang %}
+{%- block lang -%}
+{%- if section.extra.lang -%} {{ section.extra.lang }} 
+{%- else -%} {{ section.lang }} {%- endif -%}
+{%- endblock lang -%}
 
 {% block title %} {{ config.title }} {% endblock title %}
 
