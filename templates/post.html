@@ -16,9 +16,11 @@
 <!-- TODO: description -->
 
 {% block css %}
-<link rel="stylesheet" href="/post.css" />
+<link rel="stylesheet" href="/css/blog_header.css" />
+<link rel="stylesheet" href="/css/footer.css" />
+<link rel="stylesheet" href="/css/post.css" />
 {% if config.extra.comment == "gitalk" %}
-<link rel="stylesheet" href="/gitalk.css">
+<link rel="stylesheet" href="/css/gitalk.css">
 {% endif %}
 {% if config.extra.comment == "disqus_js" %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqusjs.css">
@@ -76,73 +78,14 @@
         
         {% if config.extra.comment == "gitalk" %}
         <div id="gitalk-container" class="comment"></div>
-        <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-        <script>
-            var gitalk = new Gitalk({
-                clientID: '{{ config.extra.gitalk.client_id }}',
-                clientSecret: '{{ config.extra.gitalk.client_secret }}',
-                repo: '{{ config.extra.gitalk.repo }}',
-                owner: '{{ config.extra.gitalk.owner }}',
-                admin: [{% for admin in config.extra.gitalk.admin %}'{{ admin }}',{% endfor %}],
-                id: location.pathname,
-                distractionFreeMode: {{ config.extra.gitalk.distraction_freeMode }},
-                perPage: {{ config.extra.gitalk.per_page }},
-                pageDirection: "{{ config.extra.gitalk.page_direction }}",
-                proxy: "{{ config.extra.gitalk.proxy | safe }}"
-              });
-            gitalk.render('gitalk-container');      
-        </script>
         {% endif %}
 
         {% if config.extra.comment == "disqus" %}
         <div id="disqus_thread" class="comment"></div>
-        <script>
-            (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://{{ config.extra.disqus.shortname }}.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         {% endif %}
 
         {% if config.extra.comment == "disqus_js" %}
         <div id="disqus_thread" class="comment"></div>
-        <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js"></script>
-        <script>
-            var dsqjs = new DisqusJS({
-                shortname: '{{ config.extra.disqus_js.shortname }}',
-                apikey: '{{ config.extra.disqus_js.apikey }}',
-                {% if config.extra.disqus_js.site_name is defined %}
-                siteName: '{{ config.extra.disqus_js.site_name }}',
-                {% endif %}
-                {% if config.extra.disqus_js.identifier is defined %}
-                identifier: '{{ config.extra.disqus_js.identifier }}',
-                {% endif %}
-                {% if config.extra.disqus_js.url is defined %}
-                url: '{{ config.extra.disqus_js.url }}',
-                {% endif %}
-                {% if config.extra.disqus_js.title is defined %}
-                title: '{{ config.extra.disqus_js.title }}',
-                {% endif %}
-                {% if config.extra.disqus_js.api is defined %}
-                api: '{{ config.extra.disqus_js.api }}',
-                {% endif %}
-                {% if config.extra.disqus_js.nesting is defined %}
-                nesting: {{ config.extra.disqus_js.nesting }},
-                {% endif %}
-                {% if config.extra.disqus_js.nocomment is defined %}
-                nocomment: '{{ config.extra.disqus_js.nocomment }}',
-                {% endif %}
-                {% if config.extra.disqus_js.admin is defined %}
-                admin: '{{ config.extra.disqus_js.admin }}',
-                {% endif %}
-                {% if config.extra.disqus_js.admin_label is defined %}
-                adminLabel: '{{ config.extra.disqus_js.admin_label }}'
-                {% endif %}
-            });
-        </script>
         {% endif %}
     </main>
     <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
@@ -196,5 +139,73 @@
 {% endif %}
 
 <script src="/js/lightense.min.js"></script>
+
+{% if config.extra.comment == "gitalk" %}
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '{{ config.extra.gitalk.client_id }}',
+        clientSecret: '{{ config.extra.gitalk.client_secret }}',
+        repo: '{{ config.extra.gitalk.repo }}',
+        owner: '{{ config.extra.gitalk.owner }}',
+        admin: [{% for admin in config.extra.gitalk.admin %}'{{ admin }}',{% endfor %}],
+        id: location.pathname,
+        distractionFreeMode: {{ config.extra.gitalk.distraction_freeMode }},
+        perPage: {{ config.extra.gitalk.per_page }},
+        pageDirection: "{{ config.extra.gitalk.page_direction }}",
+        proxy: "{{ config.extra.gitalk.proxy | safe }}"
+      });
+    gitalk.render('gitalk-container');      
+</script>
+{% endif %}
+
+{% if config.extra.comment == "disqus" %}
+<script>
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://{{ config.extra.disqus.shortname }}.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
+
+{% if config.extra.comment == "disqus_js" %}
+<script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js"></script>
+<script>
+    var dsqjs = new DisqusJS({
+        shortname: '{{ config.extra.disqus_js.shortname }}',
+        apikey: '{{ config.extra.disqus_js.apikey }}',
+        {% if config.extra.disqus_js.site_name is defined %}
+        siteName: '{{ config.extra.disqus_js.site_name }}',
+        {% endif %}
+        {% if config.extra.disqus_js.identifier is defined %}
+        identifier: '{{ config.extra.disqus_js.identifier }}',
+        {% endif %}
+        {% if config.extra.disqus_js.url is defined %}
+        url: '{{ config.extra.disqus_js.url }}',
+        {% endif %}
+        {% if config.extra.disqus_js.title is defined %}
+        title: '{{ config.extra.disqus_js.title }}',
+        {% endif %}
+        {% if config.extra.disqus_js.api is defined %}
+        api: '{{ config.extra.disqus_js.api }}',
+        {% endif %}
+        {% if config.extra.disqus_js.nesting is defined %}
+        nesting: {{ config.extra.disqus_js.nesting }},
+        {% endif %}
+        {% if config.extra.disqus_js.nocomment is defined %}
+        nocomment: '{{ config.extra.disqus_js.nocomment }}',
+        {% endif %}
+        {% if config.extra.disqus_js.admin is defined %}
+        admin: '{{ config.extra.disqus_js.admin }}',
+        {% endif %}
+        {% if config.extra.disqus_js.admin_label is defined %}
+        adminLabel: '{{ config.extra.disqus_js.admin_label }}'
+        {% endif %}
+    });
+</script>
+{% endif %}
 
 {% endblock script %}

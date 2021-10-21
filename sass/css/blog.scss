@@ -1,6 +1,4 @@
 @import "var";
-@import "footer";
-@import "blog_header";
 
 header div#progress-bar {
     width: 100%;
@@ -12,28 +10,10 @@ main {
     margin: 85px auto;
 
     .title {
-        width: min-content;
-        white-space: nowrap;
+        font-size: 1.6em;
         color: $text-second-color;
-        font-size: 1.8em;
-        margin: 0 auto;
-        margin-bottom: 40px;
-        padding: 0 0 0 60px;
-        span {
-            position: relative;
-            top: -4px;
-            left: -5px;
-        }
-        a {
-            margin-left: 30px;
-            position: relative;
-            top: -4px;
-            font-size: 14px;
-            color: $primary-color;
-            :visited {
-                color: $primary-color;
-            }
-        }
+        margin: 30px 0 15px 0;
+        padding: 0 15px;
     }
 
     .post {
@@ -54,6 +34,34 @@ main {
             white-space: nowrap;
         }
     }
+
+    .hidden {
+        display: none;
+    }
+
+    .showhidden {
+        display: flex;
+        justify-content: end;
+        button {
+            outline: none;
+            border: 0;
+            cursor: pointer;
+            position: relative;
+            margin-right:8px;
+            padding: 2px 2px 6px 9px;
+            border-radius: 4px;
+            font-size: 1.3em;
+            color: $primary-color;
+            background-color: #0000;
+            &:hover {
+                background-color: $primary-light-color;
+            }
+            i {
+                position: relative;
+                top: 7px;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -71,6 +79,9 @@ body.dark-mode {
         color: $dark-text-second-color;
     }
     main .post:hover {
+        background-color: $dark-primary-light-color;
+    }
+    main .showhidden .btn:hover {
         background-color: $dark-primary-light-color;
     }
 }

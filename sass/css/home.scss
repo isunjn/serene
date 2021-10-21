@@ -91,6 +91,14 @@ div.brief {
             text-decoration-color: $primary-color;
         }
     }
+    p > code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.9em;
+        padding: 0px 6px;
+        color: $primary-color;
+        background-color: $primary-light-color;
+        border-radius: 4px;
+    }
     img {
         max-width: 100%;
         display: block;
