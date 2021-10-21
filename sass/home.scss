@@ -28,9 +28,9 @@ div.info {
         #id {
             border: 2px $primary-color solid;
             color: $primary-color;
-            padding: 1px 12px 2px 12px;
+            padding: 0px 16px 1px 16px;
             border-radius: 20px;
-            font-size: 0.8em;
+            font-size: 0.75em;
         }
         #bio {
             color: $text-second-color;
@@ -77,9 +77,41 @@ div.link {
 }
 
 div.brief {
-    font-size: 1.5em;
+    font-size: 1.4em;
     line-height: 1.5;
     margin: 15px 0;
+    p {
+        word-wrap: break-word;
+        margin: 0.5em 0;
+    }
+    a {
+        color: $primary-color;
+        text-decoration: underline $primary-light-color 2px;
+        &:hover {
+            text-decoration-color: $primary-color;
+        }
+    }
+    img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+        border-radius: $img-border-radius;
+    }
+    blockquote {
+        border-left: 4px $primary-light-color solid;
+        padding-left: 16px;
+        margin: 0 0 24px 0;
+        color: $text-light-color;
+    }
+    li::marker {
+        color: $primary-color;
+    }
+    hr {
+        border: none;
+        background-color: $primary-light-color;
+        height: 4px;
+        margin: 1.5em 0;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -105,9 +137,8 @@ div.brief {
         }
     }
     div.link {
-        font-size: 0.9em;
         .right a + a {
-            margin-left: 4px;
+            margin-left: 5px;
         }
     }
     div.brief {
