@@ -17,7 +17,6 @@ avatar = "img/avatar.png"
 
 show_id = true
 show_projects = false #TODO
-show_pgp = false # TODO
 blog_icon = "ri-quill-pen-line"
 projects_icon = "ri-compasses-2-line"
 
