@@ -31,7 +31,6 @@ toc = true
 blur_effect = true
 back_to_top_button = true
 progress_bar = true
-author_info_under_post = false # TODO
 cc_license = true
 cc_license_info = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), please contact the author for reprinting."
 
