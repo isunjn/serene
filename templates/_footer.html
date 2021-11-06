@@ -1,6 +1,10 @@
 <footer>
     <div class="copyright">
-        <span>Copyright © {{ config.extra.footer_copyright_year }} {{ config.extra.footer_copyright_name}}.</span> <span>All rights reserved.</span>
+        {% if config.extra.footer_custom %}
+        {{ config.extra.footer_custom }}
+        {% else %}
+        Copyright © {{ config.extra.footer_copyright_year }} {{ config.extra.footer_copyright_name}}. All rights reserved.
+        {% endif %}
     </div>
     {% if config.extra.footer_credits %}
     <div class="credits">

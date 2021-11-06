@@ -41,6 +41,7 @@ outdate_warn_text2 = " days ago and may be out of date."
 
 footer_copyright_name = "<your-name>"
 footer_copyright_year = "2021"
+# footer_custom = "xxxxxxxx"
 footer_credits = true
 
 comment = "none"  # gitalk / disqus / disqus_js
