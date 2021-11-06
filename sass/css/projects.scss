@@ -1,0 +1,37 @@
+@import 'var';
+
+main {
+    margin: 80px auto;
+    max-width: 750px;
+}
+
+.proj {
+    margin: 30px 15px;
+
+    .text {
+        .name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+        }
+        .desc {
+            line-height: 1.5;
+            margin: 0 0 10px 0;
+        }
+    }
+
+    .links {
+        display: flex;
+        justify-content: end;
+        a {
+            text-decoration: none;
+            border-bottom: 2px solid $primary-color;
+            padding: 0 2px;
+            margin-left: 15px;
+            cursor: pointer;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}

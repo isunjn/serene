@@ -1,1 +1,114 @@
-<!-- TODO -->
+{% extends "_base.html" %}
+
+
+{%- block lang -%}
+{%- if section.extra.lang -%} {{ section.extra.lang }} 
+{%- else -%} {{ section.lang }} {%- endif -%}
+{%- endblock lang -%}
+
+{% block title %} {{ section.title }} {% endblock title %}
+
+{% block desc %} {{ section.description }} {% endblock desc %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/projects_header.css" />
+<link rel="stylesheet" href="/css/footer.css" />
+<link rel="stylesheet" href="/css/projects.css" />
+{% endblock css %}
+
+
+{% block content %}
+
+<header {% if config.extra.blur_effect %} class="blur" {% endif %}>
+    <div class="top">
+        <a class="projects" href="/projects"><i class="{{ config.extra.projects_icon }} ri-2x"></i><span>Projects</span></a>
+        <a class="back" href="/"><i class="ri-arrow-left-s-line ri-1x"></i><span>Home</span></a>
+        <div class="icon">
+            <a id="go-home" href="/"><i class="ri-user-6-line ri-xl"></i></a>
+            <a id="color-toggle"><i class="ri-moon-line ri-xl"></i></a>
+        </div>
+    </div>
+    <div id="progress-bar"></div>
+</header>
+
+{% set data = load_data(path="content/projects/data.toml", format="toml") %}
+
+<main>
+    <div class="proj">
+        <div class="text">
+            <p class="name">zola-theme-serene</p>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit voluptas consectetur unde.</p>
+        </div>
+        <div class="links">
+            <a href="">HomePage</a>
+            <a href="">GitHub</a>
+        </div>
+    </div>
+    <div class="proj">
+        <div class="text">
+            <p class="name">Lorem</p>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci</p>
+        </div>
+        <div class="links">
+            <a href="">GitHub</a>
+        </div>
+    </div>
+    <div class="proj">
+        <div class="text">
+            <p class="name">Consectetur</p>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
+        </div>
+        <div class="links">
+            <a href="">GitHub</a>
+            <a href="">Docs</a>
+        </div>
+    </div>
+    <div class="proj">
+        <div class="text">
+            <p class="name">dolorsit</p>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
+        </div>
+        <div class="links">
+            <a href="">GitHub</a>
+            <a href="">Docs</a>
+            <a href="">FAQ</a>
+        </div>
+    </div>
+    <div class="proj">
+        <div class="text">
+            <p class="name">dolorsit</p>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
+        </div>
+        <div class="links">
+            <a href="">GitHub</a>
+            <a href="">Docs</a>
+            <a href="">FAQ</a>
+        </div>
+    </div>
+    <div class="proj">
+        <div class="text">
+            <p class="name">dolorsit</p>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
+        </div>
+        <div class="links">
+            <a href="">GitHub</a>
+            <a href="">Docs</a>
+            <a href="">FAQ</a>
+        </div>
+    </div>
+    <div class="proj">
+        <div class="text">
+            <p class="name">dolorsit</p>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
+        </div>
+        <div class="links">
+            <a href="">GitHub</a>
+            <a href="">Docs</a>
+            <a href="">FAQ</a>
+        </div>
+    </div>
+</main>
+
+{% include "_footer.html" %}
+
+{% endblock content %}
