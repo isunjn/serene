@@ -3,12 +3,12 @@
 main {
     margin: 80px auto;
     max-width: 750px;
+    min-height: 70vh;
 }
 
 .proj {
     margin: 30px 15px;
 
-    .text {
         .name {
             font-size: 1.2em;
             font-weight: bold;
@@ -18,7 +18,6 @@ main {
             line-height: 1.5;
             margin: 0 0 10px 0;
         }
-    }
 
     .links {
         display: flex;
@@ -29,6 +28,9 @@ main {
             padding: 0 2px;
             margin-left: 15px;
             cursor: pointer;
+            &:visited {
+                color: inherit;
+            }
             &:hover {
                 color: $primary-color;
             }

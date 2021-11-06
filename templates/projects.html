@@ -34,79 +34,17 @@
 {% set data = load_data(path="content/projects/data.toml", format="toml") %}
 
 <main>
+    {% for proj in data.project %}
     <div class="proj">
-        <div class="text">
-            <p class="name">zola-theme-serene</p>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit voluptas consectetur unde.</p>
-        </div>
+        <p class="name">{{ proj.name }}</p>
+        <p class="desc">{{ proj.desc }}</p>
         <div class="links">
-            <a href="">HomePage</a>
-            <a href="">GitHub</a>
+            {% for link in proj.links %}
+            <a href="{{ link.url }}">{{ link.name }}</a>
+            {% endfor %}
         </div>
     </div>
-    <div class="proj">
-        <div class="text">
-            <p class="name">Lorem</p>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci</p>
-        </div>
-        <div class="links">
-            <a href="">GitHub</a>
-        </div>
-    </div>
-    <div class="proj">
-        <div class="text">
-            <p class="name">Consectetur</p>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
-        </div>
-        <div class="links">
-            <a href="">GitHub</a>
-            <a href="">Docs</a>
-        </div>
-    </div>
-    <div class="proj">
-        <div class="text">
-            <p class="name">dolorsit</p>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
-        </div>
-        <div class="links">
-            <a href="">GitHub</a>
-            <a href="">Docs</a>
-            <a href="">FAQ</a>
-        </div>
-    </div>
-    <div class="proj">
-        <div class="text">
-            <p class="name">dolorsit</p>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
-        </div>
-        <div class="links">
-            <a href="">GitHub</a>
-            <a href="">Docs</a>
-            <a href="">FAQ</a>
-        </div>
-    </div>
-    <div class="proj">
-        <div class="text">
-            <p class="name">dolorsit</p>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
-        </div>
-        <div class="links">
-            <a href="">GitHub</a>
-            <a href="">Docs</a>
-            <a href="">FAQ</a>
-        </div>
-    </div>
-    <div class="proj">
-        <div class="text">
-            <p class="name">dolorsit</p>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, vel quibusdam tempora consequuntur qui assumenda deleniti nihil nobis officia sit fuga, totam accusamus dolor! Distinctio perferendis odit.</p>
-        </div>
-        <div class="links">
-            <a href="">GitHub</a>
-            <a href="">Docs</a>
-            <a href="">FAQ</a>
-        </div>
-    </div>
+    {% endfor %}
 </main>
 
 {% include "_footer.html" %}
