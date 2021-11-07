@@ -53,7 +53,12 @@ header {
     div.icon {
         padding-right: 15px;
         transform: translateY(5px);
-        a {
+        a,
+        button{
+            outline: none;
+            border: none;
+            background-color: #0000;
+            padding: 0;
             text-decoration: none;
             color: $text-primary-color;
             margin-left: 20px;
@@ -102,7 +107,8 @@ body.dark-mode {
             color: $primary-color;
         }
     }
-    header div.icon a {
+    header div.icon a,
+    header div.icon button {
         color: $dark-text-primary-color;
         &:visited {
             color: $dark-text-primary-color;

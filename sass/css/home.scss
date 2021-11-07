@@ -67,9 +67,18 @@ div.link {
         text-decoration: none;
         color: $text-primary-color;
         cursor: pointer;
-        + a {
-            margin-left: 10px;
+        margin-right: 10px;
+        &:hover {
+            color: $primary-color;
         }
+    }
+    .right button {
+        color: $text-primary-color;
+        outline: none;
+        padding: 0;
+        border: none;
+        background-color: #0000;
+        cursor: pointer;
         &:hover {
             color: $primary-color;
         }
@@ -145,8 +154,8 @@ div.brief {
         }
     }
     div.link {
-        .right a + a {
-            margin-left: 5px;
+        .right a {
+            margin-right: 5px;
         }
     }
     div.brief {
@@ -160,7 +169,8 @@ body.dark-mode {
         color: $dark-text-second-color;
     }
     div.link .left a,
-    div.link .right a {
+    div.link .right a,
+    div.link .right button {
         color: $dark-text-primary-color;
         &:visited {
             color: $dark-text-primary-color;

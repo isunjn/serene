@@ -44,7 +44,7 @@
             {% for link in config.extra.links %}
             <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'><i class="{{ link.icon }} ri-xl"></i></a>
             {% endfor %}
-            <a id="color-toggle" aria-label="dark light mode switch"><i class="ri-moon-line ri-xl"></i></a>
+            <button id="color-toggle"  aria-label="dark light mode switch"><i class="ri-moon-line ri-xl"></i></button>
         </div>
     </div>
     <div class="brief">{{ section.content | safe }}</div>
