@@ -1,17 +1,17 @@
 {% extends "_base.html" %}
 
 
-{%- block lang -%}
-{%- if section.extra.lang -%} {{ section.extra.lang }} 
-{%- else -%} {{ section.lang }} {%- endif -%}
-{%- endblock lang -%}
+{% block lang %}
+{% if section.extra.lang %} {{ section.extra.lang }} 
+{% else %} {{ section.lang }} {% endif %}
+{% endblock lang %}
 
 {% block title %} {{ section.title }} {% endblock title %}
 
 {% block desc %} {{ section.description }} {% endblock desc %}
 
 {% block css %}
-<link rel="stylesheet" href="/css/blog_header.css" />
+<link rel="stylesheet" href="/css/header.css" />
 <link rel="stylesheet" href="/css/footer.css" />
 <link rel="stylesheet" href="/css/blog.css" />
 {% endblock css %}

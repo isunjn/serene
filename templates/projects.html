@@ -1,17 +1,17 @@
 {% extends "_base.html" %}
 
 
-{%- block lang -%}
-{%- if section.extra.lang -%} {{ section.extra.lang }} 
-{%- else -%} {{ section.lang }} {%- endif -%}
-{%- endblock lang -%}
+{% block lang %}
+{% if section.extra.lang %} {{ section.extra.lang }} 
+{% else %} {{ section.lang }} {% endif %}
+{% endblock lang %}
 
 {% block title %} {{ section.title }} {% endblock title %}
 
 {% block desc %} {{ section.description }} {% endblock desc %}
 
 {% block css %}
-<link rel="stylesheet" href="/css/projects_header.css" />
+<link rel="stylesheet" href="/css/header.css" />
 <link rel="stylesheet" href="/css/footer.css" />
 <link rel="stylesheet" href="/css/projects.css" />
 {% endblock css %}
@@ -21,11 +21,11 @@
 
 <header {% if config.extra.blur_effect %} class="blur" {% endif %}>
     <div class="top">
-        <a class="projects" href="/projects"><i class="{{ config.extra.projects_icon }} ri-2x"></i><span>Projects</span></a>
+        <a class="header projects" href="/projects"><i class="{{ config.extra.projects_icon }} ri-2x"></i><span>Projects</span></a>
         <a class="back" href="/"><i class="ri-arrow-left-s-line ri-1x"></i><span>Home</span></a>
         <div class="icon">
-            <a id="go-home" href="/"><i class="ri-user-6-line ri-xl"></i></a>
-            <a id="color-toggle"><i class="ri-moon-line ri-xl"></i></a>
+            <a id="go-home" href="/" aria-label="home"><i class="{{ config.extra.home_icon }} ri-xl"></i></a>
+            <a id="color-toggle" aria-label="dark light mode switch"><i class="ri-moon-line ri-xl"></i></a>
         </div>
     </div>
     <div id="progress-bar"></div>
@@ -40,7 +40,7 @@
         <p class="desc">{{ proj.desc }}</p>
         <div class="links">
             {% for link in proj.links %}
-            <a href="{{ link.url }}">{{ link.name }}</a>
+            <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
             {% endfor %}
         </div>
     </div>

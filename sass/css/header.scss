@@ -35,7 +35,7 @@ header {
         }
     }
     
-    a.blog {
+    a.header {
         position: relative;
         color: $text-primary-color;
         padding-left: 10px;
@@ -93,7 +93,7 @@ body.dark-mode {
             color: $primary-color;
         }
     }
-    header a.blog {
+    header a.header {
         color: $dark-text-primary-color;
         &:visited {
             color: $dark-text-primary-color;

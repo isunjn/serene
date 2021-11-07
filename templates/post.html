@@ -1,20 +1,20 @@
 {% extends "_base.html" %}
 
-{%- block lang -%}
+{% block lang %}
 {% set section = get_section(path="blog/_index.md", metadata_only=true) %}
-{%- if page.extra.lang -%}
+{% if page.extra.lang %}
 {{page.extra.lang}}
-{%- elif section.extra.lang -%}
+{% elif section.extra.lang %}
 {{section.extra.lang}}
-{%- else -%}
+{% else %}
 {{page.lang}}
-{%- endif -%}
-{%- endblock lang -%}
+{% endif %}
+{% endblock lang %}
 
 {% block title %} {{ page.title }} {% endblock title %}
 
 {% block css %}
-<link rel="stylesheet" href="/css/blog_header.css" />
+<link rel="stylesheet" href="/css/header.css" />
 <link rel="stylesheet" href="/css/footer.css" />
 <link rel="stylesheet" href="/css/post.css" />
 {% if config.extra.comment == "gitalk" %}
@@ -149,7 +149,7 @@
         owner: '{{ config.extra.gitalk.owner }}',
         admin: [{% for admin in config.extra.gitalk.admin %}'{{ admin }}',{% endfor %}],
         id: location.pathname,
-        distractionFreeMode: {{ config.extra.gitalk.distraction_freeMode }},
+        distractionFreeMode: {{ config.extra.gitalk.distraction_free_mode }},
         perPage: {{ config.extra.gitalk.per_page }},
         pageDirection: "{{ config.extra.gitalk.page_direction }}",
         proxy: "{{ config.extra.gitalk.proxy | safe }}"

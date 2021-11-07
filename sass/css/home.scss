@@ -17,7 +17,7 @@ div.info {
         height: 80px;
         box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 16px 0px;
         border-radius: 50%;
-        margin-right: 20px;
+        margin-right: 30px;
     }
     
     .info-text {
@@ -93,7 +93,7 @@ div.brief {
     }
     p > code {
         font-family: "JetBrains Mono", monospace;
-        font-size: 0.9em;
+        font-size: 0.8em;
         padding: 0px 6px;
         color: $primary-color;
         background-color: $primary-light-color;

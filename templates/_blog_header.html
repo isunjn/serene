@@ -1,17 +1,17 @@
 <header {% if config.extra.blur_effect %} class="blur" {% endif %}>
     <div class="top">
-        <a class="blog" href="/blog"><i class="{{ config.extra.blog_icon }} ri-2x"></i><span>Blog</span></a>
+        <a class="header blog" href="/blog"><i class="{{ config.extra.blog_icon }} ri-2x"></i><span>Blog</span></a>
         <a class="back" href="/"><i class="ri-arrow-left-s-line ri-1x"></i><span>Home</span></a>
         <div class="icon">
-            <a id="go-home" href="/"><i class="ri-user-6-line ri-xl"></i></a>
+            <a id="go-home" href="/" aria-label="home" ><i class="{{ config.extra.home_icon }} ri-xl"></i></a>
             {% if config.generate_feed %} 
-            <a href="/{{ config.feed_filename }}"><i class="ri-rss-line ri-xl"></i></a>
+            <a href="/{{ config.feed_filename }}" aria-label="rss feed" ><i class="{{ config.extra.rss_icon }} ri-xl"></i></a>
             {% endif %}
-            <a id="color-toggle"><i class="ri-moon-line ri-xl"></i></a>
+            <a id="color-toggle" aria-label="dark light mode switch"><i class="ri-moon-line ri-xl"></i></a>
             {% if page.extra.toc is defined %} {% set show_toc = page.extra.toc %}
             {% else %} {% set show_toc = config.extra.toc %} {% endif %}
             {% if show_toc and page %}
-            <a id="toc-toggle"><i class="ri-menu-2-line ri-xl"></i></a>             
+            <a id="toc-toggle" aria-label="table of content"><i class="{{ config.extra.toc_icon }} ri-xl"></i></a>             
             {% endif %}
         </div>
     </div>

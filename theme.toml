@@ -13,12 +13,16 @@ homepage = "https://github.com/isunjn"
 name = "xxxx"
 id = "xxxx"
 bio = "xxxx"
-avatar = "img/avatar.png"
+avatar = "img/avatar.webp"
 
 show_id = true
-show_projects = false #TODO
+show_projects = true
+
 blog_icon = "ri-quill-pen-line"
 projects_icon = "ri-compasses-2-line"
+home_icon = "ri-user-6-line"
+rss_icon = "ri-rss-line"
+toc_icon = "ri-menu-2-line"
 
 links = [
     {name = "GitHub", icon = "ri-github-line", url = "https://github.com/<your-username>"},
@@ -31,10 +35,10 @@ toc = true
 blur_effect = true
 back_to_top_button = true
 progress_bar = true
-cc_license = true
-cc_license_info = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/), please contact the author for reprinting."
+cc_license = false
+cc_license_info = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)."
 
-outdate_warn = true
+outdate_warn = false
 outdate_warn_days = 120
 outdate_warn_text1 = "Note: This article was last updated "
 outdate_warn_text2 = " days ago and may be out of date."
@@ -47,6 +51,7 @@ footer_credits = true
 comment = "none"  # gitalk / disqus / disqus_js
 analytics = "none"  # google_analytics / cloudflare_web_analytics / umami / baidu_tongji
 
+
 #======================= Comment =======================
 
 [extra.gitalk]
@@ -55,7 +60,7 @@ client_secret = "xxxxxxxx"
 repo = "xxxxxxxx"
 owner = "xxxx"
 admin = ["xxxx"]
-distraction_freeMode = false
+distraction_free_mode = false
 per_page = 10
 page_direction = "first"
 proxy = "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"
@@ -77,9 +82,7 @@ apikey = "xxxx"
 # admin_label = "xxxx"
 
 
-
 #======================= Analytics =======================
-
 
 [extra.google_analytics]
 id = "G-XXXXXXXX"  # or UA-XXXXXXXX
