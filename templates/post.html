@@ -11,7 +11,11 @@
 {% endif %}
 {% endblock lang %}
 
-{% block title %} {{ page.title }} {% endblock title %}
+{% block title %}{{ page.title }}{% endblock title %}
+
+{% block desc %}
+{% if page.summary %}{{ page.summary }}{% endif %}
+{% endblock desc %}
 
 {% block css %}
 <link rel="stylesheet" href="/css/header.css" />
