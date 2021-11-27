@@ -8,7 +8,17 @@ Serene is a simple yet feature-rich blog theme for Static-Site-Generator [Zola](
 
 ## Preview
 
-//screenshots
+<details>
+  <summary>Click to see screenshots</summary>
+  
+  ![](screenshots/1.png)
+  ![](screenshots/2.png)
+  ![](screenshots/3.png)
+  ![](screenshots/4.png)
+  ![](screenshots/5.png)
+  ![](screenshots/6.png)
+  ![](screenshots/7.png)
+</details>
 
 ## Features
 
@@ -29,14 +39,13 @@ Serene is a simple yet feature-rich blog theme for Static-Site-Generator [Zola](
 
 ## How to use
 
-To get started with serene, check the [Docs]().
-
+To get started with serene, check the [Docs](https://github.com/isunjn/serene/wiki).
 
 ## Contributing
 
-If you found a bug or want a specific feature, just open a issue.
+If you found a bug or want a specific feature, just open an issue.
 
-Be noticed that to keep serene simple, some niche needs may not be considered. You can implement that in your own site.
+Be noticed that to keep serene simple, some niche needs may not be considered. You can implement it in your own site.
 
 ## Credits
 
