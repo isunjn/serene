@@ -4,7 +4,7 @@
 
 Serene 是一款简洁却又功能丰富的博客主题，适用于静态网站生成器 [Zola](https://www.getzola.org)
 
-[示例站点]() | [文档](https://github.com/isunjn/serene/wiki)
+[示例站点](https://serene-demo-site.vercel.app) | [文档](https://github.com/isunjn/serene/wiki)
 
 ## 预览
 

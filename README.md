@@ -4,7 +4,7 @@ English | [简体中文](README-cn.md)
 
 Serene is a simple yet feature-rich blog theme for Static-Site-Generator [Zola](https://www.getzola.org/).
 
-[Demo]() | [Docs](https://github.com/isunjn/serene/wiki)
+[Demo](https://serene-demo-site.vercel.app) | [Docs](https://github.com/isunjn/serene/wiki)
 
 ## Preview
 
