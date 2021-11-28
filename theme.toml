@@ -28,7 +28,6 @@ links = [
     {name = "GitHub", icon = "ri-github-line", url = "https://github.com/<your-username>"},
     {name = "Twitter", icon = "ri-twitter-line", url = "https://twitter.com/<your-username>"},
     {name = "Email", icon = "ri-mail-line", url = "mailto:<your-email-address>"}
-    # Your can add more links
 ]
 
 toc = true
@@ -36,7 +35,7 @@ blur_effect = true
 back_to_top_button = true
 progress_bar = true
 cc_license = false
-cc_license_info = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)."
+cc_license_statement = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)."
 
 feed_in_blog_section = true
 
