@@ -6,7 +6,7 @@ header div#progress-bar {
 
 main {
     max-width: 750px;
-    min-height: 70vh;
+    min-height: calc(100vh - 230px);
     margin: 85px auto;
 
     .title {

@@ -1,7 +1,7 @@
 @import 'var';
 
 footer {
-    max-width: 750px;
+    max-width: 720px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,12 +13,16 @@ footer {
         color: $text-light-color;
     }
     div {
-        margin: 0 15px;
         margin-bottom: 20px;
         display: flex;
         align-items: center;
-        gap: 5px;
         flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    footer {
+        justify-content: center;
     }
 }
 

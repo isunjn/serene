@@ -18,6 +18,7 @@ div.blank {
 main {
     width: 100%;
     max-width: 750px;
+    min-height: calc(100vh - 230px);
 }
 
 article {

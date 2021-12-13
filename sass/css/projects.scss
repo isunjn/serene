@@ -7,7 +7,7 @@ header div#progress-bar {
 main {
     margin: 80px auto;
     max-width: 750px;
-    min-height: 70vh;
+    min-height: calc(100vh - 230px);
 }
 
 .proj {
