@@ -1,6 +1,7 @@
 @import 'var';
 
 footer {
+    box-sizing: border-box;
     max-width: 750px;
     padding: 0 15px;
     display: flex;
