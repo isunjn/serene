@@ -39,6 +39,9 @@ article {
     }
     .tags {
         margin-bottom: 1em;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
     }
     .tag{
         color: $primary-color;
@@ -50,9 +53,6 @@ article {
         &:hover {
             text-decoration: none;
             cursor: pointer;
-        }
-        + .tag {
-            margin-left: 15px;
         }
     }
 
