@@ -17,28 +17,28 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/base.css">
     {% block css %}{% endblock css %}
-    {% if config.extra.analytics == 'umami' %}
+    {% if config.extra.analytics == 'umami' -%}
     <script async defer data-website-id="{{ config.extra.umami.website_id }}" src="{{ config.extra.umami.src }}"></script>
-    {% endif %}
-    {% if config.extra.analytics == 'busuanzi' %}
+    {%- endif -%}
+    {% if config.extra.analytics == 'busuanzi' -%}
     <script async defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    {% endif %}
-    {% if config.extra.analytics == 'google_analytics' %}
+    {%- endif -%}
+    {% if config.extra.analytics == 'google_analytics' -%}
     <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.google_analytics.id }}"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '{{ config.extra.google_analytics.id }}');</script>
-    {% endif %}
-    {% if config.extra.analytics == 'cloudflare_web_analytics' %}
+    {%- endif -%}
+    {% if config.extra.analytics == 'cloudflare_web_analytics' -%}
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ config.extra.cloudflare_web_analytics.token }}"}'></script><!-- End Cloudflare Web Analytics -->
-    {% endif %}
-    {% if config.extra.analytics == 'baidu_tongji' %}
+    {%- endif -%}
+    {% if config.extra.analytics == 'baidu_tongji' -%}
     <script>var _hmt = _hmt || [];(function() {  var hm = document.createElement("script");  hm.src = "https://hm.baidu.com/hm.js?{{ config.extra.baidu_tongji.token }}";  var s = document.getElementsByTagName("script")[0];   s.parentNode.insertBefore(hm, s);})();</script>
-    {% endif %}
+    {%- endif %}
 </head>
 
 <body>
     <script>if(localStorage.getItem('theme')=='dark'){document.body.classList.add('dark-mode');}</script>
-    {% block content %}{% endblock content %}
+    {% block content %}{% endblock content -%}
     <script src="/js/dark.js"></script>
-    {% block script %}{% endblock script %}
+    {%- block script %}{% endblock script %}
 </body>
 
 </html>

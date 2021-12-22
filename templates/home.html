@@ -1,17 +1,17 @@
 {% extends "_base.html" %}
 
-{% block lang %}
-{% if section.extra.lang %} {{ section.extra.lang }} 
-{% else %} {{ section.lang }} {% endif %}
-{% endblock lang %}
+{% block lang -%}
+{% if section.extra.lang %}{{ section.extra.lang }} 
+{%- else %}{{ section.lang }}{% endif %}
+{%- endblock lang -%}
 
-{% block title %} {{ config.title }} {% endblock title %}
+{% block title %}{{ config.title }}{% endblock title %}
 
-{% block desc %} {{ config.description }} {% endblock desc %}
+{% block desc %}{{ config.description }}{% endblock desc %}
 
-{% block css %}
+{% block css -%}
 <link rel="stylesheet" href="/css/home.css" />
-{% endblock css %}
+{%- endblock css %}
 
 {% block content %}
 <main>
@@ -20,9 +20,9 @@
         <div class="info-text">
             <p>
                 <span id="name">{{ config.extra.name }}</span>
-                {% if config.extra.show_id %}
+                {% if config.extra.show_id -%}
                 <span id="id">@{{ config.extra.id }}</span>
-                {% endif %}
+                {% endif -%}
             </p>
             <p id="bio"> {{ config.extra.bio }} </p>
         </div>
@@ -33,20 +33,20 @@
                 <i class="{{ config.extra.blog_icon }} ri-xl"></i>
                 <span>Blog</span>
             </a>
-            {% if config.extra.show_projects %}
+            {% if config.extra.show_projects -%}
             <a href="/projects" id="projects">
                 <i class="{{ config.extra.projects_icon }} ri-xl"></i>
                 <span>Projects</span>
             </a>
-            {% endif %}
+            {% endif -%}
         </div>
         <div class="right">
-            {% for link in config.extra.links %}
+            {% for link in config.extra.links -%}
             <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'><i class="{{ link.icon }} ri-xl"></i></a>
-            {% endfor %}
+            {% endfor -%}
             <button id="color-toggle"  aria-label="dark light mode switch"><i class="ri-moon-line ri-xl"></i></button>
         </div>
     </div>
-    <div class="brief">{{ section.content | safe }}</div>
+    <div class="brief">{{ section.content | trim | safe }}</div>
 </main>
 {% endblock content %}

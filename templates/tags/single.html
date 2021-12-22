@@ -1,18 +1,18 @@
 {% extends "_base.html" %}
 
-{%- block lang -%}
-{% set section = get_section(path="blog/_index.md", metadata_only=true) %}
-{%- if section.extra.lang -%} {{ section.extra.lang }}
-{%- else -%}{{ lang }}{%- endif -%}
-{%- endblock lang -%}
+{% block lang -%}
+{%- set section = get_section(path="blog/_index.md", metadata_only=true) %}
+{%- if section.extra.lang %}{{ section.extra.lang }}
+{%- else %}{{ lang }}{% endif %}
+{%- endblock lang %}
 
-{% block title %} {{section.title}} {% endblock title %}
+{% block title %}{{section.title}}{% endblock title %}
 
-{% block css %}
+{% block css -%}
 <link rel="stylesheet" href="/css/header.css" />
 <link rel="stylesheet" href="/css/footer.css" />
 <link rel="stylesheet" href="/css/tags_single.css" />
-{% endblock css %}
+{%- endblock css %}
 
 {% block content %}
 {% include "_blog_header.html" %}
@@ -23,12 +23,12 @@
         <a href="{{ config.base_url ~ '/tags' }}">All Tags</a>
     </div>
     <div class="post-list">
-        {% for post in term.pages %}
+        {% for post in term.pages -%}
         <a class="post" href="{{ post.permalink }}">
             <span>{{ post.title }}</span>
             <span class="date">{{ post.date}}</span>
         </a>
-        {% endfor %}
+        {%- endfor %}
     </div>
 </main>
 {% include "_footer.html" %}

@@ -1,24 +1,23 @@
 {% extends "_base.html" %}
 
 
-{% block lang %}
-{% if section.extra.lang %} {{ section.extra.lang }} 
-{% else %} {{ section.lang }} {% endif %}
-{% endblock lang %}
+{% block lang -%}
+{% if section.extra.lang %}{{ section.extra.lang }} 
+{%- else %}{{ section.lang }}{% endif %}
+{%- endblock lang %}
 
-{% block title %} {{ section.title }} {% endblock title %}
+{% block title %}{{ section.title }}{% endblock title %}
 
-{% block desc %} {{ section.description }} {% endblock desc %}
+{% block desc %}{{ section.description }}{% endblock desc %}
 
-{% block css %}
+{% block css -%}
 <link rel="stylesheet" href="/css/header.css" />
 <link rel="stylesheet" href="/css/footer.css" />
 <link rel="stylesheet" href="/css/projects.css" />
-{% endblock css %}
+{%- endblock css %}
 
 
 {% block content %}
-
 <header {% if config.extra.blur_effect %} class="blur" {% endif %}>
     <div class="top">
         <a class="header projects" href="/projects"><i class="{{ config.extra.projects_icon }} ri-2x"></i><span>Projects</span></a>
@@ -30,23 +29,20 @@
     </div>
     <div id="progress-bar"></div>
 </header>
-
-{% set data = load_data(path="content/projects/data.toml", format="toml") %}
+{% set data = load_data(path="content/projects/data.toml", format="toml") -%}
 
 <main>
-    {% for proj in data.project %}
+    {% for proj in data.project -%}
     <div class="proj">
         <p class="name">{{ proj.name }}</p>
         <p class="desc">{{ proj.desc }}</p>
         <div class="links">
-            {% for link in proj.links %}
+            {% for link in proj.links -%}
             <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
-            {% endfor %}
+            {%- endfor %}
         </div>
     </div>
-    {% endfor %}
+    {%- endfor %}
 </main>
-
-{% include "_footer.html" %}
-
+{% include "_footer.html" -%}
 {% endblock content %}
