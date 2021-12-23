@@ -101,7 +101,7 @@ div.brief {
         }
     }
     p > code {
-        font-family: "JetBrains Mono", monospace;
+        font-family: $code-font;
         font-size: 0.8em;
         padding: 0px 6px;
         color: $primary-color;

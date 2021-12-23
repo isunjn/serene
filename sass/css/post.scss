@@ -117,7 +117,7 @@ article {
     }
 
     p > code {
-        font-family: "JetBrains Mono", monospace;
+        font-family: $code-font;
         font-size: 0.9em;
         padding: 0px 6px;
         color: $primary-color;
@@ -132,7 +132,7 @@ article {
         overflow: auto;
         font-size: 0.9em;
         code {
-            font-family: "JetBrains Mono", monospace;
+            font-family: $code-font;
         }
     }
 

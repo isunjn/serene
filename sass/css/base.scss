@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Jost', 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+    font-family: $main-font;
     min-height: 100%;
     background-color: $bg-color;
     color: $text-primary-color;
