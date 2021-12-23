@@ -50,7 +50,7 @@
                 <div class="tags">
                     {% for tag in page.taxonomies.tags -%}
                     {% set tag_slugify = tag | slugify -%}
-                    <a class="tag" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><i class="ri-hashtag ri-sm"></i><span>{{ tag | lower }}</span></a>
+                    <a class="tag" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><i class="ri-hashtag ri-sm"></i><span>{{ tag }}</span></a>
                     {%- endfor %}
                 </div>
             </div>

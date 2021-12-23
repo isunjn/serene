@@ -19,16 +19,19 @@ taxonomies = [
 ]
 
 [markdown]
-highlight_code = true            # Whether to highlight code
+highlight_code = true
 extra_syntaxes = []          
 highlight_theme = "nord"         # The highlight theme, choose one at https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting
-render_emoji = true              # Whether to render emoji
+render_emoji = true
+external_links_target_blank = false
+external_links_no_follow = false
+external_links_no_referrer = false
+smart_punctuation = false
 
-[search]                         # Search is temporarily unsupported
-include_title = true
-include_description = false
-include_path = false
-include_content = true
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
 
 #=========================================================================================
 [extra]
