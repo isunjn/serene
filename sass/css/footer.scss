@@ -9,10 +9,10 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     font-size: 0.95em;
-    color: $text-light-color;
+    color: var(--text-light-color);
     margin: 10px auto;
     a {
-        color: $text-light-color;
+        color: var(--text-light-color);
     }
     div {
         margin-bottom: 20px;
@@ -31,6 +31,6 @@ footer {
 body.dark-mode {
     footer,
     footer a {
-        color: $dark-text-light-color;
+        color: var(--dark-text-light-color);
     }
 }

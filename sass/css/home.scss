@@ -26,14 +26,14 @@ div.info {
             margin-right: 10px;
         }
         #id {
-            border: 2px $primary-color solid;
-            color: $primary-color;
+            border: 2px var(--primary-color) solid;
+            color: var(--primary-color);
             padding: 0px 16px 1px 16px;
             border-radius: 20px;
             font-size: 0.75em;
         }
         #bio {
-            color: $text-second-color;
+            color: var(--text-second-color);
             font-size: 0.8em;
         }
     }
@@ -51,35 +51,35 @@ div.link {
         text-align: center;
         margin-right: 10px;
         text-decoration: none;
-        color: $text-primary-color;
+        color: var(--text-primary-color);
         span {
             position: relative;
             top: -3px;
             font-size: 1.3em;
-            text-decoration: underline $primary-color 2px;
+            text-decoration: underline var(--primary-color) 2px;
         }
         &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
 
     .right a {
         text-decoration: none;
-        color: $text-primary-color;
+        color: var(--text-primary-color);
         cursor: pointer;
         margin-right: 10px;
         &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
     .right button {
-        color: $text-primary-color;
+        color: var(--text-primary-color);
         padding: 0;
         border: none;
         background-color: #0000;
         cursor: pointer;
         &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
 }
@@ -93,38 +93,38 @@ div.brief {
         margin: 0.5em 0;
     }
     a {
-        color: $primary-color;
-        text-decoration: underline $primary-light-color 2px;
+        color: var(--primary-color);
+        text-decoration: underline var(--primary-light-color) 2px;
         &:hover {
-            text-decoration-color: $primary-color;
+            text-decoration-color: var(--primary-color);
         }
     }
     p > code {
-        font-family: $code-font;
+        font-family: var(--code-font);
         font-size: 0.8em;
         padding: 0px 6px;
-        color: $primary-color;
-        background-color: $primary-light-color;
+        color: var(--primary-color);
+        background-color: var(--primary-light-color);
         border-radius: 4px;
     }
     img {
         max-width: 100%;
         display: block;
         margin: 0 auto;
-        border-radius: $img-border-radius;
+        border-radius: var(--img-border-radius);
     }
     blockquote {
-        border-left: 4px $primary-light-color solid;
+        border-left: 4px var(--primary-light-color) solid;
         padding-left: 16px;
         margin: 0 0 24px 0;
-        color: $text-light-color;
+        color: var(--text-light-color);
     }
     li::marker {
-        color: $primary-color;
+        color: var(--primary-color);
     }
     hr {
         border: none;
-        background-color: $primary-light-color;
+        background-color: var(--primary-light-color);
         height: 4px;
         margin: 1.5em 0;
     }
@@ -165,17 +165,17 @@ div.brief {
 
 body.dark-mode {
     div.info .info-text #bio {
-        color: $dark-text-second-color;
+        color: var(--dark-text-second-color);
     }
     div.link .left a,
     div.link .right a,
     div.link .right button {
-        color: $dark-text-primary-color;
+        color: var(--dark-text-primary-color);
         &:visited {
-            color: $dark-text-primary-color;
+            color: var(--dark-text-primary-color);
         }
         &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
 }

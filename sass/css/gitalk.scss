@@ -715,7 +715,7 @@
             box-sizing: border-box;
   }
   .gt-container a {
-    color: $primary-color;
+    color: var(--primary-color);
   }
   .gt-container a.is--active {
     color: #333;
@@ -736,7 +736,7 @@
   .gt-container .gt-svg svg {
     width: 100%;
     height: 100%;
-    fill: $primary-color;
+    fill: var(--primary-color);
   }
   .gt-container .gt-ico {
     display: inline-block;
@@ -767,7 +767,7 @@
     margin-left: -0.375em;
     border-radius: 50%;
     border: 1px solid #fff;
-    border-top-color: $primary-color;
+    border-top-color: var(--primary-color);
     -webkit-animation: gt-kf-rotate 0.6s linear infinite;
             animation: gt-kf-rotate 0.6s linear infinite;
   }
@@ -830,9 +830,9 @@
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
-    border: 1px solid $primary-color;
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     color: #fff;
     outline: none;
     font-size: 0.75em;
@@ -857,7 +857,7 @@
   }
   .gt-container .gt-btn-preview {
     background-color: #fff;
-    color: $primary-color;
+    color: var(--primary-color);
   }
   .gt-container .gt-error {
     text-align: center;
@@ -877,7 +877,7 @@
     text-align: center;
   }
   .gt-container .gt-link {
-    border-bottom: 1px dotted $primary-color;
+    border-bottom: 1px dotted var(--primary-color);
   }
   .gt-container .gt-link-counts,
   .gt-container .gt-link-project {
@@ -925,7 +925,7 @@
     fill: inherit;
   }
   .gt-container .gt-user .is--poping .gt-ico svg {
-    fill: $primary-color;
+    fill: var(--primary-color);
   }
   .gt-container .gt-version {
     color: #a1a1a1;
@@ -940,7 +940,7 @@
     position: absolute;
     right: 0;
     top: 2.375em;
-    background-color: $bg-color;
+    background-color: var(--bg-color);
     display: inline-block;
     border: 1px solid #383A3DF0;
     border-radius: 3px;
@@ -960,7 +960,7 @@
     content: '';
     width: 0.25em;
     height: 0.25em;
-    background: $primary-color;
+    background: var(--primary-color);
     position: absolute;
     left: 0.5em;
     top: 0.4375em;
@@ -995,7 +995,7 @@
     font-size: 0.875em;
     word-wrap: break-word;
     resize: vertical;
-    color: $text-primary-color;
+    color: var(--text-primary-color);
     background-color: #f6f6f6;
     outline: none;
     -webkit-transition: all 0.25s ease;
@@ -1026,7 +1026,7 @@
   }
   .gt-container .gt-header-controls-tip {
     font-size: 0.875em;
-    color: $primary-color;
+    color: var(--primary-color);
     text-decoration: none;
     vertical-align: sub;
   }
@@ -1126,7 +1126,7 @@
   }
   .gt-container .gt-comment-username {
     font-weight: 500;
-    color: $primary-color;
+    color: var(--primary-color);
     text-decoration: none;
   }
   .gt-container .gt-comment-username:hover {
@@ -1161,7 +1161,7 @@
     right: 0;
   }
   .gt-container .gt-comment-body {
-    color: $text-primary-color;
+    color: var(--text-primary-color);
   }
   .gt-container .gt-comment-body .email-hidden-toggle a {
     display: inline-block;
@@ -1226,9 +1226,9 @@
     }
     .gt-container .gt-header-textarea {
       background-color: #383A3DF0;
-      color: $dark-text-primary-color;
+      color: var(--dark-text-primary-color);
     }
     .gt-container .gt-comment-body {
-      color: $dark-text-primary-color;
+      color: var(--dark-text-primary-color);
     }
   }

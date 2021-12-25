@@ -31,7 +31,7 @@ article {
         margin-bottom: 1em;
     }
     .date {
-        color: $text-light-color;
+        color: var(--text-light-color);
         margin-bottom: 1em;
         #publish {
             margin-right: 20px;
@@ -44,7 +44,7 @@ article {
         flex-wrap: wrap;
     }
     .tag{
-        color: $primary-color;
+        color: var(--primary-color);
         text-decoration: none;
         span {
             position: relative;
@@ -80,16 +80,16 @@ article {
     }
 
     p {
-        font-size: $paragraph-font-size;
-        line-height: $paragraph-line-height;
+        font-size: var(--paragraph-font-size);
+        line-height: var(--paragraph-line-height);
         word-wrap: break-word;
     }
 
     a {
-        color: $primary-color;
-        text-decoration: underline $primary-light-color 2px;
+        color: var(--primary-color);
+        text-decoration: underline var(--primary-light-color) 2px;
         &:hover {
-            text-decoration-color: $primary-color;
+            text-decoration-color: var(--primary-color);
         }
     }
 
@@ -97,7 +97,7 @@ article {
         max-width: 100%;
         display: block;
         margin: 0 auto;
-        border-radius: $img-border-radius;
+        border-radius: var(--img-border-radius);
     }
 
     figure {
@@ -110,29 +110,29 @@ article {
     }
 
     blockquote {
-        border-left: 4px $primary-light-color solid;
+        border-left: 4px var(--primary-light-color) solid;
         padding-left: 16px;
         margin: 0 0 24px 0;
-        color: $text-light-color;
+        color: var(--text-light-color);
     }
 
     p > code {
-        font-family: $code-font;
+        font-family: var(--code-font);
         font-size: 0.9em;
         padding: 0px 6px;
-        color: $primary-color;
-        background-color: $primary-light-color;
+        color: var(--primary-color);
+        background-color: var(--primary-light-color);
         border-radius: 4px;
     }
 
     pre {
         padding: 12px 16px;
         line-height: 1.5;
-        border-radius: $pre-border-radius;
+        border-radius: var(--pre-border-radius);
         overflow: auto;
         font-size: 0.9em;
         code {
-            font-family: $code-font;
+            font-family: var(--code-font);
         }
     }
 
@@ -142,12 +142,12 @@ article {
     }
 
     li::marker {
-        color: $primary-color;
+        color: var(--primary-color);
     }
 
     hr {
         border: none;
-        background-color: $primary-light-color;
+        background-color: var(--primary-light-color);
         height: 4px;
         margin: 36px 0;
     }
@@ -157,18 +157,18 @@ article {
         border-spacing: 0;
     }
     thead {
-        background-color: $primary-light-color;
+        background-color: var(--primary-light-color);
     }
     th, td {
         line-height: 2;
         text-align: center;
-        border: 1px solid $primary-light-color;
+        border: 1px solid var(--primary-light-color);
     }
     
     blockquote.note {
         display: flex;
         line-height: 1.75;
-        padding: 8px 10px;
+        padding: 6px 10px;
         margin-bottom: 20px;
         border: none;
         border-radius: 4px;
@@ -185,68 +185,68 @@ article {
             &.hidden {
                 display: none;
             }
-            background-color: $note-warning-bg-color;
-            color: $note-wrong-color;
+            background-color: var(--note-warning-bg-color);
+            color: var(--note-wrong-color);
         }
         &#cc_license {
-            background-color: $note-cc-license-bg-color;
-            color: $note-cc-license-color;
+            background-color: var(--note-cc-license-bg-color);
+            color: var(--note-cc-license-color);
         }
         &.info {
-            background-color: $note-info-bg-color;
-            color: $note-info-color;
+            background-color: var(--note-info-bg-color);
+            color: var(--note-info-color);
         }
         &.important {
-            background-color: $note-important-bg-color;
-            color: $note-important-color;
+            background-color: var(--note-important-bg-color);
+            color: var(--note-important-color);
         }
         &.tip {
-            background-color: $note-tip-bg-color;
-            color: $note-tip-color;
+            background-color: var(--note-tip-bg-color);
+            color: var(--note-tip-color);
         }
         &.question {
-            background-color: $note-question-bg-color;
-            color: $note-question-color;
+            background-color: var(--note-question-bg-color);
+            color: var(--note-question-color);
         }
         &.caution {
-            background-color: $note-caution-bg-color;
-            color: $note-caution-color;
+            background-color: var(--note-caution-bg-color);
+            color: var(--note-caution-color);
         }
         &.warning {
-            background-color: $note-warning-bg-color;
-            color: $note-warning-color;
+            background-color: var(--note-warning-bg-color);
+            color: var(--note-warning-color);
         }
         &.star {
-            background-color: $note-star-bg-color;
-            color: $note-star-color;
+            background-color: var(--note-star-bg-color);
+            color: var(--note-star-color);
         }
         &.check {
-            background-color: $note-check-bg-color;
-            color: $note-check-color;
+            background-color: var(--note-check-bg-color);
+            color: var(--note-check-color);
         }
         &.wrong {
-            background-color: $note-wrong-bg-color;
-            color: $note-wrong-color;
+            background-color: var(--note-wrong-bg-color);
+            color: var(--note-wrong-color);
         }
         &.good {
-            background-color: $note-good-bg-color;
-            color: $note-good-color;
+            background-color: var(--note-good-bg-color);
+            color: var(--note-good-color);
         }
         &.bad {
-            background-color: $note-bad-bg-color;
-            color: $note-bad-color;
+            background-color: var(--note-bad-bg-color);
+            color: var(--note-bad-color);
         }
         &.happy {
-            background-color: $note-happy-bg-color;
-            color: $note-happy-color;
+            background-color: var(--note-happy-bg-color);
+            color: var(--note-happy-color);
         }
         &.unhappy {
-            background-color: $note-unhappy-bg-color;
-            color: $note-unhappy-color;
+            background-color: var(--note-unhappy-bg-color);
+            color: var(--note-unhappy-color);
         }
         &.flag {
-            background-color: $note-flag-bg-color;
-            color: $note-flag-color;
+            background-color: var(--note-flag-bg-color);
+            color: var(--note-flag-color);
         }
     }
 }
@@ -287,16 +287,16 @@ aside {
         &:hover,
         &.active {
             &::before {
-                background-color: $primary-color;
+                background-color: var(--primary-color);
             }
         }
     }
 
     .toc-h2 {
-        color: $primary-color;
+        color: var(--primary-color);
     }
     .toc-h3 {
-        color: $text-second-color;
+        color: var(--text-second-color);
     }
 }
 
@@ -311,7 +311,7 @@ aside {
         margin-top: 0;
         min-width: 240px;
         height: 100%;
-        background-color: $bg-color;
+        background-color: var(--bg-color);
         box-shadow: rgba(0, 0, 0, 0.08) -2px 8px 8px 0px;
         nav {
             padding-top: 10px;
@@ -325,16 +325,16 @@ aside {
         }
     }
     body.dark-mode aside {
-        background-color: $dark-bg-color;
+        background-color: var(--dark-bg-color);
     }
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
         aside.blur {
-            background-color: $blur-bg-color;
+            background-color: var(--blur-bg-color);
             -webkit-backdrop-filter: blur(8px);
             backdrop-filter: blur(8px);
         }
         body.dark-mode aside.blur {
-            background-color: $dark-blur-bg-color;
+            background-color: var(--dark-blur-bg-color);
             -webkit-backdrop-filter: blur(8px);
             backdrop-filter: blur(8px);
         }
@@ -358,26 +358,26 @@ aside {
     position: fixed;
     bottom: 18px;
     margin-left: 20px;
-    color: $text-light-color;
+    color: var(--text-light-color);
     &:hover {
-        color: $primary-color;
+        color: var(--primary-color);
     }
 }
 
 body.dark-mode {
     article {
         .date {
-            color: $dark-text-light-color;
+            color: var(--dark-text-light-color);
         }
         blockquote {
-            color: $dark-text-light-color;
-            border-color: $dark-primary-light-color;
+            color: var(--dark-text-light-color);
+            border-color: var(--dark-primary-light-color);
         }
         hr {
-            background-color: $dark-primary-light-color;
+            background-color: var(--dark-primary-light-color);
         }
     }
     aside .toc-h3 {
-        color: $dark-text-second-color;
+        color: var(--dark-text-second-color);
     }
 }

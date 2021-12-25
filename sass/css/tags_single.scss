@@ -12,7 +12,7 @@ main {
     .title {
         width: min-content;
         white-space: nowrap;
-        color: $text-second-color;
+        color: var(--text-second-color);
         font-size: 1.8em;
         margin: 0 auto;
         margin-bottom: 40px;
@@ -27,9 +27,9 @@ main {
             position: relative;
             top: -4px;
             font-size: 14px;
-            color: $primary-color;
+            color: var(--primary-color);
             :visited {
-                color: $primary-color;
+                color: var(--primary-color);
             }
         }
     }
@@ -43,12 +43,12 @@ main {
         margin-bottom: 4px;
         font-size: 1.2em;
         &:hover {
-            background-color: $primary-light-color;
+            background-color: var(--primary-light-color);
         }
         text-decoration: none;
-        color: $primary-color;
+        color: var(--primary-color);
         .date {
-            color: $primary-color;
+            color: var(--primary-color);
             white-space: nowrap;
         }
     }
@@ -66,9 +66,9 @@ main {
 
 body.dark-mode {
     main .title {
-        color: $dark-text-second-color;
+        color: var(--dark-text-second-color);
     }
     main .post:hover {
-        background-color: $dark-primary-light-color;
+        background-color: var(--dark-primary-light-color);
     }
 }

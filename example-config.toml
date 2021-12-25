@@ -24,8 +24,8 @@ extra_syntaxes = []
 highlight_theme = "nord"         # The highlight theme, choose one at https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting
 render_emoji = true
 external_links_target_blank = false
-external_links_no_follow = false
-external_links_no_referrer = false
+external_links_no_follow = true
+external_links_no_referrer = true
 smart_punctuation = false
 
 [slugify]

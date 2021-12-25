@@ -7,22 +7,22 @@
 }
 
 body {
-    font-family: $main-font;
+    font-family: var(--main-font);
     min-height: 100%;
-    background-color: $bg-color;
-    color: $text-primary-color;
+    background-color: var(--bg-color);
+    color: var(--text-primary-color);
 }
 
 body.dark-mode {
-  background-color: $dark-bg-color;
-  color: $dark-text-primary-color;
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-primary-color);
 }
 
 a {
   -webkit-tap-highlight-color: transparent;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 425px) {
 
 ::-webkit-scrollbar {
   width: 8px;

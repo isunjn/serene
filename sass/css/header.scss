@@ -5,7 +5,7 @@ header {
     width: 100%;
     top: 0;
     height: 45px;
-    background-color: $bg-color;
+    background-color: var(--bg-color);
     z-index: 100;
     box-shadow: rgba(0, 0, 0, 0.08) 0 0 8px 0;
 
@@ -24,20 +24,20 @@ header {
         z-index: 1;
         left: -80px;
         text-decoration: none;
-        color: $text-light-color;
+        color: var(--text-light-color);
         padding: 10px 0;
         span {
             position: relative;
             top: -2px;
         }
         &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
     
     a.header {
         position: relative;
-        color: $text-primary-color;
+        color: var(--text-primary-color);
         padding-left: 10px;
         text-decoration: none;
         span {
@@ -46,7 +46,7 @@ header {
             font-size: 1.7em;
         }
         &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
     
@@ -59,12 +59,12 @@ header {
             background-color: #0000;
             padding: 0;
             text-decoration: none;
-            color: $text-primary-color;
+            color: var(--text-primary-color);
             margin-left: 20px;
             cursor: pointer;
             @media (hover: hover) {
                 &:hover {
-                    color: $primary-color;
+                    color: var(--primary-color);
                 }
             }
         }
@@ -79,42 +79,42 @@ header {
     div#progress-bar {
         height: 2px;
         width: 0%;
-        background-color: $primary-color;
+        background-color: var(--primary-color);
     }
 }
 
 
 body.dark-mode {
     header {
-        background-color: $dark-bg-color;
+        background-color: var(--dark-bg-color);
     }
     header a.back {
-        color: $dark-text-light-color;
+        color: var(--dark-text-light-color);
         &:visited {
-            color: $dark-text-light-color;
+            color: var(--dark-text-light-color);
         }
         &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
     header a.header {
-        color: $dark-text-primary-color;
+        color: var(--dark-text-primary-color);
         &:visited {
-            color: $dark-text-primary-color;
+            color: var(--dark-text-primary-color);
         }
         &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
     header div.icon a,
     header div.icon button {
-        color: $dark-text-primary-color;
+        color: var(--dark-text-primary-color);
         &:visited {
-            color: $dark-text-primary-color;
+            color: var(--dark-text-primary-color);
         }
         @media (hover: hover) {
             &:hover {
-                color: $primary-color;
+                color: var(--primary-color);
             }
         }
     }
@@ -122,12 +122,12 @@ body.dark-mode {
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     header.blur {
-      background-color: $blur-bg-color;
+      background-color: var(--blur-bg-color);
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
     }
     body.dark-mode header.blur {
-        background-color: $dark-blur-bg-color;
+        background-color: var(--dark-blur-bg-color);
     }
 }
 
@@ -136,7 +136,7 @@ body.dark-mode {
         #toc-toggle {
             display: inline-block;
             &.active {
-                color: $primary-color;
+                color: var(--primary-color);
             }
         }
     }
