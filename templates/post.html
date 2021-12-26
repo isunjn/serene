@@ -176,6 +176,10 @@
 {%- endif %}
 {%- if show_comment and config.extra.comment == "disqus" %}
 <script>
+    var disqus_config = function () {
+    this.page.url = "{{ page.path }}";
+    this.page.identifier = "{{ page.path }}";
+    };
     (function() {
     var d = document, s = d.createElement('script');
     s.src = 'https://{{ config.extra.disqus.shortname }}.disqus.com/embed.js';
