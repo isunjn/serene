@@ -1,13 +1,15 @@
 name = "serene"
-description = "A classic blog theme"
+description = "A blog theme for zola, simple and clean."
 license = "MIT"
 homepage = "https://github.com/isunjn/serene"
-min_version = "0.4.0"
-demo = ""
+min_version = "0.9.0"
+demo = "https://serene-demo-site.vercel.app"
 
 [author]
 name = "isunjn"
 homepage = "https://github.com/isunjn"
+
+#=========================================================================================
 
 [extra]
 name = "xxxx"
@@ -18,42 +20,46 @@ avatar = "img/avatar.webp"
 show_id = true
 show_projects = true
 
+#=========================================================================================
 blog_icon = "ri-quill-pen-line"
 projects_icon = "ri-compasses-2-line"
 home_icon = "ri-user-6-line"
 rss_icon = "ri-rss-line"
 toc_icon = "ri-menu-2-line"
 
+#=========================================================================================
 links = [
     {name = "GitHub", icon = "ri-github-line", url = "https://github.com/<your-username>"},
     {name = "Twitter", icon = "ri-twitter-line", url = "https://twitter.com/<your-username>"},
     {name = "Email", icon = "ri-mail-line", url = "mailto:<your-email-address>"}
 ]
 
+#=========================================================================================
+feed_in_blog_section = true
+
+#=========================================================================================
 toc = true
 blur_effect = true
 back_to_top_button = true
 progress_bar = true
 cc_license = false
 cc_license_statement = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)."
-
-feed_in_blog_section = true
-
 outdate_warn = false
 outdate_warn_days = 120
-outdate_warn_text1 = "Note: This article was last updated "
-outdate_warn_text2 = " days ago and may be out of date."
+outdate_warn_text_before = "Note: This article was last updated "
+outdate_warn_text_after = " days ago and may be out of date."
 
+#=========================================================================================
 footer_copyright_name = "<your-name>"
 footer_copyright_year = "2021"
 # footer_custom = "xxxxxxxx"
 footer_credits = true
 
-comment = "none"  # gitalk / disqus / disqus_js
-analytics = "none"  # google_analytics / cloudflare_web_analytics / umami / baidu_tongji
+#=========================================================================================
+comment = "none"
+analytics = "none"
 
-
-#======================= Comment =======================
+#=========================================================================================
 
 [extra.gitalk]
 client_id = "xxxxxxxx"
@@ -82,8 +88,7 @@ apikey = "xxxx"
 # admin = "xxxx"
 # admin_label = "xxxx"
 
-
-#======================= Analytics =======================
+#=========================================================================================
 
 [extra.google_analytics]
 id = "G-XXXXXXXX"  # or UA-XXXXXXXX

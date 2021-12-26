@@ -59,7 +59,7 @@ links = [
 ]
 
 #============== Feed ===============================================
-feed_in_blog_section = true      # Whether to make feed file in blog section, url will be like https://example.com/blog/feed.xml, read docs for more info about rss feed
+feed_in_blog_section = true      # Whether to make feed file in blog section, url will be https://example.com/blog/feed.xml, read docs for more info about rss feed
 
 #============== Some feature switch ================================
 toc = true                       # Whether to show Table-Of-Contents [Can be overridden by page config]
@@ -70,8 +70,8 @@ cc_license = false               # Whether to show Creative-Commons statement [C
 cc_license_statement = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)."  # The Creative-Commons statement
 outdate_warn = false             # Whether to show outdate warning [Can be overridden by page config]
 outdate_warn_days = 120          # How many days will a post be outdated [Can be overridden by page config]
-outdate_warn_text1 = "Note: This article was last updated "
-outdate_warn_text2 = " days ago and may be out of date."
+outdate_warn_text_before = "Note: This article was last updated "
+outdate_warn_text_after = " days ago and may be out of date."
 
 #============== Footer =============================================
 footer_copyright_name = "<your-name>"

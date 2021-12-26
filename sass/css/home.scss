@@ -2,8 +2,8 @@
 
 main {
     margin: 0 auto;
-    margin-top: 15vh;
-    max-width: 600px;
+    margin-top: var(--homepage-margin-top);
+    max-width: var(--homepage-max-width);
 }
 
 div.info {
@@ -130,7 +130,7 @@ div.brief {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: var(--homepage-max-width)) {
     main {
         padding: 0 15px;
         margin-top: 10vh;
