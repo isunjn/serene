@@ -128,7 +128,7 @@ div.brief {
     }
 }
 
-@media screen and (max-width: var(--homepage-max-width)) {
+@media screen and (max-width: 500px) {
     main {
         padding: 0 15px;
         margin-top: 10vh;

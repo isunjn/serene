@@ -177,8 +177,8 @@
 {%- if show_comment and config.extra.comment == "disqus" %}
 <script>
     var disqus_config = function () {
-    this.page.url = "{{ page.path }}";
-    this.page.identifier = "{{ page.path }}";
+    this.page.url = "{{ page.permalink | safe }}";
+    this.page.identifier = "{{ page.permalink | safe }}";
     };
     (function() {
     var d = document, s = d.createElement('script');
