@@ -137,11 +137,6 @@ body.dark-mode {
                 color: var(--primary-color);
             }
         }
-    }
-}
-
-@media screen and (max-width: 815px) {
-    header {
         a.back {
             display: none;
         }
