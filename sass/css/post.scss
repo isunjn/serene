@@ -183,68 +183,68 @@ article {
             &.hidden {
                 display: none;
             }
-            background-color: var(--note-warning-bg-color);
-            color: var(--note-wrong-color);
+            background-color: var(--ad-warning-bg-color);
+            color: var(--ad-wrong-color);
         }
         &#cc_license {
-            background-color: var(--note-cc-license-bg-color);
-            color: var(--note-cc-license-color);
+            background-color: var(--ad-cc-license-bg-color);
+            color: var(--ad-cc-license-color);
         }
         &.info {
-            background-color: var(--note-info-bg-color);
-            color: var(--note-info-color);
+            background-color: var(--ad-info-bg-color);
+            color: var(--ad-info-color);
         }
         &.important {
-            background-color: var(--note-important-bg-color);
-            color: var(--note-important-color);
+            background-color: var(--ad-important-bg-color);
+            color: var(--ad-important-color);
         }
         &.tip {
-            background-color: var(--note-tip-bg-color);
-            color: var(--note-tip-color);
+            background-color: var(--ad-tip-bg-color);
+            color: var(--ad-tip-color);
         }
         &.question {
-            background-color: var(--note-question-bg-color);
-            color: var(--note-question-color);
+            background-color: var(--ad-question-bg-color);
+            color: var(--ad-question-color);
         }
         &.caution {
-            background-color: var(--note-caution-bg-color);
-            color: var(--note-caution-color);
+            background-color: var(--ad-caution-bg-color);
+            color: var(--ad-caution-color);
         }
         &.warning {
-            background-color: var(--note-warning-bg-color);
-            color: var(--note-warning-color);
+            background-color: var(--ad-warning-bg-color);
+            color: var(--ad-warning-color);
         }
         &.star {
-            background-color: var(--note-star-bg-color);
-            color: var(--note-star-color);
+            background-color: var(--ad-star-bg-color);
+            color: var(--ad-star-color);
         }
         &.check {
-            background-color: var(--note-check-bg-color);
-            color: var(--note-check-color);
+            background-color: var(--ad-check-bg-color);
+            color: var(--ad-check-color);
         }
         &.wrong {
-            background-color: var(--note-wrong-bg-color);
-            color: var(--note-wrong-color);
+            background-color: var(--ad-wrong-bg-color);
+            color: var(--ad-wrong-color);
         }
         &.good {
-            background-color: var(--note-good-bg-color);
-            color: var(--note-good-color);
+            background-color: var(--ad-good-bg-color);
+            color: var(--ad-good-color);
         }
         &.bad {
-            background-color: var(--note-bad-bg-color);
-            color: var(--note-bad-color);
+            background-color: var(--ad-bad-bg-color);
+            color: var(--ad-bad-color);
         }
         &.happy {
-            background-color: var(--note-happy-bg-color);
-            color: var(--note-happy-color);
+            background-color: var(--ad-happy-bg-color);
+            color: var(--ad-happy-color);
         }
         &.unhappy {
-            background-color: var(--note-unhappy-bg-color);
-            color: var(--note-unhappy-color);
+            background-color: var(--ad-unhappy-bg-color);
+            color: var(--ad-unhappy-color);
         }
         &.flag {
-            background-color: var(--note-flag-bg-color);
-            color: var(--note-flag-color);
+            background-color: var(--ad-flag-bg-color);
+            color: var(--ad-flag-color);
         }
     }
 }
