@@ -61,7 +61,7 @@ links = [
 #============== Feed ===============================================
 feed_in_blog_section = true      # Whether to make feed file in blog section, url will be https://example.com/blog/feed.xml, read docs for more info about rss feed
 
-#============== Some feature switch ================================
+#============== Some feature switches ================================
 toc = true                       # Whether to show Table-Of-Contents [Can be overridden by page config]
 blur_effect = true               # Whether to turn on blur effect on navigation bar
 back_to_top_button = true        # Whether to show Back-To-Top button
@@ -75,7 +75,7 @@ outdate_warn_text_after = " days ago and may be out of date."
 
 #============== Footer =============================================
 footer_copyright_name = "<your-name>"
-footer_copyright_year = "2021"
+footer_copyright_year = "2022"
 # footer_custom = "xxxxxxxx"
 footer_credits = true            # Whether to show "Powered by Zola and Serene" in footer
 

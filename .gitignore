@@ -6,6 +6,4 @@ content/*
 
 static/img/*
 
-templates/test.html
-
 config.toml
