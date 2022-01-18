@@ -1,4 +1,4 @@
-English | [简体中文](README-cn.md)
+English | [简体中文](https://github.com/isunjn/serene/blob/main/README-cn.md)
 
 # Serene - A blog theme for zola
 
@@ -11,13 +11,13 @@ Serene is a simple and clean blog theme for Static-Site-Generator [Zola](https:/
 <details>
   <summary>Click to see screenshots</summary>
   
-  ![](screenshots/1.png)
-  ![](screenshots/2.png)
-  ![](screenshots/3.png)
-  ![](screenshots/4.png)
-  ![](screenshots/5.png)
-  ![](screenshots/6.png)
-  ![](screenshots/7.png)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/1.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/2.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/3.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/4.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/5.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/6.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/7.png?raw=true)
 </details>
 
 ## Features
@@ -59,4 +59,4 @@ Be noticed that to keep serene simple, some needs may not be considered. You can
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/isunjn/serene/blob/main/LICENSE)

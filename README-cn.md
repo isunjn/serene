@@ -1,4 +1,4 @@
-[English](README.md) | 简体中文
+[English](https://github.com/isunjn/serene/blob/main/README.md) | 简体中文
 
 # Serene - 一款 Zola 博客主题
 
@@ -10,14 +10,14 @@ Serene 是一款简洁干净的博客主题，适用于静态网站生成器 [Zo
 
 <details>
   <summary>点击查看截图</summary>
-  
-  ![](screenshots/1.png)
-  ![](screenshots/2.png)
-  ![](screenshots/3.png)
-  ![](screenshots/4.png)
-  ![](screenshots/5.png)
-  ![](screenshots/6.png)
-  ![](screenshots/7.png)
+
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/1.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/2.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/3.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/4.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/5.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/6.png?raw=true)
+  ![](https://github.com/isunjn/serene/blob/main/screenshots/7.png?raw=true)
 </details>
 
 ## 特性
@@ -59,4 +59,4 @@ Serene 是一款简洁干净的博客主题，适用于静态网站生成器 [Zo
 
 ## 协议
 
-[MIT](LICENSE)
+[MIT](https://github.com/isunjn/serene/blob/main/LICENSE)
