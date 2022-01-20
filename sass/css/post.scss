@@ -21,6 +21,7 @@ main {
 
 article {
     padding: 0 15px;
+    font-size: var(--paragraph-font-size);
     #post-info {
         display: flex;
         justify-content: space-between;
@@ -78,7 +79,7 @@ article {
     }
 
     p {
-        font-size: var(--paragraph-font-size);
+        font-size: 1em;
         line-height: var(--paragraph-line-height);
         word-wrap: break-word;
     }
@@ -165,8 +166,8 @@ article {
     
     blockquote.note {
         display: flex;
-        line-height: 1.75;
-        padding: 6px 10px;
+        line-height: var(--paragraph-line-height);
+        padding: 8px 10px;
         margin-bottom: 20px;
         border: none;
         border-radius: 4px;
@@ -189,6 +190,7 @@ article {
         &#cc_license {
             background-color: var(--ad-cc-license-bg-color);
             color: var(--ad-cc-license-color);
+            margin-top: 2em;
         }
         &.info {
             background-color: var(--ad-info-bg-color);
@@ -259,6 +261,7 @@ aside {
     margin-top: 140px;
     top: 60px;
     height: min-content;
+    font-size: var(--paragraph-font-size);
     nav {
         min-width: 60%;
     }
