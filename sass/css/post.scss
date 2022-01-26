@@ -262,6 +262,7 @@ aside {
     top: 60px;
     height: min-content;
     font-size: var(--paragraph-font-size);
+    z-index: 999;
     nav {
         min-width: 60%;
     }
