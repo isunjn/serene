@@ -35,7 +35,7 @@
     {% for proj in data.project -%}
     <div class="proj">
         <p class="name">{{ proj.name }}</p>
-        <p class="desc">{{ proj.desc }}</p>
+        <div class="desc">{{ proj.desc | trim | markdown | safe }}</div>
         <div class="links">
             {% for link in proj.links -%}
             <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>

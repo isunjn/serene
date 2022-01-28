@@ -18,6 +18,21 @@ main {
         .desc {
             line-height: 1.5;
             margin: 0 0 10px 0;
+            a {
+                color: var(--primary-color);
+                text-decoration: underline var(--primary-light-color) 2px;
+                &:hover {
+                    text-decoration-color: var(--primary-color);
+                }
+            }
+            p > code {
+                font-family: var(--code-font);
+                font-size: 0.8em;
+                padding: 0px 6px;
+                color: var(--primary-color);
+                background-color: var(--primary-light-color);
+                border-radius: 4px;
+            }
         }
 
     .links {
