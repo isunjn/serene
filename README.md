@@ -33,10 +33,10 @@ Serene is a simple and clean blog theme for Static-Site-Generator [Zola](https:/
     - Out-of-date warning
     - Creative-Commons statement
     - Comments
+    - Mathematical notations using KaTeX
 - Web analytics
 - Projects page
 - Easily customize
-- Mathematical notations using KaTeX
 
 ## How to use
 
