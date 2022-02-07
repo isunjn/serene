@@ -36,6 +36,7 @@ Serene is a simple and clean blog theme for Static-Site-Generator [Zola](https:/
 - Web analytics
 - Projects page
 - Easily customize
+- Mathematical notations using KaTeX
 
 ## How to use
 
