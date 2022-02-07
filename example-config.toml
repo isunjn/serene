@@ -67,7 +67,6 @@ blur_effect = true               # Whether to turn on blur effect on navigation 
 back_to_top_button = true        # Whether to show Back-To-Top button
 progress_bar = true              # Whether to show reading progress bar
 cc_license = false               # Whether to show Creative-Commons statement [Can be overridden by page config]
-math = false                     # Enabling KaTeX globally is NOT recommended. Enable it per-page basis
 cc_license_statement = "This work is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)."  # The Creative-Commons statement
 outdate_warn = false             # Whether to show outdate warning [Can be overridden by page config]
 outdate_warn_days = 120          # How many days will a post be outdated [Can be overridden by page config]
