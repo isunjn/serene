@@ -2,7 +2,7 @@
 
 # Serene - 一款 Zola 博客主题
 
-Serene 是一款简洁干净的博客主题，适用于静态网站生成器 [Zola](https://www.getzola.org)
+Serene 是一款简洁优雅的博客主题，适用于静态网站生成器 [Zola](https://www.getzola.org)
 
 [示例站点](https://serene-demo-site.vercel.app) | [文档](https://github.com/isunjn/serene/wiki)
 
@@ -23,7 +23,7 @@ Serene 是一款简洁干净的博客主题，适用于静态网站生成器 [Zo
 ## 特性
 
 - 个人网站风格
-- 简洁干净，专注于内容
+- 简洁优雅，专注于内容
 - 暗色模式
 - 博客相关功能
     - 右侧文章目录
@@ -33,7 +33,8 @@ Serene 是一款简洁干净的博客主题，适用于静态网站生成器 [Zo
     - 文章内容过时提示
     - 知识共享许可协议声明
     - 评论功能
-    - KaTex 数学公式
+    - [KaTeX](https://katex.org/) 数学公式
+    - [Mermaid](https://github.com/mermaid-js/mermaid) 图表
 - 流量分析工具支持
 - 项目展示页面
 - 轻松自定义
