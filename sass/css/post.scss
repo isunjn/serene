@@ -262,9 +262,16 @@ aside {
     top: 60px;
     height: min-content;
     font-size: var(--paragraph-font-size);
-    z-index: 999;
+    z-index: 99;
     nav {
         min-width: 60%;
+        overflow-y: auto;
+        max-height: 80vh;
+        padding-bottom: 30%;
+        scrollbar-width: none;
+        &::-webkit-scrollbar { 
+          width: 0;
+        }
     }
     ul {
         list-style-type: none;
@@ -274,8 +281,7 @@ aside {
     nav a {
         text-decoration: none;
         display: block;
-        margin-bottom: 4px;
-        padding: 6px 0px;
+        margin-bottom: 0.8em;
         &::before {
             display: inline-block;
             content: "";
@@ -299,6 +305,18 @@ aside {
     }
     .toc-h3 {
         color: var(--text-second-color);
+    }
+    
+    #back-to-top {
+      padding: 10px 15px;
+      text-decoration: none;
+      position: fixed;
+      bottom: 18px;
+      margin-left: 20px;
+      color: var(--text-light-color);
+      &:hover {
+          color: var(--primary-color);
+      }
     }
 }
 
@@ -352,18 +370,6 @@ aside {
 #top {
     padding-top: 45px;
     margin-top: -45px;
-}
-
-#back-to-top {
-    padding: 10px 15px;
-    text-decoration: none;
-    position: fixed;
-    bottom: 18px;
-    margin-left: 20px;
-    color: var(--text-light-color);
-    &:hover {
-        color: var(--primary-color);
-    }
 }
 
 body.dark-mode {
