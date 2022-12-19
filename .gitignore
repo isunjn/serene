@@ -7,3 +7,5 @@ content/*
 static/img/*
 
 config.toml
+
+.idea/

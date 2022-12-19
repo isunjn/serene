@@ -91,6 +91,10 @@
         {%- set show_comment = true %}
         {%- endif %}
 
+        {%- if show_comment and config.extra.comment == 'utterances' %}
+        <div id="utterances-container" class="comment"></div>
+        {%- endif  %}
+
         {%- if show_comment and config.extra.comment == "gitalk" %}
         <div id="gitalk-container" class="comment"></div>
         {%- endif %}
@@ -156,6 +160,16 @@
 {%- elif page.extra.show_comment is undefined %}
 {%- set show_comment = true %}
 {%- endif %}
+{%- if show_comment and config.extra.comment == "utterances" %}
+    <script src="https://utteranc.es/client.js"
+        repo="{{ config.extra.utterances.repo }}"
+        issue-term="{{ config.extra.utterances.issue_mapping }}"
+        label="{{ config.extra.utterances.issue_label }}"
+        theme="{{ config.extra.utterances.theme }}"
+        crossorigin="anonymous"
+        async>
+    </script>
+{%- endif  %}
 {%- if show_comment and config.extra.comment == "gitalk" %}
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
