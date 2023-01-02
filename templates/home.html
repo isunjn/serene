@@ -53,8 +53,10 @@
           {{ icon | safe }}
         </a>
         {% endfor -%}
-        <button id="color-toggle" aria-label="dark light mode switch">
-          <i class="ri-moon-line ri"></i>
+        {% set moon_icon = load_data(path="static/icon/moon.svg") %}
+        {% set sun_icon = load_data(path="static/icon/sun.svg") %}
+        <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
+          {{ moon_icon | safe }}
         </button>
       </div>
     </div>

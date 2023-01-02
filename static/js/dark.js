@@ -1,19 +1,16 @@
-const toggleBtn = document.querySelector('#color-toggle');
-const toggleBtnIcon = document.querySelector('#color-toggle > i');
+const toggleBtn = document.querySelector('#theme-toggle');
 
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
 
 function toggleDarkTheme() {
-    toggleBtnIcon.classList.remove('ri-moon-line');
-    toggleBtnIcon.classList.add('ri-sun-line');
+    toggleBtn.innerHTML = toggleBtn.dataset.sunIcon;
     document.body.classList.add('dark-mode');
     currentTheme = "dark";
     localStorage.setItem("theme", "dark");
 }
 function toggleLightTheme() {
-    toggleBtnIcon.classList.remove('ri-sun-line');
-    toggleBtnIcon.classList.add('ri-moon-line');
+    toggleBtn.innerHTML = toggleBtn.dataset.moonIcon;
     document.body.classList.remove('dark-mode');
     currentTheme = "light";
     localStorage.setItem("theme", "light");
