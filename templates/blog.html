@@ -2,7 +2,7 @@
 
 
 {% block lang -%}
-{% if section.extra.lang %}{{ section.extra.lang }} 
+{% if section.extra.lang %}{{ section.extra.lang }}
 {%- else %}{{ section.lang }}{% endif %}
 {%- endblock lang %}
 
@@ -18,31 +18,35 @@
 
 {% block content %}
 {% include "_blog_header.html" %}
-<main>
+<div id="container">
+  <main>
     {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") -%}
     <div class="title">{{ category }}</div>
     <div class="post-list">
-        {% for post in posts | slice(end=section.extra.show_post_num) -%}
+      {% for post in posts | slice(end=section.extra.show_post_num) -%}
+      <a class="post" href="{{ post.permalink }}">
+        <span>{{ post.title }}</span>
+        <span class="date">{{ post.date | date}}</span>
+      </a>
+      {% endfor -%}
+      {% if posts | length > section.extra.show_post_num -%}
+      <div class="posts-{{category}} hidden">
+        {% for post in posts | slice(start=section.extra.show_post_num) -%}
         <a class="post" href="{{ post.permalink }}">
-            <span>{{ post.title }}</span>
-            <span class="date">{{ post.date | date}}</span>
+          <span>{{ post.title }}</span>
+          <span class="date">{{ post.date | date }}</span>
         </a>
         {% endfor -%}
-        {% if posts | length > section.extra.show_post_num -%}
-        <div class="posts-{{category}} hidden">
-            {% for post in posts | slice(start=section.extra.show_post_num) -%}
-            <a class="post" href="{{ post.permalink }}">
-                <span>{{ post.title }}</span>
-                <span class="date">{{ post.date | date }}</span>
-            </a>
-            {% endfor -%}
-        </div>
-        <div class="showhidden"><button data-category="{{category}}">More<i class="ri-arrow-down-s-line ri-lg"></i></button></div>
-        {% endif -%}
+      </div>
+      <div class="showhidden">
+        <button data-category="{{category}}">More</button>
+      </div>
+      {% endif -%}
     </div>
     {% endfor -%}
-</main>
-{% include "_footer.html" %}
+  </main>
+  {% include "_footer.html" %}
+</div>
 {% endblock content %}
 
 {% block script -%}
