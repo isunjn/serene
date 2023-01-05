@@ -1,24 +1,31 @@
 <header {% if config.extra.blur_effect %} class="blur" {% endif %}>
   <div class="top">
-    <a class="header blog" href="/blog"><i class="{{ config.extra.blog_icon }} ri-2x"></i><span>Blog</span></a>
-    <a class="back" href="/"><i class="ri-arrow-left-s-line ri-1x"></i><span>Home</span></a>
-    <div class="icon">
-      <a id="go-home" href="/" aria-label="home"><i class="{{ config.extra.home_icon }} ri-xl"></i></a>
+    <nav>
+      <a href="/">{{ config.extra.id }}</a><span class="separator">{{ config.extra.nav_separator }}</span><a href="/blog">blog</a>
+    </nav>
+    <div class="icons">
+      
+      {% set rss_icon = load_data(path="static/icon/rss.svg") %}
+
       {% if config.extra.feed_in_blog_section -%}
-      <a href="/blog/{{ config.feed_filename }}" aria-label="rss feed"><i
-          class="{{ config.extra.rss_icon }} ri-xl"></i></a>
+      <a href="/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
       {% elif config.generate_feed -%}
-      <a href="/{{ config.feed_filename }}" aria-label="rss feed"><i class="{{ config.extra.rss_icon }} ri-xl"></i></a>
+      <a href="/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
       {% endif -%}
+
       {% set moon_icon = load_data(path="static/icon/moon.svg") %}
       {% set sun_icon = load_data(path="static/icon/sun.svg") %}
       <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
         {{ moon_icon | safe }}
       </button>
+
+      {% set toc_icon = load_data(path="static/icon/toc.svg") %}
       {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc -%}
       {% else %}{% set show_toc = config.extra.toc %}{% endif -%}
       {% if show_toc and page -%}
-      <button id="toc-toggle" aria-label="table of content"><i class="{{ config.extra.toc_icon }} ri-xl"></i></button>
+      <button id="toc-toggle" aria-label="table of content">
+        {{ toc_icon | safe }}
+      </button>
       {% endif -%}
     </div>
   </div>
