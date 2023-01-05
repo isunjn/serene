@@ -1,147 +1,126 @@
 header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    height: 45px;
-    background-color: var(--bg-color);
-    z-index: 100;
-    box-shadow: rgba(0, 0, 0, 0.08) 0 0 8px 0;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 45px;
+  background-color: var(--bg-color);
+  box-shadow: rgba(0, 0, 0, 0.08) 0 0 8px 0;  
+  
+  div.top {
+    height: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
 
-    div.top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
-        padding: 2px 0 1px 0;
-        max-width: 750px;
-        position: relative;
+  nav {
+    font-size: 1.5em;
+    a {
+      color: var(--text-primary-color);
+      text-decoration: none;
+      &:hover {
+        color: var(--primary-color);
+      }
     }
+    span.separator {
+      margin: 0 0.1em;
+    }
+  }
 
-    a.back {
-        position: absolute;
-        z-index: 1;
-        left: -80px;
-        text-decoration: none;
-        color: var(--text-light-color);
-        padding: 10px 0;
-        span {
-            position: relative;
-            top: -2px;
+  div.icons {
+    a,
+    button {
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      text-decoration: none;
+      color: var(--text-primary-color);
+      margin-left: 1em;
+      cursor: pointer;
+      @media (hover: hover) {
+        &:hover svg path:not([fill='none']) {
+          fill: var(--primary-color);
         }
-        &:hover {
-            color: var(--primary-color);
-        }
+      }
     }
-    
-    a.header {
-        position: relative;
-        color: var(--text-primary-color);
-        padding-left: 10px;
-        text-decoration: none;
-        span {
-            position: relative;
-            top: -6px;
-            font-size: 1.7em;
-        }
-        &:hover {
-            color: var(--primary-color);
-        }
+    svg {
+      width: 20px;
+      path:not([fill='none']) {
+        fill: var(--text-primary-color);
+      }
     }
-    
-    div.icon {
-        padding-right: 15px;
-        transform: translateY(5px);
-        a,
-        button{
-            border: none;
-            background-color: #0000;
-            padding: 0;
-            text-decoration: none;
-            color: var(--text-primary-color);
-            margin-left: 20px;
-            cursor: pointer;
-            @media (hover: hover) {
-                &:hover {
-                    color: var(--primary-color);
-                }
-            }
-        }
-    }
-    #go-home {
-        display: none;
-    }
-    #toc-toggle {
-        display: none;
-    }
+  }
 
-    div#progress-bar {
-        height: 2px;
-        width: 0%;
-        background-color: var(--primary-color);
-    }
+  #toc-toggle {
+    display: none;
+  }
+
+  #progress-bar {
+    height: 1.5px;
+    width: 0%;
+    background-color: var(--primary-color);
+  }
 }
 
 
 body.dark-mode {
-    header {
-        background-color: var(--dark-bg-color);
+  header {
+    background-color: var(--dark-bg-color);
+  }
+
+  header nav a {
+    color: var(--dark-text-primary-color);
+    &:visited {
+      color: var(--dark-text-primary-color);
     }
-    header a.back {
-        color: var(--dark-text-light-color);
-        &:visited {
-            color: var(--dark-text-light-color);
-        }
-        &:hover {
-            color: var(--primary-color);
-        }
+    &:hover {
+      color: var(--primary-color);
     }
-    header a.header {
+  }
+
+  header div.icons {
+    a,
+    button {
+      color: var(--dark-text-primary-color);
+      &:visited {
         color: var(--dark-text-primary-color);
-        &:visited {
-            color: var(--dark-text-primary-color);
+      }
+      @media (hover: hover) {
+        &:hover svg path:not([fill='none']) {
+          fill: var(--primary-color);
         }
-        &:hover {
-            color: var(--primary-color);
-        }
+      }
     }
-    header div.icon a,
-    header div.icon button {
-        color: var(--dark-text-primary-color);
-        &:visited {
-            color: var(--dark-text-primary-color);
-        }
-        @media (hover: hover) {
-            &:hover {
-                color: var(--primary-color);
-            }
-        }
+    svg path:not([fill='none']) {
+      fill: var(--dark-text-primary-color);
     }
+  }
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    header.blur {
-      background-color: var(--blur-bg-color);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-    }
-    body.dark-mode header.blur {
-        background-color: var(--dark-blur-bg-color);
-    }
+  header.blur {
+    background-color: var(--blur-bg-color);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  body.dark-mode header.blur {
+    background-color: var(--dark-blur-bg-color);
+  }
 }
 
-@media screen and (max-width: 1024px) {
-    header {
-        #toc-toggle {
-            display: inline-block;
-            &.active {
-                color: var(--primary-color);
-            }
-        }
-        a.back {
-            display: none;
-        }
-        #go-home {
-            display: inline-block;
-        }
+@media (max-width: 1024px) {
+  header {
+    #toc-toggle {
+      display: inline-block;
+      &.active svg path:not([fill='none']) {
+        fill: var(--primary-color);
+      }
     }
+  }
 }
