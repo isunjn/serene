@@ -45,13 +45,14 @@ main {
   }
 
   .showhidden {
+    padding: 0 15px;
     display: flex;
     justify-content: end;
 
     button {
       border: 0;
       cursor: pointer;
-      padding: 7.5px 15px;
+      padding: 7.5px 30px;
       border-radius: 4px;
       color: var(--primary-color);
       background-color: transparent;
