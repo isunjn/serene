@@ -1,0 +1,64 @@
+{% extends "_base.html" %}
+
+
+{% block lang -%}
+{% if section.extra.lang %}{{ section.extra.lang }}
+{%- else %}{{ section.lang }}{% endif %}
+{%- endblock lang %}
+
+{% block title %}{{ section.title }}{% endblock title %}
+
+{% block desc %}{{ section.description }}{% endblock desc %}
+
+{% block css -%}
+<link rel="stylesheet" href="/css/header.css" />
+<link rel="stylesheet" href="/css/footer.css" />
+<link rel="stylesheet" href="/css/cv.css" />
+<style>
+	main {
+		font-size: 20px;
+	}
+</style>
+{%- endblock css %}
+
+
+{% block content %}
+<header {% if config.extra.blur_effect %} class="blur" {% endif %}>
+    <div class="top">
+        <a class="header cv" href="/projects"><i class="{{ config.extra.cv_icon }} ri-2x"></i><span> cv</span></a>
+        <a class="back" href="/"><i class="ri-arrow-left-s-line ri-1x"></i><span>Home</span></a>
+        <div class="icon">
+            <a id="go-home" href="/" aria-label="home"><i class="{{ config.extra.home_icon }} ri-xl"></i></a>
+        </div>
+    </div>
+</header>
+
+<main>
+    {% if config.extra.cv_enabled %}
+	<div class="cv">
+    	{% set page = get_page(path="cv/2023.md") %}
+    	{{ page.content | safe }}
+        <!-- Work experience -->
+        {% set data = load_data(path="content/cv/work_experience.toml", format="toml") -%}
+        {% for work in data.work -%}
+            <div class="work-experience">
+                <div class="block-1">
+                    <span class="year">{{ work.year | trim | markdown | safe }}</span> - <span class="company">{{ work.company | trim | markdown | safe }}</span>
+                    <br />
+                    <span>{{ work.tasks | trim | markdown(inline=true) | safe }}</span>
+                    <br />
+                    <span class="description">{{ work.description | trim | markdown(inline=true) | safe }}</span>
+                    <br />
+                    {{ work.lang_used | trim | markdown(inline=true) | safe }}
+                </div>
+            </div>
+            <hr />
+        {%- endfor %}
+	</div>
+    {% else %}
+    CV is currently disabled...email me
+    {% endif %}
+</main>
+
+{% include "_footer.html" -%}
+{% endblock content %}

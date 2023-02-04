@@ -9,7 +9,7 @@
             {% elif config.generate_feed -%}
             <a href="/{{ config.feed_filename }}" aria-label="rss feed" ><i class="{{ config.extra.rss_icon }} ri-xl"></i></a>
             {% endif -%}
-            <button id="color-toggle" aria-label="dark light mode switch"><i class="ri-moon-line ri-xl"></i></button>
+<!--            <button id="color-toggle" aria-label="dark light mode switch"><i class="ri-moon-line ri-xl"></i></button>-->
             {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc -%}
             {% else %}{% set show_toc = config.extra.toc %}{% endif -%}
             {% if show_toc and page -%}

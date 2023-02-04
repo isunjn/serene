@@ -77,10 +77,10 @@
             {%- set cc = true %}
             {%- endif %}
             {%- if cc %}
-            <blockquote id="cc_license" class="note">
-                <i class="ri-creative-commons-line ri-lg"></i>
-                <div class="content">{{ config.extra.cc_license_statement | trim | markdown | safe }}</div>
-            </blockquote>
+<!--            <blockquote id="cc_license" class="note">-->
+<!--                <i class="ri-creative-commons-line ri-lg"></i>-->
+<!--                <div class="content">{{ config.extra.cc_license_statement | trim | markdown | safe }}</div>-->
+<!--            </blockquote>-->
             {%- endif %}
         </article>
         
@@ -135,7 +135,6 @@
         {%- endif %}
     </aside>
 </div>
-{% include "_footer.html" %}
 {% endblock content %}
 
 {% block script %}
@@ -243,4 +242,5 @@
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>mermaid.initialize({ startOnLoad: true });</script>
 {%- endif -%}
+{% include "_footer.html" %}
 {% endblock script %}

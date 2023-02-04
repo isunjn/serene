@@ -57,7 +57,7 @@
 </head>
 
 <body>
-    <script>if(localStorage.getItem('theme')=='dark'){document.body.classList.add('dark-mode');}</script>
+    <script>document.body.classList.add('dark-mode');</script>
     {% block content %}{% endblock content -%}
     <script src="/js/dark.js"></script>
     {%- block script %}{% endblock script %}
