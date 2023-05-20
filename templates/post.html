@@ -1,23 +1,14 @@
 {% extends "_base.html" %}
 
-{% block lang -%}
+{% block page %}post{% endblock page %}
+{% block lang %}
 {% set section = get_section(path="blog/_index.md", metadata_only=true) -%}
-{% if page.extra.lang %}{{page.extra.lang}}
-{%- elif section.extra.lang %}{{section.extra.lang}}
-{%- else %}{{page.lang}}
-{%- endif -%}
+{% if page.extra.lang %}{{page.extra.lang}}{% elif section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif %}
 {% endblock lang %}
-
 {% block title %}{{ page.title }}{% endblock title %}
-
-{% block desc -%}
-{% if page.summary %}{{ page.summary }}{% endif -%}
-{% endblock desc %}
+{% block desc -%}{% if page.summary %}{{ page.summary }}{% endif -%}{% endblock desc %}
 
 {% block css -%}
-<link rel="stylesheet" href="/css/header.css" />
-<link rel="stylesheet" href="/css/footer.css" />
-<link rel="stylesheet" href="/css/post.css" />
 {%- set show_comment = false -%}
 {% if page.extra.show_comment -%}
 {% set show_comment = true -%}
@@ -33,9 +24,9 @@
 {% endblock css %}
 
 {% block content %}
-{% include "_blog_header.html" %}
-<div class="wrap">
-    <div class="blank"></div>
+{% include "_header.html" %}
+<div id="post-wrapper">
+    <div id="blank"></div>
     <main>
         <div id="top"></div>
         <article>
@@ -102,6 +93,8 @@
         {%- if show_comment and config.extra.comment == "disqus_js" %}
         <div id="disqus_thread" class="comment"></div>
         {%- endif %}
+
+        {% include "_footer.html" %}
     </main>
     <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
         {%- if page.extra.toc is defined %} {% set show_toc = page.extra.toc %}
@@ -131,7 +124,6 @@
         {%- endif %}
     </aside>
 </div>
-{% include "_footer.html" %}
 {% endblock content %}
 
 {% block script %}

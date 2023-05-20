@@ -1,24 +1,16 @@
 {% extends "_base.html" %}
 
-{% block lang -%}
-{% if section.extra.lang %}{{ section.extra.lang }}
-{%- else %}{{ section.lang }}{% endif %}
-{%- endblock lang -%}
-
+{% block page %}homepage{% endblock page%}
+{% block lang -%}{% if section.extra.lang %}{{ section.extra.lang }}{%- else %}{{ section.lang }}{% endif %}{%- endblock lang -%}
 {% block title %}{{ config.title }}{% endblock title %}
-
 {% block desc %}{{ config.description }}{% endblock desc %}
 
-{% block css -%}
-<link rel="stylesheet" href="/css/home.css" />
-{%- endblock css %}
-
 {% block content %}
-<div id="homepage">
+<div id="wrapper">
   <main>
-    <div class="info">
+    <section id="info">
       <img src="{{ config.extra.avatar }}" alt="avatar">
-      <div class="info-text">
+      <div id="text">
         <div>
           <span id="name">{{ config.extra.name }}</span>
           {% if config.extra.show_id -%}
@@ -27,25 +19,15 @@
         </div>
         <div id="bio"> {{ config.extra.bio }} </div>
       </div>
-    </div>
-    <div class="link">
-      <div class="left">
-        <a href="/blog" id="blog">
-          {% set icon_path = "static/icon/" ~ config.extra.blog_icon ~ ".svg" %}
-          {% set icon = load_data(path=icon_path) %}
-          {{ icon | safe }}
-          <span>Blog</span>
-        </a>
+    </section>
+    <section id="links">
+      <div id="left">
+        <a href="/blog" id="blog">blog</a>
         {% if config.extra.show_projects -%}
-        <a href="/projects" id="projects">
-          {% set icon_path = "static/icon/" ~ config.extra.projects_icon ~ ".svg" %}
-          {% set icon = load_data(path=icon_path) %}
-          {{ icon | safe }}
-          <span>Projects</span>
-        </a>
+        <a href="/projects" id="projects">projects</a>
         {% endif -%}
       </div>
-      <div class="right">
+      <div id="right">
         {% for link in config.extra.links -%}
         <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
           {% set icon_path = "static/icon/" ~ link.icon ~ ".svg" %}
@@ -59,8 +41,10 @@
           {{ moon_icon | safe }}
         </button>
       </div>
-    </div>
-    <div class="brief">{{ section.content | trim | safe }}</div>
+    </section>
+    <section id="brief">
+      {{ section.content | trim | safe }}
+    </section>
   </main>
 </div>
 {% endblock content %}

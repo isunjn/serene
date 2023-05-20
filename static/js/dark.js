@@ -5,13 +5,13 @@ const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
 
 function toggleDarkTheme() {
     toggleBtn.innerHTML = toggleBtn.dataset.sunIcon;
-    document.body.classList.add('dark-mode');
+    document.body.classList.add('dark');
     currentTheme = "dark";
     localStorage.setItem("theme", "dark");
 }
 function toggleLightTheme() {
     toggleBtn.innerHTML = toggleBtn.dataset.moonIcon;
-    document.body.classList.remove('dark-mode');
+    document.body.classList.remove('dark');
     currentTheme = "light";
     localStorage.setItem("theme", "light");
 }

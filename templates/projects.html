@@ -1,48 +1,28 @@
 {% extends "_base.html" %}
 
-
-{% block lang -%}
-{% if section.extra.lang %}{{ section.extra.lang }} 
-{%- else %}{{ section.lang }}{% endif %}
-{%- endblock lang %}
-
+{% block page%}projects{% endblock page%}
+{% block lang %}{% if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ section.lang }}{% endif %}{% endblock lang %}
 {% block title %}{{ section.title }}{% endblock title %}
-
 {% block desc %}{{ section.description }}{% endblock desc %}
 
-{% block css -%}
-<link rel="stylesheet" href="/css/header.css" />
-<link rel="stylesheet" href="/css/footer.css" />
-<link rel="stylesheet" href="/css/projects.css" />
-{%- endblock css %}
-
-
 {% block content %}
-<header {% if config.extra.blur_effect %} class="blur" {% endif %}>
-    <div class="top">
-        <a class="header projects" href="/projects"><i class="{{ config.extra.projects_icon }} ri-2x"></i><span>Projects</span></a>
-        <a class="back" href="/"><i class="ri-arrow-left-s-line ri-1x"></i><span>Home</span></a>
-        <div class="icon">
-            <a id="go-home" href="/" aria-label="home"><i class="{{ config.extra.home_icon }} ri-xl"></i></a>
-            <button id="color-toggle" aria-label="dark light mode switch"><i class="ri-moon-line ri-xl"></i></button>
+{% include "_header.html" %}
+<div id="proj-wrapper">
+    <main>
+        {% set data = load_data(path="content/projects/data.toml", format="toml") %}
+        {% for proj in data.project %}
+        <div class="proj">
+            <p class="name">{{ proj.name }}</p>
+            <div class="desc">{{ proj.desc | trim | markdown | safe }}</div>
+            <div class="links">
+                {% for link in proj.links -%}
+                <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <div id="progress-bar"></div>
-</header>
-{% set data = load_data(path="content/projects/data.toml", format="toml") -%}
+        {% endfor %}
+    </main>
+    {% include "_footer.html" -%}
+</div>
 
-<main>
-    {% for proj in data.project -%}
-    <div class="proj">
-        <p class="name">{{ proj.name }}</p>
-        <div class="desc">{{ proj.desc | trim | markdown | safe }}</div>
-        <div class="links">
-            {% for link in proj.links -%}
-            <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
-            {%- endfor %}
-        </div>
-    </div>
-    {%- endfor %}
-</main>
-{% include "_footer.html" -%}
 {% endblock content %}

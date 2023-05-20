@@ -1,54 +1,26 @@
 {% extends "_base.html" %}
 
-
-{% block lang -%}
-{% if section.extra.lang %}{{ section.extra.lang }}
-{%- else %}{{ section.lang }}{% endif %}
-{%- endblock lang %}
-
+{% block page%}blog{% endblock page%}
+{% block lang -%}{% if section.extra.lang %}{{ section.extra.lang }}{%- else %}{{ section.lang }}{% endif %}{%- endblock lang %}
 {% block title %}{{ section.title }}{% endblock title %}
-
 {% block desc %}{{ section.description }}{% endblock desc %}
 
-{% block css -%}
-<link rel="stylesheet" href="/css/header.css" />
-<link rel="stylesheet" href="/css/footer.css" />
-<link rel="stylesheet" href="/css/blog.css" />
-{%- endblock css %}
-
 {% block content %}
-{% include "_blog_header.html" %}
-<div id="container">
+{% include "_header.html" %}
+<div id="blog-wrapper">
   <main>
     {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") -%}
-    <div class="title">{{ category }}</div>
+    <div class="category">{{ category }}</div>
     <div class="post-list">
-      {% for post in posts | slice(end=section.extra.show_post_num) -%}
+      {% for post in posts %}
       <a class="post" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
         <span class="date">{{ post.date | date}}</span>
       </a>
       {% endfor -%}
-      {% if posts | length > section.extra.show_post_num -%}
-      <div class="posts-{{category}} hidden">
-        {% for post in posts | slice(start=section.extra.show_post_num) -%}
-        <a class="post" href="{{ post.permalink }}">
-          <span>{{ post.title }}</span>
-          <span class="date">{{ post.date | date }}</span>
-        </a>
-        {% endfor -%}
-      </div>
-      <div class="showhidden">
-        <button data-category="{{category}}">More</button>
-      </div>
-      {% endif -%}
     </div>
     {% endfor -%}
   </main>
   {% include "_footer.html" %}
 </div>
 {% endblock content %}
-
-{% block script -%}
-<script src="/js/more.js"></script>
-{%- endblock script %}
