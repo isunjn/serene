@@ -8,64 +8,21 @@
     <meta name="color-scheme" content="light dark">
     <title>{% block title %}{% endblock title %}</title>
     <meta name="description" content="{% block desc %}{% endblock desc %}">
-
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="/main.css">
-    {% block css %}{% endblock css %}
-
-    {% if config.extra.analytics == 'umami' -%}
-    <script async defer data-website-id="{{ config.extra.umami.website_id }}" src="{{ config.extra.umami.src }}"></script>
-    {%- endif -%}
-
-    {% if config.extra.analytics == 'busuanzi' -%}
-    <script async defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    {%- endif -%}
-    
-    {% if config.extra.analytics == 'google_analytics' -%}
-    <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.google_analytics.id }}"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '{{ config.extra.google_analytics.id }}');</script>
-    {%- endif -%}
-    
-    {% if config.extra.analytics == 'cloudflare_web_analytics' -%}
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ config.extra.cloudflare_web_analytics.token }}"}'></script><!-- End Cloudflare Web Analytics -->
-    {%- endif -%}
-    
-    {% if config.extra.analytics == 'baidu_tongji' -%}
-    <script>var _hmt = _hmt || [];(function() {  var hm = document.createElement("script");  hm.src = "https://hm.baidu.com/hm.js?{{ config.extra.baidu_tongji.token }}";  var s = document.getElementsByTagName("script")[0];   s.parentNode.insertBefore(hm, s);})();</script>
-    {%- endif %}
-    
-    {# KaTeX support #}
-    {% if page.extra.math %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\(', right: '\\)', display: false},
-                {left: '\\[', right: '\\]', display: true}
-            ],
-            throwOnError : false
-            });
-        });
-    </script>
-    {% endif %}
+    {% block head %}{% endblock head %}
 </head>
 
 <body class="{% block page %}{% endblock page%}">
-    <script>if(localStorage.getItem('theme')=='dark'){document.body.classList.add('dark');}</script>
+    <script>if(localStorage.getItem('theme')=='dark')document.body.classList.add('dark');</script>
     {% block content %}{% endblock content %}
-    <script src="/js/main.js"></script>
     {% block script %}{% endblock script %}
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
