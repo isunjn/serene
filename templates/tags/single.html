@@ -13,17 +13,16 @@
 <div id="tag-single-wrapper">
 <main>
     <div class="title">
-        <i class="ri-hashtag"></i>
-        <span>{{ term.name }}</span>
+        <span># {{ term.name }}</span>
         <a href="{{ config.base_url ~ '/tags' }}">All Tags</a>
     </div>
     <div class="post-list">
-        {% for post in term.pages -%}
+        {% for post in term.pages %}
         <a class="post" href="{{ post.permalink }}">
             <span>{{ post.title }}</span>
             <span class="date">{{ post.date | date }}</span>
         </a>
-        {%- endfor %}
+        {% endfor %}
     </div>
 </main>
 {% include "_footer.html" %}

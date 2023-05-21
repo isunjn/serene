@@ -14,10 +14,7 @@
         <div class="title">Tags</div>
         <div class="tags">
             {% for tag in terms -%}
-            <a class="tag" href="{{ tag.permalink }}">
-                <i class="ri-hashtag"></i>
-                <span>{{ tag.name | lower }}</span>
-            </a>
+            <a href="{{ tag.permalink }}"># {{ tag.name | lower }}</a>
             {%- endfor %}
         </div>
     </main>

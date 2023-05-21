@@ -15,8 +15,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Signika+Negative&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/main.css">
     {% block css %}{% endblock css %}
@@ -49,15 +48,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             renderMathInElement(document.body, {
-            // customised options
-            // • auto-render specific keys, e.g.:
             delimiters: [
                 {left: '$$', right: '$$', display: true},
                 {left: '$', right: '$', display: false},
                 {left: '\\(', right: '\\)', display: false},
                 {left: '\\[', right: '\\]', display: true}
             ],
-            // • rendering keys, e.g.:
             throwOnError : false
             });
         });
@@ -67,9 +63,9 @@
 
 <body class="{% block page %}{% endblock page%}">
     <script>if(localStorage.getItem('theme')=='dark'){document.body.classList.add('dark');}</script>
-    {% block content %}{% endblock content -%}
-    <script src="/js/dark.js"></script>
-    {%- block script %}{% endblock script %}
+    {% block content %}{% endblock content %}
+    <script src="/js/main.js"></script>
+    {% block script %}{% endblock script %}
 </body>
 
 </html>
