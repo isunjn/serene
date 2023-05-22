@@ -13,7 +13,7 @@
       <div id="text">
         <div>
           <span id="name">{{ config.extra.name }}</span>
-          {% if config.extra.show_id -%}
+          {% if config.extra.display_id -%}
           <span id="id">@{{ config.extra.id }}</span>
           {% endif -%}
         </div>
@@ -23,7 +23,7 @@
     <section id="links">
       <div id="left">
         <a href="/blog" id="blog">blog</a>
-        {% if config.extra.show_projects -%}
+        {% if config.extra.projects_page -%}
         <a href="/projects" id="projects">projects</a>
         {% endif -%}
       </div>
@@ -34,7 +34,7 @@
           {% set icon = load_data(path=icon_path) %}
           {{ icon | safe }}
         </a>
-        {% endfor -%}
+        {% endfor %}
         {% set moon_icon = load_data(path="static/icon/moon.svg") %}
         {% set sun_icon = load_data(path="static/icon/sun.svg") %}
         <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">

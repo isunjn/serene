@@ -12,7 +12,7 @@
     <div id="btns">
       {% if section.path != "/projects/" %}
       {% set rss_icon = load_data(path="static/icon/rss.svg") %}
-      {% if config.extra.feed_in_blog_section -%}
+      {% if section.generate_feed -%}
       <a href="/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
       {% elif config.generate_feed -%}
       <a href="/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
@@ -27,9 +27,8 @@
 
       {% if section.path != "/projects/" %}
       {% set toc_icon = load_data(path="static/icon/toc.svg") %}
-      {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc -%}
-      {% else %}{% set show_toc = config.extra.toc %}{% endif -%}
-      {% if show_toc and page -%}
+      {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
+      {% if show_toc and page %}
       <button id="toc-toggle" aria-label="table of content">
         {{ toc_icon | safe }}
       </button>

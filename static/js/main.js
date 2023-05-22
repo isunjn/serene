@@ -12,17 +12,17 @@ preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "lig
 
 if (document.body.classList.contains('post')) {
   /* outdate warn */
-  const warn = document.querySelector('#outdate_warn');
-  if (warn) {
+  const alert = document.querySelector('#outdate_alert');
+  if (alert) {
     const publish = document.querySelector('#publish');
     const updated = document.querySelector('#updated');
     const updateDate = new Date(updated ? updated.textContent : publish.textContent);
     const intervalDays = Math.floor((Date.now() - updateDate.getTime()) / (24 * 60 * 60 * 1000));
-    const warnDays = parseInt(warn.dataset.days);
+    const warnDays = parseInt(alert.dataset.days);
     if (intervalDays >= warnDays) {
-      const msg = warn.dataset.warnTextBefore + intervalDays + warn.dataset.warnTextAfter;
-      warn.lastChild.textContent = msg;
-      warn.classList.remove('hidden');
+      const msg = alert.dataset.alertTextBefore + intervalDays + alert.dataset.alertTextAfter;
+      alert.lastChild.textContent = msg;
+      alert.classList.remove('hidden');
     }
   }
   /* toc toggle */

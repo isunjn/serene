@@ -1,17 +1,13 @@
 <footer>
   <div class="copyright">
-    {% if config.extra.footer_custom -%}
-    {{ config.extra.footer_custom }}
-    {%- else -%}
-    © {{ config.extra.footer_copyright_year }} {{ config.extra.footer_copyright_name }}
-    {%- endif %}
+    {{ config.extra.footer_copyright | trim | markdown | safe }}
   </div>
-  {% if config.extra.footer_credits -%}
+  {% if config.extra.footer_credits %}
   <div class="credits">
     Powered by 
     <a href="https://www.getzola.org" target="_blank" rel='noreferrer noopener'>Zola</a>
     and
     <a href="https://github.com/isunjn/serene" target="_blank" rel='noreferrer noopener'>Serene</a>
   </div>
-  {%- endif %}
+  {% endif %}
 </footer>

@@ -356,7 +356,6 @@ header {
 footer {
   font-size: 1rem;
   padding: 15px;
-  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -391,8 +390,12 @@ body.blog {
     margin: 60px 0;
 
     .category {
-      font-size: 1.3em;
+      font-size: 1.15em;
       margin: 32px 16px 16px;
+    }
+    
+    .post-list {
+      margin-top: 32px;
     }
 
     .post {
@@ -401,7 +404,7 @@ body.blog {
       align-items: flex-end;
       padding: 7.5px 15px;
       border-radius: 4px;
-      font-size: 1.1em;
+      font-size: 1em;
       text-decoration: none;
       color: var(--primary-color);
 
@@ -456,16 +459,17 @@ body.post {
       margin-bottom: 1em;
     }
 
-    .date {
+    #date {
       color: var(--text-light-color);
       margin-bottom: 1em;
 
-      #publish {
+      #publish,
+      #updated {
         margin-right: 20px;
       }
     }
 
-    .tags {
+    #tags {
       margin-bottom: 1em;
       display: flex;
       gap: 1em;
@@ -477,13 +481,13 @@ body.post {
     }
 
     h1 {
-      font-size: 1.6em;
+      font-size: 1.5em;
       font-weight: bolder;
       margin: 1em 0 0.5em 0;
     }
 
     h2 {
-      font-size: 1.4em;
+      font-size: 1.3em;
       padding-top: 65px;
       margin-top: -45px;
     }
@@ -507,7 +511,7 @@ body.post {
 
     a {
       color: var(--primary-color);
-      text-decoration: underline var(--primary-light-color) 2px;
+      text-decoration: underline var(--primary-light-color) 1.5px;
 
       &:hover {
         text-decoration-color: var(--primary-color);
@@ -539,7 +543,7 @@ body.post {
 
     p>code {
       font-family: var(--code-font);
-      font-size: 0.9em;
+      font-size: 0.85em;
       padding: 0px 6px;
       color: var(--primary-color);
       background-color: var(--primary-light-color);
@@ -551,7 +555,7 @@ body.post {
       line-height: 1.5;
       border-radius: var(--pre-border-radius);
       overflow: auto;
-      font-size: 0.9em;
+      font-size: 0.8em;
 
       code {
         font-family: var(--code-font);
@@ -570,7 +574,7 @@ body.post {
     hr {
       border: none;
       background-color: var(--primary-light-color);
-      height: 4px;
+      height: 3px;
       margin: 36px 0;
     }
 
@@ -697,18 +701,14 @@ body.post {
     }
   }
 
-  .comment {
-    padding: 15px;
-  }
-
   aside {
     width: calc((100% - 750px)/2);
     position: sticky;
-    margin-top: 140px;
+    margin-top: 125px;
     top: 60px;
     height: min-content;
     font-size: var(--paragraph-font-size);
-    z-index: 99;
+    z-index: 9;
 
     nav {
       min-width: 60%;
@@ -725,7 +725,7 @@ body.post {
     ul {
       list-style-type: none;
       padding-left: 1.5em;
-      line-height: 1.75;
+      line-height: 2;
       margin: 0;
     }
 
@@ -735,52 +735,23 @@ body.post {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      color: var(--primary-color);
 
       &::before {
         display: inline-block;
         content: "";
-        width: 4px;
+        width: 3px;
         height: 10px;
         border-radius: 2px;
         position: relative;
         top: -1px;
-        margin-right: 8px;
+        margin-right: 10px;
       }
 
       &:hover,
       &.active {
         &::before {
           background-color: var(--primary-color);
-        }
-      }
-    }
-
-    .toc-h2 {
-      color: var(--primary-color);
-    }
-
-    .toc-h3 {
-      color: var(--primary-color);
-    }
-
-    #back-to-top {
-      padding: 10px 15px;
-      text-decoration: none;
-      position: fixed;
-      bottom: 18px;
-      margin-left: 20px;
-      color: var(--text-light-color);
-      background: transparent;
-      border: none;
-
-      svg path:not([fill='none']) {
-        fill: var(--text-primary-color);
-      }
-      
-      &:hover {
-        cursor: pointer;
-        svg path:not([fill='none']) {
-          fill: var(--primary-color);
         }
       }
     }
@@ -808,11 +779,6 @@ body.post {
 
       ul {
         padding-left: 10px;
-      }
-
-      #back-to-top {
-        padding-left: 10px;
-        bottom: 3em;
       }
     }
 
@@ -949,7 +915,7 @@ body.tag-single {
 
 body.projects {
   #proj-wrapper {
-    margin: 80px auto 0;
+    margin: 92px auto 0;
     max-width: 750px;
     min-height: calc(100vh - 230px);
   }

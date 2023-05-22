@@ -9,17 +9,28 @@
 {% include "_header.html" %}
 <div id="blog-wrapper">
   <main>
+    {% if config.extra.blog_categorized %}
     {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") -%}
     <div class="category">{{ category }}</div>
-    <div class="post-list">
+    <div>
       {% for post in posts %}
       <a class="post" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
         <span class="date">{{ post.date | date}}</span>
       </a>
-      {% endfor -%}
+      {% endfor %}
     </div>
-    {% endfor -%}
+    {% endfor %}
+    {% else %}
+    <div class="post-list">
+      {% for post in section.pages %}
+      <a class="post" href="{{ post.permalink }}">
+        <span>{{ post.title }}</span>
+        <span class="date">{{ post.date | date}}</span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
   </main>
   {% include "_footer.html" %}
 </div>

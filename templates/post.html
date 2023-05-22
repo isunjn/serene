@@ -9,7 +9,7 @@
 {% block desc -%}{% if page.summary %}{{ page.summary }}{% endif -%}{% endblock desc %}
 
 {% block head %}
-{% if page.extra.math %}
+{% if page.extra.katex %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
@@ -38,13 +38,13 @@
         <article>
             <h1>{{ page.title }}</h1>
             <div id="post-info">
-                <div class="date">
+                <div id="date">
                     <span id="publish">{{ page.date | date }}</span>
                     {% if page.updated and page.updated != page.date -%}
                     <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
                     {% endif -%}
                 </div>
-                <div class="tags">
+                <div id="tags">
                     {% for tag in page.taxonomies.tags -%}
                     {% set tag_slugify = tag | slugify -%}
                     <a href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
@@ -52,49 +52,18 @@
                 </div>
             </div>
 
-            {% if page.extra.outdate_warn is defined %} {% set show_outdate_warn = page.extra.outdate_warn %}{% else %} {% set show_outdate_warn = config.extra.outdate_warn %}{% endif %}
-            {% if page.extra.outdate_warn_days is defined %} {% set outdate_warn_days = page.extra.outdate_warn_days %}{% else %} {% set outdate_warn_days = config.extra.outdate_warn_days %}{% endif %}
+            {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% else %}{% set show_outdate_alert = config.extra.outdate_alert %}{% endif %}
+            {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = config.extra.outdate_alert_days %}{% endif %}
 
-            {% if show_outdate_warn -%}
-            <blockquote id="outdate_warn" class="note hidden" data-days="{{ outdate_warn_days }}"
-                data-warn-text-before="{{ config.extra.outdate_warn_text_before }}" data-warn-text-after="{{ config.extra.outdate_warn_text_after }}">
+            {% if show_outdate_alert -%}
+            <blockquote id="outdate_alert" class="note hidden" data-days="{{ outdate_alert_days }}"
+                data-alert-text-before="{{ config.extra.outdate_alert_text_before }}" data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
                 <i class="ri-alarm-warning-line ri-lg"></i><span></span>
             </blockquote>
             {% endif %}
             
             {{ page.content | safe }}
-
-            {% set cc = false %}
-            {% if page.extra.cc_license is defined and page.extra.cc_license == true %}{% set cc = true %}
-            {% elif page.extra.cc_license is undefined and config.extra.cc_license == true %}{% set cc = true %}
-            {% endif %}
-
-            {% if cc %}
-            <blockquote id="cc_license" class="note">
-                <i class="ri-creative-commons-line ri-lg"></i>
-                <div class="content">{{ config.extra.cc_license_statement | trim | markdown | safe }}</div>
-            </blockquote>
-            {% endif %}
         </article>
-        
-        {% set show_comment = false %}
-        {% if page.extra.show_comment %}
-        {% set show_comment = true %}
-        {% elif page.extra.show_comment is undefined %}
-        {% set show_comment = true %}
-        {% endif %}
-
-        {% if show_comment and config.extra.comment == "gitalk" %}
-        <div id="gitalk-container" class="comment"></div>
-        {% endif %}
-
-        {% if show_comment and config.extra.comment == "disqus" %}
-        <div id="disqus_thread" class="comment"></div>
-        {% endif %}
-
-        {% if show_comment and config.extra.comment == "disqus_js" %}
-        <div id="disqus_thread" class="comment"></div>
-        {% endif %}
 
         {% include "_footer.html" %}
     </main>
@@ -105,12 +74,12 @@
             <ul>
                 {% for h2 in page.toc %}
                 <li>
-                    <a class="toc-h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
+                    <a href="#{{ h2.id | safe }}">{{ h2.title }}</a>
                     {% if h2.children %}
                     <ul>
                         {% for h3 in h2.children %}
                         <li>
-                            <a class="toc-h3" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
+                            <a href="#{{ h3.id | safe }}">{{ h3.title }}</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -119,12 +88,6 @@
                 {% endfor %}
             </ul>
         </nav>
-        {% endif %}
-        {% if config.extra.back_to_top_button %}
-        <button id="back-to-top" aria-label="back to top">
-            {% set icon = load_data(path="static/icon/arrow-up.svg") %}
-            {{ icon | safe }}
-        </button>
         {% endif %}
     </aside>
 </div>
