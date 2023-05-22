@@ -561,6 +561,14 @@ body.post {
       border: 1px solid var(--primary-pale-color);
     }
 
+    .footnote-definition {
+      display: flex;
+      margin: 2em 0 1em;
+      p {
+        margin-top: 0;
+      }
+    }
+
     blockquote.callout {
       line-height: var(--paragraph-line-height);
       margin-bottom: 20px;
