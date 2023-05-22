@@ -11,7 +11,7 @@ if (themeToggle) themeToggle.addEventListener('click', () => toggleTheme(localSt
 preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "light"));
 
 if (document.body.classList.contains('post')) {
-  /* outdate warn */
+  /* outdate alert */
   const alert = document.querySelector('#outdate_alert');
   if (alert) {
     const publish = document.querySelector('#publish');
@@ -34,9 +34,6 @@ if (document.body.classList.contains('post')) {
       aside.classList.toggle('shown');
     });
   }
-  /* back to top */
-  const backToTop = document.querySelector('#back-to-top');
-  if (backToTop) backToTop.addEventListener('click', () => document.documentElement.scrollTop = 0);
   /* img lightense */
   window.addEventListener("load", () => Lightense("article img", { background: 'rgba(43, 43, 43, 0.19)' }), false);
 }
