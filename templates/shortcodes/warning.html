@@ -1,5 +1,8 @@
-<blockquote class="note warning">
-    <i class="ri-alarm-warning-line ri-lg"></i>
+<blockquote class="callout warning">
+    {% set icon = load_data(path="static/icon/warning.svg") %}
+    <div class="icon">
+        {{ icon | safe }}
+    </div>
     <div class="content">
         {% if header %}
         <p><strong>{{ header }}</strong></p>

@@ -56,9 +56,13 @@
             {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = config.extra.outdate_alert_days %}{% endif %}
 
             {% if show_outdate_alert -%}
-            <blockquote id="outdate_alert" class="note hidden" data-days="{{ outdate_alert_days }}"
+            <blockquote id="outdate_alert" class="callout alert hidden" data-days="{{ outdate_alert_days }}"
                 data-alert-text-before="{{ config.extra.outdate_alert_text_before }}" data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
-                <i class="ri-alarm-warning-line ri-lg"></i><span></span>
+                {% set icon = load_data(path="static/icon/alert.svg") %}
+                <div class="icon">
+                    {{ icon | safe }}
+                </div>
+                <div class="content"></div>
             </blockquote>
             {% endif %}
             

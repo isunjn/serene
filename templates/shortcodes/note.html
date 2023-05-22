@@ -1,5 +1,8 @@
-<blockquote class="note bad">
-    <i class="ri-thumb-down-line ri-lg"></i>
+<blockquote class="callout note">
+    {% set icon = load_data(path="static/icon/note.svg") %}
+    <div class="icon">
+        {{ icon | safe }}
+    </div>
     <div class="content">
         {% if header %}
         <p><strong>{{ header }}</strong></p>
