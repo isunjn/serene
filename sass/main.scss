@@ -353,9 +353,10 @@ footer {
     color: var(--text-light-color);
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 374px) {
     & {
-      justify-content: center;
+      flex-direction: column;
+      gap: 0;
     }
   }
 }
