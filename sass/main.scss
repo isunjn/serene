@@ -152,10 +152,6 @@ body.homepage {
     gap: 0.5em 1em;
     font-size: 1.25em;
 
-    svg path:not([fill='none']) {
-      fill: var(--text-primary-color);
-    }
-
     a,
     button {
       text-decoration: none;
@@ -163,10 +159,6 @@ body.homepage {
 
       &:hover {
         color: var(--primary-color);
-
-        svg path:not([fill='none']) {
-          fill: var(--primary-color);
-        }
       }
     }
 
@@ -291,7 +283,7 @@ header {
   }
 
   nav {
-    font-size: 1.3em;
+    font-size: 1.4em;
 
     a {
       color: var(--text-primary-color);
@@ -323,15 +315,9 @@ header {
       cursor: pointer;
 
       @media (hover: hover) {
-        &:hover svg path:not([fill='none']) {
-          fill: var(--primary-color);
+        &:hover {
+          color: var(--primary-color);
         }
-      }
-    }
-
-    svg {
-      path:not([fill='none']) {
-        fill: var(--text-primary-color);
       }
     }
   }
@@ -343,8 +329,8 @@ header {
       & {
         display: inline-block;
 
-        &.active svg path:not([fill='none']) {
-          fill: var(--primary-color);
+        &.active {
+          color: var(--primary-color);
         }
       }
     }
@@ -390,7 +376,7 @@ body.blog {
     margin: 60px 0;
 
     .category {
-      font-size: 1.15em;
+      font-size: 1.3em;
       margin: 32px 16px 16px;
     }
     
@@ -404,7 +390,7 @@ body.blog {
       align-items: flex-end;
       padding: 7.5px 15px;
       border-radius: 4px;
-      font-size: 1em;
+      font-size: 1.1em;
       text-decoration: none;
       color: var(--primary-color);
 
