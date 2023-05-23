@@ -5,7 +5,6 @@ body {
   --text-color: #3C4043;
   --text-pale-color: #a0a9bf;
   --bg-color: #ffffff;
-  --blur-bg-color: #ffffff50;
 
   // dark mode colors
   &.dark {
@@ -14,7 +13,6 @@ body {
     --text-color: #9197a5;
     --text-pale-color: #5d6470;
     --bg-color: #202124;
-    --blur-bg-color: #20212430;
   }
 
   // callout colors
@@ -242,7 +240,7 @@ header {
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     &.blur {
-      background-color: var(--blur-bg-color);
+      background-color: fade(var(--bg-color), 75%);
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
     }
@@ -732,7 +730,7 @@ body.post {
 
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       aside.blur {
-        background-color: var(--blur-bg-color);
+        background-color: fade(var(--bg-color), 75%);
         -webkit-backdrop-filter: blur(8px);
         backdrop-filter: blur(8px);
       }

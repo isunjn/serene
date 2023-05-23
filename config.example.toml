@@ -1,4 +1,4 @@
-base_url = "https://example.com" # Domain name of your website
+base_url = "https://example.com"      # Domain name of your website
 title = "xxxx"
 description = "xxxx xxxx xxxx"
 default_language = "en"
@@ -6,15 +6,15 @@ theme = "serene"
 output_dir = "public"
 compile_sass = true
 minify_html = true
-build_search_index = false       # Keep this false, search is temporarily unsupported
-generate_feed = false            # Whether to generate a feed file in root, read docs for more info about rss feed
-feed_filename = "feed.xml"       # The file name of feed, "feed.xml" / "atom.xml" / "rss.xml", read docs for more info
+build_search_index = false            # Keep this false, search is temporarily unsupported
+generate_feed = false                 # Whether to generate a feed file in root, read docs for more info about rss feed
+feed_filename = "feed.xml"            # The file name of feed, "feed.xml" / "atom.xml" / "rss.xml", read docs for more info
 taxonomies = [{ name = "tags" }, { name = "categories" }]
 
 [markdown]
 highlight_code = true
 extra_syntaxes = []
-highlight_theme = "nord"         # Code highlight theme, choose one at https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting
+highlight_theme = "gray-matter-dark"  # Code highlight theme, choose one at https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting
 render_emoji = false
 external_links_target_blank = false
 external_links_no_follow = true
@@ -30,31 +30,28 @@ anchors = "on"
 
 [extra]
 
-name = "xxxx"              # Your name
-id = "xxxx"                # Your id / username / handle
-bio = "xxxx"               # Your bio
-avatar = "img/avatar.webp" # Your avatar
-links = [                  # Your links
-    { name = "GitHub", icon = "ri-github-line", url = "https://github.com/<your-username>" },
-    { name = "Twitter", icon = "ri-twitter-line", url = "https://twitter.com/<your-username>" },
-    { name = "Email", icon = "ri-mail-line", url = "mailto:<your-email-address>" },
+name = "xxxx"                         # Your name
+id = "xxxx"                           # Your id / username / handle
+bio = "xxxx"                          # Your bio
+avatar = "img/avatar.webp"            # Your avatar
+links = [                             # Your links
+    { name = "GitHub", icon = "github", url = "https://github.com/<your-username>" },
+    { name = "Twitter", icon = "twitter", url = "https://twitter.com/<your-username>" },
+    { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
 ]
 
 nav_separator = "::"
 
-display_id = true          # Display your id on homepage
-projects_page = true       # Display projects page
-blog_categorized = true    # Whether to categorize blog posts
-blur_effect = true         # Whether to turn on blur effect on navigation bar
+display_id = true                     # Display your id on homepage
+projects_page = true                  # Display projects page
+blog_categorized = true               # Whether to categorize blog posts
+blur_effect = true                    # Whether to turn on blur effect on navigation bar
+toc = true                            # Whether to show Table-Of-Contents by default
 
-toc = true                 # Whether to show Table-Of-Contents by default
-katex = false              # Whether to enable KaTeX support by default
-mermaid = false            # Whether to enable Mermaid support by default
-
-outdate_alert = false       # Whether to show outdate alert by default
-outdate_alert_days = 120    # How many days will a post be outdated
+outdate_alert = false                 # Whether to show outdate alert by default
+outdate_alert_days = 120              # How many days will a post be outdated by default
 outdate_alert_text_before = "This article was last updated "
 outdate_alert_text_after = " days ago and may be out of date."
 
 footer_copyright = "© 2023 <your-name>"
-footer_credits = true       # Whether to show "Powered by Zola and Serene" in footer
+footer_credits = true                 # Whether to show "Powered by Zola and Serene" in footer
