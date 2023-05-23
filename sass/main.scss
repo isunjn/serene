@@ -524,6 +524,33 @@ body.post {
       code {
         font-family: var(--code-font);
       }
+
+      &[data-linenos] {
+        padding: 12px 12px 12px 0px;
+      }
+      
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table td {
+        padding: 0;
+        line-height: initial;
+        text-align: initial;
+        border: initial;
+      }
+
+      table td:nth-of-type(1) {
+        text-align: right;
+        user-select: none;
+        padding-right: 1em;
+      }
+
+      mark {
+        display: block;
+        background-color: rgba(254, 252, 232, 0.9);
+      }
     }
 
     ul,
