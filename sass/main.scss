@@ -187,7 +187,6 @@ body.homepage {
     a {
       color: var(--primary-color);
       text-decoration: underline var(--primary-pale-color) 1.5px;
-      text-underline-offset: 2px;
 
       &:hover {
         text-decoration-color: var(--primary-color);
@@ -196,7 +195,7 @@ body.homepage {
 
     p>code {
       font-family: var(--code-font);
-      font-size: 0.8em;
+      font-size: 0.85em;
       padding: 0px 6px;
       color: var(--primary-color);
       background-color: var(--primary-pale-color);
@@ -224,12 +223,10 @@ body.homepage {
     hr {
       border: none;
       background-color: var(--primary-pale-color);
-      height: 4px;
-      margin: 1.5em 0;
+      height: 3px;
+      margin: 36px 0;
     }
   }
-
-
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
