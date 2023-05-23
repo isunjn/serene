@@ -69,6 +69,12 @@
             {{ page.content | safe }}
         </article>
 
+        {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
+        {% if show_comment %}
+        <div class="giscus"></div>
+        {% include "_giscus_script.html" %}
+        {% endif %}
+
         {% include "_footer.html" %}
     </main>
     <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>

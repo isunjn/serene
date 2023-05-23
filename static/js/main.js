@@ -1,14 +1,31 @@
 /* dark mode */
+
 const themeToggle = document.querySelector('#theme-toggle');
 const preferDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+if (!localStorage.getItem("theme") && preferDark.matches) toggleTheme("dark");
+themeToggle.addEventListener('click', () => toggleTheme(localStorage.getItem("theme") == "dark" ? "light" : "dark"));
+preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "light"));
+
 function toggleTheme(theme) {
   document.body.classList.toggle('dark');
   localStorage.setItem("theme", theme);
-  if (themeToggle) themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
+  themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
+  toggleGiscusTheme(theme);
 }
-if (!localStorage.getItem("theme") && preferDark.matches) toggleTheme("dark");
-if (themeToggle) themeToggle.addEventListener('click', () => toggleTheme(localStorage.getItem("theme") == "dark" ? "light" : "dark"));
-preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "light"));
+
+function toggleGiscusTheme(theme) {
+  const iframe = document.querySelector('iframe.giscus-frame');
+  if (iframe) iframe.contentWindow.postMessage({giscus:{setConfig:{theme:`${location.origin}/giscus_${theme}.css`}}}, 'https://giscus.app');
+}
+
+window.addEventListener('message', initGiscusTheme);
+function initGiscusTheme() {
+  toggleGiscusTheme(localStorage.getItem("theme") || (preferDark.matches ? "dark" : "light"));
+  window.removeEventListener('message', initGiscusTheme);
+}
+
+/* post page */
 
 if (document.body.classList.contains('post')) {
   /* outdate alert */
@@ -35,5 +52,5 @@ if (document.body.classList.contains('post')) {
     });
   }
   /* img lightense */
-  window.addEventListener("load", () => Lightense("article img", { background: 'rgba(43, 43, 43, 0.19)' }), false);
+  window.addEventListener("load", () => Lightense("article img", { background: 'rgba(43, 43, 43, 0.19)' }));
 }

@@ -46,7 +46,9 @@ display_id = true                     # Display your id on homepage
 projects_page = true                  # Display projects page
 blog_categorized = true               # Whether to categorize blog posts
 blur_effect = true                    # Whether to turn on blur effect on navigation bar
+
 toc = true                            # Whether to show Table-Of-Contents by default
+comment = false                       # Whether to show giscus comment section by default, see https://giscus.app for more info
 
 outdate_alert = false                 # Whether to show outdate alert by default
 outdate_alert_days = 120              # How many days will a post be outdated by default

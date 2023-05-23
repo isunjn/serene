@@ -648,6 +648,10 @@ body.post {
     }
   }
 
+  .giscus {
+    padding: 0 15px;
+  }
+
   aside {
     width: calc((100% - 750px)/2);
     position: sticky;
