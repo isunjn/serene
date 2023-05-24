@@ -1,9 +1,11 @@
 public/
 
-content/*
+content/
 
 !content/_index.md
 
-static/img/*
+static/img/
 
 config.toml
+
+.DS_Store
