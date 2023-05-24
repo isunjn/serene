@@ -621,7 +621,7 @@ body.post {
       gap: 10px;
 
       .icon {
-        height: 1.5em;
+        height: 1.75em;
         display: flex;
         align-items: center;
       }
@@ -666,6 +666,10 @@ body.post {
         background-color: var(--callout-tip-bg-color);
       }
     }
+  }
+
+  .mermaid {
+    background: #fff;
   }
 
   .giscus {
