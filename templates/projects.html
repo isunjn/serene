@@ -8,21 +8,21 @@
 {% block content %}
 {% include "_header.html" %}
 <div id="proj-wrapper">
-    <main>
-        {% set data = load_data(path="content/projects/data.toml", format="toml") %}
-        {% for proj in data.project %}
-        <div class="proj">
-            <p class="name">{{ proj.name }}</p>
-            <div class="desc">{{ proj.desc | trim | markdown | safe }}</div>
-            <div class="links">
-                {% for link in proj.links -%}
-                <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
-                {% endfor %}
-            </div>
-        </div>
+  <main>
+    {% set data = load_data(path="content/projects/data.toml", format="toml") %}
+    {% for proj in data.project %}
+    <div class="proj">
+      <p class="name">{{ proj.name }}</p>
+      <div class="desc">{{ proj.desc | trim | markdown | safe }}</div>
+      <div class="links">
+        {% for link in proj.links -%}
+        <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
         {% endfor %}
-    </main>
-    {% include "_footer.html" -%}
+      </div>
+    </div>
+    {% endfor %}
+  </main>
+  {% include "_footer.html" -%}
 </div>
 
 {% endblock content %}

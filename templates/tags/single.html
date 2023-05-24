@@ -3,28 +3,27 @@
 {% block page %}tag-single{% endblock page %}
 {% block lang -%}
 {% set section = get_section(path="blog/_index.md", metadata_only=true) %}
-{% if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ lang }}{% endif %}
-{% endblock lang %}
-
+{%- if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ lang }}{% endif -%}
+{%- endblock lang %}
 {% block title %}{{section.title}}{% endblock title %}
 
 {% block content %}
 {% include "_header.html" %}
 <div id="tag-single-wrapper">
-<main>
+  <main>
     <div class="title">
-        <span># {{ term.name }}</span>
-        <a href="{{ config.base_url ~ '/tags' }}">All Tags</a>
+      <span># {{ term.name }}</span>
+      <a href="{{ config.base_url ~ '/tags' }}">All Tags</a>
     </div>
     <div class="post-list">
-        {% for post in term.pages %}
-        <a class="post" href="{{ post.permalink }}">
-            <span>{{ post.title }}</span>
-            <span class="date">{{ post.date | date }}</span>
-        </a>
-        {% endfor %}
+      {% for post in term.pages %}
+      <a class="post" href="{{ post.permalink }}">
+        <span>{{ post.title }}</span>
+        <span class="date">{{ post.date | date }}</span>
+      </a>
+      {% endfor %}
     </div>
-</main>
-{% include "_footer.html" %}
+  </main>
+  {% include "_footer.html" %}
 </div>
 {% endblock content %}

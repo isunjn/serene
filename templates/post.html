@@ -1,12 +1,12 @@
 {% extends "_base.html" %}
 
 {% block page %}post{% endblock page %}
-{% block lang %}
-{% set section = get_section(path="blog/_index.md", metadata_only=true) -%}
-{% if page.extra.lang %}{{page.extra.lang}}{% elif section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif %}
-{% endblock lang %}
+{% block lang -%}
+{% set section = get_section(path="blog/_index.md", metadata_only=true) %}
+{%- if page.extra.lang %}{{page.extra.lang}}{% elif section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif -%}
+{%- endblock lang %}
 {% block title %}{{ page.title }}{% endblock title %}
-{% block desc -%}{% if page.summary %}{{ page.summary }}{% endif -%}{% endblock desc %}
+{% block desc %}{% if page.summary %}{{ page.summary }}{% endif %}{% endblock desc %}
 
 {% block head %}
 {% if page.extra.math %}
@@ -14,17 +14,17 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          delimiters: [
-              {left: '$$', right: '$$', display: true},
-              {left: '$', right: '$', display: false},
-              {left: '\\(', right: '\\)', display: false},
-              {left: '\\[', right: '\\]', display: true}
-          ],
-          throwOnError : false
-        });
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      throwOnError: false
     });
+  });
 </script>
 {% endif %}
 {% endblock head %}
@@ -32,74 +32,75 @@
 {% block content %}
 {% include "_header.html" %}
 <div id="post-wrapper">
-    <div id="blank"></div>
-    <main>
-        <div id="top"></div>
-        <article>
-            <h1>{{ page.title }}</h1>
-            <div id="post-info">
-                <div id="date">
-                    <span id="publish">{{ page.date | date }}</span>
-                    {% if page.updated and page.updated != page.date -%}
-                    <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
-                    {% endif -%}
-                </div>
-                <div id="tags">
-                    {% for tag in page.taxonomies.tags -%}
-                    {% set tag_slugify = tag | slugify -%}
-                    <a href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
-                    {%- endfor %}
-                </div>
-            </div>
+  <div id="blank"></div>
+  <main>
+    <div id="top"></div>
+    <article>
+      <h1>{{ page.title }}</h1>
+      <div id="post-info">
+        <div id="date">
+          <span id="publish">{{ page.date | date }}</span>
+          {% if page.updated and page.updated != page.date -%}
+          <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
+          {% endif -%}
+        </div>
+        <div id="tags">
+          {% for tag in page.taxonomies.tags -%}
+          {% set tag_slugify = tag | slugify -%}
+          <a href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
+          {%- endfor %}
+        </div>
+      </div>
 
-            {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% else %}{% set show_outdate_alert = config.extra.outdate_alert %}{% endif %}
-            {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = config.extra.outdate_alert_days %}{% endif %}
+      {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% else %}{% set show_outdate_alert = config.extra.outdate_alert %}{% endif %}
+      {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = config.extra.outdate_alert_days %}{% endif %}
 
-            {% if show_outdate_alert -%}
-            <blockquote id="outdate_alert" class="callout alert hidden" data-days="{{ outdate_alert_days }}"
-                data-alert-text-before="{{ config.extra.outdate_alert_text_before }}" data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
-                {% set icon = load_data(path="static/icon/alert.svg") %}
-                <div class="icon">
-                    {{ icon | safe }}
-                </div>
-                <div class="content"></div>
-            </blockquote>
-            {% endif %}
-            
-            {{ page.content | safe }}
-        </article>
+      {% if show_outdate_alert -%}
+      <blockquote id="outdate_alert" class="callout alert hidden" data-days="{{ outdate_alert_days }}"
+        data-alert-text-before="{{ config.extra.outdate_alert_text_before }}"
+        data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
+        {% set icon = load_data(path="static/icon/alert.svg") %}
+        <div class="icon">
+          {{ icon | safe }}
+        </div>
+        <div class="content"></div>
+      </blockquote>
+      {% endif %}
 
-        {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
-        {% if show_comment %}
-        <div class="giscus"></div>
-        {% include "_giscus_script.html" %}
-        {% endif %}
+      {{ page.content | safe }}
+    </article>
 
-        {% include "_footer.html" %}
-    </main>
-    <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
-        {% if page.extra.toc is defined %} {% set show_toc = page.extra.toc %}{% else %} {% set show_toc = config.extra.toc %} {% endif %}
-        {% if show_toc and page.toc %}
-        <nav>
-            <ul>
-                {% for h2 in page.toc %}
-                <li>
-                    <a href="#{{ h2.id | safe }}">{{ h2.title }}</a>
-                    {% if h2.children %}
-                    <ul>
-                        {% for h3 in h2.children %}
-                        <li>
-                            <a href="#{{ h3.id | safe }}">{{ h3.title }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                </li>
-                {% endfor %}
-            </ul>
-        </nav>
-        {% endif %}
-    </aside>
+    {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
+    {% if show_comment %}
+    <div class="giscus"></div>
+    {% include "_giscus_script.html" %}
+    {% endif %}
+
+    {% include "_footer.html" %}
+  </main>
+  <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
+    {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
+    {% if show_toc and page.toc %}
+    <nav>
+      <ul>
+        {% for h2 in page.toc %}
+        <li>
+          <a href="#{{ h2.id | safe }}">{{ h2.title }}</a>
+          {% if h2.children %}
+          <ul>
+            {% for h3 in h2.children %}
+            <li>
+              <a href="#{{ h3.id | safe }}">{{ h3.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+  </aside>
 </div>
 {% endblock content %}
 
@@ -107,8 +108,8 @@
 <script src="/js/lightense.min.js"></script>
 {% if page.extra.mermaid %}
 <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
 </script>
 {% endif %}
 {% endblock script %}

@@ -21,13 +21,15 @@
 
       {% set moon_icon = load_data(path="static/icon/moon.svg") %}
       {% set sun_icon = load_data(path="static/icon/sun.svg") %}
-      <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
+      <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}"
+        data-sun-icon="{{ sun_icon }}">
         {{ moon_icon | safe }}
       </button>
 
       {% if section.path != "/projects/" %}
       {% set toc_icon = load_data(path="static/icon/toc.svg") %}
-      {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
+      {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc
+      %}{% endif %}
       {% if show_toc and page %}
       <button id="toc-toggle" aria-label="table of content">
         {{ toc_icon | safe }}

@@ -3,25 +3,25 @@
 <html lang="{% block lang %}{% endblock lang %}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <title>{% block title %}{% endblock title %}</title>
-    <meta name="description" content="{% block desc %}{% endblock desc %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    {% include "_custom_font.html" %}
-    <link rel="stylesheet" href="/main.css">
-    {% block head %}{% endblock head %}
-    {% include "_head_extend.html" %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>{% block title %}{% endblock title %}</title>
+  <meta name="description" content="{% block desc %}{% endblock desc %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  {% include "_custom_font.html" %}
+  <link rel="stylesheet" href="/main.css">
+  {% block head %}{% endblock head %}
+  {% include "_head_extend.html" %}
 </head>
 
 <body class="{% block page %}{% endblock page%}">
-    <script>if(localStorage.getItem('theme')=='dark')document.body.classList.add('dark');</script>
-    {% block content %}{% endblock content %}
-    {% block script %}{% endblock script %}
-    <script src="/js/main.js"></script>
+  <script>if (localStorage.getItem('theme') == 'dark') document.body.classList.add('dark');</script>
+  {% block content %}{% endblock content %}
+  {% block script %}{% endblock script %}
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

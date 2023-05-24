@@ -16,7 +16,7 @@ function toggleTheme(theme) {
 
 function toggleGiscusTheme(theme) {
   const iframe = document.querySelector('iframe.giscus-frame');
-  if (iframe) iframe.contentWindow.postMessage({giscus:{setConfig:{theme:`${location.origin}/giscus_${theme}.css`}}}, 'https://giscus.app');
+  if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: `${location.origin}/giscus_${theme}.css` } } }, 'https://giscus.app');
 }
 
 window.addEventListener('message', initGiscusTheme);
