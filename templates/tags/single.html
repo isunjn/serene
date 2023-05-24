@@ -1,35 +1,29 @@
 {% extends "_base.html" %}
 
+{% block page %}tag-single{% endblock page %}
 {% block lang -%}
-{%- set section = get_section(path="blog/_index.md", metadata_only=true) %}
-{%- if section.extra.lang %}{{ section.extra.lang }}
-{%- else %}{{ lang }}{% endif %}
+{% set section = get_section(path="blog/_index.md", metadata_only=true) %}
+{%- if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ lang }}{% endif -%}
 {%- endblock lang %}
-
 {% block title %}{{section.title}}{% endblock title %}
 
-{% block css -%}
-<link rel="stylesheet" href="/css/header.css" />
-<link rel="stylesheet" href="/css/footer.css" />
-<link rel="stylesheet" href="/css/tags_single.css" />
-{%- endblock css %}
-
 {% block content %}
-{% include "_blog_header.html" %}
-<main>
+{% include "_header.html" %}
+<div id="tag-single-wrapper">
+  <main>
     <div class="title">
-        <i class="ri-hashtag"></i>
-        <span>{{ term.name }}</span>
-        <a href="{{ config.base_url ~ '/tags' }}">All Tags</a>
+      <span># {{ term.name }}</span>
+      <a href="{{ config.base_url ~ '/tags' }}">All Tags</a>
     </div>
     <div class="post-list">
-        {% for post in term.pages -%}
-        <a class="post" href="{{ post.permalink }}">
-            <span>{{ post.title }}</span>
-            <span class="date">{{ post.date | date }}</span>
-        </a>
-        {%- endfor %}
+      {% for post in term.pages %}
+      <a class="post" href="{{ post.permalink }}">
+        <span>{{ post.title }}</span>
+        <span class="date">{{ post.date | date }}</span>
+      </a>
+      {% endfor %}
     </div>
-</main>
-{% include "_footer.html" %}
+  </main>
+  {% include "_footer.html" %}
+</div>
 {% endblock content %}

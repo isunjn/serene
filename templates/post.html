@@ -1,232 +1,115 @@
 {% extends "_base.html" %}
 
+{% block page %}post{% endblock page %}
 {% block lang -%}
-{% set section = get_section(path="blog/_index.md", metadata_only=true) -%}
-{% if page.extra.lang %}{{page.extra.lang}}
-{%- elif section.extra.lang %}{{section.extra.lang}}
-{%- else %}{{page.lang}}
-{%- endif -%}
-{% endblock lang %}
-
+{% set section = get_section(path="blog/_index.md", metadata_only=true) %}
+{%- if page.extra.lang %}{{page.extra.lang}}{% elif section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif -%}
+{%- endblock lang %}
 {% block title %}{{ page.title }}{% endblock title %}
+{% block desc %}{% if page.summary %}{{ page.summary }}{% endif %}{% endblock desc %}
 
-{% block desc -%}
-{% if page.summary %}{{ page.summary }}{% endif -%}
-{% endblock desc %}
-
-{% block css -%}
-<link rel="stylesheet" href="/css/header.css" />
-<link rel="stylesheet" href="/css/footer.css" />
-<link rel="stylesheet" href="/css/post.css" />
-{%- set show_comment = false -%}
-{% if page.extra.show_comment -%}
-{% set show_comment = true -%}
-{% elif page.extra.show_comment is undefined -%}
-{% set show_comment = true -%}
-{% endif -%}
-{% if show_comment and config.extra.comment == "gitalk" %}
-<link rel="stylesheet" href="/css/gitalk.css">
-{% endif -%}
-{% if show_comment and config.extra.comment == "disqus_js" -%}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqusjs.css">
-{% endif -%}
-{% endblock css %}
+{% block head %}
+{% if page.extra.math %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+{% endif %}
+{% endblock head %}
 
 {% block content %}
-{% include "_blog_header.html" %}
-<div class="wrap">
-    <div class="blank"></div>
-    <main>
-        <div id="top"></div>
-        <article>
-            <h1>{{ page.title }}</h1>
-            <div id="post-info">
-                <div class="date">
-                    <span id="publish">{{ page.date | date }}</span>
-                    {% if page.updated and page.updated != page.date -%}
-                    <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
-                    {% endif -%}
-                </div>
-                <div class="tags">
-                    {% for tag in page.taxonomies.tags -%}
-                    {% set tag_slugify = tag | slugify -%}
-                    <a class="tag" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><i class="ri-hashtag ri-sm"></i><span>{{ tag }}</span></a>
-                    {%- endfor %}
-                </div>
-            </div>
+{% include "_header.html" %}
+<div id="post-wrapper">
+  <div id="blank"></div>
+  <main>
+    <div id="top"></div>
+    <article>
+      <h1>{{ page.title }}</h1>
+      <div id="post-info">
+        <div id="date">
+          <span id="publish">{{ page.date | date }}</span>
+          {% if page.updated and page.updated != page.date -%}
+          <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
+          {% endif -%}
+        </div>
+        <div id="tags">
+          {% for tag in page.taxonomies.tags -%}
+          {% set tag_slugify = tag | slugify -%}
+          <a href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
+          {%- endfor %}
+        </div>
+      </div>
 
-            {%- if page.extra.outdate_warn is defined %} {% set show_outdate_warn = page.extra.outdate_warn %}
-            {%- else %} {% set show_outdate_warn = config.extra.outdate_warn %} {% endif %}
+      {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% else %}{% set show_outdate_alert = config.extra.outdate_alert %}{% endif %}
+      {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = config.extra.outdate_alert_days %}{% endif %}
 
-            {%- if page.extra.outdate_warn_days is defined %} {% set outdate_warn_days = page.extra.outdate_warn_days %}
-            {%- else %} {% set outdate_warn_days = config.extra.outdate_warn_days %} {% endif %}
+      {% if show_outdate_alert -%}
+      <blockquote id="outdate_alert" class="callout alert hidden" data-days="{{ outdate_alert_days }}"
+        data-alert-text-before="{{ config.extra.outdate_alert_text_before }}"
+        data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
+        {% set icon = load_data(path="static/icon/alert.svg") %}
+        <div class="icon">
+          {{ icon | safe }}
+        </div>
+        <div class="content"></div>
+      </blockquote>
+      {% endif %}
 
-            {% if show_outdate_warn -%}
-            <blockquote id="outdate_warn" class="note hidden" data-days="{{ outdate_warn_days }}"
-                data-text1="{{ config.extra.outdate_warn_text_before }}" data-text2="{{ config.extra.outdate_warn_text_after }}">
-                <i class="ri-alarm-warning-line ri-lg"></i><span></span>
-            </blockquote>
-            {%- endif %}
-            
-            {{ page.content | safe }}
+      {{ page.content | safe }}
+    </article>
 
-            {%- set cc = false %}
-            {%- if page.extra.cc_license is defined and page.extra.cc_license == true %}
-            {%- set cc = true %}
-            {%- elif page.extra.cc_license is undefined and config.extra.cc_license == true %}
-            {%- set cc = true %}
-            {%- endif %}
-            {%- if cc %}
-            <blockquote id="cc_license" class="note">
-                <i class="ri-creative-commons-line ri-lg"></i>
-                <div class="content">{{ config.extra.cc_license_statement | trim | markdown | safe }}</div>
-            </blockquote>
-            {%- endif %}
-        </article>
-        
-        {%- set show_comment = false %}
-        {%- if page.extra.show_comment %}
-        {%- set show_comment = true %}
-        {%- elif page.extra.show_comment is undefined %}
-        {%- set show_comment = true %}
-        {%- endif %}
+    {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
+    {% if show_comment %}
+    <div class="giscus"></div>
+    {% include "_giscus_script.html" %}
+    {% endif %}
 
-        {%- if show_comment and config.extra.comment == "gitalk" %}
-        <div id="gitalk-container" class="comment"></div>
-        {%- endif %}
-
-        {%- if show_comment and config.extra.comment == "disqus" %}
-        <div id="disqus_thread" class="comment"></div>
-        {%- endif %}
-
-        {%- if show_comment and config.extra.comment == "disqus_js" %}
-        <div id="disqus_thread" class="comment"></div>
-        {%- endif %}
-    </main>
-    <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
-        {%- if page.extra.toc is defined %} {% set show_toc = page.extra.toc %}
-        {%- else %} {% set show_toc = config.extra.toc %} {% endif %}
-        {%- if show_toc and page.toc %}
-        <nav>
-            <ul>
-                {%- for h2 in page.toc %}
-                <li>
-                    <a class="toc-h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
-                    {%- if h2.children %}
-                    <ul>
-                        {%- for h3 in h2.children %}
-                        <li>
-                            <a class="toc-h3" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
-                        </li>
-                        {%- endfor %}
-                    </ul>
-                    {%- endif %}
-                </li>
-                {%- endfor %}
-            </ul>
-        </nav>
-        {%- endif %}
-        {%- if config.extra.back_to_top_button %}
-        <a id="back-to-top" aria-label="back to top" href="#top"><i class="ri-arrow-up-s-line ri-2x"></i></a>
-        {%- endif %}
-    </aside>
+    {% include "_footer.html" %}
+  </main>
+  <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
+    {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
+    {% if show_toc and page.toc %}
+    <nav>
+      <ul>
+        {% for h2 in page.toc %}
+        <li>
+          <a href="#{{ h2.id | safe }}">{{ h2.title }}</a>
+          {% if h2.children %}
+          <ul>
+            {% for h3 in h2.children %}
+            <li>
+              <a href="#{{ h3.id | safe }}">{{ h3.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+  </aside>
 </div>
-{% include "_footer.html" %}
 {% endblock content %}
 
 {% block script %}
-{%- if page.extra.outdate_warn is defined %} {% set show_outdate_warn = page.extra.outdate_warn %}
-{%- else %} {% set show_outdate_warn = config.extra.outdate_warn %} {% endif %}
-{%- if show_outdate_warn %}
-<script src="/js/outdate.js"></script>
-{%- endif %}
-{%- if page.extra.toc is defined %} {% set show_toc = page.extra.toc %}
-{%- else %} {% set show_toc = config.extra.toc %} {% endif %}
-{%- if show_toc %}
-<script src="/js/toc.js"></script>
-{%- endif %}
-{%- if config.extra.progress_bar %}
-<script src="/js/progress.js"></script>
-{%- endif %}
 <script src="/js/lightense.min.js"></script>
-<script src="/js/img.js"></script>
-{%- set show_comment = false %}
-{%- if page.extra.show_comment %}
-{%- set show_comment = true %}
-{%- elif page.extra.show_comment is undefined %}
-{%- set show_comment = true %}
-{%- endif %}
-{%- if show_comment and config.extra.comment == "gitalk" %}
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    var gitalk = new Gitalk({
-        clientID: '{{ config.extra.gitalk.client_id }}',
-        clientSecret: '{{ config.extra.gitalk.client_secret }}',
-        repo: '{{ config.extra.gitalk.repo }}',
-        owner: '{{ config.extra.gitalk.owner }}',
-        admin: [{% for admin in config.extra.gitalk.admin %}'{{ admin }}',{% endfor %}],
-        id: location.pathname,
-        distractionFreeMode: {{ config.extra.gitalk.distraction_free_mode }},
-        perPage: {{ config.extra.gitalk.per_page }},
-        pageDirection: "{{ config.extra.gitalk.page_direction }}",
-        proxy: "{{ config.extra.gitalk.proxy | safe }}"
-      });
-    gitalk.render('gitalk-container');      
+{% if page.extra.mermaid %}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
 </script>
-{%- endif %}
-{%- if show_comment and config.extra.comment == "disqus" %}
-<script>
-    var disqus_config = function () {
-    this.page.url = "{{ page.permalink | safe }}";
-    this.page.identifier = "{{ page.permalink | safe }}";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://{{ config.extra.disqus.shortname }}.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{%- endif %}
-{%- if show_comment and config.extra.comment == "disqus_js" %}
-<script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js"></script>
-<script>
-    var dsqjs = new DisqusJS({
-        shortname: '{{ config.extra.disqus_js.shortname }}',
-        apikey: '{{ config.extra.disqus_js.apikey }}',
-        {% if config.extra.disqus_js.site_name is defined -%}
-        siteName: '{{ config.extra.disqus_js.site_name }}',
-        {% endif -%}
-        {% if config.extra.disqus_js.identifier is defined -%}
-        identifier: '{{ config.extra.disqus_js.identifier }}',
-        {% endif -%}
-        {% if config.extra.disqus_js.url is defined -%}
-        url: '{{ config.extra.disqus_js.url }}',
-        {% endif -%}
-        {% if config.extra.disqus_js.title is defined -%}
-        title: '{{ config.extra.disqus_js.title }}',
-        {% endif -%}
-        {% if config.extra.disqus_js.api is defined -%}
-        api: '{{ config.extra.disqus_js.api }}',
-        {% endif -%}
-        {% if config.extra.disqus_js.nesting is defined -%}
-        nesting: {{ config.extra.disqus_js.nesting }},
-        {% endif -%}
-        {% if config.extra.disqus_js.nocomment is defined -%}
-        nocomment: '{{ config.extra.disqus_js.nocomment }}',
-        {% endif -%}
-        {% if config.extra.disqus_js.admin is defined -%}
-        admin: '{{ config.extra.disqus_js.admin }}',
-        {% endif -%}
-        {% if config.extra.disqus_js.admin_label is defined -%}
-        adminLabel: '{{ config.extra.disqus_js.admin_label }}'
-        {% endif -%}
-    });
-</script>
-{%- endif -%}
-{%- if page.extra.mermaid -%}
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({ startOnLoad: true });</script>
-{%- endif -%}
+{% endif %}
 {% endblock script %}

@@ -1,64 +1,316 @@
-English | [简体中文](https://github.com/isunjn/serene/blob/main/README-cn.md)
+English | [中文](https://github.com/isunjn/serene/blob/main/README-cn.md)
 
-# Serene - A blog theme for zola
+![screenshot](https://github.com/isunjn/serene/blob/main/screenshot.png?raw=true)
 
-Serene is a simple and clean blog theme for Static-Site-Generator [Zola](https://www.getzola.org/).
+A blog theme for [zola](https://www.getzola.org), simple and clean.
 
-[Demo](https://serene-demo-site.vercel.app) | [Docs](https://github.com/isunjn/serene/wiki)
-
-## Preview
-
-<details>
-  <summary>Click to see screenshots</summary>
-  
-  ![](https://github.com/isunjn/serene/blob/main/screenshots/1.png?raw=true)
-  ![](https://github.com/isunjn/serene/blob/main/screenshots/2.png?raw=true)
-  ![](https://github.com/isunjn/serene/blob/main/screenshots/3.png?raw=true)
-  ![](https://github.com/isunjn/serene/blob/main/screenshots/4.png?raw=true)
-  ![](https://github.com/isunjn/serene/blob/main/screenshots/5.png?raw=true)
-  ![](https://github.com/isunjn/serene/blob/main/screenshots/6.png?raw=true)
-  ![](https://github.com/isunjn/serene/blob/main/screenshots/7.png?raw=true)
-</details>
+Demo: <https://serene-demo-site.vercel.app>
 
 ## Features
 
-- Personal website style
-- Simple and clean, focus on content
-- Dark mode
-- Blog-related features
-    - Sticky table-of-contents
-    - Image zooming
-    - Reading progress bar
-    - Admonitions (Info, Important, Warning, etc.)
-    - Out-of-date warning
-    - Creative-Commons statement
-    - Comments
-    - Mathematical notations using [KaTeX](https://katex.org/)
-    - Diagrams and visualizations using [Mermaid](https://github.com/mermaid-js/mermaid)
-- Web analytics
+- A spiffy design
 - Projects page
-- Easily customize
+- Dark mode
+- Image zooming
+- Out-of-date alert
+- Sticky table-of-contents
+- Callouts (note, warning, alert, etc.)
+- Comments using [Giscus](https://giscus.app)
+- Mathematical notations using [KaTeX](https://katex.org)
+- Diagrams and visualizations using [Mermaid](https://github.com/mermaid-js/mermaid)
 
-## How to use
+## Usage
 
-See [docs](https://github.com/isunjn/serene/wiki).
+If you haven't created a zola site yet, create a new zola site with the following command (assuming your site is called `myblog`):
 
-## Contributing
+```sh
+zola init myblog
+```
 
-If you found a bug or want a specific feature, just open an issue.
+Enter the directory:
 
-Be noticed that to keep serene simple, some needs may not be considered. You can implement it in your own site.
+```sh
+cd myblog
+```
 
-## Credits
+Add the serene theme:
 
-- [Remixicon](https://remixicon.com/) for icons
-- [Lightense Images](https://github.com/sparanoid/lightense-images) for image zooming
-- This theme draws some inspiration from these awesome sites:
-    - <https://www.zhangxiaochun.com/>
-    - <https://lightquantum.me/>
-    - <https://theme-cards.ichr.me/>
-    - <https://brianlovin.com/>
+```sh
+git submodule add https://github.com/isunjn/serene.git themes/serene
+```
 
-## License
+The myblog directory now looks like this:
 
-[MIT](https://github.com/isunjn/serene/blob/main/LICENSE)
+```
+├── config.toml
+├── content/
+├── sass/
+├── static/
+├── templates/
+└── themes/
+    └── serene/
+```
+
+Create `myblog/content/_index.md` and `myblog/content/blog/_index.md`
+
+If you want to display the projects page, also create `myblog/content/projects/_index.md`
+
+```
+├── config.toml
+├── content/
+│   ├── blog/
+│   │   └── _index.md
+│   ├── projects/
+│   │   └── _index.md
+│   └── _index.md
+├── sass/
+├── static/
+├── templates/
+└── themes/
+    └── serene/
+```
+
+Modify the content of these files as follows:
+
+`myblog/content/_index.md`:
+
+```
++++
+template = 'home.html'
+
+[extra]
+lang = 'en'
++++
+
+Words about you
+```
+
+`myblog/content/blog/_index.md`:
+
+```
++++
+title = "My Blog"
+description = "My blog site."
+sort_by = "date"
+template = "blog.html"
+page_template = "post.html"
+insert_anchor_links = "right"
+generate_feed = true
+
+[extra]
+lang = 'en'
++++
+```
+
+`myblog/content/projects/_index.md`:
+
+```
++++
+title = "My Projects"
+description = "My projects page."
+template = "projects.html"
+
+[extra]
+lang = 'en'
++++
+```
+
+Create a new directory `img` under `myblog/static`, place favicon related files, you can use tools like [favicon.io](https://favicon.io/favicon-converter/) to generate
+
+Also put your avatar picture file `avatar.webp`, webp format is recommended
+
+```
+...
+├── static/
+│   └── img/
+│       ├── favicon-16x16.png
+│       ├── favicon-32x32.png
+│       ├── apple-touch-icon.png
+│       └── avatar. webp
+...
+```
+
+### Configuration
+
+Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/config.toml`, refer to the comments in the file and Zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/) to modify accordingly
+
+#### Icon
+
+- Create `myblog/static/icon` directory, the icon value in `links` is the file name of the svg file in it, without the `.svg` suffix
+
+- Find the svg file of the icon you want, modify its width and height to 24, and the color to currentColor:
+
+  `... width="24" height="24" ... fill="currentColor" ...`
+
+- The default icons (from [Remix Icon](https://remixicon.com/)) is located in `myblog/themes/serene/static/icon`, the file of the same name in `myblog/static/icon` will replace it
+
+#### RSS
+
+- You can add rss to your site, Zola's default feed file is located in the root directory of the site, set `generate_feed = true` in `config.toml`, `feed_filename` can be set to `atom.xml` or `rss.xml ` , corresponding to two different rss file standards, set `generate_feed = false` in `myblog/content/blog/_index.md`
+
+- The serene theme looks more like a personal website, the posts are in the `/blog` directory, you may want the feed file to be in the `/blog` directory instead of the root directory, which requires you to set `generate_feed = false ` `feed_filename = "feed.xml"` in `config.toml`, and set `generate_feed = true` in `myblog/content/blog/_index.md`
+
+- `feed.xml` uses `title` and `description` from `myblog/content/blog/_index.md`, the other two use `config.toml`
+
+#### Projects page
+
+- Serene has a projects page where you can showcase your projects, products, etc.
+
+- Set `projects_page = true` in `config.toml`, create a new `data.toml` under `myblog/content/projects`, add projects information in it, the format is as follows:
+
+  ```toml
+  [[project]]
+  name = ""
+  desc = ""
+  links = [
+    { name = "", url = "" },
+    { name = "", url = "" },
+  ]
+
+  [[project]]
+  name = ""
+  desc = ""
+  links = [
+    { name = "", url = "" },
+    { name = "", url = "" },
+  ]
+  ```
+
+#### Outdated alert
+
+- If one of your posts has strong timeliness, you can set an outdated alert to be displayed on the page after certain days
+
+- `outdate_alert` and `outdate_alert_days` in `config.toml` set the default whether to be outdated and how many days to be outdated. These two can also be configured on a separate post, you can set `outdate_alert` in `config.toml` to `false`, and then enable it separately in the front matter of time-sensitive posts
+
+- `outdate_alert_text_before` and `outdate_alert_text_after` are the specific content of the alert, before and after the number of days respectively
+
+#### Comments
+
+- Serene supports using [giscus](https://giscus.app) as the comment system
+
+- To enable it, you need to create `myblog/templates/_giscus_script.html` and put the script configured on the giscus website into it
+
+- `comment = true` in `config.toml` sets all posts to enable comments, you can set `comment = false` under `[extra]` in the front matter of the post to control whether a specific post displays comments
+
+#### Analytics
+
+- To place scripts for analytics tools (such as Google Anayltics, Umami, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page
+
+#### Customization
+
+- Copy `myblog/themes/serene/sass/main.scss` to `myblog/sass/main.scss`, several variable values at the top of the file are used to control styles, such as the theme color `--primary-color`, modify it if you want
+
+- Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default. If you want to customize the font, create a new `myblog/templates/_custom_font.html` and put the font link tag into it , and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`
+
+- If you want to customize more, you only need to copy the files under the `templates`, `static`, `sass` directory in the corresponding `themes/serene` to the same name directory of myblog, and modify it. Be careful not to directly modify the files under the serene directory, because these modifications may cause conflicts if the theme is updated
+
+### Writing
+
+#### front matter
+
+- The content inside the two `+++` at the top of the post markdown file is called front matter, and the supported configuration items are as follows:
+
+  ```md
+  +++
+  title = ""
+  date = 2022-01-01
+  draft = true
+  
+  [taxonomies]
+  categories = ["one"]
+  tags = ["one", "two", "three"]
+  
+  [extra]
+  lang = "en"
+  toc = true
+  comment = true
+  math = false
+  mermaid = false
+  outdate_alert = true
+  outdate_alert_days = 120
+  +++
+
+  new post about somthing...
+
+  <!-- more -->
+
+  more post content...
+  ```
+
+- It is recommended to add a line `<!-- more -->` at the appropriate position in the post (such as after the first paragraph), and the content before it will be used as the description of the page, which is helpful for SEO
+
+- Post files are created under `myblog/content/blog`, after done writing, change `draft` to true
+
+#### Shortcodes
+
+- Zola supports Shortcodes, which can add some extra styles or templates for in addition to the standard markdown format
+
+- In addition to `![img](/path/to/img)` of standard markdown, Serene also supports a `figure` shortcode to add some explanatory text to the image, the format is as follows:
+
+  ```md
+  {{ figure(src="/path/to/img", alt="alt text", caption="caption text") }}
+  ```
+
+  This will be displayed as `<figure></figure>` in HTML on the web page instead of `<img>`, and the content of the caption will be centered below the image. The alt attribute is optional but recommended to help enhance accessibility
+
+  Adding attribution information to images is very common, you can directly use the `via` attribute, which will display a link named via below the image:
+
+  ```md
+  {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
+  ```
+
+#### Callout
+
+- Serene also uses shortcodes to implement callouts, the effect is shown in [this page](https://serene-demo-site.vercel.app/blog/callouts) of the demo site, there are currently 6 types: `note` `important ` `warning` `alert` `question` `tip`, the format is as follows, the header attribute is optional:
+
+  ```md
+  {% note(header="Note") %}
+  note text
+  {% end %}
+  ```
+
+- If people read your posts via rss reader, these callouts will appear as normal `<blockquote>`
+
+#### KaTeX
+
+- Set `math = true` in the front matter to enable [KaTeX](https://katex.org/) support
+
+- Inline formula `$...$`, block-level formula `$$...$$`
+
+#### Mermaid
+
+- Set `mermaid = true` in the front matter to enable [Mermaid](https://github.com/mermaid-js/mermaid) support, and then insert a chart in the following format:
+
+  ```md
+  {% mermaid() %}
+  flowchart LR
+  A[Hard] -->|Text| B(Round)
+  B --> C{Decision}
+  C -->|One| D[Result 1]
+  C -->|Two| E[Result 2]
+  {% end %}
+  ```
+
+### Build & Deploy
+
+Local preview:
+
+```sh
+zola serve
+```
+
+Build the site:
+
+```sh
+zola build
+```
+
+To deploy a static site, please refer to zola's [documentation about deployment](https://www.getzola.org/documentation/deployment/overview/)
+
+### Update
+
+Please check the CHANGELOG on github for breaking changes before updating the theme
+
+```sh
+git submodule update --remote
+```
