@@ -136,11 +136,11 @@ lang = 'en'
 
 #### 图标
 
-- 创建 `myblog/static/icon` 目录，links 中的 icon 值为其中的 svg 文件的文件名，不包含 `.svg` 后缀
+- 将 `myblog/themes/serene/static/icon` 复制到 `myblog/static/icon`，links 中的 icon 值为其中的 svg 文件的文件名，不包含 `.svg` 后缀
 
 - 找到你想要的 icon 的 svg 文件，修改其宽高为 24，颜色为 currentColor: `... width="24" height="24" ... fill="currentColor" ...`
 
-- 默认 icon（来自 [Remix Icon](https://remixicon.com/)）位于 `myblog/themes/serene/static/icon`，你可以用 `myblog/static/icon` 当中的同名文件对其进行覆盖
+- 默认图标来自 [Remix Icon](https://remixicon.com/)
 
 #### RSS
 
@@ -186,7 +186,7 @@ lang = 'en'
 
 - Serene 支持使用 [Giscus](https://giscus.app) 作为文章评论系统
 
-- 开启此功能需要新建 `myblog/templates/_giscus_script.html` 并将在 Giscus 网站上配置好的 script 放入其中
+- 开启此功能需要新建 `myblog/templates/_giscus_script.html` 并将在 Giscus 网站上配置好的 script 放入其中，然后将其中 `data-theme` 的值改为 `https://<your-domain-name>/giscus_light.css`, 将 `<your-domain-name>` 改为你自己的域名，和 `config.toml` 中的 `base_url` 一致
 
 - `config.toml` 中的 `comment = true` 设置所有文章开启评论，可以在文章的 front matter 中 `[extra]` 下设置 `comment = false` 控制单篇文章是否显示评论
 
@@ -310,5 +310,5 @@ zola build
 更新主题前请在 GitHub 上查看 CHANGELOG 以确认是否有 breaking changes
 
 ```sh
-git submodule update --remote
+git submodule update --remote themes/serene
 ```
