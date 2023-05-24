@@ -136,13 +136,13 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 #### Icon
 
-- Create `myblog/static/icon` directory, the icon value in `links` is the file name of the svg file in it, without the `.svg` suffix
+- Copy `myblog/themes/serene/static/icon` directory to `myblog/static/icon`, the icon value in `links` is the file name of the svg file in it, without the `.svg` suffix
 
 - Find the svg file of the icon you want, modify its width and height to 24, and the color to currentColor:
 
   `... width="24" height="24" ... fill="currentColor" ...`
 
-- The default icons (from [Remix Icon](https://remixicon.com/)) is located in `myblog/themes/serene/static/icon`, the file of the same name in `myblog/static/icon` will replace it
+- The default icons came from [Remix Icon](https://remixicon.com/)
 
 #### RSS
 
@@ -188,7 +188,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 - Serene supports using [giscus](https://giscus.app) as the comment system
 
-- To enable it, you need to create `myblog/templates/_giscus_script.html` and put the script configured on the giscus website into it
+- To enable it, you need to create `myblog/templates/_giscus_script.html` and put the script configured on the giscus website into it, then change the value of `data-theme` to `https://<your-domain-name>/giscus_light.css`, replace `<your-domain-name>` with you domain name, same as `base_url` in `config.toml`
 
 - `comment = true` in `config.toml` sets all posts to enable comments, you can set `comment = false` under `[extra]` in the front matter of the post to control whether a specific post displays comments
 
@@ -312,5 +312,5 @@ To deploy a static site, please refer to zola's [documentation about deployment]
 Please check the CHANGELOG on github for breaking changes before updating the theme
 
 ```sh
-git submodule update --remote
+git submodule update --remote themes/serene
 ```
