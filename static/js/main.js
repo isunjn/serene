@@ -38,7 +38,7 @@ if (document.body.classList.contains('post')) {
     const warnDays = parseInt(alert.dataset.days);
     if (intervalDays >= warnDays) {
       const msg = alert.dataset.alertTextBefore + intervalDays + alert.dataset.alertTextAfter;
-      alert.lastChild.textContent = msg;
+      alert.querySelector('.content').textContent = msg;
       alert.classList.remove('hidden');
     }
   }
