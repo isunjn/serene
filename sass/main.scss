@@ -892,13 +892,17 @@ body.tag-single {
 
 body.projects {
   #proj-wrapper {
-    margin: 92px auto 0;
+    margin: 0 auto;
     max-width: 750px;
-    min-height: calc(100vh - 230px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   main {
-    margin-bottom: 60px;
+    width: 100%;
+    margin: 85px auto 60px;
   }
 
   .proj {
