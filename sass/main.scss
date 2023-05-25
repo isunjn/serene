@@ -34,6 +34,7 @@ body {
   --main-font: 'Signika', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --homepage-max-width: 650px;
+  --main-max-width: 750px;
   --paragraph-font-size: 18px;
   --paragraph-line-height: 1.75;
   --img-border-radius: 4px;
@@ -93,7 +94,7 @@ body.homepage {
 
   main {
     max-width: var(--homepage-max-width);
-    padding: 2em 1em 8em;
+    padding: 2em 1em 6em;
   }
 
   #info {
@@ -195,8 +196,8 @@ body.homepage {
 
     p>code {
       font-family: var(--code-font);
-      font-size: 0.85em;
-      padding: 0px 6px;
+      font-size: 0.8em;
+      padding: 1px 6px;
       color: var(--primary-color);
       background-color: var(--primary-pale-color);
       border-radius: 4px;
@@ -251,7 +252,7 @@ header {
 
   #wrapper {
     height: 100%;
-    max-width: 750px;
+    max-width: var(--main-max-width);
     margin: 0 auto;
     padding: 0 15px;
     display: flex;
@@ -346,7 +347,7 @@ footer {
 body.blog {
   #blog-wrapper {
     margin: 0 auto;
-    max-width: 750px;
+    max-width: var(--main-max-width);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -358,11 +359,11 @@ body.blog {
 
     .category {
       font-size: 1.3em;
-      margin: 32px 16px 16px;
+      margin: 25px 15px 15px;
     }
 
     .post-list {
-      margin-top: 32px;
+      margin-top: 25px;
     }
 
     .post {
@@ -374,6 +375,7 @@ body.blog {
       font-size: 1.1em;
       text-decoration: none;
       color: var(--primary-color);
+      -webkit-tap-highlight-color: transparent;
 
       @media (max-width: 768px) {
         & {
@@ -407,12 +409,12 @@ body.post {
   }
 
   #blank {
-    width: calc((100% - 750px)/2);
+    width: calc((100% - var(--main-max-width))/2);
   }
 
   main {
     width: 100%;
-    max-width: 750px;
+    max-width: var(--main-max-width);
   }
 
   article {
@@ -524,8 +526,8 @@ body.post {
 
     p>code {
       font-family: var(--code-font);
-      font-size: 0.85em;
-      padding: 0px 6px;
+      font-size: 0.8em;
+      padding: 1px 6px;
       color: var(--primary-color);
       background-color: var(--primary-pale-color);
       border-radius: 4px;
@@ -677,7 +679,7 @@ body.post {
   }
 
   aside {
-    width: calc((100% - 750px)/2);
+    width: calc((100% - var(--main-max-width))/2);
     position: sticky;
     margin-top: 125px;
     top: 60px;
@@ -786,7 +788,7 @@ body.post {
 body.tag-list {
   #tag-list-wrapper {
     margin: 0 auto;
-    max-width: 750px;
+    max-width: var(--main-max-width);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -826,7 +828,7 @@ body.tag-list {
 body.tag-single {
   #tag-single-wrapper {
     margin: 0 auto;
-    max-width: 750px;
+    max-width: var(--main-max-width);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -893,7 +895,7 @@ body.tag-single {
 body.projects {
   #proj-wrapper {
     margin: 0 auto;
-    max-width: 750px;
+    max-width: var(--main-max-width);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -906,7 +908,7 @@ body.projects {
   }
 
   .proj {
-    margin: 32px 15px;
+    margin: 0px 15px 30px;
 
     .name {
       font-size: 1.15em;
@@ -930,7 +932,7 @@ body.projects {
       p>code {
         font-family: var(--code-font);
         font-size: 0.8em;
-        padding: 0px 6px;
+        padding: 1px 6px;
         color: var(--primary-color);
         background-color: var(--primary-pale-color);
         border-radius: 4px;
@@ -1066,6 +1068,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 button::-moz-focus-inner,
@@ -1117,6 +1120,7 @@ textarea {
 
 [type="search"] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   outline-offset: -2px;
 }
 
