@@ -8,7 +8,8 @@ themeToggle.addEventListener('click', () => toggleTheme(localStorage.getItem("th
 preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "light"));
 
 function toggleTheme(theme) {
-  document.body.classList.toggle('dark');
+  if (theme == "dark") document.body.classList.add('dark');
+  else document.body.classList.remove('dark');
   localStorage.setItem("theme", theme);
   themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
   toggleGiscusTheme(theme);
