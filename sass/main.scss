@@ -35,6 +35,7 @@ body {
   --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --homepage-max-width: 650px;
   --main-max-width: 750px;
+  --avatar-size: 70px;
   --paragraph-font-size: 18px;
   --paragraph-line-height: 1.75;
   --img-border-radius: 4px;
@@ -102,7 +103,8 @@ body.homepage {
     gap: 1em;
 
     img {
-      height: 70px;
+      height: var(--avatar-size);
+      width: var(--avatar-size);
       border-radius: 50%;
     }
 
@@ -157,6 +159,12 @@ body.homepage {
       display: flex;
       gap: 0.5em;
 
+      a,
+      button {
+        width: 24px;
+        height: 24px;
+      }
+
       button {
         padding: 0;
         border: none;
@@ -167,11 +175,7 @@ body.homepage {
 
     @media (max-width: 425px) {
       #left {
-        gap: 0.5em;
-      }
-
-      #right {
-        gap: 0.2em;
+        gap: 0.75em;
       }
     }
   }
@@ -282,10 +286,12 @@ header {
     display: flex;
     gap: 1em;
     align-items: center;
-    padding-top: 5px;
+    padding-top: 4px;
 
     a,
     button {
+      width: 24px;
+      height: 24px;
       border: none;
       background-color: transparent;
       padding: 0;
