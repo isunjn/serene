@@ -44,12 +44,15 @@
           <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
           {% endif -%}
         </div>
+
+        {% if page.taxonomies.tags is defined %}
         <div id="tags">
           {% for tag in page.taxonomies.tags -%}
           {% set tag_slugify = tag | slugify -%}
           <a href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
           {%- endfor %}
         </div>
+        {% endif %}
       </div>
 
       {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% else %}{% set show_outdate_alert = config.extra.outdate_alert %}{% endif %}
