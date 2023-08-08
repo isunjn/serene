@@ -36,7 +36,7 @@ cd myblog
 Add the serene theme:
 
 ```sh
-git submodule add https://github.com/isunjn/serene.git themes/serene
+git submodule add -b latest https://github.com/isunjn/serene.git themes/serene
 ```
 
 The myblog directory now looks like this:

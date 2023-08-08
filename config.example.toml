@@ -1,3 +1,5 @@
+# serene v1.1.1 (check for update at https://github.com/isunjn/serene/releases)
+
 base_url = "https://example.com"      # Domain name of your website
 title = "xxxx"
 description = "xxxx xxxx xxxx"
@@ -8,7 +10,7 @@ compile_sass = true
 minify_html = true
 build_search_index = false            # Keep this false, search is temporarily unsupported
 generate_feed = false                 # Whether to generate a feed file in root, read docs for more info about rss feed
-feed_filename = "feed.xml"            # The file name of feed, "feed.xml" / "atom.xml" / "rss.xml", read docs for more info
+feed_filename = "feed.xml"             # The file name of feed, "feed.xml" / "atom.xml" / "rss.xml", read docs for more info
 taxonomies = [{ name = "tags" }, { name = "categories" }]
 
 [markdown]

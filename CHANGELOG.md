@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2023-08-09
+
+- Allow no tags in front matter
+- Fix figcaption width issue
+
 ## [1.1.0] - 2023-05-27
 
 - Fix theme auto-toggle logic
@@ -41,6 +46,7 @@ All notable changes to this project will be documented in this file.
 First release 🎉
 
 
+[1.1.1]: https://github.com/isunjn/serene/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/isunjn/serene/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/isunjn/serene/compare/v0.2.0...v1.0.0
 [0.2.0]: https://github.com/isunjn/serene/compare/v0.1.0...v0.2.0

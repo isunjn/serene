@@ -36,7 +36,7 @@ cd myblog
 添加 serene 主题：
 
 ```sh
-git submodule add https://github.com/isunjn/serene.git themes/serene
+git submodule add -b latest https://github.com/isunjn/serene.git themes/serene
 ```
 
 myblog 目录此时像这样：
