@@ -14,6 +14,7 @@ function toggleTheme(theme) {
   themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
   toggleGiscusTheme(theme);
 }
+if (localStorage.getItem("theme") == "dark") toggleTheme("dark");
 
 function toggleGiscusTheme(theme) {
   const iframe = document.querySelector('iframe.giscus-frame');
