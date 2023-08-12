@@ -18,7 +18,6 @@
 </head>
 
 <body class="{% block page %}{% endblock page%}">
-  <script>if (localStorage.getItem('theme') == 'dark') document.body.classList.add('dark');</script>
   {% block content %}{% endblock content %}
   {% block script %}{% endblock script %}
   <script src="/js/main.js"></script>

@@ -14,6 +14,7 @@ function toggleTheme(theme) {
   themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
   toggleGiscusTheme(theme);
 }
+if (localStorage.getItem("theme") == "dark") toggleTheme("dark");
 
 function updateThemeToggleIcon() {
   const theme = localStorage.getItem("theme") || (preferDark.matches ? "dark" : "light");
