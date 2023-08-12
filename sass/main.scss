@@ -82,6 +82,10 @@ html {
   }
 }
 
+button:focus-visible, a:focus-visible {
+  outline: var(--primary-color) solid 1.5px;
+}
+
 /* homepage
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
