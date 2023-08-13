@@ -34,7 +34,12 @@
 <div id="post-wrapper">
   <div id="blank"></div>
   <main>
-    <div id="top"></div>
+    {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
+    {% if allow_copy %}
+    {% set copy_icon = load_data(path="static/icon/copy.svg") %}
+    {% set check_icon = load_data(path="static/icon/check.svg") %}
+    <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
+    {% endif %}
     <article>
       <h1>{{ page.title }}</h1>
       <div id="post-info">
