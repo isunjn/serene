@@ -229,6 +229,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
   lang = "en"
   toc = true
   comment = true
+  copy = true
   math = false
   mermaid = false
   outdate_alert = true

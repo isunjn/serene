@@ -424,6 +424,7 @@ body.post {
   }
 
   main {
+    width: 100%;
     max-width: var(--main-max-width);
   }
 
@@ -545,7 +546,7 @@ body.post {
     }
 
     pre {
-      padding: 12px 16px;
+      padding: 12px 48px 12px 16px;
       line-height: 1.5;
       border-radius: var(--code-border-radius);
       overflow: auto;
@@ -580,6 +581,32 @@ body.post {
       mark {
         display: block;
         background-color: rgba(254, 252, 232, 0.9);
+      }
+    }
+
+    .code-block {
+      position: relative;
+      overflow: auto;
+      
+      pre {
+        margin: 0;
+      }
+
+      button.copy {
+        position: absolute;
+        right: 6px;
+        top: 8px;
+        width: 28px;
+        height: 28px;
+        padding: 4px;
+        cursor: pointer;
+        background: transparent;
+        color: #aeb7caa1;
+        border: none;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
 

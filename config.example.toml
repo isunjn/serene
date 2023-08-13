@@ -51,6 +51,7 @@ blur_effect = true                    # Whether to turn on blur effect on naviga
 
 toc = true                            # Whether to show Table-Of-Contents by default
 comment = false                       # Whether to show giscus comment section by default, see https://giscus.app for more info
+copy = true                           # Whether to add a copy button on code blocks by default
 
 outdate_alert = false                 # Whether to show outdate alert by default
 outdate_alert_days = 120              # How many days will a post be outdated by default

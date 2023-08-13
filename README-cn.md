@@ -226,6 +226,7 @@ lang = 'en'
   lang = "en"
   toc = true
   comment = true
+  copy = true
   math = false
   mermaid = false
   outdate_alert = true
