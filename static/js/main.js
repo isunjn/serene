@@ -65,6 +65,7 @@ if (document.body.classList.contains('post')) {
       wrapper.className = 'code-block';
       const btn = document.createElement('button');
       btn.className = 'copy';
+      btn.ariaLabel = 'copy';
       btn.innerHTML = copyIcon;
       btn.addEventListener('click', () => {
         navigator.clipboard.writeText(block.textContent).then(() => {
