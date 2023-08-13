@@ -419,11 +419,11 @@ body.post {
   }
 
   #blank {
-    width: calc((100% - var(--main-max-width))/2);
+    flex-grow: 1;
+    flex-basis: 0;
   }
 
   main {
-    width: 100%;
     max-width: var(--main-max-width);
   }
 
@@ -690,7 +690,8 @@ body.post {
   }
 
   aside {
-    width: calc((100% - var(--main-max-width))/2);
+    flex-basis: 0;
+    flex-grow: 1;
     position: sticky;
     margin-top: 125px;
     top: 60px;
