@@ -198,7 +198,11 @@ lang = 'en'
 
 - 将 `myblog/themes/serene/sass/main.scss` 复制到 `myblog/sass/main.scss`, 该文件顶部的若干变量值用于控制样式，例如主题色 `--primary-color`，可以自行修改
 
-- Serene 默认使用 [Google Fonts](https://fonts.google.com/) 的 Signika 字体，如需自定义字体，新建 `myblog/templates/_custom_font.html` 并将字体样式表 link 标签放入其中，然后修改 `myblog/sass/main.scss` 中的 `--main-font` 或者 `--code-font`
+- Serene 默认使用 [Google Fonts](https://fonts.google.com/) 的 Signika 字体，如需自定义字体，新建 `myblog/templates/_custom_font.html` 并将从 Google Fonts 复制的字体样式表 link 标签放入其中，然后修改 `myblog/sass/main.scss` 中的 `--main-font` 或者 `--code-font`. 为了进一步提高网站速度, 你也可以选择自己托管字体文件(可选):
+  1. 打开 [google-webfonts-helper](https://gwfh.mranftl.com) 并选择一个字体
+  2. 将步骤 3 中的 `Customize folder prefix` 改为 `/font/`, 然后复制该 css
+  3. 将 `myblog/tempaltes/_custom_font.html` 替换为一个 `<style> </style>` 标签, 把你刚复制的 css 放在里面
+  4. 下载步骤 4 的字体文件, 放在 `myblog/static/font/` 目录
 
 - 如果你想修改更多的内容，你只需要将相应的 `themes/serene` 中 `templates`、`static`、`sass` 目录下的文件复制到 myblog 同名目录下，并进行修改。注意不要直接修改 serene 目录下的文件，因为如果更新主题，这些修改可能导致冲突
 
