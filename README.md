@@ -200,7 +200,12 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 - Copy `myblog/themes/serene/sass/main.scss` to `myblog/sass/main.scss`, several variable values at the top of the file are used to control styles, such as the theme color `--primary-color`, modify it if you want
 
-- Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default. If you want to customize the font, create a new `myblog/templates/_custom_font.html` and put the font link tag into it , and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`
+- Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default. If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`. For performance reason, you may want to self-host font files (optional): 
+  1. Open [google-webfonts-helper](https://gwfh.mranftl.com) and choose your font
+  2. Modify `Customize folder prefix` of step 3 to `/font/` and then copy the css
+  3. Replace the content of `myblog/templates/_custom_font.html` with a `<style> </style>` tag, with the css you just copied in it.
+  4. Download step 4 font files and put them in `myblog/static/font/` folder
+
 
 - If you want to customize more, you only need to copy the files under the `templates`, `static`, `sass` directory in the corresponding `themes/serene` to the same name directory of myblog, and modify it. Be careful not to directly modify the files under the serene directory, because these modifications may cause conflicts if the theme is updated
 
