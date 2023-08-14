@@ -2,15 +2,15 @@ body {
 
   // light mode colors
   --primary-color: #6d90d7;
-  --primary-pale-color: #6d9bff20;
+  --primary-pale-color: #6d90d720;
   --text-color: #3C4043;
   --text-pale-color: #a0a9bf;
   --bg-color: #ffffff;
 
   // dark mode colors
   &.dark {
-    --primary-color: #6d9bff;
-    --primary-pale-color: #6d9bff20;
+    --primary-color: #6d90d7;
+    --primary-pale-color: #6d90d720;
     --text-color: #9197a5;
     --text-pale-color: #5d6470;
     --bg-color: #202124;
@@ -374,23 +374,25 @@ body.blog {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      padding: 7.5px 15px;
-      border-radius: 4px;
+      gap: 5px;
+      padding: 5px 15px;
+      margin: 2.5px 0;
+      border: 1.5px solid transparent;
       font-size: 1.1em;
       text-decoration: none;
       color: var(--primary-color);
       -webkit-tap-highlight-color: transparent;
 
+      &:hover {
+        border-color: var(--primary-color);
+      }
+
       @media (max-width: 768px) {
         & {
           font-size: 1em;
-          margin: 0 5px;
-          padding: 7.5px 10px;
+          margin: 2.5px 5px;
+          padding: 5px 10px;
         }
-      }
-
-      &:hover {
-        background-color: var(--primary-pale-color);
       }
 
       .date {
@@ -887,7 +889,7 @@ body.tag-single {
 
     a {
       margin-left: 30px;
-      font-size: 0.4em;
+      font-size: 0.5em;
       color: var(--primary-color);
     }
   }
@@ -896,16 +898,18 @@ body.tag-single {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 8px 15px;
-    border-radius: 4px;
+    gap: 5px;
+    padding: 5px 15px;
+    margin: 2.5px 0;
+    border: 1.5px solid transparent;
     font-size: 1.1em;
-
-    &:hover {
-      background-color: var(--primary-pale-color);
-    }
-
     text-decoration: none;
     color: var(--primary-color);
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover {
+      border-color: var(--primary-color);
+    }
 
     .date {
       color: var(--primary-color);
@@ -914,11 +918,9 @@ body.tag-single {
 
     @media screen and (max-width: 768px) {
       & {
-        font-size: 1.1em;
-        margin-left: 5px;
-        margin-right: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
+        font-size: 1em;
+        margin: 2.5px 5px;
+        padding: 5px 10px;
       }
     }
   }

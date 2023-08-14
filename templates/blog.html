@@ -26,6 +26,7 @@
       {% for post in section.pages %}
       <a class="post" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
+        <span class="line"></span>
         <span class="date">{{ post.date | date}}</span>
       </a>
       {% endfor %}
