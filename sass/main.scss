@@ -196,7 +196,7 @@ body.homepage {
       }
     }
 
-    p>code {
+    p>code, td>code, th>code {
       font-family: var(--code-font);
       font-size: 0.8em;
       padding: 1px 6px;
