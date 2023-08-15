@@ -5,7 +5,8 @@ body {
   --primary-pale-color: #6d90d720;
   --text-color: #3C4043;
   --text-pale-color: #a0a9bf;
-  --bg-color: #ffffff;
+  --bg-color: #ffffff; 
+  --highlight-mark-color: #5f75b045;
 
   // dark mode colors
   &.dark {
@@ -14,6 +15,7 @@ body {
     --text-color: #9197a5;
     --text-pale-color: #5d6470;
     --bg-color: #202124;
+    --highlight-mark-color: #5f75b045;
   }
 
   // callout colors
@@ -558,16 +560,22 @@ body.post {
       }
 
       &[data-linenos] {
-        padding: 12px 12px 12px 0px;
+        padding: 12px 48px 12px 0px;
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
+        border: none;
+      }
+      
+      table tr td:first-of-type {
+        color: var(--text-pale-color);
       }
 
       table td {
         padding: 0;
+        padding-right: 48px;
         line-height: initial;
         text-align: initial;
         border: initial;
@@ -580,8 +588,7 @@ body.post {
       }
 
       mark {
-        display: block;
-        background-color: rgba(254, 252, 232, 0.9);
+        background-color: var(--highlight-mark-color);
       }
 
       &.mermaid {
