@@ -15,8 +15,12 @@ taxonomies = [{ name = "tags" }, { name = "categories" }]
 
 [markdown]
 highlight_code = true
-extra_syntaxes = []
-highlight_theme = "one-dark"          # Code highlight theme, choose one at https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting
+highlight_theme = "css"
+extra_syntaxes_and_themes = ["highlight_themes"]
+highlight_themes_css = [
+    { theme = "serene-light", filename = "hl-light.css"},
+    { theme = "serene-dark", filename = "hl-dark.css"},
+]
 render_emoji = false
 external_links_target_blank = false
 external_links_no_follow = true

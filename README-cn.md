@@ -142,6 +142,18 @@ lang = 'en'
 
 - 默认图标来自 [Remix Icon](https://remixicon.com/)
 
+#### 代码高亮
+
+- 将 `myblog/themes/serene/static/highlight_themes` 目录复制到 `myblog/static/highlight_themes`
+
+- 如果你将 `config.toml` 中的 `highlight_theme` 设置为 zola 的 [内置高亮主题](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting) 之一，浅色和深色模式都将使用该主题
+
+- 默认情况下，serene 对亮/暗模式使用不同的主题，由 `highlight_theme`、`extra_syntaxes_and_themes` 和 `highlight_themes_css` 配置。 默认高亮主题 `serene-light` `serene-dark` 是 [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) 主题的一个修改版本
+
+- 如果你想要不同的主题，找到你的主题的 `.txTheme` TextMate文件，将其放在 `myblog/static/highlight_themes` 中，然后将 `highlight_themes_css` 的 `theme` 值修改为该文件的名称，不带` .txTheme` 扩展名。 这将在 `myblog/static/` 中生成 `hl-light.css` 和 `hl-dark.css` 文件，你需要在修改 `theme` 值之前先删除它们，以便 zola 可以重新生成
+
+- 你可以在[这个网站](https://tmtheme-editor.glitch.me/)上找到一些 TextMate 主题
+
 #### RSS
 
 - 你可以为你的站点添加 RSS，Zola 默认的 feed 文件位于站点的根目录，在 `config.toml` 设置 `generate_feed = ture` ，`feed_filename` 可以设置为 `atom.xml` 或 `rss.xml` ，对应两种不同的 rss 文件标准， `myblog/content/blog/_index.md` 中设置 `generate_feed = false`

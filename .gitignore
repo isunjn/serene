@@ -9,3 +9,6 @@ static/img/
 config.toml
 
 .DS_Store
+
+static/hl-light.css
+static/hl-dark.css
