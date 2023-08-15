@@ -32,6 +32,7 @@ body {
   --avatar-size: 70px;
   --paragraph-font-size: 18px;
   --paragraph-line-height: 1.75;
+  --aside-font-size: 17px;
   --img-border-radius: 0px;
 }
 
@@ -53,6 +54,10 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: var(--primary-color) solid 3px;
 }
 
 @media screen and (min-width: 425px) {
@@ -78,10 +83,6 @@ html {
   ::-webkit-scrollbar-thumb:hover {
     background: #8a90a1a1;
   }
-}
-
-button:focus-visible, a:focus-visible {
-  outline: var(--primary-color) solid 1.5px;
 }
 
 /* homepage
@@ -328,7 +329,7 @@ header {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 footer {
-  font-size: 1rem;
+  font-size: 0.95rem;
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -536,7 +537,7 @@ body.post {
       color: var(--text-pale-color);
     }
 
-    p>code {
+    p>code, td>code, th>code {
       font-family: var(--code-font);
       font-size: 0.8em;
       padding: 1px 6px;
@@ -637,6 +638,7 @@ body.post {
     table {
       width: 100%;
       border-spacing: 0;
+      border: 1px solid var(--primary-pale-color);
     }
 
     thead {
@@ -732,10 +734,11 @@ body.post {
     margin-top: 125px;
     top: 60px;
     height: min-content;
-    font-size: var(--paragraph-font-size);
+    font-size: var(--aside-font-size);
     z-index: 9;
 
     nav {
+      padding: 5px 15px 5px 0;
       min-width: 60%;
       overflow-y: auto;
       max-height: 80vh;
@@ -764,9 +767,9 @@ body.post {
       &::before {
         display: inline-block;
         content: "";
-        width: 3px;
+        width: 2.5px;
         height: 10px;
-        border-radius: 2px;
+        border-radius: 1.5px;
         position: relative;
         top: -1px;
         margin-right: 10px;
@@ -822,12 +825,6 @@ body.post {
       margin: 0 auto;
     }
   }
-
-  #top {
-    padding-top: 45px;
-    margin-top: -45px;
-  }
-
 }
 
 /* tag list page
