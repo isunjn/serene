@@ -32,8 +32,7 @@ body {
   --avatar-size: 70px;
   --paragraph-font-size: 18px;
   --paragraph-line-height: 1.75;
-  --img-border-radius: 4px;
-  --code-border-radius: 4px;
+  --img-border-radius: 0px;
 }
 
 /* base
@@ -58,6 +57,11 @@ html {
 
 @media screen and (min-width: 425px) {
   ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  body::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
@@ -68,7 +72,7 @@ html {
 
   ::-webkit-scrollbar-thumb {
     background: #aeb7caa1;
-    border-radius: 2px;
+    border-radius: 0px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -544,7 +548,7 @@ body.post {
     pre {
       padding: 12px 48px 12px 16px;
       line-height: 1.5;
-      border-radius: var(--code-border-radius);
+      border: 1.5px solid var(--primary-color);
       overflow: auto;
       font-size: 0.8em;
 
@@ -578,6 +582,10 @@ body.post {
         display: block;
         background-color: rgba(254, 252, 232, 0.9);
       }
+
+      &.mermaid {
+        border: none;
+      }
     }
 
     .code-block {
@@ -591,15 +599,18 @@ body.post {
 
       button.copy {
         position: absolute;
-        right: 6px;
-        top: 8px;
+        right: 8px;
+        top: 10px;
         width: 28px;
         height: 28px;
         padding: 4px;
         cursor: pointer;
         background: transparent;
-        color: #aeb7caa1;
         border: none;
+        color: var(--text-pale-color);
+        &:hover {
+          color: var(--primary-color);
+        }
         svg {
           width: 20px;
           height: 20px;

@@ -144,6 +144,18 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 - The default icons came from [Remix Icon](https://remixicon.com/)
 
+#### Code highlight
+
+- Copy `myblog/themes/serene/static/highlight_themes` directory to `myblog/static/highlight_themes`.
+
+- If you set `highlight_theme` in `config.toml` to one of zola's [built-in highlight themes](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting), you will get that theme used in both light and dark mode.
+
+- By default serene use different themes for light/dark modes, configured by `highlight_theme`, `extra_syntaxes_and_themes` and `highlight_themes_css`. The default highlight theme `serene-light` `serene-dark` is a modified version of [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) theme.
+
+- If you want a different theme, find the `.txTheme` TextMate file of your theme, put it in `myblog/static/highlight_themes`, and then modify the `theme` value of `highlight_themes_css` to that file's name, without `.txTheme` extension. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so zola can re-generate.
+
+- You can find some TextMate themes on [this website](https://tmtheme-editor.glitch.me/).
+
 #### RSS
 
 - You can add rss to your site, Zola's default feed file is located in the root directory of the site, set `generate_feed = true` in `config.toml`, `feed_filename` can be set to `atom.xml` or `rss.xml ` , corresponding to two different rss file standards, set `generate_feed = false` in `myblog/content/blog/_index.md`

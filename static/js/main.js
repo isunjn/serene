@@ -1,20 +1,22 @@
 /* dark mode */
 
 const themeToggle = document.querySelector('#theme-toggle');
+const hlLink = document.querySelector('link#hl');
 const preferDark = window.matchMedia("(prefers-color-scheme: dark)");
 
 if (!localStorage.getItem("theme") && preferDark.matches) toggleTheme("dark");
+if (localStorage.getItem("theme") == "dark") toggleTheme("dark");
+
 themeToggle.addEventListener('click', () => toggleTheme(localStorage.getItem("theme") == "dark" ? "light" : "dark"));
 preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "light"));
 
 function toggleTheme(theme) {
-  if (theme == "dark") document.body.classList.add('dark');
-  else document.body.classList.remove('dark');
-  localStorage.setItem("theme", theme);
+  if (theme == "dark") document.body.classList.add('dark'); else document.body.classList.remove('dark');
+  if (hlLink) hlLink.href = `/hl-${theme}.css`;
   themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
+  localStorage.setItem("theme", theme);
   toggleGiscusTheme(theme);
 }
-if (localStorage.getItem("theme") == "dark") toggleTheme("dark");
 
 function toggleGiscusTheme(theme) {
   const iframe = document.querySelector('iframe.giscus-frame');
