@@ -152,7 +152,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 - By default serene use different themes for light/dark modes, configured by `highlight_theme`, `extra_syntaxes_and_themes` and `highlight_themes_css`. The default highlight theme `serene-light` `serene-dark` is a modified version of [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) theme.
 
-- If you want a different theme, find the `.txTheme` TextMate file of your theme, put it in `myblog/static/highlight_themes`, and then modify the `theme` value of `highlight_themes_css` to that file's name, without `.txTheme` extension. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so zola can re-generate.
+- If you want a different theme, find the `.tmTheme` TextMate file of your theme, put it in `myblog/static/highlight_themes`, and then modify the `theme` value of `highlight_themes_css` to that file's name, without `.tmTheme` extension. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so zola can re-generate.
 
 - You can find some TextMate themes on [this website](https://tmtheme-editor.glitch.me/).
 
