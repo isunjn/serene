@@ -958,14 +958,14 @@ body.projects {
 
   main {
     width: 100%;
-    margin: 85px auto 60px;
+    margin: 90px auto 40px;
   }
 
   .proj {
-    margin: 0px 15px 30px;
-
+    margin: 0px 15px 45px;
+    
     .name {
-      font-size: 1.15em;
+      font-size: 1.2em;
       margin: 0 0 15px 0;
       color: var(--primary-color);
     }
@@ -993,27 +993,52 @@ body.projects {
       }
     }
 
-    .links {
+    .more {
       display: flex;
-      justify-content: end;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 1em;
+      
+      .tags {
+        font-size: 0.9em;
+        display: flex;
+        gap: 0.5em 1em;
+        flex-wrap: wrap;
 
-      a {
-        text-decoration: none;
-        border-bottom: 1.5px solid var(--primary-color);
-        padding: 0 2px;
-        cursor: pointer;
-        color: inherit;
-
-        &:visited {
-          color: inherit;
+        div {
+          color: var(--text-pale-color);
+          span {
+            font-size: 0.9em;
+            margin-right: 1.5px;
+          }
         }
+      }
 
-        &:hover {
-          color: var(--primary-color);
+      .links {
+        margin-left: auto;
+        display: flex;
+        justify-content: end;
+        gap: 0.5em 1em;
+
+        a {
+          text-decoration: none;
+          border-bottom: 1.5px solid var(--primary-color);
+          padding: 0 2px;
+          cursor: pointer;
+          color: inherit;
+
+          &:visited {
+            color: inherit;
+          }
+
+          &:hover {
+            color: var(--primary-color);
+          }
         }
       }
     }
+
   }
 }
 

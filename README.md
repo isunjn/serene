@@ -174,6 +174,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
   [[project]]
   name = ""
   desc = ""
+  tags = ["", ""]
   links = [
     { name = "", url = "" },
     { name = "", url = "" },
@@ -182,6 +183,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
   [[project]]
   name = ""
   desc = ""
+  tags = ["", ""]
   links = [
     { name = "", url = "" },
     { name = "", url = "" },

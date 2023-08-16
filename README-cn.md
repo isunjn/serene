@@ -172,6 +172,7 @@ lang = 'en'
   [[project]]
   name = ""
   desc = ""
+  tags = ["", ""]
   links = [
     { name = "", url = "" },
     { name = "", url = "" },
@@ -180,6 +181,7 @@ lang = 'en'
   [[project]]
   name = ""
   desc = ""
+  tags = ["", ""]
   links = [
     { name = "", url = "" },
     { name = "", url = "" },
