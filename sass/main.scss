@@ -56,6 +56,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-y: overlay;
 }
 
 button:focus-visible, a:focus-visible {
