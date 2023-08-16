@@ -111,6 +111,12 @@
       </ul>
     </nav>
     {% endif %}
+    {% if config.extra.back_to_top %}
+    <button id="back-to-top" aria-label="back to top">
+      {% set icon = load_data(path="static/icon/arrow-up.svg") %}
+      {{ icon | safe }}
+    </button>
+    {% endif %}
   </aside>
 </div>
 {% endblock content %}

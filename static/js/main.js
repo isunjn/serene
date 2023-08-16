@@ -88,6 +88,23 @@ if (document.body.classList.contains('post')) {
     });
   };
   addCopyBtns();
+  /* back-to-top button */
+  const backBtn = document.querySelector('#back-to-top');
+  if (backBtn) {
+    const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    const toggle = () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop > 80 && !backBtn.classList.contains('shown')) {
+        backBtn.classList.add('shown');
+        backBtn.addEventListener('click', toTop);
+      } else if (scrollTop <= 80 && backBtn.classList.contains('shown')) {
+        backBtn.classList.remove('shown');
+        backBtn.removeEventListener('click', toTop);
+      }
+    };
+    window.addEventListener('scroll', toggle);
+    toggle();
+  }
   /* img lightense */
   window.addEventListener("load", () => Lightense("article img", { background: 'rgba(43, 43, 43, 0.19)' }));
 }

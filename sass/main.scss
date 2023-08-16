@@ -792,6 +792,32 @@ body.post {
         }
       }
     }
+    
+    #back-to-top {
+      height: 28px;
+      padding: 0;
+      position: fixed;
+      bottom: 2em;
+      margin-left: 2em;
+      color: var(--text-pale-color);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      svg {
+        width: 28px;
+        height: 28px;
+      }
+      transform: translateY(-5px) scale(0);
+      transition: transform 0.25s;
+      
+      &.shown {
+        transform: translateY(0px) scale(1);
+      }
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
   }
 
   @media screen and (max-width: 1024px) {
@@ -816,6 +842,10 @@ body.post {
 
       ul {
         padding-left: 10px;
+      }
+
+      #back-to-top {
+        display: none;
       }
     }
 
