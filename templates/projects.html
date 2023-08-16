@@ -12,24 +12,20 @@
     {% set data = load_data(path="content/projects/data.toml", format="toml") %}
     {% for proj in data.project %}
     <div class="proj">
-      <div>
-        <p class="name">{{ proj.name }}</p>
-        <div class="desc">{{ proj.desc | trim | markdown | safe }}</div>
-        <div class="more">
-          {% if proj.tags is defined %}
-          <div class="tags">
-            {% for tag in proj.tags %}
-            <div><span>#</span>{{ tag }}</div>
-            {% endfor %}
-          </div>
-          {% endif %}
-          <div class="links">
-            {% for link in proj.links -%}
-            <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
-            {% endfor %}
-          </div>
-        </div>  
-      </div>
+      <p class="name">{{ proj.name }}</p>
+      <div class="desc">{{ proj.desc | trim | markdown | safe }}</div>
+      <div class="more">
+        <div class="tags">
+          {% for tag in proj.tags %}
+          <div><span>#</span>{{ tag }}</div>
+          {% endfor %}
+        </div>
+        <div class="links">
+          {% for link in proj.links -%}
+          <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
+          {% endfor %}
+        </div>
+      </div>  
     </div>
     {% endfor %}
   </main>
