@@ -150,7 +150,7 @@ lang = 'en'
 
 - 默认情况下，serene 对亮/暗模式使用不同的主题，由 `highlight_theme`、`extra_syntaxes_and_themes` 和 `highlight_themes_css` 配置。 默认高亮主题 `serene-light` `serene-dark` 是 [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) 主题的一个修改版本
 
-- 如果你想要不同的主题，找到你的主题的 `.txTheme` TextMate文件，将其放在 `myblog/static/highlight_themes` 中，然后将 `highlight_themes_css` 的 `theme` 值修改为该文件的名称，不带` .txTheme` 扩展名。 这将在 `myblog/static/` 中生成 `hl-light.css` 和 `hl-dark.css` 文件，你需要在修改 `theme` 值之前先删除它们，以便 zola 可以重新生成
+- 如果你想要不同的主题，找到你的主题的 `.tmTheme` TextMate文件，将其放在 `myblog/static/highlight_themes` 中，然后将 `highlight_themes_css` 的 `theme` 值修改为该文件的名称，不带` .tmTheme` 扩展名。 这将在 `myblog/static/` 中生成 `hl-light.css` 和 `hl-dark.css` 文件，你需要在修改 `theme` 值之前先删除它们，以便 zola 可以重新生成
 
 - 你可以在[这个网站](https://tmtheme-editor.glitch.me/)上找到一些 TextMate 主题
 
