@@ -69,12 +69,19 @@ if (document.body.classList.contains('post')) {
       btn.className = 'copy';
       btn.ariaLabel = 'copy';
       btn.innerHTML = copyIcon;
-      btn.addEventListener('click', () => {
+      const copy = () => {
         navigator.clipboard.writeText(block.textContent).then(() => {
           btn.innerHTML = checkIcon;
-          setTimeout(() => btn.innerHTML = copyIcon, 2000);
+          btn.classList.add('copied');
+          btn.removeEventListener('click', copy);
+          setTimeout(() => {
+            btn.innerHTML = copyIcon;
+            btn.classList.remove('copied');
+            btn.addEventListener('click', copy);
+          }, 2000);
         });
-      });
+      };
+      btn.addEventListener('click', copy);
       wrapper.appendChild(block.cloneNode(true));
       wrapper.appendChild(btn);
       block.replaceWith(wrapper);

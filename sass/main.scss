@@ -605,7 +605,7 @@ body.post {
         margin: 0;
       }
 
-      button.copy {
+      .copy {
         position: absolute;
         right: 8px;
         top: 10px;
@@ -616,9 +616,11 @@ body.post {
         background: transparent;
         border: none;
         color: var(--text-pale-color);
-        &:hover {
+
+        &.copied, &:hover {
           color: var(--primary-color);
         }
+
         svg {
           width: 20px;
           height: 20px;
