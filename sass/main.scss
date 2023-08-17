@@ -561,14 +561,18 @@ body.post {
       }
 
       &[data-linenos] {
-        padding: 12px 48px 12px 0px;
+        padding: 12px 48px 12px 8px;
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
         border: none;
+        th, td {
+          line-height: 1.5;
+        }
       }
+      
       
       table tr td:first-of-type {
         color: var(--text-pale-color);
@@ -577,7 +581,6 @@ body.post {
       table td {
         padding: 0;
         padding-right: 48px;
-        line-height: initial;
         text-align: initial;
         border: initial;
       }
@@ -586,10 +589,28 @@ body.post {
         text-align: right;
         user-select: none;
         padding-right: 1em;
+        mark::before {
+          left: -8px;
+          width: calc(100% + 1em + 8px);
+        }
       }
 
       mark {
-        background-color: var(--highlight-mark-color);
+        display: block;
+        color: inherit;
+        background-color: transparent;
+        position: relative;
+        overflow: visible;
+
+        &::before {
+          pointer-events: none;
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: calc(100% + 48px + 48px);
+          background-color: var(--highlight-mark-color);
+        }
       }
 
       &.mermaid {
@@ -597,7 +618,7 @@ body.post {
       }
     }
 
-    .code-block {
+    .codeblock {
       margin: 1em 0;
       position: relative;
       overflow: auto;
@@ -607,12 +628,13 @@ body.post {
       }
 
       .copy {
+        z-index: 9;
         position: absolute;
-        right: 8px;
-        top: 10px;
-        width: 28px;
-        height: 28px;
-        padding: 4px;
+        right: 0.6em;
+        top: 0.65em;
+        width: 24px;
+        height: 24px;
+        padding: 2px;
         cursor: pointer;
         background: transparent;
         border: none;
@@ -626,6 +648,25 @@ body.post {
           width: 20px;
           height: 20px;
         }
+      }
+    }
+
+    .codeblock-with-filename {
+      margin-top: -3.65em;
+
+      .filename {
+        z-index: 1;
+        position: relative;
+        top: 3.65em;
+        padding: 12px 16px;
+        color: var(--text-pale-color);
+        border-bottom: 1.5px solid var(--primary-pale-color);
+      }
+
+      pre>code {
+        display: inline-block;
+        min-width: 100%;
+        margin-top: 3.2em;
       }
     }
 

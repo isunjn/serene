@@ -263,7 +263,15 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 #### Shortcodes
 
-- Zola supports Shortcodes, which can add some extra styles or templates for in addition to the standard markdown format
+- Zola supports 'shortcodes', which can add some extra styles or templates for in addition to the standard markdown format
+
+- Zola support some [annotations for code blocks](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations). Serene add another one to show the file name by a `codeblock` shortcode, use it like this:
+
+  ```md
+  {% codeblock(name="path/to/file") %}
+  // a markdown code block ...
+  {% end %}
+  ```
 
 - In addition to `![img](/path/to/img)` of standard markdown, Serene also supports a `figure` shortcode to add some explanatory text to the image, the format is as follows:
 
