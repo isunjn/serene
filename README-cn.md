@@ -262,6 +262,15 @@ lang = 'en'
 
 - Zola 支持 Shortcodes，可以在标准 Markdown 格式之外增加一些额外的样式或方便进行输入的模板
 
+- Zola 支持一些[代码块注解](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations), Serene 通过一个 `codeblock` shortcode 额外支持了显示代码块文件名, 用法如下:
+
+  ```md
+  {% codeblock(name="path/to/file") %}
+  // a markdown code block ...
+  {% end %}
+  ```
+
+
 - 除了标准 Markdown 的 `![img](/path/to/img)` , Serene 还支持 figure shortcode，以便为图片添加一些说明性的文字，格式如下：
 
   ```md

@@ -64,7 +64,7 @@ if (document.body.classList.contains('post')) {
     document.querySelectorAll('pre').forEach(block => {
       if (block.classList.contains('mermaid')) return;
       const wrapper = document.createElement('div');
-      wrapper.className = 'code-block';
+      wrapper.className = 'codeblock';
       const btn = document.createElement('button');
       btn.className = 'copy';
       btn.ariaLabel = 'copy';
