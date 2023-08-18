@@ -1,26 +1,3 @@
-[English](https://github.com/isunjn/serene/blob/main/README.md) | 中文
-
-![screenshot](https://github.com/isunjn/serene/blob/main/screenshot.png?raw=true)
-
-一款简洁的 [Zola](https://www.getzola.org) 博客主题
-
-Demo: <https://serene-demo-site.vercel.app>
-
-## 特性
-
-- 整洁的设计
-- Projects 页面
-- 暗色模式
-- 图片缩放
-- 文章过时提示
-- 侧边目录
-- Callouts (note, warning, alert, etc.)
-- [Giscus](https://giscus.app) 评论
-- [KaTeX](https://katex.org) 数学公式
-- [Mermaid](https://github.com/mermaid-js/mermaid) 图表
-
-## 用法
-
 如果你还没有创建 Zola 站点，使用以下命令创建新的 Zola 站点（假设你的网站名为 myblog）:
 
 ```sh
@@ -130,11 +107,11 @@ lang = 'en'
 ...
 ```
 
-### 配置
+## 配置
 
 将 `myblog/themes/serene/config.example.toml` 的内容复制到 `myblog/config.toml`，参考文件中的注释和 Zola 的[文档](https://www.getzola.org/documentation/getting-started/overview/)进行相应的修改
 
-#### 图标
+### 图标
 
 - 将 `myblog/themes/serene/static/icon` 复制到 `myblog/static/icon`，links 中的 icon 值为其中的 svg 文件的文件名，不包含 `.svg` 后缀
 
@@ -142,7 +119,7 @@ lang = 'en'
 
 - 默认图标来自 [Remix Icon](https://remixicon.com/)
 
-#### 代码高亮
+### 代码高亮
 
 - 将 `myblog/themes/serene/static/highlight_themes` 目录复制到 `myblog/static/highlight_themes`
 
@@ -154,7 +131,7 @@ lang = 'en'
 
 - 你可以在[这个网站](https://tmtheme-editor.glitch.me/)上找到一些 TextMate 主题
 
-#### RSS
+### RSS
 
 - 你可以为你的站点添加 RSS，Zola 默认的 feed 文件位于站点的根目录，在 `config.toml` 设置 `generate_feed = ture` ，`feed_filename` 可以设置为 `atom.xml` 或 `rss.xml` ，对应两种不同的 rss 文件标准， `myblog/content/blog/_index.md` 中设置 `generate_feed = false`
 
@@ -162,7 +139,7 @@ lang = 'en'
 
 - `feed.xml` 使用 `myblog/content/blog/_index.md` 中的 `title` 和 `description`，其他两个则是使用 `config.toml` 中的
 
-#### Projects 页面
+### Projects 页面
 
 - Serene 有一个 projects 页面，可以在其上展示你的项目、产品等信息
 
@@ -188,7 +165,7 @@ lang = 'en'
   ]
   ```
 
-#### 文章过时提示
+### 文章过时提示
 
 - 如果你的某篇文章具有较强的时效性，可以设置若干天后在页面上显示一个过时提示
 
@@ -196,7 +173,7 @@ lang = 'en'
 
 - `outdate_alert_text_before` 和 `outdate_alert_text_after` 是提示的具体内容，分别是在天数之前和之后
 
-#### 文章评论
+### 文章评论
 
 - Serene 支持使用 [Giscus](https://giscus.app) 作为文章评论系统
 
@@ -204,11 +181,11 @@ lang = 'en'
 
 - `config.toml` 中的 `comment = true` 设置所有文章开启评论，可以在文章的 front matter 中 `[extra]` 下设置 `comment = false` 控制单篇文章是否显示评论
 
-#### Analytics
+### Analytics
 
 - 如需放置 Analytics 工具（如 Google Anayltics、Umami 等）的脚本，可以新建 `myblog/templates/_head_extend.html` 并将相应内容放入其中，该文件的内容将被添加到每个页面的 html head 中
 
-#### 自定义样式
+### 自定义样式
 
 - 将 `myblog/themes/serene/sass/main.scss` 复制到 `myblog/sass/main.scss`, 该文件顶部的若干变量值用于控制样式，例如主题色 `--primary-color`，可以自行修改
 
@@ -220,9 +197,9 @@ lang = 'en'
 
 - 如果你想修改更多的内容，你只需要将相应的 `themes/serene` 中 `templates`、`static`、`sass` 目录下的文件复制到 myblog 同名目录下，并进行修改。注意不要直接修改 serene 目录下的文件，因为如果更新主题，这些修改可能导致冲突
 
-### 写作
+## 写作
 
-#### front matter
+### front matter
 
 - 文章 Markdown 文件顶部两个 `+++` 内部的内容称为 front matter，支持的配置项如下：
 
@@ -258,7 +235,7 @@ lang = 'en'
 
 - 文章文件在 `myblog/content/blog` 下创建，写完后将 draft 改为 true 即可
 
-#### Shortcodes
+### Shortcodes
 
 - Zola 支持 Shortcodes，可以在标准 Markdown 格式之外增加一些额外的样式或方便进行输入的模板
 
@@ -285,7 +262,7 @@ lang = 'en'
   {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
   ```
 
-#### Callout
+### Callout
 
 - Serene 还使用 Shortcodes 实现了 Callout, 效果如示例站点的 [这个页面](https://serene-demo-site.vercel.app/blog/callouts) 所示，目前共有 6 种：`note` `important` `warning` `alert` `question` `tip`，格式如下，header 属性是可选的：
 
@@ -297,13 +274,13 @@ lang = 'en'
 
 - 如果读者通过 RSS 阅读你的文章，这些 Callouts 将会显示为普通的 `<blockquote>`
 
-#### KaTeX
+### KaTeX
 
 - 在文章 front matter 中设置 `math = true` 开启 [KaTeX](https://katex.org/) 支持
 
 - 行内公式 `$...$`，块级公式 `$$...$$`
 
-#### Mermaid
+### Mermaid
 
 - 在文章 front matter 中设置 `mermaid = true` 开启 [Mermaid](https://github.com/mermaid-js/mermaid) 支持，然后用如下格式插入图表：
 
@@ -317,7 +294,7 @@ lang = 'en'
   {% end %}
   ```
 
-### 构建部署
+## 构建部署
 
 本地预览：
 
@@ -333,7 +310,7 @@ zola build
 
 部署静态站点请参考 Zola [关于部署的文档](https://www.getzola.org/documentation/deployment/overview/)
 
-### 更新
+## 更新
 
 更新主题前请在 GitHub 上查看 CHANGELOG 以确认是否有 breaking changes
 
