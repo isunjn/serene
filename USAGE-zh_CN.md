@@ -76,6 +76,7 @@ generate_feed = true
 
 [extra]
 lang = 'en'
+display_tags = true
 +++
 ```
 

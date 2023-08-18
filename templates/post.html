@@ -53,7 +53,9 @@
           {% endif -%}
         </div>
 
-        {% if page.taxonomies.tags is defined %}
+        {% if page.extra.display_tags is defined %}{% set display_tags = page.extra.display_tags %}{% elif section.extra.display_tags is defined %}{% set display_tags = section.extra.display_tags %}{% else %}{% set display_tags = true %}{% endif %}
+
+        {% if page.taxonomies.tags is defined and display_tags == true %}
         <div id="tags">
           {% for tag in page.taxonomies.tags -%}
           {% set tag_slugify = tag | slugify -%}
