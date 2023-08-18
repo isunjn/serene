@@ -1,4 +1,4 @@
-# serene v1.1.1 (check for update at https://github.com/isunjn/serene/releases)
+# serene v1.2.0 (check for update at https://github.com/isunjn/serene/releases)
 
 base_url = "https://example.com"      # Domain name of your website
 title = "xxxx"

@@ -2,9 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2023-08-19
+
+### UI:
+
+- Use noborder theme of giscus by default
+- Post list item and callout styles changed
+- Code block styles improved
+- Default colors changed
+
+### Add:
+
+- Outline styles @mrtnvgr (#26)
+- Support self-host font (#29)
+- Copy button for code blocks (#30)
+- Support light/dark switch for code blocks (#33)
+- Support tags for project page
+- Back-to-top button
+- A shortcode for code block with file name: `codeblock` (#39)
+
+### Fix:
+
+- Update theme toggle icon on page load @mrtnvgr (#25)
+- Layout shift problem on post page (#27)
+
 ## [1.1.1] - 2023-08-09
 
-- Allow no tags in front matter
+- Allow no tags in front matter @mrtnvgr
 - Fix figcaption width issue
 
 ## [1.1.0] - 2023-05-27
@@ -33,11 +57,11 @@ All notable changes to this project will be documented in this file.
 
 ## [0.2.0] - 2022-02-16
 
-### Added
+### Add:
 - KaTeX support
 - Mermaid support
 
-### Fixed
+### Fix:
 - Style issue of table-of-contents
 - A few non-critical bugs
 
@@ -46,6 +70,7 @@ All notable changes to this project will be documented in this file.
 First release 🎉
 
 
+[1.2.0]: https://github.com/isunjn/serene/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/isunjn/serene/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/isunjn/serene/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/isunjn/serene/compare/v0.2.0...v1.0.0
