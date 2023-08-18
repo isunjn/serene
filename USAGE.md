@@ -77,6 +77,7 @@ generate_feed = true
 [extra]
 lang = 'en'
 display_tags = true
+truncate_summary = false         # Do not show post summary in blog post.
 +++
 ```
 

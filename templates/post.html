@@ -80,7 +80,13 @@
       </blockquote>
       {% endif %}
 
-      {{ page.content | safe }}
+      {% if page.extra.truncate_summary is defined %}{% set truncate_summary = page.extra.truncate_summary %}{% elif section.extra.truncate_summary is defined %}{% set truncate_summary = section.extra.truncate_summary %}{% else %}{% set truncate_summary = false %}{% endif %}
+
+      {% if truncate_summary == true and page.summary %}
+        {{ page.content | trim_start_matches(pat=page.summary) | safe }}
+      {% else %}
+        {{ page.content | safe }}
+      {% endif %}
     </article>
 
     {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
