@@ -233,9 +233,9 @@ lang = 'en'
   more post content...
   ```
 
-- 推荐在文章中合适的位置（例如第一个段落之后）添加一行 `<!-- more -->` ，其前面的内容将作为页面的描述，有助于 SEO
+- 你可以添加一行`<!-- more -->`, 在其前面的内容会成为文章的总结/描述, 可以在 `myblog/content/blog/_index.md` 设置 `truncate_summary = ture` 来让其在最终的文章网页上不显示
 
-- 文章文件在 `myblog/content/blog` 下创建，写完后将 draft 改为 true 即可
+- 文章文件在 `myblog/content/blog` 下创建，写完后将 draft 改为 false 即可
 
 ### Shortcodes
 
