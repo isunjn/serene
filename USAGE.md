@@ -77,7 +77,7 @@ generate_feed = true
 [extra]
 lang = 'en'
 display_tags = true
-truncate_summary = false         # Do not show post summary in blog post.
+truncate_summary = false
 +++
 ```
 
@@ -236,9 +236,9 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
   more post content...
   ```
 
-- It is recommended to add a line `<!-- more -->` at the appropriate position in the post (such as after the first paragraph), and the content before it will be used as the description of the page, which is helpful for SEO
+- You can add a `<!-- more -->` line, the content before it will become the summary/description of the post. You can set `truncate_summary = true` in `myblog/content/blog/_index.md` to remove the summary from the post webpage.
 
-- Post files are created under `myblog/content/blog`, after done writing, change `draft` to true
+- Post files are created under `myblog/content/blog`, after done writing, change `draft` to false
 
 ### Shortcodes
 
