@@ -34,7 +34,7 @@ body {
   --avatar-size: 70px;
   --paragraph-font-size: 18px;
   --paragraph-line-height: 1.75;
-  --aside-font-size: 17px;
+  --aside-font-size: 16px;
   --img-border-radius: 0px;
 }
 
@@ -543,9 +543,10 @@ body.post {
       font-family: var(--code-font);
       font-size: 0.8em;
       padding: 1px 6px;
+      margin: 0 2px;
       color: var(--primary-color);
       background-color: var(--primary-pale-color);
-      border-radius: 4px;
+      border-radius: 2px;
     }
 
     pre {
