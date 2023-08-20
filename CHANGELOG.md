@@ -13,22 +13,22 @@ All notable changes to this project will be documented in this file.
 
 ### Add:
 
-- Outline styles @mrtnvgr (#26)
-- Support self-host font (#29)
-- Copy button for code blocks (#30)
-- Support light/dark switch for code blocks (#33)
+- Outline styles [@mrtnvgr](https://github.com/mrtnvgr) ([#26](https://github.com/isunjn/serene/pull/26))
+- Support self-host font ([#29](https://github.com/isunjn/serene/pull/29))
+- Copy button for code blocks ([#30](https://github.com/isunjn/serene/pull/30))
+- Support light/dark switch for code blocks ([#33](https://github.com/isunjn/serene/pull/33))
 - Support tags for project page
 - Back-to-top button
-- A shortcode for code block with file name: `codeblock` (#39)
+- A shortcode for code block with file name: `codeblock` ([#39](https://github.com/isunjn/serene/pull/39))
 
 ### Fix:
 
-- Update theme toggle icon on page load @mrtnvgr (#25)
-- Layout shift problem on post page (#27)
+- Update theme toggle icon on page load [@mrtnvgr](https://github.com/mrtnvgr) ([#25](https://github.com/isunjn/serene/pull/25))
+- Layout shift problem on post page ([#27](https://github.com/isunjn/serene/pull/27))
 
 ## [1.1.1] - 2023-08-09
 
-- Allow no tags in front matter @mrtnvgr
+- Allow no tags in front matter [@mrtnvgr](https://github.com/mrtnvgr)
 - Fix figcaption width issue
 
 ## [1.1.0] - 2023-05-27
