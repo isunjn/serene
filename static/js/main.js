@@ -55,6 +55,27 @@ if (document.body.classList.contains('post')) {
       aside.classList.toggle('shown');
     });
   }
+  /* toc active indicator */
+  const indicateToc = () => {
+    const toc = document.querySelector('aside nav');
+    if (!toc) return;
+    const headers = document.querySelectorAll('h2, h3');
+    const tocMap = new Map();
+    headers.forEach(header => tocMap.set(header, toc.querySelector(`a[href="#${header.id}"]`)));
+    let actived = null;
+    const observe = (entries) => entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = tocMap.get(entry.target);
+        if (target == actived) return;
+        if (actived) actived.classList.remove('active');
+        target.classList.add('active');
+        actived = target;
+      }
+    });
+    const observer = new IntersectionObserver(observe, { rootMargin: '-9% 0px -90% 0px' });
+    headers.forEach(header => observer.observe(header));
+  };
+  indicateToc();
   /* code copy button */
   const addCopyBtns = () => {
     const cfg = document.querySelector('#copy-cfg');
@@ -94,10 +115,10 @@ if (document.body.classList.contains('post')) {
     const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
     const toggle = () => {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      if (scrollTop > 80 && !backBtn.classList.contains('shown')) {
+      if (scrollTop > 200 && !backBtn.classList.contains('shown')) {
         backBtn.classList.add('shown');
         backBtn.addEventListener('click', toTop);
-      } else if (scrollTop <= 80 && backBtn.classList.contains('shown')) {
+      } else if (scrollTop <= 200 && backBtn.classList.contains('shown')) {
         backBtn.classList.remove('shown');
         backBtn.removeEventListener('click', toTop);
       }

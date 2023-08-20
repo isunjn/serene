@@ -782,64 +782,78 @@ body.post {
     flex-basis: 0;
     flex-grow: 1;
     position: sticky;
-    margin-top: 125px;
+    margin-top: 120px;
     top: 60px;
     height: min-content;
     font-size: var(--aside-font-size);
     z-index: 9;
 
     nav {
-      padding: 5px 15px 5px 0;
+      padding: 5px 15px 5px 2em;
       min-width: 60%;
       overflow-y: auto;
-      max-height: 80vh;
+      max-height: calc(100vh - 50px - 5em);
       scrollbar-width: none;
 
       &::-webkit-scrollbar {
         width: 0;
       }
+      
+      &:hover::-webkit-scrollbar {
+        width: 4px;
+      }
     }
 
     ul {
       list-style-type: none;
-      padding-left: 1.5em;
+      padding: 0;
       line-height: 2;
       margin: 0;
     }
 
-    nav a {
+    a {
       text-decoration: none;
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      color: var(--primary-color);
+      color: var(--text-pale-color);
+      position: relative;
+      padding: 0 1em;
+      
+      &.h3 {
+        padding-left: 2.5em;
+        font-size: 0.95em;
+      }
 
       &::before {
-        display: inline-block;
+        display: block;
         content: "";
-        width: 2.5px;
-        height: 10px;
-        border-radius: 1.5px;
-        position: relative;
-        top: -1px;
-        margin-right: 10px;
-      }
+        width: 2px;
+        position: absolute;
+        top: 0.6em;
+        bottom: 0.7em;
+        left: 0em;
+        background: transparent;
+      } 
 
       &:hover,
       &.active {
-        &::before {
-          background-color: var(--primary-color);
-        }
+        color: var(--primary-color);
+      }
+      
+      &:hover::before {
+        background-color: var(--primary-color);
       }
     }
     
     #back-to-top {
+      z-index: 99;
       height: 28px;
       padding: 0;
       position: fixed;
-      bottom: 2em;
-      margin-left: 2em;
+      bottom: 1.5em;
+      margin-left: 3em;
       color: var(--text-pale-color);
       background: transparent;
       border: none;
@@ -849,7 +863,7 @@ body.post {
         height: 28px;
       }
       transform: translateY(-5px) scale(0);
-      transition: transform 0.25s;
+      transition: transform 0.2s;
       
       &.shown {
         transform: translateY(0px) scale(1);
