@@ -126,6 +126,19 @@ if (document.body.classList.contains('post')) {
     window.addEventListener('scroll', toggle);
     toggle();
   }
+  /* footnote backlink */
+  const backlinkIcon = document.querySelector('article').dataset.backlinkIcon;
+  const footnotes = document.querySelectorAll('.footnote-definition');
+  footnotes.forEach(footnote => {
+    const backlink = document.createElement('button');
+    backlink.className = 'backlink';
+    backlink.ariaLabel = 'backlink';
+    backlink.innerHTML = backlinkIcon;
+    backlink.addEventListener('click', () => window.scrollTo({
+      top: document.querySelector(`.footnote-reference a[href="#${footnote.id}"]`).getBoundingClientRect().top + window.scrollY - 50,
+    }));
+    footnote.appendChild(backlink);
+  });
   /* img lightense */
   window.addEventListener("load", () => Lightense("article img", { background: 'rgba(43, 43, 43, 0.19)' }));
 }
