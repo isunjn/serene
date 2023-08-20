@@ -87,6 +87,11 @@ button:focus-visible, a:focus-visible {
   }
 }
 
+::selection {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
 /* homepage
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
