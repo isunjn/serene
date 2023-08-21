@@ -121,7 +121,7 @@ lang = 'en'
 
 ### 代码高亮
 
-- 将 `myblog/themes/serene/static/highlight_themes` 目录复制到 `myblog/static/highlight_themes`
+- 将 `myblog/themes/serene/highlight_themes` 目录复制到 `myblog/highlight_themes`
 
 - 如果你将 `config.toml` 中的 `highlight_theme` 设置为 zola 的 [内置高亮主题](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting) 之一，浅色和深色模式都将使用该主题
 
