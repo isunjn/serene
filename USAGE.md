@@ -125,7 +125,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 ### Code highlight
 
-- Copy `myblog/themes/serene/static/highlight_themes` directory to `myblog/static/highlight_themes`.
+- Copy `myblog/themes/serene/highlight_themes` directory to `myblog/highlight_themes`.
 
 - If you set `highlight_theme` in `config.toml` to one of zola's [built-in highlight themes](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting), you will get that theme used in both light and dark mode.
 
