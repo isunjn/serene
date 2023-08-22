@@ -46,10 +46,17 @@ links = [                             # Your links
     { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
 ]
 
+pages = [
+    { name = "blog", path = "/blog" },
+    { name = "projects", path = "/projects" },
+    { name = "about", path = "/about" },
+]
+
 nav_separator = "::"
+nav_wrapper_left = "{"
+nav_wrapper_right = "}"
 
 display_id = true                     # Display your id on homepage
-projects_page = true                  # Display projects page
 blog_categorized = true               # Whether to categorize blog posts
 blur_effect = true                    # Whether to turn on blur effect on navigation bar
 

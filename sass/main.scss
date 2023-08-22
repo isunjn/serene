@@ -559,6 +559,8 @@ header {
 
   nav {
     font-size: 1.4em;
+    display: flex;
+    align-items: center;
 
     a {
       color: var(--text-color);
@@ -570,7 +572,34 @@ header {
     }
 
     .separator {
+      width: 24px;
+      text-align: center;
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      background: transparent;
       margin: 0 0.1em;
+      color: var(--text-color);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .wrap {
+      &.left {
+        margin: 0 0.3em 0 -0.1em;
+      }
+      &.right {
+        margin: 0 0 0 0.3em;
+      }
+    }
+    .wrap-separator {
+      margin: 0 0.5em 0 0.1em;
+    }
+    
+    .fold {
+      display: none;
+      &.shown {
+        display: initial;
+      }
     }
   }
 
