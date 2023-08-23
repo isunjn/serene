@@ -1,29 +1,33 @@
 <header {% if config.extra.blur_effect %} class="blur" {% endif %}>
-  <div id="wrapper">
+  <div id="header-wrapper">
     <nav>
       <a href="/">{{ config.extra.id }}</a>
-      {% if config.extra.pages | length > 1 %}
+      {% if config.extra.sections | length > 1 %}
         <button id="toggler" class="separator" aria-label="toggle expand">{{ config.extra.nav_separator }}</button>
       {% else %}
         <span class="separator">{{ config.extra.nav_separator }}</span>
       {% endif %}
-      {% if config.extra.pages | length > 1 %}
+      {% if config.extra.sections | length > 1 %}
         <span class="wrap left fold">{{ config.extra.nav_wrapper_left }}</span>
-        {% for page in config.extra.pages %}
-        <a href="{{ page.path }}" {% if not current_path is starting_with(page.path) %}class="fold"{% endif %}>{{ page.name }}</a>
+        {% for section in config.extra.sections %}
+        <a href="{{ section.path }}" {% if not current_path is starting_with(section.path) %}class="fold"{% endif %}>{{ section.name }}</a>
         {% if not loop.last %}<span class="wrap-separator fold">{{ config.extra.nav_wrapper_separator }}</span>{% endif %}
         {% endfor %}
         <span class="wrap right fold">{{ config.extra.nav_wrapper_right }}</span>
       {% else %}
-        {% set page = config.extra.pages | first %}
-        <a href="{{ page.path }}">{{ page.name }}</a>
+        {% set section = config.extra.sections | first %}
+        <a href="{{ section.path }}">{{ section.name }}</a>
       {% endif %}
     </nav>
     <div id="btns">
-      {% if section.path != "/projects/" %}
+      {% if config.extra.blog_section_path is defined %}
+      {% set blog_section_path = config.extra.blog_section_path %}
+      {% endif %}
+
+      {% if blog_section_path is defined and section.path is starting_with(blog_section_path) %}
       {% set rss_icon = load_data(path="static/icon/rss.svg") %}
       {% if section.generate_feed -%}
-      <a href="/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+      <a href="{{ blog_section_path }}/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
       {% elif config.generate_feed -%}
       <a href="/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
       {% endif %}
@@ -31,15 +35,13 @@
 
       {% set moon_icon = load_data(path="static/icon/moon.svg") %}
       {% set sun_icon = load_data(path="static/icon/sun.svg") %}
-      <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}"
-        data-sun-icon="{{ sun_icon }}">
+      <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
         {{ moon_icon | safe }}
       </button>
 
-      {% if section.path != "/projects/" %}
+      {% if blog_section_path is defined and section.path is starting_with(blog_section_path) %}
       {% set toc_icon = load_data(path="static/icon/toc.svg") %}
-      {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc
-      %}{% endif %}
+      {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
       {% if show_toc and page %}
       <button id="toc-toggle" aria-label="table of content">
         {{ toc_icon | safe }}

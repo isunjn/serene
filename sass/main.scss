@@ -30,6 +30,7 @@ body {
   --main-font: 'Signika', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --homepage-max-width: 650px;
+  --homepage-min-width: min(100%, 425px);
   --main-max-width: 750px;
   --avatar-size: 70px;
   --paragraph-font-size: 18px;
@@ -422,6 +423,33 @@ button:focus-visible, a:focus-visible {
   }
 }
 
+/* prose pages
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+body.prose-page {
+  main {
+    font-size: var(--paragraph-font-size);
+    margin-top: 45px;
+    min-height: 100vh;
+    margin: 0 auto;
+    max-width: var(--main-max-width);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  article {
+    padding: 90px 15px 30px;
+    font-size: var(--paragraph-font-size);
+    line-height: var(--paragraph-line-height);
+  }
+  .mermaid {
+    background: #fff;
+  }
+  .giscus {
+    padding: 0 15px;
+  }
+}
+
 /* homepage
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -435,6 +463,7 @@ body.homepage {
 
   main {
     max-width: var(--homepage-max-width);
+    min-width: var(--homepage-min-width);
     padding: 2em 1em 6em;
   }
 
@@ -466,8 +495,7 @@ body.homepage {
   }
 
   #links {
-    max-height: 24px;
-    margin: 1.25em 0 1.5em;
+    margin: 1.25em 0 1.75em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -487,6 +515,7 @@ body.homepage {
 
     #left {
       display: flex;
+      flex-wrap: wrap;
       gap: 1em;
 
       a {
@@ -498,6 +527,7 @@ body.homepage {
     #right {
       display: flex;
       gap: 0.5em;
+      margin-left: auto;
 
       a,
       button {
@@ -546,7 +576,7 @@ header {
     }
   }
 
-  #wrapper {
+  #header-wrapper {
     height: 100%;
     max-width: var(--main-max-width);
     margin: 0 auto;
@@ -672,7 +702,7 @@ footer {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 body.blog {
-  #blog-wrapper {
+  #wrapper {
     margin: 0 auto;
     max-width: var(--main-max-width);
     min-height: 100vh;
@@ -729,7 +759,7 @@ body.blog {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 body.post {
-  #post-wrapper {
+  #wrapper {
     display: flex;
     justify-content: space-between;
     margin-top: 45px;
@@ -795,7 +825,7 @@ body.post {
     flex-basis: 0;
     flex-grow: 1;
     position: sticky;
-    margin-top: 120px;
+    margin-top: 150px;
     top: 60px;
     height: min-content;
     font-size: var(--aside-font-size);
@@ -905,7 +935,7 @@ body.post {
       box-shadow: rgba(0, 0, 0, 0.08) -2px 8px 8px 0px;
 
       nav {
-        padding-top: 10px;
+        padding: 1em 0;
       }
 
       ul {
@@ -939,7 +969,7 @@ body.post {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 body.tag-list {
-  #tag-list-wrapper {
+  #wrapper {
     margin: 0 auto;
     max-width: var(--main-max-width);
     min-height: 100vh;
@@ -979,7 +1009,7 @@ body.tag-list {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 body.tag-single {
-  #tag-single-wrapper {
+  #wrapper {
     margin: 0 auto;
     max-width: var(--main-max-width);
     min-height: 100vh;
@@ -1046,7 +1076,7 @@ body.tag-single {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 body.projects {
-  #proj-wrapper {
+  #wrapper {
     margin: 0 auto;
     max-width: var(--main-max-width);
     min-height: 100vh;

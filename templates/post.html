@@ -2,7 +2,9 @@
 
 {% block page %}post{% endblock page %}
 {% block lang -%}
-{% set section = get_section(path="blog/_index.md", metadata_only=true) %}
+{%- set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") -%}
+{%- set section_md_path = blog_section_path ~ "/_index.md" -%}
+{%- set section = get_section(path=section_md_path, metadata_only=true) -%}
 {%- if page.extra.lang %}{{page.extra.lang}}{% elif section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif -%}
 {%- endblock lang %}
 {% block title %}{{ page.title }}{% endblock title %}
@@ -34,7 +36,7 @@
 
 {% block content %}
 {% include "_header.html" %}
-<div id="post-wrapper">
+<div id="wrapper">
   <div id="blank"></div>
   <main>
     {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}

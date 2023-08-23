@@ -5,6 +5,30 @@
 {% block title %}{{ config.title }}{% endblock title %}
 {% block desc %}{{ config.description }}{% endblock desc %}
 
+{% block head %}
+{% if config.markdown.highlight_theme == "css" %}
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+{% endif %}
+{% if section.extra.math %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+{% endif %}
+{% endblock head %}
+
 {% block content %}
 <div id="wrapper">
   <main>
@@ -22,10 +46,9 @@
     </section>
     <section id="links">
       <div id="left">
-        <a href="/blog" id="blog">blog</a>
-        {% if config.extra.projects_page -%}
-        <a href="/projects" id="projects">projects</a>
-        {% endif -%}
+        {% for section in config.extra.sections%}
+        <a href="{{ section.path }}">{{ section.name }}</a>
+        {% endfor %}
       </div>
       <div id="right">
         {% for link in config.extra.links -%}
@@ -48,3 +71,13 @@
   </main>
 </div>
 {% endblock content %}
+
+{% block script %}
+<script src="/js/lightense.min.js"></script>
+{% if section.extra.mermaid %}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+{% endif %}
+{% endblock script %}

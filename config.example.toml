@@ -46,15 +46,17 @@ links = [                             # Your links
     { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
 ]
 
-pages = [
+sections = [
     { name = "blog", path = "/blog" },
     { name = "projects", path = "/projects" },
-    { name = "about", path = "/about" },
+    # { name = "about", path = "/about" },
 ]
+blog_section_path = "/blog"
 
 nav_separator = "::"
 nav_wrapper_left = "{"
-nav_wrapper_right = "}"
+nav_wrapper_right = "} ;"
+nav_wrapper_separator = ","
 
 display_id = true                     # Display your id on homepage
 blog_categorized = true               # Whether to categorize blog posts
