@@ -8,7 +8,7 @@
 {% block content %}
 {% include "_header.html" %}
 <div id="wrapper">
-  <main>
+  <main class="layout-list">
     {% if config.extra.blog_categorized %}
     {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") -%}
     <div class="category">{{ category }}</div>

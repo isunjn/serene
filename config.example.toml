@@ -46,6 +46,8 @@ links = [                             # Your links
     { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
 ]
 
+homepage_layout = "about"             # "about" | "list"
+
 sections = [
     { name = "blog", path = "/blog" },
     { name = "projects", path = "/projects" },

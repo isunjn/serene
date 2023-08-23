@@ -65,9 +65,40 @@
         </button>
       </div>
     </section>
-    <section id="brief" class="prose">
-      {{ section.content | trim | safe }}
-    </section>
+    {% if config.extra.homepage_layout == 'about' %}
+      <section id="brief" class="prose">
+        {{ section.content | trim | safe }}
+      </section>
+    {% elif config.extra.homepage_layout == 'list' %}
+      {% set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") %}
+      {% set section_md_path = blog_section_path ~ "/_index.md" %}
+      {% set blog_section = get_section(path=section_md_path) %}
+      <section class="layout-list">
+        {% if config.extra.blog_categorized %}
+        {% for category,posts in blog_section.pages | group_by(attribute="taxonomies.categories.0") -%}
+        <div class="category">{{ category }}</div>
+        <div>
+          {% for post in posts %}
+          <a class="post" href="{{ post.permalink }}">
+            <span>{{ post.title }}</span>
+            <span class="date">{{ post.date | date}}</span>
+          </a>
+          {% endfor %}
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="post-list">
+          {% for post in blog_section.pages %}
+          <a class="post" href="{{ post.permalink }}">
+            <span>{{ post.title }}</span>
+            <span class="line"></span>
+            <span class="date">{{ post.date | date}}</span>
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </section>
+    {% endif %}
   </main>
 </div>
 {% endblock content %}
