@@ -9,9 +9,21 @@
       {% endif %}
       {% if config.extra.sections | length > 1 %}
         <span class="wrap left fold">{{ config.extra.nav_wrapper_left }}</span>
+        {% set_global is_taxonomies_path = false %}
+        {% for taxonomy in config.taxonomies %}
+          {% if current_path is starting_with("/" ~ taxonomy.name)%}
+            {% set_global is_taxonomies_path = true %}
+          {% endif %}
+        {% endfor %}
         {% for section in config.extra.sections %}
-        <a href="{{ section.path }}" {% if not current_path is starting_with(section.path) %}class="fold"{% endif %}>{{ section.name }}</a>
-        {% if not loop.last %}<span class="wrap-separator fold">{{ config.extra.nav_wrapper_separator }}</span>{% endif %}
+          {% set should_fold = false %}
+          {% if is_taxonomies_path and section.path == config.extra.blog_section_path %}
+            {% set should_fold = false %}
+          {% elif not current_path is starting_with(section.path) %}
+            {% set should_fold = true %}
+          {% endif %}
+          <a href="{{ section.path }}" {% if should_fold %}class="fold"{% endif %}>{{ section.name }}</a>
+          {% if not loop.last %}<span class="wrap-separator fold">{{ config.extra.nav_wrapper_separator }}</span>{% endif %}
         {% endfor %}
         <span class="wrap right fold">{{ config.extra.nav_wrapper_right }}</span>
       {% else %}
