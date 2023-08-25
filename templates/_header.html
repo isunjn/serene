@@ -15,7 +15,8 @@
             {% set_global is_taxonomies_path = true %}
           {% endif %}
         {% endfor %}
-        {% for section in config.extra.sections %}
+        {% set site_sections = config.extra.sections | filter(attribute="is_external", value=false) %}
+        {% for section in site_sections %}
           {% set should_fold = false %}
           {% if is_taxonomies_path and section.path == config.extra.blog_section_path %}
             {% set should_fold = false %}

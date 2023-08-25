@@ -49,9 +49,10 @@ links = [                             # Your links
 homepage_layout = "about"             # "about" | "list"
 
 sections = [
-    { name = "blog", path = "/blog" },
-    { name = "projects", path = "/projects" },
-    # { name = "about", path = "/about" },
+    { name = "blog", path = "/blog", is_external = false },
+    { name = "projects", path = "/projects", is_external = false },
+    # { name = "about", path = "/about", is_exteranl = false },
+    # { name = "github", path = "https://github.com/<your-username>", is_exteranl = true},
 ]
 blog_section_path = "/blog"
 
