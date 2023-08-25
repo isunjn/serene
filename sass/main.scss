@@ -1,42 +1,42 @@
-body {
+// body {
 
-  // light mode colors
-  --primary-color: #6d90d7;
-  --primary-pale-color: #6d90d720;
-  --text-color: #3C4043;
-  --text-pale-color: #a0a9bf;
-  --bg-color: #ffffff; 
-  --highlight-mark-color: #5f75b045;
+//   // light mode colors
+//   --primary-color: #6d90d7;
+//   --primary-pale-color: #6d90d720;
+//   --text-color: #3C4043;
+//   --text-pale-color: #a0a9bf;
+//   --bg-color: #ffffff; 
+//   --highlight-mark-color: #5f75b045;
 
-  // dark mode colors
-  &.dark {
-    --primary-color: #6d90d7;
-    --primary-pale-color: #6d90d720;
-    --text-color: #9197a5;
-    --text-pale-color: #5d6470;
-    --bg-color: #202124;
-    --highlight-mark-color: #5f75b045;
-  }
+//   // dark mode colors
+//   &.dark {
+//     --primary-color: #6d90d7;
+//     --primary-pale-color: #6d90d720;
+//     --text-color: #9197a5;
+//     --text-pale-color: #5d6470;
+//     --bg-color: #202124;
+//     --highlight-mark-color: #5f75b045;
+//   }
 
-  // callout colors
-  --callout-note-color: #6d90d7;
-  --callout-important-color: #9971d9;
-  --callout-warning-color: #cb943b;
-  --callout-alert-color: #d35757;
-  --callout-question-color: #4985a2;
-  --callout-tip-color: #38a56e;
+//   // callout colors
+//   --callout-note-color: #6d90d7;
+//   --callout-important-color: #9971d9;
+//   --callout-warning-color: #cb943b;
+//   --callout-alert-color: #d35757;
+//   --callout-question-color: #4985a2;
+//   --callout-tip-color: #38a56e;
 
-  // typography
-  --main-font: 'Signika', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --homepage-max-width: 650px;
-  --main-max-width: 750px;
-  --avatar-size: 70px;
-  --paragraph-font-size: 18px;
-  --paragraph-line-height: 1.75;
-  --aside-font-size: 16px;
-  --img-border-radius: 0px;
-}
+//   // typography
+//   --main-font: 'Signika', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+//   --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+//   --homepage-max-width: 650px;
+//   --main-max-width: 750px;
+//   --avatar-size: 70px;
+//   --paragraph-font-size: 18px;
+//   --paragraph-line-height: 1.75;
+//   --aside-font-size: 16px;
+//   --img-border-radius: 0px;
+// }
 
 /* base
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
