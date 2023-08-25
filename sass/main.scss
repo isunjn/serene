@@ -776,12 +776,13 @@ body.post {
   }
 
   #blank {
-    flex-grow: 1;
-    flex-basis: 0;
+    position: sticky;
+    width: calc((100% - var(--main-max-width)) / 2);
   }
 
   main {
     width: 100%;
+    margin: 0 auto;
     max-width: var(--main-max-width);
   }
 
@@ -830,14 +831,12 @@ body.post {
   }
 
   aside {
-    flex-basis: 0;
-    flex-grow: 1;
+    width: calc((100% - var(--main-max-width)) / 2);
     position: sticky;
     margin-top: 150px;
     top: 60px;
     height: min-content;
     font-size: var(--aside-font-size);
-    z-index: 9;
 
     nav {
       padding: 5px 15px 5px 2em;
