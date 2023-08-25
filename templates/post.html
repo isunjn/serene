@@ -38,6 +38,35 @@
 {% include "_header.html" %}
 <div id="wrapper">
   <div id="blank"></div>
+  <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
+    {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
+    {% if show_toc and page.toc %}
+    <nav>
+      <ul>
+        {% for h2 in page.toc %}
+        <li>
+          <a class="h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
+          {% if h2.children %}
+          <ul>
+            {% for h3 in h2.children %}
+            <li>
+              <a class="h3" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+    {% if config.extra.back_to_top %}
+    <button id="back-to-top" aria-label="back to top">
+      {% set icon = load_data(path="static/icon/arrow-up.svg") %}
+      {{ icon | safe }}
+    </button>
+    {% endif %}
+  </aside>
   <main>
     {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
     {% if allow_copy %}
@@ -100,35 +129,6 @@
 
     {% include "_footer.html" %}
   </main>
-  <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
-    {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
-    {% if show_toc and page.toc %}
-    <nav>
-      <ul>
-        {% for h2 in page.toc %}
-        <li>
-          <a class="h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
-          {% if h2.children %}
-          <ul>
-            {% for h3 in h2.children %}
-            <li>
-              <a class="h3" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
-    {% endif %}
-    {% if config.extra.back_to_top %}
-    <button id="back-to-top" aria-label="back to top">
-      {% set icon = load_data(path="static/icon/arrow-up.svg") %}
-      {{ icon | safe }}
-    </button>
-    {% endif %}
-  </aside>
 </div>
 {% endblock content %}
 

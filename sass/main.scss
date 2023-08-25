@@ -776,11 +776,13 @@ body.post {
   }
 
   #blank {
+    order: 1;
     position: sticky;
     width: calc((100% - var(--main-max-width)) / 2);
   }
 
   main {
+    order: 2;
     width: 100%;
     margin: 0 auto;
     max-width: var(--main-max-width);
@@ -831,6 +833,7 @@ body.post {
   }
 
   aside {
+    order: 3;
     width: calc((100% - var(--main-max-width)) / 2);
     position: sticky;
     margin-top: 150px;
