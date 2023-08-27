@@ -3,7 +3,9 @@
 {% block page %}homepage{% endblock page%}
 {% block lang %}{% if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ section.lang }}{% endif %}{% endblock lang %}
 {% block title %}{{ config.title }}{% endblock title %}
-{% block desc %}{{ config.description }}{% endblock desc %}
+{% block desc %}
+  <meta name="description" content="{{ config.description }}">
+{% endblock desc %}
 
 {% block head %}
 {% if config.markdown.highlight_theme == "css" %}

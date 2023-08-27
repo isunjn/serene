@@ -5,7 +5,9 @@
 {%- if section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif -%}
 {%- endblock lang %}
 {% block title %}{{ section.title }}{% endblock title %}
-{% block desc %}{% if section.summary %}{{ page.summary }}{% endif %}{% endblock desc %}
+{% block desc %}
+  <meta name="description" content="{{ section.description }}">
+{% endblock desc %}
 
 {% block head %}
 {% if config.markdown.highlight_theme == "css" %}

@@ -8,7 +8,16 @@
 {%- if page.extra.lang %}{{page.extra.lang}}{% elif section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif -%}
 {%- endblock lang %}
 {% block title %}{{ page.title }}{% endblock title %}
-{% block desc %}{% if page.summary %}{{ page.summary }}{% endif %}{% endblock desc %}
+{% block desc %}
+  {% if page.summary %}
+    {% set desc = page.summary %}
+  {% elif page.description %}
+    {% set desc = page.description %}
+  {% endif %}
+  {% if desc %}
+  <meta name="description" content="{{ desc }}">
+  {% endif %}
+{% endblock desc %}
 
 {% block head %}
 {% if config.markdown.highlight_theme == "css" %}
