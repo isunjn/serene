@@ -18,21 +18,27 @@ html {
   scroll-behavior: smooth;
 }
 
-button:focus-visible, a:focus-visible {
+button:focus-visible,
+a:focus-visible {
   outline: var(--primary-color) solid 3px;
 }
 
+::selection {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
 @media screen and (min-width: 425px) {
-  ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-  }
-  
   body::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
 
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
   ::-webkit-scrollbar-track {
     background: #0000;
   }
@@ -45,11 +51,6 @@ button:focus-visible, a:focus-visible {
   ::-webkit-scrollbar-thumb:hover {
     background: #8a90a1a1;
   }
-}
-
-::selection {
-  background-color: var(--primary-color);
-  color: var(--bg-color);
 }
 
 /* prose
@@ -124,20 +125,56 @@ button:focus-visible, a:focus-visible {
   }
 
   blockquote {
-    border-left: 4px var(--primary-pale-color) solid;
+    border-left: 3px var(--primary-pale-color) solid;
     padding-left: 16px;
     margin: 0 0 24px 0;
     color: var(--text-pale-color);
   }
 
-  p>code, td>code, th>code {
+  ul,
+  ol {
+    line-height: 1.8;
+  }
+
+  li::marker {
+    color: var(--primary-color);
+  }
+
+  hr {
+    border: none;
+    background-color: var(--primary-pale-color);
+    height: 3px;
+    margin: 36px 0;
+  }
+
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border: 1px solid var(--primary-pale-color);
+  }
+
+  thead {
+    background-color: var(--primary-pale-color);
+  }
+
+  th,
+  td {
+    line-height: 2;
+    text-align: center;
+    border: 1px solid var(--primary-pale-color);
+    padding: 1px 10px;
+  }
+
+  p>code,
+  td>code,
+  th>code {
     font-family: var(--code-font);
     font-size: 0.8em;
     padding: 1px 6px;
     margin: 0 2px;
     color: var(--primary-color);
     background-color: var(--primary-pale-color);
-    border-radius: 2px;
+    border-radius: var(--inline-code-border-radius);
   }
 
   pre {
@@ -263,40 +300,6 @@ button:focus-visible, a:focus-visible {
     }
   }
 
-  ul,
-  ol {
-    line-height: 1.8;
-  }
-
-  li::marker {
-    color: var(--primary-color);
-  }
-
-  hr {
-    border: none;
-    background-color: var(--primary-pale-color);
-    height: 3px;
-    margin: 36px 0;
-  }
-
-  table {
-    width: 100%;
-    border-spacing: 0;
-    border: 1px solid var(--primary-pale-color);
-  }
-
-  thead {
-    background-color: var(--primary-pale-color);
-  }
-
-  th,
-  td {
-    line-height: 2;
-    text-align: center;
-    border: 1px solid var(--primary-pale-color);
-    padding: 1px 10px;
-  }
-
   .footnote-definition {
     display: flex;
     
@@ -326,7 +329,7 @@ button:focus-visible, a:focus-visible {
     }
   }
 
-  blockquote.callout {
+  .callout {
     line-height: inherit;
     margin-bottom: 20px;
     border: 1.5px solid var(--primary-color);
@@ -380,6 +383,10 @@ button:focus-visible, a:focus-visible {
       border-color: var(--callout-tip-color);
     }
   }
+
+  .mermaid {
+    background: #fff;
+  }
 }
 
 /* prose pages
@@ -396,20 +403,19 @@ body.prose-page {
     flex-direction: column;
     justify-content: space-between;
   }
+
   article {
     padding: 90px 15px 30px;
     font-size: var(--paragraph-font-size);
     line-height: var(--paragraph-line-height);
   }
-  .mermaid {
-    background: #fff;
-  }
+
   .giscus {
     padding: 0 15px;
   }
 }
 
-/* layout blog list
+/* layout blog list ( homepage / blogpage )
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .layout-list {
@@ -577,7 +583,7 @@ header {
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     &.blur {
-      background-color: fade(var(--bg-color), 75%);
+      background-color: initial;
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
     }
@@ -644,7 +650,7 @@ header {
     display: flex;
     gap: 1em;
     align-items: center;
-    padding-top: 4px;
+    padding-top: 1.5px;
 
     a,
     button {
@@ -687,11 +693,19 @@ footer {
   font-size: 0.95rem;
   padding: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
   color: var(--text-pale-color);
+
+  .copyright {
+    margin-right: auto;
+  }
+  
+  .credits {
+    margin-left: auto;
+  }
 
   a {
     color: var(--text-pale-color);
@@ -701,6 +715,11 @@ footer {
     & {
       flex-direction: column;
       gap: 0;
+
+      .copyright,
+      .credits {
+        margin: 0;
+      }
     }
   }
 }
