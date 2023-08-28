@@ -16,6 +16,12 @@ Add the serene theme:
 git submodule add -b latest https://github.com/isunjn/serene.git themes/serene
 ```
 
+Copy the content of `myblog/themes/serene/config.example.toml` to `myblog/config.toml`, refer to the comments in the file and Zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/) to modify accordingly
+
+## Sections and pages
+
+There is a `sections` config item in your `config.toml`, which enumerates the sections your website has. You should have at least one `blog` section. The name and path can be changed, be noticed that if you changed the blog section path (e.g. from `/blog` to `/posts`), then you should also change `blog_section_path` config item.
+
 The myblog directory now looks like this:
 
 ```
@@ -28,26 +34,7 @@ The myblog directory now looks like this:
     └── serene/
 ```
 
-Create `myblog/content/_index.md` and `myblog/content/blog/_index.md`
-
-If you want to display the projects page, also create `myblog/content/projects/_index.md`
-
-```
-├── config.toml
-├── content/
-│   ├── blog/
-│   │   └── _index.md
-│   ├── projects/
-│   │   └── _index.md
-│   └── _index.md
-├── sass/
-├── static/
-├── templates/
-└── themes/
-    └── serene/
-```
-
-Modify the content of these files as follows:
+Create `myblog/content/_index.md` and `myblog/content/blog/_index.md` with the following content:
 
 `myblog/content/_index.md`:
 
@@ -81,7 +68,9 @@ truncate_summary = false
 +++
 ```
 
-`myblog/content/projects/_index.md`:
+The path and the directory should match. If you changed the blog section path to `/posts`, then you create `myblog/content/posts/_index.md`, rather than `myblog/content/blog/_index.md`. The same goes for the others.
+
+If you want to display a projects page (as you see in the demo site), also create `myblog/content/projects/_index.md`:
 
 ```
 +++
@@ -94,24 +83,70 @@ lang = 'en'
 +++
 ```
 
-Create a new directory `img` under `myblog/static`, place favicon related files, you can use tools like [favicon.io](https://favicon.io/favicon-converter/) to generate
+The `blog` and `projects` are two sections that serene supports by default, they have specific structures and styles, defined in template `blog.html` and `projects.html`.
 
-Also put your avatar picture file `avatar.webp`, webp format is recommended
+Serene also support a special template called `prose.html`, it applies the same styles of blog post page and you can use it as a section template for a custom section page, for example if you want a separate `about` page, you can add a `{ name = "about", path = "/about", is_external = false }` to the `sections` config item and create a `myblog/content/about/_index.md` with the following content:
 
 ```
-...
++++
+title = "About me"
+description = "A about page of ..."
+template = "prose.html"
+
+[extra]
+lang = 'en'
+math = false
+mermaid = false
+copy = false
+comment = false
++++
+
+Hi, My name is ....
+
+(more markdown content goes here)
+
+```
+
+You may also create a `friends` page to list all your friends on the internet, a `collections/bookmarks` page to list your considered valuable bookmarks, a `cat` page to post a few pics of your lovely cat... In the future, serene may add more specific templates.
+
+
+Now the myblog directory may looks like this:
+
+```
+├── config.toml
+├── content/
+│   ├── blog/
+│   │   └── _index.md
+│   ├── projects/
+│   │   └── _index.md
+│   ├── about/
+│   │   └── _index.md
+│   └── _index.md
+├── sass/
 ├── static/
-│   └── img/
-│       ├── favicon-16x16.png
-│       ├── favicon-32x32.png
-│       ├── apple-touch-icon.png
-│       └── avatar. webp
-...
+├── templates/
+└── themes/
+    └── serene/
 ```
 
 ## Configuration
 
-Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/config.toml`, refer to the comments in the file and Zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/) to modify accordingly
+### Favicons
+
+- Create a new directory `img` under `myblog/static`, put favicon related files here, you can use tools like [favicon.io](https://favicon.io/favicon-converter/) to generate those files
+
+- Also put your avatar picture file `avatar.webp` here, webp format is recommended
+
+  ```
+  ...
+  ├── static/
+  │   └── img/
+  │       ├── favicon-16x16.png
+  │       ├── favicon-32x32.png
+  │       ├── apple-touch-icon.png
+  │       └── avatar. webp
+  ...
+  ```
 
 ### Icon
 
@@ -137,17 +172,17 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 ### RSS
 
-- You can add rss to your site, Zola's default feed file is located in the root directory of the site, set `generate_feed = true` in `config.toml`, `feed_filename` can be set to `atom.xml` or `rss.xml ` , corresponding to two different rss file standards, set `generate_feed = false` in `myblog/content/blog/_index.md`
+- You can add rss to your site, Zola's default feed file is located in the root directory of the site, set `generate_feed = true` in `config.toml`, `feed_filename` can be set to `atom.xml` or `rss.xml ` , corresponding to two different rss file standards, you should also set `generate_feed = false` in `myblog/content/blog/_index.md`
 
-- The serene theme looks more like a personal website, the posts are in the `/blog` directory, you may want the feed file to be in the `/blog` directory instead of the root directory, which requires you to set `generate_feed = false ` `feed_filename = "feed.xml"` in `config.toml`, and set `generate_feed = true` in `myblog/content/blog/_index.md`
+- The serene theme looks more like a personal website, the posts are in the `/blog` directory, you may want the feed file to be in the `/blog` directory instead of the root directory, this requires you to set `generate_feed = false ` `feed_filename = "feed.xml"` in `config.toml`, and set `generate_feed = true` in `myblog/content/blog/_index.md`
 
-- `feed.xml` uses `title` and `description` from `myblog/content/blog/_index.md`, the other two use `config.toml`
+- `feed.xml` uses `title` and `description` from `myblog/content/blog/_index.md`, the other two use `config.toml`'s
 
 ### Projects page
 
 - Serene has a projects page where you can showcase your projects, products, etc.
 
-- Set `projects_page = true` in `config.toml`, create a new `data.toml` under `myblog/content/projects`, add projects information in it, the format is as follows:
+- Create a new `data.toml` under `myblog/content/projects/`, add projects information in it, the format is as follows:
 
   ```toml
   [[project]]
@@ -189,18 +224,28 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 - To place scripts for analytics tools (such as Google Anayltics, Umami, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page
 
-### Customization
+### Fonts
 
-- Copy `myblog/themes/serene/sass/main.scss` to `myblog/sass/main.scss`, several variable values at the top of the file are used to control styles, such as the theme color `--primary-color`, modify it if you want
+- Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default. If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`. 
 
-- Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default. If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`. For performance reason, you may want to self-host font files (optional): 
+- For performance reason, you may want to self-host font files (optional): 
   1. Open [google-webfonts-helper](https://gwfh.mranftl.com) and choose your font
   2. Modify `Customize folder prefix` of step 3 to `/font/` and then copy the css
   3. Replace the content of `myblog/templates/_custom_font.html` with a `<style> </style>` tag, with the css you just copied in it.
   4. Download step 4 font files and put them in `myblog/static/font/` folder
 
 
-- If you want to customize more, you only need to copy the files under the `templates`, `static`, `sass` directory in the corresponding `themes/serene` to the same name directory of myblog, and modify it. Be careful not to directly modify the files under the serene directory, because these modifications may cause conflicts if the theme is updated
+### Custom CSS
+
+- Copy `myblog/themes/serene/templates/_custom_css.html` to `myblog/templates/_custom_css.html`, variables in this file are used to control styles, such as the theme color `--primary-color`, you can modify them as you want
+
+- If you want to customize more, you only need to copy that file under the `templates`, `static`, `sass` directory in the corresponding `themes/serene` to the same name directory of `myblog`, and modify it. Be careful not to directly modify the files under the serene directory, because these modifications may cause conflicts if the theme is updated
+
+### Homepage layout
+
+- By default, homepage displays markdown content of your `myblog/content/_index.md`
+
+- You can change `homepage_layout` in `config.toml` from `about` to `list`, then the blog post list will be displayed directly in the homepage
 
 ## Writing
 
@@ -242,9 +287,9 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 ### Shortcodes
 
-- Zola supports 'shortcodes', which can add some extra styles or templates for in addition to the standard markdown format
+- Zola supports 'shortcodes', which can be used to add some extra styles or templates in addition to the standard markdown format
 
-- Zola support some [annotations for code blocks](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations). Serene add another one to show the file name by a `codeblock` shortcode, use it like this:
+- Zola support some [annotations for code blocks](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations). Serene add another one to display the file name: `codeblock`, use it like this:
 
   ```md
   {% codeblock(name="path/to/file") %}
@@ -252,7 +297,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
   {% end %}
   ```
 
-- In addition to `![img](/path/to/img)` of standard markdown, Serene also supports a `figure` shortcode to add some explanatory text to the image, the format is as follows:
+- In addition to `![img](/path/to/img)` of standard markdown, serene also supports a `figure` shortcode to add some explanatory text to the image:
 
   ```md
   {{ figure(src="/path/to/img", alt="alt text", caption="caption text") }}
@@ -260,7 +305,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
   This will be displayed as `<figure></figure>` in HTML on the web page instead of `<img>`, and the content of the caption will be centered below the image. The alt attribute is optional but recommended to help enhance accessibility
 
-  Adding attribution information to images is very common, you can directly use the `via` attribute, which will display a link named via below the image:
+  Adding attribution information to a image is very common, you can directly use the `via` attribute, which will display a link named via below the image:
 
   ```md
   {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
@@ -316,8 +361,18 @@ To deploy a static site, please refer to zola's [documentation about deployment]
 
 ## Update
 
-Please check the CHANGELOG on github for breaking changes before updating the theme
+- Please check the [CHANGELOG.md](https://github.com/isunjn/serene/blob/main/CHANGELOG.md) on github for breaking changes before updating the theme
+
+- If you copied some files from `myblog/themes/serene` to `myblog/` for customization, such as `_custom_css.html` or `main.scss`, then you should record what you have modified before you update, re-copy those files and re-apply your modification after updating. The `config.toml` should be re-copied too.
+
+- You can watch (`watch > custom > releases > apply`) this project on github to be reminded of a new release
 
 ```sh
 git submodule update --remote themes/serene
 ```
+
+<br />
+
+*Happy blogging :)*
+
+<br />
