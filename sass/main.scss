@@ -242,6 +242,11 @@ a:focus-visible {
     }
   }
 
+  pre > code > mark::before {
+    width: calc(100% + 48px + 16px);
+    left: -16px;
+  }
+
   .codeblock {
     margin: 1em 0;
     position: relative;
