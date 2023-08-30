@@ -63,8 +63,6 @@ generate_feed = true
 
 [extra]
 lang = 'en'
-display_tags = true
-truncate_summary = false
 +++
 ```
 
@@ -272,6 +270,8 @@ Now the myblog directory may looks like this:
   mermaid = false
   outdate_alert = true
   outdate_alert_days = 120
+  display_tags = true
+  truncate_summary = false
   +++
 
   new post about somthing...
@@ -281,7 +281,7 @@ Now the myblog directory may looks like this:
   more post content...
   ```
 
-- You can add a `<!-- more -->` line, the content before it will become the summary/description of the post. You can set `truncate_summary = true` in `myblog/content/blog/_index.md` to remove the summary from the post webpage.
+- You can add a `<!-- more -->` line, the content before it will become the summary/description of the post. You can set `truncate_summary = true` to remove the summary from the post webpage.
 
 - Post files are created under `myblog/content/blog`, after done writing, change `draft` to false
 

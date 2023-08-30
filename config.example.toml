@@ -74,6 +74,8 @@ back_to_top = true                    # Whether to show back-to-top button on po
 toc = true                            # Whether to show Table-Of-Contents by default
 copy = true                           # Whether to add a copy button on code blocks by default
 comment = false                       # Whether to show giscus comment section by default, see https://giscus.app for more info
+display_tags = true                   # Whether to display tags on post pages by default
+truncate_summary = false              # Whether to truncate the summary of a post by default
 
 outdate_alert = false                 # Whether to show outdate alert by default
 outdate_alert_days = 120              # How many days will a post be outdated by default

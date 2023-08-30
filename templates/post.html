@@ -94,7 +94,7 @@
           {% endif -%}
         </div>
 
-        {% if page.extra.display_tags is defined %}{% set display_tags = page.extra.display_tags %}{% elif section.extra.display_tags is defined %}{% set display_tags = section.extra.display_tags %}{% else %}{% set display_tags = true %}{% endif %}
+        {% if page.extra.display_tags is defined %}{% set display_tags = page.extra.display_tags %}{% elif config.extra.display_tags is defined %}{% set display_tags = config.extra.display_tags %}{% else %}{% set display_tags = true %}{% endif %}
 
         {% if page.taxonomies.tags is defined and display_tags == true %}
         <div id="tags">
@@ -121,7 +121,7 @@
       </blockquote>
       {% endif %}
 
-      {% if page.extra.truncate_summary is defined %}{% set truncate_summary = page.extra.truncate_summary %}{% elif section.extra.truncate_summary is defined %}{% set truncate_summary = section.extra.truncate_summary %}{% else %}{% set truncate_summary = false %}{% endif %}
+      {% if page.extra.truncate_summary is defined %}{% set truncate_summary = page.extra.truncate_summary %}{% elif config.extra.truncate_summary is defined %}{% set truncate_summary = config.extra.truncate_summary %}{% else %}{% set truncate_summary = false %}{% endif %}
 
       {% if truncate_summary == true and page.summary %}
         {{ page.content | trim_start_matches(pat=page.summary) | safe }}

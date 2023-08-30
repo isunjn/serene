@@ -63,8 +63,6 @@ generate_feed = true
 
 [extra]
 lang = 'en'
-display_tags = true
-truncate_summary = false
 +++
 ```
 
@@ -272,6 +270,8 @@ Hi, My name is ....
   mermaid = false
   outdate_alert = true
   outdate_alert_days = 120
+  display_tags = true
+  truncate_summary = false
   +++
 
   new post about somthing...
@@ -281,7 +281,7 @@ Hi, My name is ....
   more post content...
   ```
 
-- 你可以添加一行`<!-- more -->`, 在其前面的内容会成为文章的总结/描述, 可以在 `myblog/content/blog/_index.md` 设置 `truncate_summary = ture` 来让其在最终的文章网页上不显示
+- 你可以添加一行`<!-- more -->`, 在其前面的内容会成为文章的总结/描述, 可以设置 `truncate_summary = ture` 来让其在最终的文章网页上不显示
 
 - 文章文件在 `myblog/content/blog` 下创建，写完后将 draft 改为 false 即可
 
