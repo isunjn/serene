@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2023-09-01
+
+> **Warning**
+> This version contains several breaking changes.
+> If you came from a previous version and want to upgrade, I suggest you start all over again.
+
+### UI:
+
+- Text selction now is styled
+- Other minor tweaks
+- Change defalut bg color of codeblock to transparent
+
+### Add:
+
+- Option `dispaly_tags` and `truncate_summary` [@woojiq](https://github.com/woojiq) ([#40](https://github.com/isunjn/serene/issues/40))
+- Support for footnote and backlink
+- Active TOC indicator
+- Generay `prose` section/page
+- Config option `sections`, now you can rename `blog` to somthing else, e.g. `posts`
+- Support for header nav fold/unfold
+- Option for homepage layout, can be `about` or `list`
+- A separate `_custom_css.html` for css customization
+
+### Fix:
+
+- Codeblock distance calculation
+- Codeblock highlight style
+- Add description tag only when it's available
+- Post 3 column layout issue
+- Inline code style in list item
+- Link text-decoration style on mobile
+
+
 ## [1.2.0] - 2023-08-19
 
 ### UI:
@@ -70,6 +103,7 @@ All notable changes to this project will be documented in this file.
 First release 🎉
 
 
+[2.0.0]: https://github.com/isunjn/serene/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/isunjn/serene/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/isunjn/serene/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/isunjn/serene/compare/v1.0.0...v1.1.0

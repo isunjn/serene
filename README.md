@@ -1,4 +1,4 @@
-<img width="1501" alt="截屏2023-08-31 13 14 08" src="https://github.com/isunjn/serene/assets/60461730/33516366-3670-497f-bd72-41ebe8f06f1a">
+<img width="1501" alt="screenshot" src="https://github.com/isunjn/serene/assets/60461730/33516366-3670-497f-bd72-41ebe8f06f1a">
 
 <br /><br />
 
@@ -29,4 +29,3 @@ A blog theme for [zola](https://www.getzola.org), simple and clean
 ## Contributing
 
 - Before you make any non-trivial changes, you may want to open an issue so we can discuss
-- If you got any idea inspired by another blog theme or website and want to have that in serene, I'd like to hear about it
