@@ -1,6 +1,6 @@
-![screenshot](https://github.com/isunjn/serene/blob/main/screenshot.png?raw=true)
+<img width="1501" alt="截屏2023-08-31 13 14 08" src="https://github.com/isunjn/serene/assets/60461730/33516366-3670-497f-bd72-41ebe8f06f1a">
 
-<br />
+<br /><br />
 
 A blog theme for [zola](https://www.getzola.org), simple and clean
 
