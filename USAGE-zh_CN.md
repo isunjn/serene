@@ -16,6 +16,12 @@ cd myblog
 git submodule add -b latest https://github.com/isunjn/serene.git themes/serene
 ```
 
+将 `myblog/themes/serene/config.example.toml` 的内容复制到 `myblog/config.toml`，参考文件中的注释和 Zola 的[文档](https://www.getzola.org/documentation/getting-started/overview/)进行相应的修改
+
+## 区块和页面
+
+`config.toml` 中有一个 `sections` 配置项，它列举了网站都有哪几部分, 你应该至少有一个“博客”部分。名称和路径可以更改，注意如果你更改了博客 section 的路径（例如从 `/blog` 到 `/posts`），那么你还应该同步更改 `blog_section_path` 配置项
+
 myblog 目录此时像这样：
 
 ```
@@ -28,26 +34,7 @@ myblog 目录此时像这样：
     └── serene/
 ```
 
-创建 `myblog/content/_index.md` 和 `myblog/content/blog/_index.md`
-
-如果你展示 Projects 页面，创建 `myblog/content/projects/_index.md`
-
-```
-├── config.toml
-├── content/
-│   ├── blog/
-│   │   └── _index.md
-│   ├── projects/
-│   │   └── _index.md
-│   └── _index.md
-├── sass/
-├── static/
-├── templates/
-└── themes/
-    └── serene/
-```
-
-修改这几个文件的内容如下：
+创建 `myblog/content/_index.md` 和 `myblog/content/blog/_index.md`, 文件内容如下:
 
 `myblog/content/_index.md`：
 
@@ -79,6 +66,10 @@ lang = 'en'
 +++
 ```
 
+路径和目录应该匹配。如果你将博客 section 的 path 更改为 `/posts`，那么你创建的是 `myblog/content/posts/_index.md`，而不是 `myblog/content/blog/_index.md` 别的 section 也一样
+
+如果你还想要 Projects 页面，创建 `myblog/content/projects/_index.md`
+
 `myblog/content/projects/_index.md`:
 
 ```
@@ -91,6 +82,56 @@ template = "projects.html"
 lang = 'en'
 +++
 ```
+
+`blog` 和 `projects` 是 serene 默认支持的两个 section，它们具有特定的结构和样式，在模板 `blog.html` 和 `projects.html` 中定义
+
+Serene 还支持一个名为 `prose.html` 的特殊模板，它应用了与博客文章页面相同的样式，你可以将其用作自定义 section 页面的模板，例如，如果你想要一个单独的 `about` 页面，可以在 `sections` 配置项中添加一个 `{ name = "about", path = "/about", is_external = false }` 并创建一个 `myblog/content/about/_index.md` ，内容如下：
+
+```
++++
+title = "About me"
+description = "A about page of ..."
+template = "prose.html"
+
+[extra]
+lang = 'en'
+math = false
+mermaid = false
+copy = false
+comment = false
++++
+
+Hi, My name is ....
+
+(more markdown content goes here)
+
+```
+
+你还可以创建一个 `friends` 页面来列出你在互联网上的朋友，一个 `collections/bookmarks` 页面来列出你认为有价值的书签，一个 `cat` 页面来放几张你家可爱猫咪的照片...... 未来 serene 可能会添加更多特定的模板
+
+
+现在目录可能长这样:
+
+```
+├── config.toml
+├── content/
+│   ├── blog/
+│   │   └── _index.md
+│   ├── projects/
+│   │   └── _index.md
+│   ├── about/
+│   │   └── _index.md
+│   └── _index.md
+├── sass/
+├── static/
+├── templates/
+└── themes/
+    └── serene/
+```
+
+## 配置
+
+### Favicons
 
 在 `myblog/static` 下新建目录 `img` ，放置 favicon 相关图片，你可以使用类似 [favicon.io](https://favicon.io/favicon-converter/) 这样的工具在线生成
 
@@ -106,10 +147,6 @@ lang = 'en'
 │       └── avatar.webp
 ...
 ```
-
-## 配置
-
-将 `myblog/themes/serene/config.example.toml` 的内容复制到 `myblog/config.toml`，参考文件中的注释和 Zola 的[文档](https://www.getzola.org/documentation/getting-started/overview/)进行相应的修改
 
 ### 图标
 
@@ -143,7 +180,7 @@ lang = 'en'
 
 - Serene 有一个 projects 页面，可以在其上展示你的项目、产品等信息
 
-- 在 `config.toml` 中设置 `projects_page = ture` ，在 `myblog/content/projects` 下新建一个 `data.toml` ，在其中添加项目信息，格式如下：
+- 在 `config.toml` 中设置 `projects_page = ture` ，在 `myblog/content/projects/` 下新建一个 `data.toml` ，在其中添加项目信息，格式如下：
 
   ```toml
   [[project]]
@@ -185,17 +222,28 @@ lang = 'en'
 
 - 如需放置 Analytics 工具（如 Google Anayltics、Umami 等）的脚本，可以新建 `myblog/templates/_head_extend.html` 并将相应内容放入其中，该文件的内容将被添加到每个页面的 html head 中
 
-### 自定义样式
+### 字体
 
-- 将 `myblog/themes/serene/sass/main.scss` 复制到 `myblog/sass/main.scss`, 该文件顶部的若干变量值用于控制样式，例如主题色 `--primary-color`，可以自行修改
+- Serene 默认使用 [Google Fonts](https://fonts.google.com/) 的 Signika 字体，如需自定义字体，新建 `myblog/templates/_custom_font.html` 并将从 Google Fonts 复制的字体样式表 link 标签放入其中，然后修改 `myblog/sass/main.scss` 中的 `--main-font` 或者 `--code-font`. 
 
-- Serene 默认使用 [Google Fonts](https://fonts.google.com/) 的 Signika 字体，如需自定义字体，新建 `myblog/templates/_custom_font.html` 并将从 Google Fonts 复制的字体样式表 link 标签放入其中，然后修改 `myblog/sass/main.scss` 中的 `--main-font` 或者 `--code-font`. 为了进一步提高网站速度, 你也可以选择自己托管字体文件(可选):
+- 为了进一步提高网站速度, 你也可以选择自己托管字体文件(可选):
   1. 打开 [google-webfonts-helper](https://gwfh.mranftl.com) 并选择一个字体
   2. 将步骤 3 中的 `Customize folder prefix` 改为 `/font/`, 然后复制该 css
   3. 将 `myblog/tempaltes/_custom_font.html` 替换为一个 `<style> </style>` 标签, 把你刚复制的 css 放在里面
   4. 下载步骤 4 的字体文件, 放在 `myblog/static/font/` 目录
 
+
+### 自定义 CSS
+
+- 将 `myblog/themes/serene/templates/_custom_css.html` 复制到 `myblog/templates/_custom_css.html`, 该文件里的若干变量值用于控制样式，例如主题色 `--primary-color`，可以自行修改
+
 - 如果你想修改更多的内容，你只需要将相应的 `themes/serene` 中 `templates`、`static`、`sass` 目录下的文件复制到 myblog 同名目录下，并进行修改。注意不要直接修改 serene 目录下的文件，因为如果更新主题，这些修改可能导致冲突
+
+### 首页布局
+
+- 主页默认显示 `myblog/content/_index.md` 的 markdown 内容
+
+- 可以将 `config.toml` 中的 `homepage_layout` 从 `about` 更改为 `list`，这样博客文章列表将直接显示在首页中
 
 ## 写作
 
@@ -222,6 +270,8 @@ lang = 'en'
   mermaid = false
   outdate_alert = true
   outdate_alert_days = 120
+  display_tags = true
+  truncate_summary = false
   +++
 
   new post about somthing...
@@ -231,9 +281,9 @@ lang = 'en'
   more post content...
   ```
 
-- 推荐在文章中合适的位置（例如第一个段落之后）添加一行 `<!-- more -->` ，其前面的内容将作为页面的描述，有助于 SEO
+- 你可以添加一行`<!-- more -->`, 在其前面的内容会成为文章的总结/描述, 可以设置 `truncate_summary = ture` 来让其在最终的文章网页上不显示
 
-- 文章文件在 `myblog/content/blog` 下创建，写完后将 draft 改为 true 即可
+- 文章文件在 `myblog/content/blog` 下创建，写完后将 draft 改为 false 即可
 
 ### Shortcodes
 
@@ -312,8 +362,18 @@ zola build
 
 ## 更新
 
-更新主题前请在 GitHub 上查看 CHANGELOG 以确认是否有 breaking changes
+- 更新主题前请在 GitHub 上查看 [CHANGELOG.md](https://github.com/isunjn/serene/blob/main/CHANGELOG.md)  以确认是否有 breaking changes
+
+- 如果你从 `myblog/themes/serene` 复制了一些文件到 `myblog/` 进行自定义，例如 `_custom_css.html` 或 `main.scss`，那么你应该在更新之前记录下你修改的内容，在更新后重新复制这些文件, 然后重新修改这些文件. `config.toml` 也要重新复制
+
+- 你可以在 GitHub 上 watch（`watch > custom >releases > apply`）此项目，在有新版本时会收到提醒
 
 ```sh
 git submodule update --remote themes/serene
 ```
+
+<br />
+
+*Happy blogging :)*
+
+<br />

@@ -3,11 +3,13 @@
 {% block page %}projects{% endblock page%}
 {% block lang %}{% if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ section.lang }}{% endif %}{% endblock lang %}
 {% block title %}{{ section.title }}{% endblock title %}
-{% block desc %}{{ section.description }}{% endblock desc %}
+{% block desc %}
+  <meta name="description" content="{{ section.description }}">
+{% endblock desc %}
 
 {% block content %}
 {% include "_header.html" %}
-<div id="proj-wrapper">
+<div id="wrapper">
   <main>
     {% set data = load_data(path="content/projects/data.toml", format="toml") %}
     {% for proj in data.project %}

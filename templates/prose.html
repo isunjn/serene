@@ -1,0 +1,70 @@
+{% extends "_base.html" %}
+
+{% block page %}prose-page{% endblock page %}
+{% block lang -%}
+{%- if section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif -%}
+{%- endblock lang %}
+{% block title %}{{ section.title }}{% endblock title %}
+{% block desc %}
+  <meta name="description" content="{{ section.description }}">
+{% endblock desc %}
+
+{% block head %}
+{% if config.markdown.highlight_theme == "css" %}
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+{% endif %}
+{% if section.extra.math %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+{% endif %}
+{% endblock head %}
+
+{% block content %}
+{% include "_header.html" %}
+<div id="wrapper">
+  <main>
+    {% if section.extra.copy is defined %}{% set allow_copy = section.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
+    {% if allow_copy %}
+    {% set copy_icon = load_data(path="static/icon/copy.svg") %}
+    {% set check_icon = load_data(path="static/icon/check.svg") %}
+    <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
+    {% endif %}
+    {% set backlink_icon = load_data(path="static/icon/backlink.svg") %}
+    <article class="prose" data-backlink-icon="{{ backlink_icon }}">
+      {{ section.content | safe }}
+    </article>
+
+    {% if section.extra.comment is defined %}{% set show_comment = section.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
+    {% if show_comment %}
+    <div class="giscus"></div>
+    {% include "_giscus_script.html" %}
+    {% endif %}
+
+    {% include "_footer.html" %}
+  </main>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="/js/lightense.min.js"></script>
+{% if section.extra.mermaid %}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+{% endif %}
+{% endblock script %}

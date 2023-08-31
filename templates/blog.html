@@ -3,12 +3,14 @@
 {% block page %}blog{% endblock page%}
 {% block lang %}{% if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ section.lang }}{% endif %}{% endblock lang %}
 {% block title %}{{ section.title }}{% endblock title %}
-{% block desc %}{{ section.description }}{% endblock desc %}
+{% block desc %}
+  <meta name="description" content="{{ section.description }}">
+{% endblock desc %}
 
 {% block content %}
 {% include "_header.html" %}
-<div id="blog-wrapper">
-  <main>
+<div id="wrapper">
+  <main class="layout-list">
     {% if config.extra.blog_categorized %}
     {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") -%}
     <div class="category">{{ category }}</div>
