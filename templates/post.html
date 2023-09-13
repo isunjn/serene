@@ -77,64 +77,66 @@
     {% endif %}
   </aside>
   <main>
-    {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
-    {% if allow_copy %}
-    {% set copy_icon = load_data(path="static/icon/copy.svg") %}
-    {% set check_icon = load_data(path="static/icon/check.svg") %}
-    <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
-    {% endif %}
-    {% set backlink_icon = load_data(path="static/icon/backlink.svg") %}
-    <article class="prose" data-backlink-icon="{{ backlink_icon }}">
-      <h1>{{ page.title }}</h1>
-      <div id="post-info">
-        <div id="date">
-          <span id="publish">{{ page.date | date }}</span>
-          {% if page.updated and page.updated != page.date -%}
-          <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
-          {% endif -%}
+    <div>
+      {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
+      {% if allow_copy %}
+      {% set copy_icon = load_data(path="static/icon/copy.svg") %}
+      {% set check_icon = load_data(path="static/icon/check.svg") %}
+      <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
+      {% endif %}
+      {% set backlink_icon = load_data(path="static/icon/backlink.svg") %}
+      <article class="prose" data-backlink-icon="{{ backlink_icon }}">
+        <h1>{{ page.title }}</h1>
+        <div id="post-info">
+          <div id="date">
+            <span id="publish">{{ page.date | date }}</span>
+            {% if page.updated and page.updated != page.date -%}
+            <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
+            {% endif -%}
+          </div>
+
+          {% if page.extra.display_tags is defined %}{% set display_tags = page.extra.display_tags %}{% elif config.extra.display_tags is defined %}{% set display_tags = config.extra.display_tags %}{% else %}{% set display_tags = true %}{% endif %}
+
+          {% if page.taxonomies.tags is defined and display_tags == true %}
+          <div id="tags">
+            {% for tag in page.taxonomies.tags -%}
+            {% set tag_slugify = tag | slugify -%}
+            <a href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><span>#</span>{{ tag }}</a>
+            {%- endfor %}
+          </div>
+          {% endif %}
         </div>
 
-        {% if page.extra.display_tags is defined %}{% set display_tags = page.extra.display_tags %}{% elif config.extra.display_tags is defined %}{% set display_tags = config.extra.display_tags %}{% else %}{% set display_tags = true %}{% endif %}
+        {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% else %}{% set show_outdate_alert = config.extra.outdate_alert %}{% endif %}
+        {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = config.extra.outdate_alert_days %}{% endif %}
 
-        {% if page.taxonomies.tags is defined and display_tags == true %}
-        <div id="tags">
-          {% for tag in page.taxonomies.tags -%}
-          {% set tag_slugify = tag | slugify -%}
-          <a href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><span>#</span>{{ tag }}</a>
-          {%- endfor %}
-        </div>
+        {% if show_outdate_alert -%}
+        <blockquote id="outdate_alert" class="callout alert hidden" data-days="{{ outdate_alert_days }}"
+          data-alert-text-before="{{ config.extra.outdate_alert_text_before }}"
+          data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
+          {% set icon = load_data(path="static/icon/alert.svg") %}
+          <div class="icon">
+            {{ icon | safe }}
+          </div>
+          <div class="content"></div>
+        </blockquote>
         {% endif %}
-      </div>
 
-      {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% else %}{% set show_outdate_alert = config.extra.outdate_alert %}{% endif %}
-      {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = config.extra.outdate_alert_days %}{% endif %}
+        {% if page.extra.truncate_summary is defined %}{% set truncate_summary = page.extra.truncate_summary %}{% elif config.extra.truncate_summary is defined %}{% set truncate_summary = config.extra.truncate_summary %}{% else %}{% set truncate_summary = false %}{% endif %}
 
-      {% if show_outdate_alert -%}
-      <blockquote id="outdate_alert" class="callout alert hidden" data-days="{{ outdate_alert_days }}"
-        data-alert-text-before="{{ config.extra.outdate_alert_text_before }}"
-        data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
-        {% set icon = load_data(path="static/icon/alert.svg") %}
-        <div class="icon">
-          {{ icon | safe }}
-        </div>
-        <div class="content"></div>
-      </blockquote>
+        {% if truncate_summary == true and page.summary %}
+          {{ page.content | trim_start_matches(pat=page.summary) | safe }}
+        {% else %}
+          {{ page.content | safe }}
+        {% endif %}
+      </article>
+
+      {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
+      {% if show_comment %}
+      <div class="giscus"></div>
+      {% include "_giscus_script.html" %}
       {% endif %}
-
-      {% if page.extra.truncate_summary is defined %}{% set truncate_summary = page.extra.truncate_summary %}{% elif config.extra.truncate_summary is defined %}{% set truncate_summary = config.extra.truncate_summary %}{% else %}{% set truncate_summary = false %}{% endif %}
-
-      {% if truncate_summary == true and page.summary %}
-        {{ page.content | trim_start_matches(pat=page.summary) | safe }}
-      {% else %}
-        {{ page.content | safe }}
-      {% endif %}
-    </article>
-
-    {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
-    {% if show_comment %}
-    <div class="giscus"></div>
-    {% include "_giscus_script.html" %}
-    {% endif %}
+    </div>
 
     {% include "_footer.html" %}
   </main>
