@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2023-09-13
+
+### Fix:
+
+- Min height of prose page & post page
+
 ## [2.0.0] - 2023-09-01
 
 > **Warning**
@@ -103,6 +109,7 @@ All notable changes to this project will be documented in this file.
 First release 🎉
 
 
+[2.0.1]: https://github.com/isunjn/serene/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/isunjn/serene/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/isunjn/serene/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/isunjn/serene/compare/v1.1.0...v1.1.1
