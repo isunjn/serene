@@ -1173,6 +1173,52 @@ body.projects {
   }
 }
 
+/* 404 page
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+body.not-found {  
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+  }
+  
+  .error {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    color: var(--text-pale-color);
+  }
+
+  .spacer {
+    background: var(--text-pale-color);
+    width: 2px;
+    height: 0.75em;
+    margin: 0 0.5em;
+  }
+
+  .text {
+    font-size: 0.85em;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration-color: var(--primary-pale-color);
+
+    &:hover, &:active {
+      text-decoration-color: var(--primary-color);
+    }
+  }
+}
+
+
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 

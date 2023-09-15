@@ -1,4 +1,4 @@
-# serene v2.0.1
+# serene v2.1.1
 #
 # - docs: https://github.com/isunjn/serene/blob/latest/USAGE.md
 # - check for updates: https://github.com/isunjn/serene/releases
@@ -84,3 +84,7 @@ outdate_alert_text_after = " days ago and may be out of date."
 
 footer_copyright = "© 2023 <your-name>"
 footer_credits = true                 # Whether to show "powered by zola and serene" in footer
+
+not_found_title = "404"
+not_found_error_text = "Not Found"
+not_found_recover_text = "« back to home »"
