@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.1] - 2023-09-16
+
+### Add:
+
+- Custom 404 page
+
 ## [2.0.1] - 2023-09-13
 
 ### Fix:
@@ -109,6 +115,7 @@ All notable changes to this project will be documented in this file.
 First release 🎉
 
 
+[2.1.1]: https://github.com/isunjn/serene/compare/v2.0.1...v2.1.1
 [2.0.1]: https://github.com/isunjn/serene/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/isunjn/serene/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/isunjn/serene/compare/v1.1.1...v1.2.0
