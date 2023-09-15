@@ -56,8 +56,8 @@ homepage_layout = "about"             # "about" | "list"
 sections = [
     { name = "blog", path = "/blog", is_external = false },
     { name = "projects", path = "/projects", is_external = false },
-    # { name = "about", path = "/about", is_exteranl = false },
-    # { name = "github", path = "https://github.com/<your-username>", is_exteranl = true },
+    # { name = "about", path = "/about", is_external = false },
+    # { name = "github", path = "https://github.com/<your-username>", is_external = true },
 ]
 blog_section_path = "/blog"
 
