@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.2] - 2023-09-19
+
+### Fix:
+
+- Outdate alert not 'hidden' ([#49](https://github.com/isunjn/serene/issues/40))
+
 ## [2.1.1] - 2023-09-16
 
 ### Add:
@@ -115,6 +121,7 @@ All notable changes to this project will be documented in this file.
 First release 🎉
 
 
+[2.1.2]: https://github.com/isunjn/serene/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/isunjn/serene/compare/v2.0.1...v2.1.1
 [2.0.1]: https://github.com/isunjn/serene/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/isunjn/serene/compare/v1.2.0...v2.0.0
