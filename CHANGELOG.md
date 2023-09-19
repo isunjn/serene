@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fix:
 
-- Outdate alert not 'hidden' ([#49](https://github.com/isunjn/serene/issues/40))
+- Outdate alert not 'hidden' ([#49](https://github.com/isunjn/serene/issues/49))
 
 ## [2.1.1] - 2023-09-16
 
