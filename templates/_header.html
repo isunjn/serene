@@ -1,7 +1,7 @@
-<header {% if config.extra.blur_effect %} class="blur" {% endif %}>
-  <div id="header-wrapper">
-    <nav>
-      <a href="/">{{ config.extra.id }}</a>
+<header {% if config.extra.blur_effect %} class="blur" {% endif %} aria-label="Main Menu">
+  <div id="header-wrapper" role="none">
+    <nav class="main-nav" role="none">
+      <a href="/" aria-label="Home">{{ config.extra.id }}</a>
       {% if config.extra.sections | length > 1 %}
         <button id="toggler" class="separator" aria-label="toggle expand">{{ config.extra.nav_separator }}</button>
       {% else %}
@@ -32,7 +32,7 @@
         <a href="{{ section.path }}">{{ section.name }}</a>
       {% endif %}
     </nav>
-    <div id="btns">
+    <div id="btns" aria-label="Options">
       {% if config.extra.blog_section_path is defined %}
       {% set blog_section_path = config.extra.blog_section_path %}
       {% endif %}

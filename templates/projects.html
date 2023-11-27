@@ -9,20 +9,20 @@
 
 {% block content %}
 {% include "_header.html" %}
-<div id="wrapper">
-  <main>
+<div id="wrapper" role="none">
+  <main aria-label="Projects">
     {% set data = load_data(path="content/projects/data.toml", format="toml") %}
     {% for proj in data.project %}
-    <div class="proj">
-      <p class="name">{{ proj.name }}</p>
-      <div class="desc">{{ proj.desc | trim | markdown | safe }}</div>
-      <div class="more">
-        <div class="tags">
+    <div class="proj" aria-label="Project">
+      <p class="name" aria-label="{{ proj.name }}">{{ proj.name }}</p>
+      <div class="desc" aria-label="Description">{{ proj.desc | trim | markdown | safe }}</div>
+      <div class="more" aria-label="Metadata">
+        <div class="tags" aria-label="Tags">
           {% for tag in proj.tags %}
-          <div><span>#</span>{{ tag }}</div>
+          <div role="none"><span role="none">#</span>{{ tag }}</div>
           {% endfor %}
         </div>
-        <div class="links">
+        <div class="links" aria-label="Links">
           {% for link in proj.links -%}
           <a href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
           {% endfor %}

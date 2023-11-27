@@ -45,20 +45,20 @@
 
 {% block content %}
 {% include "_header.html" %}
-<div id="wrapper">
-  <div id="blank"></div>
-  <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
+<div id="wrapper" role="none">
+  <div id="blank" aria-hidden=true role="none"></div>
+  <aside {% if config.extra.blur_effect %} class="blur" {% endif %} aria-label="Table of Contents">
     {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
     {% if show_toc and page.toc %}
     <nav>
-      <ul>
+      <ul aria-label="Headings">
         {% for h2 in page.toc %}
-        <li>
+        <li role="none">
           <a class="h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
           {% if h2.children %}
-          <ul>
+          <ul aria-label="Sub-Headings">
             {% for h3 in h2.children %}
-            <li>
+            <li role="none">
               <a class="h3" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
             </li>
             {% endfor %}
@@ -76,7 +76,7 @@
     </button>
     {% endif %}
   </aside>
-  <main>
+  <main aria-label="Content">
     <div>
       {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
       {% if allow_copy %}
@@ -85,10 +85,10 @@
       <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
       {% endif %}
       {% set backlink_icon = load_data(path="static/icon/backlink.svg") %}
-      <article class="prose" data-backlink-icon="{{ backlink_icon }}">
-        <h1>{{ page.title }}</h1>
-        <div id="post-info">
-          <div id="date">
+      <article class="prose" data-backlink-icon="{{ backlink_icon }}" aria-label="{{ page.title }}">
+        <h1 role="none">{{ page.title }}</h1>
+        <div id="post-info" aria-label="Metadata">
+          <div id="date" aria-label="Date">
             <span id="publish">{{ page.date | date }}</span>
             {% if page.updated and page.updated != page.date -%}
             <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
@@ -98,7 +98,7 @@
           {% if page.extra.display_tags is defined %}{% set display_tags = page.extra.display_tags %}{% elif config.extra.display_tags is defined %}{% set display_tags = config.extra.display_tags %}{% else %}{% set display_tags = true %}{% endif %}
 
           {% if page.taxonomies.tags is defined and display_tags == true %}
-          <div id="tags">
+          <div id="tags" aria-label="Tags">
             {% for tag in page.taxonomies.tags -%}
             {% set tag_slugify = tag | slugify -%}
             <a href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><span>#</span>{{ tag }}</a>

@@ -32,27 +32,27 @@
 {% endblock head %}
 
 {% block content %}
-<div id="wrapper">
-  <main>
-    <section id="info">
+<div id="wrapper" role="none">
+  <main aria-label="Content Sections">
+    <section id="info" aria-label="Info">
       <img src="{{ config.extra.avatar }}" alt="avatar">
-      <div id="text">
-        <div>
-          <span id="name">{{ config.extra.name }}</span>
+      <div id="text" role="none">
+        <div role="none">
+          <span id="name" aria-label="Name">{{ config.extra.name }}</span>
           {% if config.extra.display_id -%}
-          <span id="id">@{{ config.extra.id }}</span>
+          <span id="id" aria-label="ID">@{{ config.extra.id }}</span>
           {% endif -%}
         </div>
-        <div id="bio"> {{ config.extra.bio }} </div>
+        <div id="bio" aria-label="Blurb"> {{ config.extra.bio }} </div>
       </div>
     </section>
-    <section id="links">
-      <div id="left">
+    <section id="links" aria-label="Navigation Links">
+      <div id="left" role="none">
         {% for section in config.extra.sections %}
         <a href="{{ section.path }}" {% if section.is_external %}target="_blank" rel='noreferrer noopener'{% endif %}>{{ section.name }}</a>
         {% endfor %}
       </div>
-      <div id="right">
+      <div id="right" role="none">
         {% for link in config.extra.links -%}
         <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
           {% set icon_path = "static/icon/" ~ link.icon ~ ".svg" %}
@@ -68,7 +68,7 @@
       </div>
     </section>
     {% if config.extra.homepage_layout == 'about' %}
-      <section id="brief" class="prose">
+      <section id="brief" class="prose" aria-label="About">
         {{ section.content | trim | safe }}
       </section>
     {% elif config.extra.homepage_layout == 'list' %}
