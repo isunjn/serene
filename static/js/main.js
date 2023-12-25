@@ -6,7 +6,7 @@ function enableThemeToggle() {
     if (theme == "dark") document.body.classList.add('dark'); else document.body.classList.remove('dark');
     if (hlLink) hlLink.href = `/hl-${theme}.css`;
     themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
-    localStorage.setItem("theme", theme);
+    sessionStorage.setItem("theme", theme);
     toggleGiscusTheme(theme);
   }
   function toggleGiscusTheme(theme) {
@@ -14,14 +14,14 @@ function enableThemeToggle() {
     if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: `${location.origin}/giscus_${theme}.css` } } }, 'https://giscus.app');
   }
   function initGiscusTheme() {
-    toggleGiscusTheme(localStorage.getItem("theme") || (preferDark.matches ? "dark" : "light"));
+    toggleGiscusTheme(sessionStorage.getItem("theme") || (preferDark.matches ? "dark" : "light"));
     window.removeEventListener('message', initGiscusTheme);
   }
   window.addEventListener('message', initGiscusTheme);
-  themeToggle.addEventListener('click', () => toggleTheme(localStorage.getItem("theme") == "dark" ? "light" : "dark"));
+  themeToggle.addEventListener('click', () => toggleTheme(sessionStorage.getItem("theme") == "dark" ? "light" : "dark"));
   preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "light"));
-  if (!localStorage.getItem("theme") && preferDark.matches) toggleTheme("dark");
-  if (localStorage.getItem("theme") == "dark") toggleTheme("dark");
+  if (!sessionStorage.getItem("theme") && preferDark.matches) toggleTheme("dark");
+  if (sessionStorage.getItem("theme") == "dark") toggleTheme("dark");
 }
 
 function enableNavFold() {
