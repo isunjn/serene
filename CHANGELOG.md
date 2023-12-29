@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.0] - 2023-12-29
+
+### Fix:
+
+- Use `sessionStorage` for theme restore
+- Fix an issue when initializing giscus theme
+- Hide `#` anchor link in feed file
+
 ## [2.1.2] - 2023-09-19
 
 ### Fix:
@@ -120,7 +128,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
-
+[2.2.0]: https://github.com/isunjn/serene/compare/v2.1.2...v2.2.0
 [2.1.2]: https://github.com/isunjn/serene/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/isunjn/serene/compare/v2.0.1...v2.1.1
 [2.0.1]: https://github.com/isunjn/serene/compare/v2.0.0...v2.0.1
