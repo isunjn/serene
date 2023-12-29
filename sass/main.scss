@@ -88,7 +88,7 @@ a:focus-visible {
 
   h1, h2, h3, h4, h5, h6 {
     &:hover a.zola-anchor {
-      visibility: visible;
+      visibility: visible !important;
     }
   }
 
