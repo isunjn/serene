@@ -142,7 +142,7 @@ Now the myblog directory may looks like this:
   │       ├── favicon-16x16.png
   │       ├── favicon-32x32.png
   │       ├── apple-touch-icon.png
-  │       └── avatar. webp
+  │       └── avatar.webp
   ...
   ```
 
@@ -220,7 +220,7 @@ Now the myblog directory may looks like this:
 
 ### Analytics
 
-- To place scripts for analytics tools (such as Google Anayltics, Umami, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page
+- To place scripts for analytics tools (such as Google Analytics, Umami, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page
 
 ### Fonts
 
@@ -274,7 +274,7 @@ Now the myblog directory may looks like this:
   truncate_summary = false
   +++
 
-  new post about somthing...
+  new post about something...
 
   <!-- more -->
 

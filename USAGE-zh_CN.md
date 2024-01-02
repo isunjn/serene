@@ -170,7 +170,7 @@ Hi, My name is ....
 
 ### RSS
 
-- 你可以为你的站点添加 RSS，Zola 默认的 feed 文件位于站点的根目录，在 `config.toml` 设置 `generate_feed = ture` ，`feed_filename` 可以设置为 `atom.xml` 或 `rss.xml` ，对应两种不同的 rss 文件标准， `myblog/content/blog/_index.md` 中设置 `generate_feed = false`
+- 你可以为你的站点添加 RSS，Zola 默认的 feed 文件位于站点的根目录，在 `config.toml` 设置 `generate_feed = true` ，`feed_filename` 可以设置为 `atom.xml` 或 `rss.xml` ，对应两种不同的 rss 文件标准， `myblog/content/blog/_index.md` 中设置 `generate_feed = false`
 
 - Serene 主题风格更像个人网站，文章在 `/blog` 目录下，你可能希望 feed 文件在 `/blog` 目录下而不是根目录下，这需要你在 `config.toml` 中设置 `generate_feed = false`、 `feed_filename = "feed.xml"` 并在 `myblog/content/blog/_index.md` 中设置 `generate_feed = true`
 
@@ -180,7 +180,7 @@ Hi, My name is ....
 
 - Serene 有一个 projects 页面，可以在其上展示你的项目、产品等信息
 
-- 在 `config.toml` 中设置 `projects_page = ture` ，在 `myblog/content/projects/` 下新建一个 `data.toml` ，在其中添加项目信息，格式如下：
+- 在 `config.toml` 中设置 `projects_page = true` ，在 `myblog/content/projects/` 下新建一个 `data.toml` ，在其中添加项目信息，格式如下：
 
   ```toml
   [[project]]
@@ -220,7 +220,7 @@ Hi, My name is ....
 
 ### Analytics
 
-- 如需放置 Analytics 工具（如 Google Anayltics、Umami 等）的脚本，可以新建 `myblog/templates/_head_extend.html` 并将相应内容放入其中，该文件的内容将被添加到每个页面的 html head 中
+- 如需放置 Analytics 工具（如 Google Analytics、Umami 等）的脚本，可以新建 `myblog/templates/_head_extend.html` 并将相应内容放入其中，该文件的内容将被添加到每个页面的 html head 中
 
 ### 字体
 
@@ -229,7 +229,7 @@ Hi, My name is ....
 - 为了进一步提高网站速度, 你也可以选择自己托管字体文件(可选):
   1. 打开 [google-webfonts-helper](https://gwfh.mranftl.com) 并选择一个字体
   2. 将步骤 3 中的 `Customize folder prefix` 改为 `/font/`, 然后复制该 css
-  3. 将 `myblog/tempaltes/_custom_font.html` 替换为一个 `<style> </style>` 标签, 把你刚复制的 css 放在里面
+  3. 将 `myblog/templates/_custom_font.html` 替换为一个 `<style> </style>` 标签, 把你刚复制的 css 放在里面
   4. 下载步骤 4 的字体文件, 放在 `myblog/static/font/` 目录
 
 
@@ -274,14 +274,14 @@ Hi, My name is ....
   truncate_summary = false
   +++
 
-  new post about somthing...
+  new post about something...
 
   <!-- more -->
 
   more post content...
   ```
 
-- 你可以添加一行`<!-- more -->`, 在其前面的内容会成为文章的总结/描述, 可以设置 `truncate_summary = ture` 来让其在最终的文章网页上不显示
+- 你可以添加一行`<!-- more -->`, 在其前面的内容会成为文章的总结/描述, 可以设置 `truncate_summary = true` 来让其在最终的文章网页上不显示
 
 - 文章文件在 `myblog/content/blog` 下创建，写完后将 draft 改为 false 即可
 
