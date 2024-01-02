@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.1] - 2024-01-02
+
+### Fix:
+
+- Use `sessionStorage` for theme init in `_base.html`
+
 ## [2.2.0] - 2023-12-29
 
 ### Fix:
@@ -128,6 +134,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[2.2.1]: https://github.com/isunjn/serene/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/isunjn/serene/compare/v2.1.2...v2.2.0
 [2.1.2]: https://github.com/isunjn/serene/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/isunjn/serene/compare/v2.0.1...v2.1.1
