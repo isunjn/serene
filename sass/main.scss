@@ -28,29 +28,23 @@ a:focus-visible {
   color: var(--bg-color);
 }
 
-@media screen and (min-width: 425px) {
-  body::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #0000;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #aeb7caa1;
-    border-radius: 0px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #8a90a1a1;
-  }
+body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0000;
+}
+::-webkit-scrollbar-thumb {
+  background: #aeb7caa1;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8a90a1a1;
 }
 
 /* prose
@@ -87,6 +81,7 @@ a:focus-visible {
   }
 
   h1, h2, h3, h4, h5, h6 {
+    width: fit-content;
     &:hover a.zola-anchor {
       visibility: visible !important;
     }
@@ -171,7 +166,7 @@ a:focus-visible {
   td>code,
   th>code {
     font-family: var(--code-font);
-    font-size: 0.8em;
+    font-size: 0.85em;
     padding: 1px 6px;
     margin: 0 2px;
     color: var(--primary-color);
@@ -433,6 +428,7 @@ body.prose-page {
 
   .post-list {
     margin-top: 25px;
+    padding: 0 15px;
   }
 
   .post {
@@ -440,24 +436,16 @@ body.prose-page {
     justify-content: space-between;
     align-items: flex-end;
     gap: 5px;
-    padding: 6px 15px;
-    margin: 1px 0;
-    border-radius: 2px;
-    font-size: 1.1em;
+    padding: 4px 0px;
+    margin: 8px 0;
+    font-size: 1em;
     text-decoration: none;
     color: var(--primary-color);
     -webkit-tap-highlight-color: transparent;
 
+    border-bottom: 1.5px solid transparent;
     &:hover {
-      background-color: var(--primary-pale-color);
-    }
-
-    @media (max-width: 768px) {
-      & {
-        font-size: 1em;
-        margin: 2.5px 5px;
-        padding: 5px 10px;
-      }
+      border-bottom-color: var(--primary-color);
     }
 
     .date {
@@ -514,7 +502,7 @@ body.homepage {
 
   #links {
     padding: 0 15px;
-    margin: 1.25em 0 1.75em;
+    margin: 1em 0 1.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -539,7 +527,7 @@ body.homepage {
 
       a {
         border-bottom: 1.5px solid var(--primary-color);
-        line-height: 24px;
+        line-height: 1.5;
       }
     }
 
@@ -608,7 +596,7 @@ header {
   }
 
   nav {
-    font-size: 1.4em;
+    font-size: 1.35em;
     display: flex;
     align-items: center;
 
@@ -697,7 +685,6 @@ header {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 footer {
-  font-size: 0.95rem;
   padding: 15px;
   display: flex;
   justify-content: center;
@@ -756,7 +743,7 @@ body.post {
   #wrapper {
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: var(--paragraph-font-size);
   }
 
   #blank {
@@ -809,9 +796,15 @@ body.post {
       a {
         color: var(--primary-color);
         text-decoration: none;
+        line-height: 1.25;
         span {
           font-size: 0.95em;
           margin-right: 2px;
+        }
+
+        border-bottom: 1.5px solid transparent;
+        &:hover {
+          border-bottom-color: var(--primary-color);
         }
       }
     }
@@ -833,7 +826,7 @@ body.post {
     order: 3;
     width: calc((100% - var(--main-max-width)) / 2);
     position: sticky;
-    margin-top: 195px;
+    margin-top: 175px;
     top: 60px;
     height: min-content;
     font-size: var(--aside-font-size);
@@ -996,7 +989,7 @@ body.tag-list {
   }
 
   .tags {
-    margin-top: 40px;
+    margin-top: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1006,7 +999,13 @@ body.tag-list {
     a {
       color: var(--primary-color);
       text-decoration: none;
-      margin: 2em;
+      margin: 1.5em;
+      line-height: 1.25;
+      
+      border-bottom: 1.5px solid transparent;
+      &:hover {
+        border-bottom-color: var(--primary-color);
+      }
     }
   }
 
@@ -1028,6 +1027,7 @@ body.tag-single {
   main {
     width: 100%;
     margin: 85px auto 60px;
+    padding: 0px 15px;
   }
 
 
@@ -1052,16 +1052,16 @@ body.tag-single {
     justify-content: space-between;
     align-items: flex-end;
     gap: 5px;
-    padding: 6px 15px;
-    margin: 1px 0;
-    border-radius: 2px;
-    font-size: 1.1em;
+    padding: 4px 0px;
+    margin: 8px 0;
+    font-size: 1em;
     text-decoration: none;
     color: var(--primary-color);
     -webkit-tap-highlight-color: transparent;
 
+    border-bottom: 1.5px solid transparent;
     &:hover {
-      background-color: var(--primary-pale-color);
+      border-bottom-color: var(--primary-color);
     }
 
     .date {
@@ -1136,7 +1136,6 @@ body.projects {
       gap: 1em;
       
       .tags {
-        font-size: 0.9em;
         display: flex;
         gap: 0.5em 1em;
         flex-wrap: wrap;
@@ -1162,6 +1161,7 @@ body.projects {
           padding: 0 2px;
           cursor: pointer;
           color: inherit;
+          line-height: 1.5;
 
           &:visited {
             color: inherit;
