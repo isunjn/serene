@@ -126,7 +126,7 @@ body::-webkit-scrollbar {
   }
 
   blockquote {
-    border-left: 3px var(--primary-pale-color) solid;
+    border-left: 2px var(--text-pale-color) solid;
     padding-left: 16px;
     margin: 0 0 24px 0;
     color: var(--text-pale-color);
@@ -579,8 +579,8 @@ header {
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     &.blur {
       background-color: initial;
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
     }
   }
 
@@ -685,6 +685,7 @@ header {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 footer {
+  font-size: 0.95em;
   padding: 15px;
   display: flex;
   justify-content: center;
@@ -865,7 +866,7 @@ body.post {
       padding: 0 1em;
       
       &.h3 {
-        padding-left: 1.5em;
+        padding-left: 2.5em;
         font-size: 0.95em;
       }
 
@@ -937,6 +938,10 @@ body.post {
 
       nav {
         padding: 1em 0;
+        
+        a.h3 {
+          padding-left: 1.5em;
+        }
       }
 
       ul {
