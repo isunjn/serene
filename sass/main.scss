@@ -865,7 +865,7 @@ body.post {
       padding: 0 1em;
       
       &.h3 {
-        padding-left: 2.5em;
+        padding-left: 1.5em;
         font-size: 0.95em;
       }
 
@@ -921,6 +921,7 @@ body.post {
   @media screen and (max-width: 1024px) {
     aside {
       position: fixed;
+      z-index: 9;
       right: -100%;
 
       &.shown {
