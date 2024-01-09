@@ -995,7 +995,7 @@ body.tag-list {
   }
 
   .tags {
-    margin-top: 1.5em;
+    margin-top: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1005,7 +1005,7 @@ body.tag-list {
     a {
       color: var(--primary-color);
       text-decoration: none;
-      margin: 1.5em;
+      margin: 1em;
       line-height: 1.25;
       
       border-bottom: 1.5px solid transparent;
@@ -1048,7 +1048,7 @@ body.tag-single {
 
     a {
       margin-left: 30px;
-      font-size: 0.5em;
+      font-size: 0.7em;
       color: var(--primary-color);
     }
   }
@@ -1072,14 +1072,6 @@ body.tag-single {
 
     .date {
       white-space: nowrap;
-    }
-
-    @media screen and (max-width: 768px) {
-      & {
-        font-size: 1em;
-        margin: 2.5px 5px;
-        padding: 5px 10px;
-      }
     }
   }
 }
@@ -1203,7 +1195,7 @@ body.not-found {
   .error {
     display: flex;
     align-items: center;
-    font-size: 2em;
+    font-size: 1.25em;
     color: var(--text-pale-color);
   }
 
@@ -1211,11 +1203,7 @@ body.not-found {
     background: var(--text-pale-color);
     width: 2px;
     height: 0.75em;
-    margin: 0 0.5em;
-  }
-
-  .text {
-    font-size: 0.85em;
+    margin: 0 0.75em;
   }
 
   a {
