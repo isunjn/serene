@@ -224,7 +224,7 @@ Now the myblog directory may looks like this:
 
 ### Fonts
 
-- Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default. If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`. 
+- <del>Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default.</del> If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`. 
 
 - For performance reason, you may want to self-host font files (optional): 
   1. Open [google-webfonts-helper](https://gwfh.mranftl.com) and choose your font

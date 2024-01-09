@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.0] - 2024-01-09
+
+### Fix:
+
+- `z-index` of mobile sidebar
+
+### UI:
+
+- Color change and some small tweaks
+
+### Remove:
+
+- Default custom font removed
+
+
 ## [2.2.1] - 2024-01-02
 
 ### Fix:
@@ -134,6 +149,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[2.3.0]: https://github.com/isunjn/serene/compare/v2.2.1...v2.3.0
 [2.2.1]: https://github.com/isunjn/serene/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/isunjn/serene/compare/v2.1.2...v2.2.0
 [2.1.2]: https://github.com/isunjn/serene/compare/v2.1.1...v2.1.2

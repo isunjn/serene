@@ -1,4 +1,4 @@
-<img width="1501" alt="screenshot" src="https://github.com/isunjn/serene/assets/60461730/33516366-3670-497f-bd72-41ebe8f06f1a">
+<img width="1501" alt="screenshot" src="https://github.com/isunjn/serene/assets/60461730/c3192aa5-945b-49f4-816d-861501d940ae">
 
 <br /><br />
 

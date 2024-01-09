@@ -224,7 +224,7 @@ Hi, My name is ....
 
 ### 字体
 
-- Serene 默认使用 [Google Fonts](https://fonts.google.com/) 的 Signika 字体，如需自定义字体，新建 `myblog/templates/_custom_font.html` 并将从 Google Fonts 复制的字体样式表 link 标签放入其中，然后修改 `myblog/sass/main.scss` 中的 `--main-font` 或者 `--code-font`. 
+- <del>Serene 默认使用 [Google Fonts](https://fonts.google.com/) 的 Signika 字体，</del>如需自定义字体，新建 `myblog/templates/_custom_font.html` 并将从 Google Fonts 复制的字体样式表 link 标签放入其中，然后修改 `myblog/sass/main.scss` 中的 `--main-font` 或者 `--code-font`. 
 
 - 为了进一步提高网站速度, 你也可以选择自己托管字体文件(可选):
   1. 打开 [google-webfonts-helper](https://gwfh.mranftl.com) 并选择一个字体
