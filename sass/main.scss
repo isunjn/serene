@@ -131,6 +131,10 @@ body::-webkit-scrollbar {
     margin: 0 0 24px 0;
     color: var(--text-pale-color);
   }
+  
+  li {
+    margin: 1em 0;
+  }
 
   li::marker {
     color: var(--primary-color);
