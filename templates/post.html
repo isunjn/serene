@@ -47,7 +47,7 @@
 {% include "_header.html" %}
 <div id="wrapper">
   <div id="blank"></div>
-  <aside {% if config.extra.blur_effect %} class="blur" {% endif %}>
+  <aside>
     {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
     {% if show_toc and page.toc %}
     <nav>

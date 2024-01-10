@@ -840,7 +840,7 @@ body.post {
       padding: 5px 15px 5px 2em;
       min-width: 60%;
       overflow-y: auto;
-      max-height: calc(100vh - 50px - 5em);
+      max-height: calc(100vh - 45px - 6em);
       scrollbar-width: none;
 
       &::-webkit-scrollbar {
@@ -926,7 +926,7 @@ body.post {
   @media screen and (max-width: 1024px) {
     aside {
       position: fixed;
-      z-index: 9;
+      z-index: 99;
       right: -100%;
 
       &.shown {
@@ -935,33 +935,18 @@ body.post {
 
       top: 45px;
       margin-top: 0;
-      min-width: 260px;
+      min-width: 275px;
       height: 100%;
       background-color: var(--bg-color);
       box-shadow: rgba(0, 0, 0, 0.08) -2px 8px 8px 0px;
 
       nav {
-        padding: 1em 0;
-        
-        a.h3 {
-          padding-left: 1.5em;
-        }
-      }
-
-      ul {
-        padding-left: 10px;
+        padding: 1em 0.75em;
+        max-height: calc(100vh - 45px);
       }
 
       #back-to-top {
         display: none;
-      }
-    }
-
-    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      aside.blur {
-        background-color: fade(var(--bg-color), 75%);
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
       }
     }
 

@@ -56,10 +56,13 @@ function enableOutdateAlert() {
 function enableTocToggle() {
   const tocToggle = document.querySelector('#toc-toggle');
   if (!tocToggle) return;
+  const header = document.querySelector('header');
+  const blurred = header.classList.contains('blur');
   const aside = document.querySelector('aside');
   tocToggle.addEventListener('click', () => {
     tocToggle.classList.toggle('active');
     aside.classList.toggle('shown');
+    if (blurred) header.classList.toggle('blur');
   });
 }
 
