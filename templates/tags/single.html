@@ -12,14 +12,14 @@
 {% block content %}
 {% include "_header.html" %}
 <div id="wrapper">
-  <main>
+  <main class="layout-list">
     <div class="title">
       <span># {{ term.name }}</span>
       <a href="{{ config.base_url ~ '/tags' }}">All Tags</a>
     </div>
     <div class="post-list">
       {% for post in term.pages %}
-      <a class="post" href="{{ post.permalink }}">
+      <a class="post {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
         <span class="date">{{ post.date | date }}</span>
       </a>

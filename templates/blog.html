@@ -16,7 +16,7 @@
     <div class="category">{{ category }}</div>
     <div>
       {% for post in posts %}
-      <a class="post" href="{{ post.permalink }}">
+      <a class="post {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
         <span class="date">{{ post.date | date}}</span>
       </a>
@@ -26,7 +26,7 @@
     {% else %}
     <div class="post-list">
       {% for post in section.pages %}
-      <a class="post" href="{{ post.permalink }}">
+      <a class="post {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
         <span class="date">{{ post.date | date}}</span>
       </a>

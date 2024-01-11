@@ -455,6 +455,23 @@ body.prose-page {
     .date {
       white-space: nowrap;
     }
+    
+    position: relative;
+    &.featured::before {
+      content: '*';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-200%);
+      line-height: 30px;
+      height: 100%;
+    }
+    @media (max-width: 425px) {
+      &.featured::before {
+        transform: translateX(-150%);
+      }
+    }
   }
 }
 
@@ -1022,9 +1039,7 @@ body.tag-single {
   main {
     width: 100%;
     margin: 85px auto 60px;
-    padding: 0px 15px;
   }
-
 
   .title {
     width: min-content;
@@ -1039,28 +1054,6 @@ body.tag-single {
       margin-left: 30px;
       font-size: 0.7em;
       color: var(--primary-color);
-    }
-  }
-
-  .post {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 5px;
-    padding: 4px 0px;
-    margin: 8px 0;
-    font-size: 1em;
-    text-decoration: none;
-    color: var(--primary-color);
-    -webkit-tap-highlight-color: transparent;
-
-    border-bottom: 1.5px solid transparent;
-    &:hover {
-      border-bottom-color: var(--primary-color);
-    }
-
-    .date {
-      white-space: nowrap;
     }
   }
 }
