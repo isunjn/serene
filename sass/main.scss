@@ -1085,6 +1085,23 @@ body.projects {
 
   .proj {
     margin: 0px 15px 45px;
+   
+    .content {
+      display: flex;
+      justify-content: space-between;
+      gap: 1em;
+      
+      img {
+        max-height: 125px;
+        margin-bottom: 1em;
+
+        @media screen and (max-width: 425px) {
+          & {
+            max-height: 80px;
+          }
+        }
+      }
+    }
     
     .name {
       font-size: 1.2em;
