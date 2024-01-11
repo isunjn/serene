@@ -53,7 +53,7 @@
         {% endfor %}
       </div>
       <div id="right">
-        {% for link in config.extra.links -%}
+        {% for link in config.extra.links %}
         <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
           {% set icon_path = "static/icon/" ~ link.icon ~ ".svg" %}
           {% set icon = load_data(path=icon_path) %}
@@ -101,6 +101,26 @@
             <span class="date">{{ post.date | date}}</span>
           </a>
           {% endfor %}
+        </div>
+        {% endif %}
+      </section>
+    {% elif config.extra.homepage_layout == 'recent' %}
+      {% set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") %}
+      {% set section_md_path = blog_section_path ~ "/_index.md" %}
+      {% set blog_section = get_section(path=section_md_path) %}
+      <section class="layout-list">
+        <div class="post-list">
+          {% for post in blog_section.pages | slice(end=config.extra.recent_max) %}
+          <a class="post {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
+            <span>{{ post.title }}</span>
+            <span class="line"></span>
+            <span class="date">{{ post.date | date}}</span>
+          </a>
+          {% endfor %}
+        </div>
+        {% if config.extra.recent_more %}
+        <div class="read-more">
+          <a href="{{ config.extra.blog_section_path }}">{{ config.extra.recent_more_text }}</a>
         </div>
         {% endif %}
       </section>

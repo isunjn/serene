@@ -468,6 +468,18 @@ body.prose-page {
       }
     }
   }
+  
+  .read-more {
+    display: flex;
+    justify-content: end;
+    margin: 1.5em 15px 0px;
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;      
+      border-bottom: 1.5px solid var(--primary-color);
+    }
+  }
 }
 
 /* homepage

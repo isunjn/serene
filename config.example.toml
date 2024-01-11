@@ -51,7 +51,11 @@ links = [                             # Your links
     { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
 ]
 
-homepage_layout = "about"             # "about" | "list"
+homepage_layout = "about"             # "about" | "list" | "recent"
+
+recent_max = 5
+recent_more = true
+recent_more_text = "more »"
 
 sections = [
     { name = "blog", path = "/blog", is_external = false },
