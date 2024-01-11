@@ -79,7 +79,7 @@
         {% if config.extra.blog_categorized %}
         {% for category,posts in blog_section.pages | group_by(attribute="taxonomies.categories.0") -%}
         <div class="category">{{ category }}</div>
-        <div>
+        <div class="post-list categorized">
           {% for post in posts %}
           <a class="post {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
             <span>{{ post.title }}</span>

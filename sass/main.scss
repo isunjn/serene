@@ -421,18 +421,22 @@ body.prose-page {
   }
 }
 
-/* layout blog list ( homepage / blogpage )
+/* layout post list ( home / blog / tag )
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .layout-list {
   .category {
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin: 2em 15px 1em;
   }
 
   .post-list {
-    margin-top: 25px;
     padding: 0 15px;
+    margin-top: 2em;
+
+    &.categorized {
+      margin-top: 1em;
+    }
   }
 
   .post {
@@ -467,7 +471,7 @@ body.prose-page {
       line-height: 30px;
       height: 100%;
     }
-    @media (max-width: 425px) {
+    @media (max-width: 768px) {
       &.featured::before {
         transform: translateX(-150%);
       }
