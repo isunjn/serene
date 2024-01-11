@@ -85,6 +85,22 @@ function enableTocIndicate() {
   headers.forEach(header => observer.observe(header));
 }
 
+function enableTocTooltip() {
+  const anchors = document.querySelectorAll('aside nav a');
+  if (anchors.length == 0) return;
+  const toggleTooltip = () => {
+    anchors.forEach(anchor => {
+      if (anchor.offsetWidth < anchor.scrollWidth) {
+        anchor.setAttribute('title', anchor.textContent);
+      } else {
+        anchor.removeAttribute('title');
+      }
+    });
+  };
+  window.addEventListener('resize', toggleTooltip);
+  toggleTooltip();
+}
+
 function addCopyBtns() {
   const cfg = document.querySelector('#copy-cfg');
   if (!cfg) return;
@@ -163,6 +179,7 @@ if (document.body.classList.contains('post')) {
   enableTocToggle();
   enableTocIndicate();
   addBackToTopBtn();
+  enableTocTooltip();
 }
 if (document.querySelector('.prose')) {
   addCopyBtns();
