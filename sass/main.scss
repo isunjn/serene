@@ -94,18 +94,9 @@ body::-webkit-scrollbar {
   }
 
   a {
+    border-bottom: 1.5px solid var(--primary-color);
     color: var(--primary-color);
-    text-decoration-color: var(--primary-pale-color);
-    text-decoration-thickness: 1.5px;
-
-    &:hover {
-      text-decoration-color: var(--primary-color);
-    }
-
-    @media (max-width: 425px) {
-      text-decoration-color: unset;
-      text-decoration-thickness: auto;
-    }  
+    text-decoration: none;
   }
 
   img {
