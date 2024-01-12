@@ -492,12 +492,18 @@ body.homepage {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: var(--homepage-font-size);
   }
 
   main {
     width: 100%;
     max-width: var(--homepage-max-width);
-    padding: 3em 0 6em;
+    padding: 4em 0;
+    @media screen and (max-width: 425px) {
+      & {
+        padding: 2em 0;
+      }
+    }
   }
 
   #info {
@@ -512,10 +518,14 @@ body.homepage {
     }
 
     #text {
-      font-size: 1.25em;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+      line-height: 1.5;
+    }
+    
+    #name, #id {
+      font-size: 1.1em;
     }
 
     #id {
@@ -524,27 +534,29 @@ body.homepage {
     }
 
     #bio {
-      font-size: 0.85em;
+      font-size: 1em;
     }
   }
 
   #links {
     padding: 0 15px;
-    margin: 1em 0 1.5em;
+    margin: 1.25em 0 1.75em;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5em 1em;
-    font-size: 1.25em;
+    font-size: 1.1em;
 
     a,
     button {
       text-decoration: none;
       color: var(--text-color);
 
-      &:hover {
-        color: var(--primary-color);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--primary-color);
+        }
       }
     }
 
@@ -561,13 +573,13 @@ body.homepage {
 
     #right {
       display: flex;
-      gap: 0.5em;
+      gap: 0.75em;
       margin-left: auto;
 
       a,
       button {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
       }
 
       button {
@@ -582,13 +594,16 @@ body.homepage {
       #left {
         gap: 0.75em;
       }
+      #right {
+        gap: 0.5em;
+      }
     }
   }
 
   #brief {
-    padding: 0 15px;
-    font-size: 1.15em;
-    line-height: 1.5;
+    padding: 0 15px 3em;
+    font-size: 1em;
+    line-height: var(--homepage-line-height);
   }
 }
 
@@ -677,8 +692,8 @@ header {
 
     a,
     button {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       border: none;
       background-color: transparent;
       padding: 0;
