@@ -153,7 +153,7 @@ function addCopyBtns() {
           btn.innerHTML = copyIcon;
           btn.classList.remove('copied');
           btn.addEventListener('click', copy);
-        }, 2000);
+        }, 1500);
       });
     };
     btn.addEventListener('click', copy);

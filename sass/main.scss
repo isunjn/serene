@@ -256,6 +256,7 @@ body::-webkit-scrollbar {
     }
 
     .copy {
+      display: none;
       z-index: 9;
       position: absolute;
       right: 0.6em;
@@ -269,6 +270,7 @@ body::-webkit-scrollbar {
       color: var(--text-pale-color);
 
       &.copied, &:hover {
+        display: block;
         color: var(--primary-color);
       }
 
@@ -276,6 +278,10 @@ body::-webkit-scrollbar {
         width: 20px;
         height: 20px;
       }
+    }
+
+    &:hover .copy {
+      display: block;
     }
   }
 
@@ -290,6 +296,7 @@ body::-webkit-scrollbar {
       line-height: 1.2;
       color: var(--text-pale-color);
       border-bottom: 1.5px solid var(--primary-pale-color);
+      pointer-events: none;
     }
 
     pre>code {
