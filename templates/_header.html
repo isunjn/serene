@@ -1,7 +1,7 @@
 <header {% if config.extra.blur_effect %} class="blur" {% endif %}>
   <div id="header-wrapper">
     <nav>
-      <a href="/">{{ config.extra.id }}</a>
+      <a class="instant" href="/">{{ config.extra.id }}</a>
       {% if config.extra.sections | length > 1 %}
         <button id="toggler" class="separator" aria-label="toggle expand">{{ config.extra.nav_separator }}</button>
       {% else %}
@@ -23,13 +23,13 @@
           {% elif not current_path is starting_with(section.path) %}
             {% set should_fold = true %}
           {% endif %}
-          <a href="{{ section.path }}" {% if should_fold %}class="fold"{% endif %}>{{ section.name }}</a>
+          <a class="instant {% if should_fold %}fold{% endif %}" href="{{ section.path }}">{{ section.name }}</a>
           {% if not loop.last %}<span class="wrap-separator fold">{{ config.extra.nav_wrapper_separator }}</span>{% endif %}
         {% endfor %}
         <span class="wrap right fold">{{ config.extra.nav_wrapper_right }}</span>
       {% else %}
         {% set section = config.extra.sections | first %}
-        <a href="{{ section.path }}">{{ section.name }}</a>
+        <a class="instant" href="{{ section.path }}">{{ section.name }}</a>
       {% endif %}
     </nav>
     <div id="btns">

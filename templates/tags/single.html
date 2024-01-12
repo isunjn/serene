@@ -15,11 +15,11 @@
   <main class="layout-list">
     <div class="title">
       <span># {{ term.name }}</span>
-      <a href="{{ config.base_url ~ '/tags' }}">All Tags</a>
+      <a class="instant" href="{{ config.base_url ~ '/tags' }}">All Tags</a>
     </div>
     <div class="post-list">
       {% for post in term.pages %}
-      <a class="post {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
+      <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
         <span class="date">{{ post.date | date }}</span>
       </a>

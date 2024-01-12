@@ -49,7 +49,7 @@
     <section id="links">
       <div id="left">
         {% for section in config.extra.sections %}
-        <a href="{{ section.path }}" {% if section.is_external %}target="_blank" rel='noreferrer noopener'{% endif %}>{{ section.name }}</a>
+        <a href="{{ section.path }}" {% if section.is_external %}target="_blank" rel='noreferrer noopener'{% else %}class="instant"{% endif %}>{{ section.name }}</a>
         {% endfor %}
       </div>
       <div id="right">
@@ -85,7 +85,7 @@
         <div class="category">{{ category_name }}</div>
         <div class="post-list categorized">
           {% for post in posts %}
-          <a class="post {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
+          <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
             <span>{{ post.title }}</span>
             <span class="date">{{ post.date | date}}</span>
           </a>
@@ -95,7 +95,7 @@
         {% else %}
         <div class="post-list">
           {% for post in blog_section.pages %}
-          <a class="post {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
+          <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
             <span>{{ post.title }}</span>
             <span class="line"></span>
             <span class="date">{{ post.date | date}}</span>
@@ -111,7 +111,7 @@
       <section class="layout-list">
         <div class="post-list">
           {% for post in blog_section.pages | slice(end=config.extra.recent_max) %}
-          <a class="post {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
+          <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
             <span>{{ post.title }}</span>
             <span class="line"></span>
             <span class="date">{{ post.date | date}}</span>
@@ -120,7 +120,7 @@
         </div>
         {% if config.extra.recent_more %}
         <div class="read-more">
-          <a href="{{ config.extra.blog_section_path }}">{{ config.extra.recent_more_text }}</a>
+          <a class="instant" href="{{ config.extra.blog_section_path }}">{{ config.extra.recent_more_text }}</a>
         </div>
         {% endif %}
       </section>

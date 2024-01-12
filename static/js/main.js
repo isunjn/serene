@@ -38,6 +38,36 @@ function enableNavFold() {
   });  
 }
 
+function enablePrerender() {
+  const prerender = (a) => {
+    if (!a.classList.contains('instant')) return;
+    const script = document.createElement('script');
+    script.type = 'speculationrules';
+    script.textContent = JSON.stringify({ prerender: [{ source: 'list', urls: [a.href] }] });
+    document.body.append(script);
+    a.classList.remove('instant');
+  }
+  const prefetch = (a) => {
+    if (!a.classList.contains('instant')) return;
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = a.href;
+    document.head.append(link);
+    a.classList.remove('instant');
+  }
+  const support = HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules');
+  const handle = support ? prerender : prefetch;
+  document.querySelectorAll('a.instant').forEach(a => {
+    if (a.href.endsWith(window.location.pathname)) return;
+    let timer;
+    a.addEventListener('mouseenter', () => {
+      timer = setTimeout(() => handle(a), 50);
+    });
+    a.addEventListener('mouseleave', () => clearTimeout(timer));
+    a.addEventListener('touchstart', () => handle(a), { passive: true });
+  });
+}
+
 function enableOutdateAlert() {
   const alert = document.querySelector('#outdate_alert');
   if (!alert) return;
@@ -174,6 +204,7 @@ function enableImgLightense() {
 
 enableThemeToggle();
 enableNavFold();
+enablePrerender();
 if (document.body.classList.contains('post')) {
   enableOutdateAlert();
   enableTocToggle();

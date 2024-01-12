@@ -16,8 +16,8 @@
     <div class="title">Tags</div>
     <div class="tags">
       {% for tag in terms -%}
-      <a href="{{ tag.permalink }}"># {{ tag.name | lower }}</a>
-      {%- endfor %}
+      <a class="instant" href="{{ tag.permalink }}"># {{ tag.name | lower }}</a>
+      {% endfor %}
     </div>
   </main>
   {% include "_footer.html" %}
