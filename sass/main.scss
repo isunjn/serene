@@ -165,7 +165,7 @@ body::-webkit-scrollbar {
     padding: 1px 6px;
     margin: 0 2px;
     color: var(--primary-color);
-    background-color: var(--primary-pale-color);
+    background-color: var(--inline-code-bg-color);
     border-radius: var(--inline-code-border-radius);
   }
 
@@ -175,6 +175,8 @@ body::-webkit-scrollbar {
     padding: 12px 48px 12px 16px;
     line-height: 1.5;
     border: 1.5px solid var(--primary-color);
+    border-color: var(--block-code-border-color);
+    border-radius: var(--block-code-border-radius);
     overflow: auto;
 
     code {
@@ -578,8 +580,8 @@ body.homepage {
 
       a,
       button {
-        width: 20px;
-        height: 20px;
+        width: var(--icon-size);
+        height: var(--icon-size);
       }
 
       button {
@@ -692,8 +694,8 @@ header {
 
     a,
     button {
-      width: 20px;
-      height: 20px;
+      width: var(--icon-size);
+      height: var(--icon-size);
       border: none;
       background-color: transparent;
       padding: 0;
