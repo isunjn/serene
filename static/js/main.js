@@ -26,18 +26,6 @@ function enableThemeToggle() {
   if (sessionStorage.getItem("theme") == "dark") toggleTheme("dark");
 }
 
-function enableNavFold() {
-  const nav = document.querySelector('header nav');
-  if (!nav) return;
-  const toggler = nav.querySelector('#toggler');
-  if (!toggler) return;
-  const foldItems = nav.querySelectorAll('.fold');
-  toggler.addEventListener('click', () => {
-    if (window.innerWidth < 768 && [...foldItems].every(item => !item.classList.contains('shown'))) return;
-    foldItems.forEach(item => item.classList.toggle('shown'));
-  });  
-}
-
 function enablePrerender() {
   const prerender = (a) => {
     if (!a.classList.contains('instant')) return;
@@ -66,6 +54,47 @@ function enablePrerender() {
     a.addEventListener('mouseleave', () => clearTimeout(timer));
     a.addEventListener('touchstart', () => handle(a), { passive: true });
   });
+}
+
+function enableNavFold() {
+  const nav = document.querySelector('header nav');
+  if (!nav) return;
+  const toggler = nav.querySelector('#toggler');
+  if (!toggler) return;
+  const foldItems = nav.querySelectorAll('.fold');
+  toggler.addEventListener('click', () => {
+    if (window.innerWidth < 768 && [...foldItems].every(item => !item.classList.contains('shown'))) return;
+    foldItems.forEach(item => item.classList.toggle('shown'));
+  });  
+}
+
+function enableRssMask() {
+  const rssBtn = document.querySelector('#rss-btn');
+  const mask = document.querySelector('#rss-mask');
+  const copyBtn = document.querySelector('#rss-mask button');
+  if (!rssBtn || !mask) return;
+  rssBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    mask.showModal();
+  });
+  const close = (e) => {
+    if (e.target == mask) mask.close();
+  };
+  mask.addEventListener('click', close);
+  const copy = () => {
+    navigator.clipboard.writeText(copyBtn.dataset.link).then(() => {
+      copyBtn.innerHTML = copyBtn.dataset.checkIcon;
+      copyBtn.classList.add('copied');
+      copyBtn.removeEventListener('click', copy);
+      setTimeout(() => {
+        mask.close();
+        copyBtn.innerHTML = copyBtn.dataset.copyIcon;
+        copyBtn.classList.remove('copied');
+        copyBtn.addEventListener('click', copy);
+      }, 400);
+    });
+  }
+  copyBtn.addEventListener('click', copy);
 }
 
 function enableOutdateAlert() {
@@ -203,8 +232,9 @@ function enableImgLightense() {
 //--------------------------------------------
 
 enableThemeToggle();
-enableNavFold();
 enablePrerender();
+enableNavFold();
+enableRssMask();
 if (document.body.classList.contains('post')) {
   enableOutdateAlert();
   enableTocToggle();

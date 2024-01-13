@@ -39,10 +39,15 @@
 
       {% if blog_section_path is defined and section.path is starting_with(blog_section_path) %}
       {% set rss_icon = load_data(path="static/icon/rss.svg") %}
-      {% if section.generate_feed -%}
-      <a href="{{ blog_section_path }}/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
-      {% elif config.generate_feed -%}
-      <a href="/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+      {% if section.generate_feed %}
+        {% set_global rss_path = blog_section_path ~ "/" ~ config.feed_filename %}
+      <!-- <a href="{{ blog_section_path }}/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a> -->
+      {% elif config.generate_feed %}
+        {% set rss_path = "/" ~ config.feed_filename %}
+      <!-- <a href="/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a> -->
+      {% endif %}
+      {% if section.generate_feed or config.generate_feed %}
+      <a id="rss-btn" href="{{ rss_path }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
       {% endif %}
       {% endif %}
 
@@ -64,3 +69,19 @@
     </div>
   </div>
 </header>
+
+{% if blog_section_path is defined and section.path is starting_with(blog_section_path) %}
+{% if section.generate_feed or config.generate_feed %}
+{% set link = config.base_url ~ rss_path %}
+<dialog id="rss-mask">
+  <div>
+    <a href="{{ link }}">{{ link }}</a>
+    {% set copy_icon = load_data(path="static/icon/copy.svg") %}
+    {% set check_icon = load_data(path="static/icon/check.svg") %}
+    <button autofocus aria-label="copy" data-link="{{ link }}" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}" >
+      {{ copy_icon | safe }}
+    </button>
+  </div>
+</dialog>
+{% endif %}
+{% endif %}

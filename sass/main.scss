@@ -273,11 +273,6 @@ body::-webkit-scrollbar {
         display: block;
         color: var(--primary-color);
       }
-
-      svg {
-        width: 20px;
-        height: 20px;
-      }
     }
 
     &:hover .copy {
@@ -619,6 +614,50 @@ body.homepage {
 /* header
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+dialog#rss-mask {
+  margin: 12.5px auto;
+  padding: 0px;
+  border: none;
+  overflow: visible;
+  background: transparent;
+  
+  &::backdrop {
+    background-color: initial;
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+  }
+  
+  div {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  a {
+    border-bottom: 1.5px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    line-height: 1.5;
+    line-break: anywhere;
+  }
+  
+  button {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background: transparent;
+    border: none;
+    color: var(--text-pale-color);
+    padding: 0;
+    cursor: pointer;
+    &.copied, &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
+
 header {
   z-index: 99;
   position: fixed;
@@ -628,11 +667,18 @@ header {
   background-color: var(--bg-color);
   border-bottom: 1.5px solid var(--primary-color);
 
+
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     &.blur {
       background-color: initial;
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
+    }
+    
+    #rss-mask {
+      // background-color: initial;
+      -webkit-backdrop-filter: blur(32px);
+      backdrop-filter: blur(32px);
     }
   }
 
@@ -716,6 +762,7 @@ header {
         }
       }
     }
+  
   }
 
   #toc-toggle {
