@@ -397,7 +397,7 @@ body.prose-page {
   main {
     font-size: var(--paragraph-font-size);
     min-height: 100vh;
-    padding-top: 45px;
+    padding-top: 30px;
     margin: 0 auto;
     max-width: var(--main-max-width);
     display: flex;
@@ -406,7 +406,7 @@ body.prose-page {
   }
 
   article {
-    padding: 45px 15px 30px;
+    padding: 30px 15px;
     font-size: var(--paragraph-font-size);
     line-height: var(--paragraph-line-height);
   }
@@ -605,7 +605,7 @@ body.homepage {
   }
 
   #brief {
-    padding: 0 15px 3em;
+    padding: 0 15px 2em;
     font-size: 1em;
     line-height: var(--homepage-line-height);
   }
@@ -613,50 +613,6 @@ body.homepage {
 
 /* header
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-dialog#rss-mask {
-  margin: 12.5px auto;
-  padding: 0px;
-  border: none;
-  overflow: visible;
-  background: transparent;
-  
-  &::backdrop {
-    background-color: initial;
-    -webkit-backdrop-filter: blur(24px);
-    backdrop-filter: blur(24px);
-  }
-  
-  div {
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1em;
-  }
-
-  a {
-    border-bottom: 1.5px solid var(--primary-color);
-    color: var(--primary-color);
-    text-decoration: none;
-    line-height: 1.5;
-    line-break: anywhere;
-  }
-  
-  button {
-    width: var(--icon-size);
-    height: var(--icon-size);
-    background: transparent;
-    border: none;
-    color: var(--text-pale-color);
-    padding: 0;
-    cursor: pointer;
-    &.copied, &:hover {
-      color: var(--primary-color);
-    }
-  }
-}
 
 header {
   z-index: 99;
@@ -779,6 +735,53 @@ header {
     }
   }
 }
+  
+/* rss mask
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+dialog#rss-mask {
+  margin: 12.5px auto;
+  padding: 0px;
+  border: none;
+  overflow: visible;
+  background: transparent;
+  
+  &::backdrop {
+    background-color: initial;
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+  }
+  
+  div {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  a {
+    border-bottom: 1.5px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    line-height: 1.5;
+    line-break: anywhere;
+  }
+  
+  button {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background: transparent;
+    border: none;
+    color: var(--text-pale-color);
+    padding: 0;
+    cursor: pointer;
+    &.copied, &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
 
 /* footer
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -832,7 +835,7 @@ body.blog {
   }
 
   main {
-    margin: 60px 0;
+    margin: 45px 0;
   }
 }
 
@@ -1151,7 +1154,7 @@ body.projects {
 
   main {
     width: 100%;
-    margin: 90px auto 40px;
+    margin: 75px auto 0px;
   }
 
   .proj {
@@ -1168,7 +1171,7 @@ body.projects {
 
         @media screen and (max-width: 425px) {
           & {
-            max-height: 80px;
+            max-height: 100px;
           }
         }
       }
