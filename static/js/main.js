@@ -118,11 +118,14 @@ function enableTocToggle() {
   const header = document.querySelector('header');
   const blurred = header.classList.contains('blur');
   const aside = document.querySelector('aside');
-  tocToggle.addEventListener('click', () => {
+  const anchors = aside.querySelectorAll('a');
+  const toggle = () => {
     tocToggle.classList.toggle('active');
     aside.classList.toggle('shown');
     if (blurred) header.classList.toggle('blur');
-  });
+  };
+  tocToggle.addEventListener('click', toggle);
+  anchors.forEach(header => header.addEventListener('click', toggle));
 }
 
 function enableTocIndicate() {
@@ -131,14 +134,14 @@ function enableTocIndicate() {
   const headers = document.querySelectorAll('h2, h3');
   const tocMap = new Map();
   headers.forEach(header => tocMap.set(header, toc.querySelector(`a[href="#${header.id}"]`)));
-  let actived = null;
+  let activated = null;
   const observer = new IntersectionObserver((entries) => entries.forEach(entry => {
     if (entry.isIntersecting) {
       const target = tocMap.get(entry.target);
-      if (target == actived) return;
-      if (actived) actived.classList.remove('active');
+      if (target == activated) return;
+      if (activated) activated.classList.remove('active');
       target.classList.add('active');
-      actived = target;
+      activated = target;
     }
   }), { rootMargin: '-9% 0px -90% 0px' });
   headers.forEach(header => observer.observe(header));
