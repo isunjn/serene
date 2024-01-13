@@ -602,9 +602,14 @@ body.homepage {
   }
 
   #brief {
-    padding: 0 15px 2em;
+    padding: 0 15px 3em;
     font-size: 1em;
     line-height: var(--homepage-line-height);
+    @media (max-width: 425px) {
+      & {
+        padding-bottom: 1.5em;
+      }
+    }
   }
 }
 
