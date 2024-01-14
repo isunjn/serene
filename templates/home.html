@@ -8,7 +8,7 @@
 {% endblock desc %}
 
 {% block head %}
-{% if config.markdown.highlight_theme == "css" %}
+{% if config.extra.homepage_layout == "about" and config.markdown.highlight_theme == "css" %}
 <link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
 {% endif %}
 {% if section.extra.math %}
