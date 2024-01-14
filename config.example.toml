@@ -1,4 +1,4 @@
-# serene v2.3.0
+# serene v3.0.0
 #
 # - docs: https://github.com/isunjn/serene/blob/latest/USAGE.md
 # - check for updates: https://github.com/isunjn/serene/releases
@@ -53,7 +53,7 @@ links = [                             # Your links
 
 homepage_layout = "about"             # "about" | "list" | "recent"
 
-recent_max = 5
+recent_max = 15
 recent_more = true
 recent_more_text = "more »"
 

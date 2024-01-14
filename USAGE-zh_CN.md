@@ -131,7 +131,7 @@ Hi, My name is ....
 
 ## 配置
 
-### Favicons
+### Favicon
 
 在 `myblog/static` 下新建目录 `img` ，放置 favicon 相关图片，你可以使用类似 [favicon.io](https://favicon.io/favicon-converter/) 这样的工具在线生成
 
@@ -152,7 +152,7 @@ Hi, My name is ....
 
 - 将 `myblog/themes/serene/static/icon` 复制到 `myblog/static/icon`，links 中的 icon 值为其中的 svg 文件的文件名，不包含 `.svg` 后缀
 
-- 找到你想要的 icon 的 svg 文件，修改其宽高为 24，颜色为 currentColor: `... width="24" height="24" ... fill="currentColor" ...`
+- 找到你想要的 icon 的 svg 文件，修改其宽高为 20，颜色为 `currentColor`: `... width="20" height="20" ... fill="currentColor" ...`
 
 - 默认图标来自 [Remix Icon](https://remixicon.com/)
 
@@ -180,13 +180,14 @@ Hi, My name is ....
 
 - Serene 有一个 projects 页面，可以在其上展示你的项目、产品等信息
 
-- 在 `config.toml` 中设置 `projects_page = true` ，在 `myblog/content/projects/` 下新建一个 `data.toml` ，在其中添加项目信息，格式如下：
+- 在 `config.toml` 中设置 `projects_page = true` ，在 `myblog/content/projects/` 下新建一个 `data.toml` ，在其中添加项目信息，格式如下, 其中 `img` 是可选项：
 
   ```toml
   [[project]]
   name = ""
   desc = ""
   tags = ["", ""]
+  img = ""
   links = [
     { name = "", url = "" },
     { name = "", url = "" },
@@ -196,6 +197,7 @@ Hi, My name is ....
   name = ""
   desc = ""
   tags = ["", ""]
+  img = ""
   links = [
     { name = "", url = "" },
     { name = "", url = "" },
@@ -241,9 +243,12 @@ Hi, My name is ....
 
 ### 首页布局
 
-- 主页默认显示 `myblog/content/_index.md` 的 markdown 内容
+- 可通过 `config.toml` 中的 `homepage_layout` 改变首页布局
 
-- 可以将 `config.toml` 中的 `homepage_layout` 从 `about` 更改为 `list`，这样博客文章列表将直接显示在首页中
+  - `about`: 显示 `myblog/content/_index.md` 的 markdown 内容
+  - `list`: 显示和 `/blog` 相同的文章列表, 支持按 category 分类
+  - `recent`: 只显示最近的几篇文章
+
 
 ## 写作
 
@@ -272,6 +277,7 @@ Hi, My name is ....
   outdate_alert_days = 120
   display_tags = true
   truncate_summary = false
+  featured = false
   +++
 
   new post about something...
@@ -282,6 +288,10 @@ Hi, My name is ....
   ```
 
 - 你可以添加一行`<!-- more -->`, 在其前面的内容会成为文章的总结/描述, 可以设置 `truncate_summary = true` 来让其在最终的文章网页上不显示
+
+- 设置了 `featured = true` 的文章在列表中标题前方会显示一个 `*`, 可以用来标记你“最希望读者阅读”/“最有价值”的文章
+
+- 如果设置了文章列表按分类展示, 默认会按字母序排序, 可以在分类名前方加上 `__[0-9]{2}__` 这种形式的前缀来手动设置顺序, 例如 `categories = ["__01__Balabala"]`
 
 - 文章文件在 `myblog/content/blog` 下创建，写完后将 draft 改为 false 即可
 

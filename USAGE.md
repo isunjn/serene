@@ -90,6 +90,7 @@ Serene also support a special template called `prose.html`, it applies the same 
 title = "About me"
 description = "A about page of ..."
 template = "prose.html"
+insert_anchor_links = "none"
 
 [extra]
 lang = 'en'
@@ -129,7 +130,7 @@ Now the myblog directory may looks like this:
 
 ## Configuration
 
-### Favicons
+### Favicon
 
 - Create a new directory `img` under `myblog/static`, put favicon related files here, you can use tools like [favicon.io](https://favicon.io/favicon-converter/) to generate those files
 
@@ -150,9 +151,9 @@ Now the myblog directory may looks like this:
 
 - Copy `myblog/themes/serene/static/icon` directory to `myblog/static/icon`, the icon value in `links` is the file name of the svg file in it, without the `.svg` suffix
 
-- Find the svg file of the icon you want, modify its width and height to 24, and the color to currentColor:
+- Find the svg file of the icon you want, modify its width and height to 20, and the color to `currentColor`:
 
-  `... width="24" height="24" ... fill="currentColor" ...`
+  `... width="20" height="20" ... fill="currentColor" ...`
 
 - The default icons came from [Remix Icon](https://remixicon.com/)
 
@@ -180,13 +181,14 @@ Now the myblog directory may looks like this:
 
 - Serene has a projects page where you can showcase your projects, products, etc.
 
-- Create a new `data.toml` under `myblog/content/projects/`, add projects information in it, the format is as follows:
+- Create a new `data.toml` under `myblog/content/projects/`, add projects information in it, the format is as follows, `img` is optional:
 
   ```toml
   [[project]]
   name = ""
   desc = ""
   tags = ["", ""]
+  img = ""
   links = [
     { name = "", url = "" },
     { name = "", url = "" },
@@ -196,6 +198,7 @@ Now the myblog directory may looks like this:
   name = ""
   desc = ""
   tags = ["", ""]
+  img = ""
   links = [
     { name = "", url = "" },
     { name = "", url = "" },
@@ -241,9 +244,11 @@ Now the myblog directory may looks like this:
 
 ### Homepage layout
 
-- By default, homepage displays markdown content of your `myblog/content/_index.md`
+- You can change the layout of the homepage by using the `homepage_layout` in `config.toml`
 
-- You can change `homepage_layout` in `config.toml` from `about` to `list`, then the blog post list will be displayed directly in the homepage
+  - `about`: displays markdown content of your `myblog/content/_index.md`
+  - `list`: the whole post list, can be categorized
+  - `recent`: only a few recent posts
 
 ## Writing
 
@@ -272,6 +277,7 @@ Now the myblog directory may looks like this:
   outdate_alert_days = 120
   display_tags = true
   truncate_summary = false
+  featured = false
   +++
 
   new post about something...
@@ -282,6 +288,10 @@ Now the myblog directory may looks like this:
   ```
 
 - You can add a `<!-- more -->` line, the content before it will become the summary/description of the post. You can set `truncate_summary = true` to remove the summary from the post webpage.
+
+- A post marked `featured = true` will display a `*` mark in front of it in list, you can use this to mark a post as "most worthy to read"  
+
+- If you set `blog_categorized = true`, posts will be sorted alphabetically by default, you can manually set the order by adding the prefix of `__[0-9]{2}__` in front of the category name, for example, `categories = ["__01__Balabala"]`
 
 - Post files are created under `myblog/content/blog`, after done writing, change `draft` to false
 

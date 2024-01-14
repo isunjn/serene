@@ -1,14 +1,8 @@
 public/
-
 content/
-
-!content/_index.md
-
 static/img/
-
+static/hl-light.css
+static/hl-dark.css
 config.toml
 
 .DS_Store
-
-static/hl-light.css
-static/hl-dark.css

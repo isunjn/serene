@@ -1,6 +1,6 @@
-<img width="1501" alt="screenshot" src="https://github.com/isunjn/serene/assets/60461730/c3192aa5-945b-49f4-816d-861501d940ae">
+<img width="1501" alt="screenshot" src="https://github.com/isunjn/serene/assets/60461730/61b9ff3d-6ed3-4062-8872-1f3a3d9b60a7">
 
-<br /><br />
+<br />
 
 A blog theme for [zola](https://www.getzola.org), simple and clean
 
@@ -16,7 +16,7 @@ A blog theme for [zola](https://www.getzola.org), simple and clean
 - Image zooming
 - Out-of-date alert
 - Sticky table-of-contents
-- Callouts (note, warning, alert, etc.)
+- Callout (note, warning, alert, etc.)
 - Comments using [Giscus](https://giscus.app)
 - Mathematical notations using [KaTeX](https://katex.org)
 - Diagrams and visualizations using [Mermaid](https://github.com/mermaid-js/mermaid)
@@ -25,7 +25,3 @@ A blog theme for [zola](https://www.getzola.org), simple and clean
 
 - Check the [USAGE.md](https://github.com/isunjn/serene/blob/latest/USAGE.md) of `latest` branch
 - Also available in Simplified Chinese: [USAGE-zh_CN.md](https://github.com/isunjn/serene/blob/latest/USAGE-zh_CN.md) (简体中文)
-
-## Contributing
-
-- Before you make any non-trivial changes, you may want to open an issue so we can discuss

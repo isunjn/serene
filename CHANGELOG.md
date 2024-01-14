@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - 2024-01-14
+
+> **Warning**
+> This version contains several breaking changes.
+> If you came from a previous version and want to upgrade, I suggest you start all over again.
+
+### Add:
+
+- `recent` homepage layout
+- `featured` mark
+- Add title to ToC when it's too long 
+- A way to sort categories
+- Project item image
+- prerender/prefetch when hover, using `speculationrules` or `prefetch` 
+- RSS mask
+- A few more css variables
+
+### Fix:
+
+- Theme init logic
+- Mobile sidebar ui
+
+### UI:
+
+- A few tweaks
+- Default icon size set to 20 (You should re-copy the `static/icon` folder)
+
+
 ## [2.3.0] - 2024-01-09
 
 ### Fix:
@@ -149,6 +177,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[3.0.0]: https://github.com/isunjn/serene/compare/v2.3.0...v3.0.0
 [2.3.0]: https://github.com/isunjn/serene/compare/v2.2.1...v2.3.0
 [2.2.1]: https://github.com/isunjn/serene/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/isunjn/serene/compare/v2.1.2...v2.2.0
