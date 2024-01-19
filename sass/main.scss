@@ -167,6 +167,7 @@ body::-webkit-scrollbar {
     color: var(--primary-color);
     background-color: var(--inline-code-bg-color);
     border-radius: var(--inline-code-border-radius);
+    word-wrap: break-word;
   }
 
   pre {
