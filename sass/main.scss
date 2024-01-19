@@ -385,6 +385,37 @@ body::-webkit-scrollbar {
       border-color: var(--callout-tip-color);
     }
   }
+  
+  .quote {
+    border: none;
+    position: relative;
+    margin: 2em 0;
+    padding: 1em 0 0 1em;
+    
+    .icon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: scale(1.75);
+    }
+
+    .content > p:first-of-type {
+      margin-top: 0;
+    }
+    .content > p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .from {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 0.5em;
+      p {
+        margin: 0;
+      }
+    }
+  }
 
   .mermaid {
     background: #fff;

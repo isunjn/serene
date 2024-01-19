@@ -1,0 +1,10 @@
+<blockquote class="quote">
+  {% set icon = load_data(path="static/icon/quote.svg") %}
+  <div class="icon">{{ icon | safe }}</div>
+  <div class="content">{{ body | markdown | safe }}</div>
+  {% if cite %}
+  <div class="from">
+    {{ "— " ~ cite | markdown | safe }}
+  </div>
+  {% endif %}
+</blockquote>
