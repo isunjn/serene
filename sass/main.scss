@@ -416,6 +416,16 @@ body::-webkit-scrollbar {
       }
     }
   }
+  
+  details {
+    border: 1.5px solid var(--detail-border-color);
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    
+    summary span {
+      margin-left: 0.25em;
+    }
+  }
 
   .mermaid {
     background: #fff;
