@@ -320,6 +320,22 @@ Now the myblog directory may looks like this:
   ```md
   {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
   ```
+ 
+- Special quote, `cite` is optional:
+
+  ```md
+  {% quote(cite="") %}
+  // content...
+  {% end %}
+  ```
+
+- Expandable detail, `default_open` is optional:
+
+  ```md
+  {% detail(title="", default_open=false) %}
+  // content...
+  {% end %}
+  ```
 
 ### Callout
 

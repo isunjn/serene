@@ -322,6 +322,23 @@ Hi, My name is ....
   {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
   ```
 
+- 特殊引用，`cite` 可选：
+
+  ```md
+  {% quote(cite="") %}
+  // content...
+  {% end %}
+  ```
+
+- 可折叠 detail，`default_open` 可选：
+
+  ```md
+  {% detail(title="", default_open=false) %}
+  // content...
+  {% end %}
+  ```
+
+
 ### Callout
 
 - Serene 还使用 Shortcodes 实现了 Callout, 效果如示例站点的 [这个页面](https://serene-demo-site.vercel.app/blog/callouts) 所示，目前共有 6 种：`note` `important` `warning` `alert` `question` `tip`，格式如下，header 属性是可选的：

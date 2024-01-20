@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0] - 2024-01-20
+
+### Add:
+
+- New shortcode: `quote` and `detail`
+
+### Fix:
+
+- Add `word-wrap: break-word` to inline code 
+
+
 ## [3.0.0] - 2024-01-14
 
 > **Warning**
@@ -177,6 +188,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[3.1.0]: https://github.com/isunjn/serene/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/isunjn/serene/compare/v2.3.0...v3.0.0
 [2.3.0]: https://github.com/isunjn/serene/compare/v2.2.1...v2.3.0
 [2.2.1]: https://github.com/isunjn/serene/compare/v2.2.0...v2.2.1
