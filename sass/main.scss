@@ -393,6 +393,7 @@ body::-webkit-scrollbar {
     padding: 1em 0 0 1em;
     
     .icon {
+      display: block !important;
       position: absolute;
       left: 0;
       top: 0;
