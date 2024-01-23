@@ -433,6 +433,10 @@ body::-webkit-scrollbar {
   }
 }
 
+body.dark .prose img {
+  filter: brightness(var(--dark-mode-img-brightness));
+}
+
 /* prose pages
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
