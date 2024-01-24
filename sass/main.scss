@@ -1321,15 +1321,9 @@ body.not-found {
   .error {
     display: flex;
     align-items: center;
-    font-size: 1.25em;
+    gap: 1em;
+    font-size: 1.5em;
     color: var(--text-pale-color);
-  }
-
-  .spacer {
-    background: var(--text-pale-color);
-    width: 2px;
-    height: 0.75em;
-    margin: 0 0.75em;
   }
 
   a {
