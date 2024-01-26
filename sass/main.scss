@@ -433,8 +433,13 @@ body::-webkit-scrollbar {
   }
 }
 
-body.dark .prose img {
-  filter: brightness(var(--dark-mode-img-brightness));
+body.dark .prose {
+  img {
+    filter: brightness(var(--dark-mode-img-brightness));
+  }
+  .mermaid {
+    filter: brightness(var(--dark-mode-chart-brightness));
+  }
 }
 
 /* prose pages
