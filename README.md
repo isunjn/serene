@@ -2,7 +2,7 @@
 
 <br />
 
-A blog theme for [zola](https://www.getzola.org), simple and clean
+A well-crafted blog theme for [zola](https://www.getzola.org)
 
 ## Demo
 
@@ -10,7 +10,7 @@ A blog theme for [zola](https://www.getzola.org), simple and clean
 
 ## Features
 
-- A spiffy design, well crafted
+- A spiffy design, simple and clean
 - Projects page
 - Dark mode
 - Image zooming

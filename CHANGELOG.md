@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.0] - 2024-01-26
+
+### Add:
+
+- Dark mode img/chart brightness option
+
 ## [3.1.0] - 2024-01-20
 
 ### Add:
@@ -188,6 +194,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[3.2.0]: https://github.com/isunjn/serene/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/isunjn/serene/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/isunjn/serene/compare/v2.3.0...v3.0.0
 [2.3.0]: https://github.com/isunjn/serene/compare/v2.2.1...v2.3.0
