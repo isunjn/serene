@@ -3,7 +3,7 @@ description = "A blog theme for zola, simple and clean"
 license = "MIT"
 homepage = "https://github.com/isunjn/serene"
 min_version = "0.9.0"
-demo = "https://serene-demo-site.vercel.app"
+demo = "https://serene-demo.pages.dev"
 
 [author]
 name = "isunjn"

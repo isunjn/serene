@@ -226,7 +226,7 @@ Hi, My name is ....
 
 ### 字体
 
-- <del>Serene 默认使用 [Google Fonts](https://fonts.google.com/) 的 Signika 字体，</del>如需自定义字体，新建 `myblog/templates/_custom_font.html` 并将从 Google Fonts 复制的字体样式表 link 标签放入其中，然后修改 `myblog/sass/main.scss` 中的 `--main-font` 或者 `--code-font`. 
+- <del>Serene 默认使用 [Google Fonts](https://fonts.google.com/) 的 Signika 字体，</del>如需自定义字体，新建 `myblog/templates/_custom_font.html` 并将从 Google Fonts 复制的字体样式表 link 标签放入其中，然后修改 `myblog/sass/main.scss` 中的 `--main-font` 或者 `--code-font`.
 
 - 为了进一步提高网站速度, 你也可以选择自己托管字体文件(可选):
   1. 打开 [google-webfonts-helper](https://gwfh.mranftl.com) 并选择一个字体
@@ -261,11 +261,11 @@ Hi, My name is ....
   title = ""
   date = 2022-01-01
   draft = true
-  
+
   [taxonomies]
   categories = ["one"]
   tags = ["one", "two", "three"]
-  
+
   [extra]
   lang = "en"
   toc = true
@@ -341,7 +341,7 @@ Hi, My name is ....
 
 ### Callout
 
-- Serene 还使用 Shortcodes 实现了 Callout, 效果如示例站点的 [这个页面](https://serene-demo-site.vercel.app/blog/callouts) 所示，目前共有 6 种：`note` `important` `warning` `alert` `question` `tip`，格式如下，header 属性是可选的：
+- Serene 还使用 Shortcodes 实现了 Callout, 效果如示例站点的 [这个页面](https://serene-demo.pages.dev/blog/callouts) 所示，目前共有 6 种：`note` `important` `warning` `alert` `question` `tip`，格式如下，header 属性是可选的：
 
   ```md
   {% note(header="Note") %}

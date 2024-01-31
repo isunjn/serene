@@ -227,9 +227,9 @@ Now the myblog directory may looks like this:
 
 ### Fonts
 
-- <del>Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default.</del> If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`. 
+- <del>Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default.</del> If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`.
 
-- For performance reason, you may want to self-host font files (optional): 
+- For performance reason, you may want to self-host font files (optional):
   1. Open [google-webfonts-helper](https://gwfh.mranftl.com) and choose your font
   2. Modify `Customize folder prefix` of step 3 to `/font/` and then copy the css
   3. Replace the content of `myblog/templates/_custom_font.html` with a `<style> </style>` tag, with the css you just copied in it.
@@ -261,11 +261,11 @@ Now the myblog directory may looks like this:
   title = ""
   date = 2022-01-01
   draft = true
-  
+
   [taxonomies]
   categories = ["one"]
   tags = ["one", "two", "three"]
-  
+
   [extra]
   lang = "en"
   toc = true
@@ -289,7 +289,7 @@ Now the myblog directory may looks like this:
 
 - You can add a `<!-- more -->` line, the content before it will become the summary/description of the post. You can set `truncate_summary = true` to remove the summary from the post webpage.
 
-- A post marked `featured = true` will display a `*` mark in front of it in list, you can use this to mark a post as "most worthy to read"  
+- A post marked `featured = true` will display a `*` mark in front of it in list, you can use this to mark a post as "most worthy to read"
 
 - If you set `blog_categorized = true`, posts will be sorted alphabetically by default, you can manually set the order by adding the prefix of `__[0-9]{2}__` in front of the category name, for example, `categories = ["__01__Balabala"]`
 
@@ -320,7 +320,7 @@ Now the myblog directory may looks like this:
   ```md
   {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
   ```
- 
+
 - Special quote, `cite` is optional:
 
   ```md
@@ -339,7 +339,7 @@ Now the myblog directory may looks like this:
 
 ### Callout
 
-- Serene also uses shortcodes to implement callouts, the effect is shown in [this page](https://serene-demo-site.vercel.app/blog/callouts) of the demo site, there are currently 6 types: `note` `important ` `warning` `alert` `question` `tip`, the format is as follows, the header attribute is optional:
+- Serene also uses shortcodes to implement callouts, the effect is shown in [this page](https://serene-demo.pages.dev/blog/callouts) of the demo site, there are currently 6 types: `note` `important ` `warning` `alert` `question` `tip`, the format is as follows, the header attribute is optional:
 
   ```md
   {% note(header="Note") %}
