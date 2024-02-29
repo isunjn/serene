@@ -97,6 +97,11 @@ body::-webkit-scrollbar {
     border-bottom: 1.5px solid var(--primary-color);
     color: var(--primary-color);
     text-decoration: none;
+    overflow-wrap: anywhere;
+
+    &:hover {
+      opacity: 0.85;
+    }
   }
 
   img {
@@ -119,7 +124,7 @@ body::-webkit-scrollbar {
   blockquote {
     border-left: 2px var(--text-pale-color) solid;
     padding-left: 16px;
-    margin: 0 0 24px 0;
+    margin: 1em 0;
     color: var(--text-pale-color);
   }
   
@@ -333,11 +338,13 @@ body::-webkit-scrollbar {
 
   .callout {
     line-height: inherit;
-    margin-bottom: 20px;
+    margin: 1.25em 0;
     border: 1.5px solid var(--primary-color);
+    border-radius: var(--callout-border-radius);
     padding: 6px 12px;
     display: flex;
     gap: 12px;
+    overflow: auto;
 
     .icon {
       height: 1.75em;
@@ -390,14 +397,13 @@ body::-webkit-scrollbar {
     border: none;
     position: relative;
     margin: 2em 0;
-    padding: 1em 0 0 1em;
+    padding: 1em 0 0 1.25em;
     
     .icon {
       display: block !important;
       position: absolute;
       left: 0;
       top: 0;
-      transform: scale(1.75);
     }
 
     .content > p:first-of-type {
@@ -420,6 +426,7 @@ body::-webkit-scrollbar {
   
   details {
     border: 1.5px solid var(--detail-border-color);
+    border-radius: var(--detail-border-radius);
     margin: 1em 0;
     padding: 0.5em 1em;
     
@@ -490,7 +497,7 @@ body.prose-page {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 5px;
+    gap: 0.5em;
     padding: 4px 0px;
     margin: 8px 0;
     font-size: 1em;
