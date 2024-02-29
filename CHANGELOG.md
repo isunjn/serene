@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.3.0] - 2024-03-01
+
+### Add:
+
+- New css variables: `--callout-border-radius` `--detail-border-radius`
+
+### Fix:
+
+- Overflow issue on mobile screens
+
+### UI:
+
+- Update quote icon
+- A few tweaks
+
 ## [3.2.0] - 2024-01-26
 
 ### Add:
@@ -194,6 +209,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[3.3.0]: https://github.com/isunjn/serene/compare/v3.2.0...v3.3.0
 [3.2.0]: https://github.com/isunjn/serene/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/isunjn/serene/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/isunjn/serene/compare/v2.3.0...v3.0.0
