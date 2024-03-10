@@ -184,24 +184,13 @@ entity.name.class, entity.name.type.class, support.type, support.class</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Diff foreground</string>
-			<key>scope</key>
-			<string>markup.inserted.diff, markup.deleted.diff, meta.diff.header.to-file, meta.diff.header.from-file</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#FFFFFF</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
 			<string>Diff insertion</string>
 			<key>scope</key>
 			<string>markup.inserted.diff, meta.diff.header.to-file</string>
 			<key>settings</key>
 			<dict>
-				<key>background</key>
-				<string>#65C23A66</string>
+				<key>foreground</key>
+				<string>#229545</string>
 			</dict>
 		</dict>
 		<dict>
@@ -211,7 +200,7 @@ entity.name.class, entity.name.type.class, support.type, support.class</string>
 			<string>markup.deleted.diff, meta.diff.header.from-file</string>
 			<key>settings</key>
 			<dict>
-				<key>background</key>
+				<key>foreground</key>
 				<string>#C8282966</string>
 			</dict>
 		</dict>
@@ -223,8 +212,6 @@ entity.name.class, entity.name.type.class, support.type, support.class</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FFFFFF</string>
-				<key>background</key>
 				<string>#4271ae</string>
 			</dict>
 		</dict>

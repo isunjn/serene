@@ -86,7 +86,7 @@ entity.name.class, entity.name.type.class, support.type, support.class</string>
 				<key>fontStyle</key>
 				<string></string>
 				<key>foreground</key>
-				<string>#6A8F8A</string>
+				<string>#83aaa5</string>
 			</dict>
 		</dict>
 		<dict>
@@ -110,7 +110,7 @@ entity.name.class, entity.name.type.class, support.type, support.class</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#6A8F8A</string>
+				<string>#83aaa5</string>
 			</dict>
 		</dict>
 		<dict>
@@ -201,9 +201,7 @@ entity.name.class, entity.name.type.class, support.type, support.class</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#5FE375</string>
-				<key>background</key>
-				<string>#00000000</string>
+				<string>#4baf5c</string>
 			</dict>
 		</dict>
 		<dict>
@@ -225,8 +223,6 @@ entity.name.class, entity.name.type.class, support.type, support.class</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FFFFFF</string>
-				<key>background</key>
 				<string>#4271ae</string>
 			</dict>
 		</dict>

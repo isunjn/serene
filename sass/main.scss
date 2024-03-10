@@ -100,7 +100,7 @@ body::-webkit-scrollbar {
     overflow-wrap: anywhere;
 
     &:hover {
-      opacity: 0.85;
+      opacity: 0.8;
     }
   }
 
@@ -126,6 +126,11 @@ body::-webkit-scrollbar {
     padding-left: 16px;
     margin: 1em 0;
     color: var(--text-pale-color);
+  }
+
+  ol,
+  ul {
+    padding-left: 1.5em;
   }
   
   li {
@@ -397,7 +402,7 @@ body::-webkit-scrollbar {
     border: none;
     position: relative;
     margin: 2em 0;
-    padding: 1em 0 0 1.25em;
+    padding: 1.5em 0 0 1.25em;
     
     .icon {
       display: block !important;
@@ -968,6 +973,7 @@ body.post {
 
         border-bottom: 1.5px solid transparent;
         &:hover {
+          opacity: 1;
           border-bottom-color: var(--primary-color);
         }
       }
