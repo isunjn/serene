@@ -11,7 +11,7 @@
 {% include "_header.html" %}
 <div id="wrapper">
   <main>
-    {% set data = load_data(path="content/projects/data.toml", format="toml") %}
+    {% set data = load_data(path="content" ~ section.path ~ "data.toml", format="toml") %}
     {% for proj in data.project %}
     <div class="proj">
       <div class="content">
