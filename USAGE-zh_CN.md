@@ -351,11 +351,11 @@ Hi, My name is ....
 
 - 如果读者通过 RSS 阅读你的文章，这些 Callouts 将会显示为普通的 `<blockquote>`
 
-### KaTeX
+### 数学公式
 
-- 在文章 front matter 中设置 `math = true` 开启 [KaTeX](https://katex.org/) 支持
+- 在文章 front matter 中设置 `math = true` 或 `math = "katex"` 开启 [KaTeX](https://katex.org/) 支持. KaTex环境下使用 `$...$` 标记行内公式，`$$...$$` 标记块级公式。
 
-- 行内公式 `$...$`，块级公式 `$$...$$`
+- 设置`math = typst` 开启[Typst](https://typst.app/) 支持. Typst环境下使用 `$...$` 标记行内公式，`$` 内侧两端加空格标记块级公式，如果需要输入 `$` 字符使用 `\\$`。
 
 ### Mermaid
 
