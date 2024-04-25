@@ -349,11 +349,11 @@ Now the myblog directory may looks like this:
 
 - If people read your posts via rss reader, these callouts will appear as normal `<blockquote>`
 
-### Maths
+### Math
 
-- Set `math = true` or `math = katex`in the front matter to enable [KaTeX](https://katex.org/).With KaTex use `$...$` for inline formula, while `$$...$$` for block-level formula.
+- Set `math = true` or `math = "katex"`in the front matter to enable formula rending with [KaTeX](https://katex.org/): `$...$` for inline formula, `$$...$$` for block-level formula.
 
-- Set `math = typst` to render math text in [Typst](https://typst.app/) form. In typst `$...$` is for inline formula and `$ ... $` (insert space at start and end) is for block-level formula. `\\$` will be taken as single character "$".
+- Set `math = "typst"` to enable formula rendering with [Typst](https://typst.app/): `$...$` for inline formula, `$ ... $` (insert space at start and end) for block-level formula.
 
 ### Mermaid
 
