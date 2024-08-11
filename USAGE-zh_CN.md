@@ -59,7 +59,7 @@ sort_by = "date"
 template = "blog.html"
 page_template = "post.html"
 insert_anchor_links = "right"
-generate_feed = true
+generate_feeds = true
 
 [extra]
 lang = 'en'
@@ -170,9 +170,9 @@ Hi, My name is ....
 
 ### RSS
 
-- 你可以为你的站点添加 RSS，Zola 默认的 feed 文件位于站点的根目录，在 `config.toml` 设置 `generate_feed = true` ，`feed_filename` 可以设置为 `atom.xml` 或 `rss.xml` ，对应两种不同的 rss 文件标准， `myblog/content/blog/_index.md` 中设置 `generate_feed = false`
+- 你可以为你的站点添加 RSS，Zola 默认的 feed 文件位于站点的根目录，在 `config.toml` 设置 `generate_feeds = true` ，`feed_filenames` 可以设置为 `["atom.xml"]` 或 `["rss.xml"]` ，对应两种不同的 rss 文件标准， `myblog/content/blog/_index.md` 中设置 `generate_feeds = false`
 
-- Serene 主题风格更像个人网站，文章在 `/blog` 目录下，你可能希望 feed 文件在 `/blog` 目录下而不是根目录下，这需要你在 `config.toml` 中设置 `generate_feed = false`、 `feed_filename = "feed.xml"` 并在 `myblog/content/blog/_index.md` 中设置 `generate_feed = true`
+- Serene 主题风格更像个人网站，文章在 `/blog` 目录下，你可能希望 feed 文件在 `/blog` 目录下而不是根目录下，这需要你在 `config.toml` 中设置 `generate_feeds = false`、 `feed_filenames = ["feed.xml"]` 并在 `myblog/content/blog/_index.md` 中设置 `generate_feeds = true`
 
 - `feed.xml` 使用 `myblog/content/blog/_index.md` 中的 `title` 和 `description`，其他两个则是使用 `config.toml` 中的
 
