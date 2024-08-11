@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0] - 2024-08-11
+
+- Deal with breaking changes of zola 19 config options: 
+>  - Changed config options named `generate_feed` to `generate_feeds` (both in config.toml and in section front-matter)
+>  - Changed config option `feed_filename: String` to `feed_filenames: Vec<String>`
+
 ## [3.4.0] - 2024-04-25
 
 ### Add: 
@@ -226,6 +232,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[4.0.0]: https://github.com/isunjn/serene/compare/v3.4.0...v4.0.0
 [3.4.0]: https://github.com/isunjn/serene/compare/v3.3.1...v3.4.0
 [3.3.1]: https://github.com/isunjn/serene/compare/v3.3.0...v3.3.1
 [3.3.0]: https://github.com/isunjn/serene/compare/v3.2.0...v3.3.0
