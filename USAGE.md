@@ -10,6 +10,18 @@ Enter the directory:
 cd myblog
 ```
 
+Before proceeding, check if you're already in a Git repository by running:
+
+```sh
+git status
+```
+
+If it says "not a git repository," initialize a new one with:
+
+```sh
+git init
+```
+
 Add the serene theme:
 
 ```sh
