@@ -249,6 +249,9 @@ Hi, My name is ....
   - `list`: 显示和 `/blog` 相同的文章列表, 支持按 category 分类
   - `recent`: 只显示最近的几篇文章
 
+### 强制主题
+
+通过在 `config.toml` 中设置 `force_theme`，可以始终使用浅色或深色主题。设置为 `"light"` 或 `"dark"` 时，无论操作系统或浏览器设置如何，都会始终使用该主题。设置 `force_theme` 还会隐藏 `links` 图标右侧的主题切换按钮。
 
 ## 写作
 

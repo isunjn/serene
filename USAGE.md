@@ -250,6 +250,11 @@ Now the myblog directory may looks like this:
   - `list`: the whole post list, can be categorized
   - `recent`: only a few recent posts
 
+
+### Forced Theme
+
+- It's possible to always use either the light or dark theme by setting `force_theme` in `config.toml`. When set to `"light"` or `"dark"`, that theme is always used, regardless of any OS or browser setting. Setting `force_theme` also hides the theme toggle button at the right side of the `links` icons.
+
 ## Writing
 
 ### front matter
