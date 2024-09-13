@@ -1,6 +1,6 @@
 function enableThemeToggle() {
   const themeToggle = document.querySelector('#theme-toggle');
-  const themeForce = themeToggle.force_theme;
+  const themeForce = themeToggle.getAttribute('force_theme');
   const hlLink = document.querySelector('link#hl');
   const preferDark = window.matchMedia("(prefers-color-scheme: dark)");
   function toggleTheme(theme) {
