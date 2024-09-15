@@ -49,14 +49,12 @@
       {% endif %}
       {% endif %}
 
-      {% if config.extra.force_theme %}
-        <span id="theme-toggle" force_theme="{{ config.extra.force_theme }}"></span>
-      {% else %}
-        {% set moon_icon = load_data(path="static/icon/moon.svg") %}
-        {% set sun_icon = load_data(path="static/icon/sun.svg") %}
-        <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
-          {{ moon_icon | safe }}
-        </button>
+      {% if not config.extra.force_theme %}
+      {% set moon_icon = load_data(path="static/icon/moon.svg") %}
+      {% set sun_icon = load_data(path="static/icon/sun.svg") %}
+      <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
+        {{ moon_icon | safe }}
+      </button>
       {% endif %}
 
       {% if blog_section_path is defined and section.path is starting_with(blog_section_path) %}

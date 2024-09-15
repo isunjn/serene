@@ -1,12 +1,12 @@
 function enableThemeToggle() {
   const themeToggle = document.querySelector('#theme-toggle');
-  const themeForce = themeToggle.getAttribute('force_theme');
+  if (!themeToggle) return;
   const hlLink = document.querySelector('link#hl');
   const preferDark = window.matchMedia("(prefers-color-scheme: dark)");
   function toggleTheme(theme) {
     if (theme == "dark") document.body.classList.add('dark'); else document.body.classList.remove('dark');
     if (hlLink) hlLink.href = `/hl-${theme}.css`;
-    if (!themeForce) themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
+    themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
     sessionStorage.setItem("theme", theme);
     toggleGiscusTheme(theme);
   }
@@ -20,15 +20,11 @@ function enableThemeToggle() {
     toggleGiscusTheme(sessionStorage.getItem("theme") || (preferDark.matches ? "dark" : "light"));
     window.removeEventListener('message', initGiscusTheme);
   }
-  if (themeForce) {
-    toggleTheme(themeForce);
-  } else {
-    window.addEventListener('message', initGiscusTheme);
-    themeToggle.addEventListener('click', () => toggleTheme(sessionStorage.getItem("theme") == "dark" ? "light" : "dark"));
-    preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "light"));
-    if (!sessionStorage.getItem("theme") && preferDark.matches) toggleTheme("dark");
-    if (sessionStorage.getItem("theme") == "dark") toggleTheme("dark");
-  }
+  window.addEventListener('message', initGiscusTheme);
+  themeToggle.addEventListener('click', () => toggleTheme(sessionStorage.getItem("theme") == "dark" ? "light" : "dark"));
+  preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "light"));
+  if (!sessionStorage.getItem("theme") && preferDark.matches) toggleTheme("dark");
+  if (sessionStorage.getItem("theme") == "dark") toggleTheme("dark");
 }
 
 function enablePrerender() {
@@ -70,7 +66,7 @@ function enableNavFold() {
   toggler.addEventListener('click', () => {
     if (window.innerWidth < 768 && [...foldItems].every(item => !item.classList.contains('shown'))) return;
     foldItems.forEach(item => item.classList.toggle('shown'));
-  });  
+  });
 }
 
 function enableRssMask() {

@@ -18,7 +18,8 @@
   {% include "_head_extend.html" %}
 </head>
 
-<body class="{% block page %}{% endblock page%}">
+<body class="{% block page %}{% endblock page%}{% if config.extra.force_theme == "dark" %}dark{% endif %}">
+  {% if not config.extra.force_theme %}
   <script>
     const theme = sessionStorage.getItem('theme');
     const match = window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -28,6 +29,7 @@
       if (hl) hl.href = '/hl-dark.css';
     }
   </script>
+  {% endif %}
   {% block content %}{% endblock content %}
   {% block script %}{% endblock script %}
   <script src="/js/main.js"></script>

@@ -168,6 +168,10 @@ Hi, My name is ....
 
 - 你可以在[这个网站](https://tmtheme-editor.glitch.me/)上找到一些 TextMate 主题
 
+### 强制亮色或暗色
+
+- 默认情况下有一个主题切换按钮，你可以在 `config.toml` 中设置 `force_theme` 来强制只使用亮色或暗色模式
+
 ### RSS
 
 - 你可以为你的站点添加 RSS，Zola 默认的 feed 文件位于站点的根目录，在 `config.toml` 设置 `generate_feeds = true` ，`feed_filenames` 可以设置为 `["atom.xml"]` 或 `["rss.xml"]` ，对应两种不同的 rss 文件标准， `myblog/content/blog/_index.md` 中设置 `generate_feeds = false`
@@ -216,7 +220,7 @@ Hi, My name is ....
 
 - Serene 支持使用 [Giscus](https://giscus.app) 作为文章评论系统
 
-- 开启此功能需要新建 `myblog/templates/_giscus_script.html` 并将在 Giscus 网站上配置好的 script 放入其中，然后将其中 `data-theme` 的值改为 `https://<your-domain-name>/giscus_light.css`, 将 `<your-domain-name>` 改为你自己的域名，和 `config.toml` 中的 `base_url` 一致
+- 开启此功能需要新建 `myblog/templates/_giscus_script.html` 并将在 Giscus 网站上配置好的 script 放入其中，然后将其中 `data-theme` 的值改为 `https://<your-domain-name>/giscus_light.css`, 将 `<your-domain-name>` 改为你自己的域名，和 `config.toml` 中的 `base_url` 一致，如果你设置了 `force_theme` 为 `dark`，那需要把 `giscus_light.css` 改为 `giscus_dark.css`
 
 - `config.toml` 中的 `comment = true` 设置所有文章开启评论，可以在文章的 front matter 中 `[extra]` 下设置 `comment = false` 控制单篇文章是否显示评论
 
@@ -248,10 +252,6 @@ Hi, My name is ....
   - `about`: 显示 `myblog/content/_index.md` 的 markdown 内容
   - `list`: 显示和 `/blog` 相同的文章列表, 支持按 category 分类
   - `recent`: 只显示最近的几篇文章
-
-### 强制主题
-
-通过在 `config.toml` 中设置 `force_theme`，可以始终使用浅色或深色主题。设置为 `"light"` 或 `"dark"` 时，无论操作系统或浏览器设置如何，都会始终使用该主题。设置 `force_theme` 还会隐藏 `links` 图标右侧的主题切换按钮。
 
 ## 写作
 

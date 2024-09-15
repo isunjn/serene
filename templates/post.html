@@ -22,7 +22,7 @@
 
 {% block head %}
 {% if config.markdown.highlight_theme == "css" %}
-<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-{% if config.extra.force_theme == "dark" %}dark{% else %}light{% endif %}.css" />
 {% endif %}
 {% if page.extra.math %}
   {{ macro_math::math_render(style = page.extra.math) }}

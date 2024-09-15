@@ -50,9 +50,9 @@ links = [                             # Your links
     { name = "Twitter", icon = "twitter", url = "https://twitter.com/<your-username>" },
     { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
 ]
-force_theme = false                   # set to "dark" or "light" to force that theme and disable the toggle button
 
 homepage_layout = "about"             # "about" | "list" | "recent"
+force_theme = false                   # fase | "light" | "dark"
 
 recent_max = 15
 recent_more = true
