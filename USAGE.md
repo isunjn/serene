@@ -169,6 +169,10 @@ Now the myblog directory may looks like this:
 
 - You can find some TextMate themes on [this website](https://tmtheme-editor.glitch.me/).
 
+### Force light or dark
+
+- By default there is theme toggle button to switch between light and dark theme, you can set `force_theme` in `config.toml` to force a specific theme
+
 ### RSS
 
 - You can add rss to your site, Zola's default feed file is located in the root directory of the site, set `generate_feeds = true` in `config.toml`, `feed_filenames` can be set to `["atom.xml"]` or `["rss.xml"] ` , corresponding to two different rss file standards, you should also set `generate_feeds = false` in `myblog/content/blog/_index.md`
@@ -217,7 +221,7 @@ Now the myblog directory may looks like this:
 
 - Serene supports using [giscus](https://giscus.app) as the comment system
 
-- To enable it, you need to create `myblog/templates/_giscus_script.html` and put the script configured on the giscus website into it, then change the value of `data-theme` to `https://<your-domain-name>/giscus_light.css`, replace `<your-domain-name>` with you domain name, same as `base_url` in `config.toml`
+- To enable it, you need to create `myblog/templates/_giscus_script.html` and put the script configured on the giscus website into it, then change the value of `data-theme` to `https://<your-domain-name>/giscus_light.css`, replace `<your-domain-name>` with you domain name, same as `base_url` in `config.toml`, if you set `force_theme` to `dark`, replace `giscus_light.css` with `giscus_dark.css`
 
 - `comment = true` in `config.toml` sets all posts to enable comments, you can set `comment = false` under `[extra]` in the front matter of the post to control whether a specific post displays comments
 
@@ -249,6 +253,7 @@ Now the myblog directory may looks like this:
   - `about`: displays markdown content of your `myblog/content/_index.md`
   - `list`: the whole post list, can be categorized
   - `recent`: only a few recent posts
+
 
 ## Writing
 

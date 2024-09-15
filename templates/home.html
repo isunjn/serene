@@ -10,7 +10,7 @@
 
 {% block head %}
 {% if config.extra.homepage_layout == "about" and config.markdown.highlight_theme == "css" %}
-<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-{% if config.extra.force_theme == "dark" %}dark{% else %}light{% endif %}.css" />
 {% endif %}
 {% if section.extra.math %}
   {{ macro_math::math_render(style = section.extra.math) }}
@@ -46,11 +46,13 @@
           {{ icon | safe }}
         </a>
         {% endfor %}
+		    {% if not config.extra.force_theme %}
         {% set moon_icon = load_data(path="static/icon/moon.svg") %}
         {% set sun_icon = load_data(path="static/icon/sun.svg") %}
         <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
           {{ moon_icon | safe }}
         </button>
+		    {% endif %}
       </div>
     </section>
     {% if config.extra.homepage_layout == 'about' %}

@@ -52,6 +52,7 @@ links = [                             # Your links
 ]
 
 homepage_layout = "about"             # "about" | "list" | "recent"
+force_theme = false                   # fase | "light" | "dark"
 
 recent_max = 15
 recent_more = true

@@ -1,5 +1,6 @@
 function enableThemeToggle() {
   const themeToggle = document.querySelector('#theme-toggle');
+  if (!themeToggle) return;
   const hlLink = document.querySelector('link#hl');
   const preferDark = window.matchMedia("(prefers-color-scheme: dark)");
   function toggleTheme(theme) {
@@ -65,7 +66,7 @@ function enableNavFold() {
   toggler.addEventListener('click', () => {
     if (window.innerWidth < 768 && [...foldItems].every(item => !item.classList.contains('shown'))) return;
     foldItems.forEach(item => item.classList.toggle('shown'));
-  });  
+  });
 }
 
 function enableRssMask() {
