@@ -2,17 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.0] - 2024-08-11
+
+### Add:
+
+- `force_theme` option to only use light or dark theme [@bruceoberg](https://github.com/bruceoberg) ([#62](https://github.com/isunjn/serene/issues/62))
+- A few more icons [@bruceoberg](https://github.com/bruceoberg) ([#63](https://github.com/isunjn/serene/issues/63))
+
+
 ## [4.0.0] - 2024-08-11
 
-- Deal with breaking changes of zola 19 config options: 
+- Deal with breaking changes of zola 19 config options:
 >  - Changed config options named `generate_feed` to `generate_feeds` (both in config.toml and in section front-matter)
 >  - Changed config option `feed_filename: String` to `feed_filenames: Vec<String>`
 
 ## [3.4.0] - 2024-04-25
 
-### Add: 
+### Add:
 
-- Math rending with [Typst](https://typst.app) [@Lambdaris](https://github.com/Lambdaris) [(#57)](https://github.com/isunjn/serene/pull/57)
+- Math rending with [Typst](https://typst.app) [@Lambdaris](https://github.com/Lambdaris) ([#57](https://github.com/isunjn/serene/pull/57))
 
 ## [3.3.1] - 2024-03-10
 
@@ -54,7 +62,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fix:
 
-- Add `word-wrap: break-word` to inline code 
+- Add `word-wrap: break-word` to inline code
 
 
 ## [3.0.0] - 2024-01-14
@@ -67,10 +75,10 @@ All notable changes to this project will be documented in this file.
 
 - `recent` homepage layout
 - `featured` mark
-- Add title to ToC when it's too long 
+- Add title to ToC when it's too long
 - A way to sort categories
 - Project item image
-- prerender/prefetch when hover, using `speculationrules` or `prefetch` 
+- prerender/prefetch when hover, using `speculationrules` or `prefetch`
 - RSS mask
 - A few more css variables
 
@@ -232,6 +240,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[4.1.0]: https://github.com/isunjn/serene/compare/v4.0.0...v4.1.0
 [4.0.0]: https://github.com/isunjn/serene/compare/v3.4.0...v4.0.0
 [3.4.0]: https://github.com/isunjn/serene/compare/v3.3.1...v3.4.0
 [3.3.1]: https://github.com/isunjn/serene/compare/v3.3.0...v3.3.1
