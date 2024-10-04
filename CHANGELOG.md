@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.2.0] - 2024-10-04
+
+### Fix:
+
+- Fix anchor link style issue, now `#` should no be present in the RSS file
+
 ## [4.1.0] - 2024-09-16
 
 ### Add:
@@ -240,6 +246,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[4.2.0]: https://github.com/isunjn/serene/compare/v4.1.0...v4.2.0
 [4.1.0]: https://github.com/isunjn/serene/compare/v4.0.0...v4.1.0
 [4.0.0]: https://github.com/isunjn/serene/compare/v3.4.0...v4.0.0
 [3.4.0]: https://github.com/isunjn/serene/compare/v3.3.1...v3.4.0
