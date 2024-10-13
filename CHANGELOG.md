@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.0] - 2024-10-13
+
+### Add:
+
+- Add katex [copy-tex](https://github.com/KaTeX/KaTeX/tree/main/contrib/copy-tex) extension & bump katex version to 0.16.11
+
 ## [4.2.0] - 2024-10-04
 
 ### Fix:
@@ -246,6 +252,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[4.3.0]: https://github.com/isunjn/serene/compare/v4.2.0...v4.3.0
 [4.2.0]: https://github.com/isunjn/serene/compare/v4.1.0...v4.2.0
 [4.1.0]: https://github.com/isunjn/serene/compare/v4.0.0...v4.1.0
 [4.0.0]: https://github.com/isunjn/serene/compare/v3.4.0...v4.0.0
