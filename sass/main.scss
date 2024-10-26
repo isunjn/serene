@@ -1358,6 +1358,65 @@ body.not-found {
   }
 }
 
+/* reaction
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.reaction {
+  font-size: 0.8em;
+  padding: 15px 15px 30px;
+  min-height: 75px;
+  display: flex;
+  gap: 8px;
+
+  &.left {
+    justify-content: start;
+  }
+
+  &.right {
+    justify-content: end;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.error {
+    button {
+      border-color: var(--callout-alert-color) !important;
+    }
+  }
+
+  button {
+    line-height: 1;
+    padding: 0.2em 0.8em;
+    color: var(--text-pale-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-pale-color);
+    border-radius: 999px;
+    gap: 0.5em;
+    background: transparent;
+    user-select: none;
+    cursor: pointer;
+
+    span {
+      min-width: 16px;
+      text-align: end;
+    }
+
+    &:hover {
+      background: var(--primary-pale-color);
+    }
+
+    &.reacted {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      background: var(--primary-pale-color);
+    }
+  }
+}
+
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

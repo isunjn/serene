@@ -117,6 +117,11 @@
         {% endif %}
       </article>
 
+      {% if page.extra.reaction is defined %}{% set show_reaction = page.extra.reaction %}{% else %}{% set show_reaction = config.extra.reaction %}{% endif %}
+      {% if show_reaction %}
+      <div class="reaction {{ config.extra.reaction_position }}" data-endpoint="{{ config.extra.reaction_endpoint }}"></div>
+      {% endif %}
+
       {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
       {% if show_comment %}
       <div class="giscus"></div>
