@@ -1362,10 +1362,12 @@ body.not-found {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .reaction {
-  font-size: 0.8em;
+  font-size: 0.7em;
   padding: 15px 15px 30px;
   min-height: 75px;
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
 
   &.left {
@@ -1388,7 +1390,7 @@ body.not-found {
 
   button {
     line-height: 1;
-    padding: 0.2em 0.8em;
+    padding: 0.5em 1em;
     color: var(--text-pale-color);
     display: flex;
     justify-content: center;
