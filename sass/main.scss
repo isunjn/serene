@@ -570,6 +570,7 @@ body.homepage {
   main {
     width: 100%;
     max-width: var(--homepage-max-width);
+    min-height: 75vh;
     padding: 4em 0;
     @media screen and (max-width: 425px) {
       & {
