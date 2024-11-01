@@ -84,7 +84,7 @@ truncate_summary = false              # Whether to truncate the summary of a pos
 comment = false                       # Whether to show giscus comment section by default, see https://giscus.app for more info
 
 reaction = false                      # Whether to show reaction (Note: You need to set up a working api endpoint to enable reaction)
-reaction_position = "right"           # "left" | "center" | "right"
+reaction_align = "right"           # "left" | "center" | "right"
 reaction_endpoint = "https://example.com/api/reaction"
 
 outdate_alert = false                 # Whether to show outdate alert by default
