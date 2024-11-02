@@ -41,56 +41,56 @@ anchors = "on"
 
 [extra]
 
-name = "xxxx"                         # Your name
-id = "xxxx"                           # Your id / username / handle
-bio = "xxxx"                          # Your bio
-avatar = "img/avatar.webp"            # Your avatar
-links = [                             # Your links
+name = "xxxx"
+id = "xxxx"
+bio = "xxxx"
+avatar = "img/avatar.webp"
+
+display_id = true
+display_bio = true
+display_avatar = true
+
+recent = false
+recent_max = 5
+recent_more_text = "more »"
+
+sections = [
+    { name = "posts", path = "/posts", is_external = false },
+    { name = "projects", path = "/projects", is_external = false },
+    # { name = "about", path = "/about", is_external = false },
+    # { name = "github", path = "https://github.com/<your-username>", is_external = true },
+]
+blog_section_path = "/posts"
+
+links = [
     { name = "GitHub", icon = "github", url = "https://github.com/<your-username>" },
     { name = "Twitter", icon = "twitter", url = "https://twitter.com/<your-username>" },
     { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
 ]
 
-homepage_layout = "about"             # "about" | "list" | "recent"
 force_theme = false                   # false | "light" | "dark"
-
-recent_max = 15
-recent_more = true
-recent_more_text = "more »"
-
-sections = [
-    { name = "blog", path = "/blog", is_external = false },
-    { name = "projects", path = "/projects", is_external = false },
-    # { name = "about", path = "/about", is_external = false },
-    # { name = "github", path = "https://github.com/<your-username>", is_external = true },
-]
-blog_section_path = "/blog"
-
-nav_separator = "::"
-nav_wrapper_left = "{"
-nav_wrapper_right = "} ;"
-nav_wrapper_separator = ","
-
-display_id = true                     # Whether to display your id on homepage
 blog_categorized = true               # Whether to categorize blog posts
-blur_effect = true                    # Whether to turn on blur effect on navigation bar
+blur_effect = false                   # Whether to turn on blur effect on navigation bar
 back_to_top = true                    # Whether to show back-to-top button on post pages
-
-toc = true                            # Whether to show Table-Of-Contents by default
+toc = true                            # Whether to show Table-of-Contents by default
 copy = true                           # Whether to add a copy button on code blocks by default
 display_tags = true                   # Whether to display tags on post pages by default
 truncate_summary = false              # Whether to truncate the summary of a post by default
-
 comment = false                       # Whether to show giscus comment section by default, see https://giscus.app for more info
 
-reaction = false                      # Whether to show reaction (Note: You need to set up a working api endpoint to enable reaction)
-reaction_align = "right"           # "left" | "center" | "right"
+reaction = false                      # Whether to show anonymous reactions (Note: You need to set up a working api endpoint to enable anonymous reaction)
+reaction_align = "right"              # "left" | "center" | "right"
 reaction_endpoint = "https://example.com/api/reaction"
 
 outdate_alert = false                 # Whether to show outdate alert by default
 outdate_alert_days = 120              # How many days will a post be outdated by default
 outdate_alert_text_before = "This article was last updated "
 outdate_alert_text_after = " days ago and may be out of date."
+
+nav_separator = ": :"
+nav_wrapper_left = "{"
+nav_wrapper_right = "} ;"
+nav_wrapper_separator = ","
 
 footer_copyright = "© 2023 <your-name>"
 footer_credits = true                 # Whether to show "powered by zola and serene" in footer

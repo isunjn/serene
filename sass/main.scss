@@ -28,23 +28,29 @@ a:focus-visible {
   color: var(--bg-color);
 }
 
-body::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
 }
 ::-webkit-scrollbar-track {
-  background: #0000;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #aeb7caa1;
-  border-radius: 0px;
+  background: var(--text-pale-color);
+  background-clip: padding-box;
+  border-radius: 4px;
+  border: 2px solid transparent;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8a90a1a1;
+  background: var(--text-color);
+  background-clip: padding-box;
+}
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-pale-color) transparent;
+  }
 }
 
 /* prose
@@ -52,20 +58,20 @@ body::-webkit-scrollbar {
 
 .prose {
   h1 {
-    font-size: 1.5em;
+    font-size: 1.35em;
     font-weight: bolder;
     margin: 1em 0 0.5em 0;
   }
 
   h2 {
-    font-size: 1.3em;
-    padding-top: 80px;
+    font-size: 1.25em;
+    padding-top: 60px;
     margin-top: -45px;
   }
 
   h3 {
     font-size: 1.1em;
-    padding-top: 65px;
+    padding-top: 50px;
     margin-top: -45px;
   }
 
@@ -129,7 +135,7 @@ body::-webkit-scrollbar {
     border-left: 2px var(--text-pale-color) solid;
     padding-left: 16px;
     margin: 1em 0;
-    color: var(--text-pale-color);
+    color: var(--blockquote-color);
   }
 
   ol,
@@ -147,15 +153,16 @@ body::-webkit-scrollbar {
 
   hr {
     border: none;
-    background-color: var(--primary-pale-color);
+    background-color: var(--text-pale-color);
+    opacity: 0.3;
     height: 3px;
-    margin: 36px 0;
+    margin: 2.5em 0;
   }
 
   table {
     width: 100%;
     border-spacing: 0;
-    border: 1px solid var(--primary-pale-color);
+    border: 1px solid var(--primary-color);
   }
 
   thead {
@@ -166,7 +173,7 @@ body::-webkit-scrollbar {
   td {
     line-height: 2;
     text-align: center;
-    border: 1px solid var(--primary-pale-color);
+    border: 0.5px solid var(--primary-color);
     padding: 1px 10px;
   }
 
@@ -304,7 +311,7 @@ body::-webkit-scrollbar {
       top: calc(1.2em + 24px + 1em + 1.5px);
       padding: 12px 16px;
       line-height: 1.2;
-      color: var(--text-pale-color);
+      color: var(--blockquote-color);
       border-bottom: 1.5px solid var(--primary-pale-color);
       pointer-events: none;
     }
@@ -348,11 +355,15 @@ body::-webkit-scrollbar {
   .callout {
     line-height: inherit;
     margin: 1.25em 0;
-    border: 1.5px solid var(--primary-color);
-    border-radius: var(--callout-border-radius);
-    padding: 6px 12px;
+    padding: 0px 12px;
     display: flex;
-    gap: 12px;
+    gap: 8px;
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap:12px;
+    }
 
     .icon {
       height: 1.75em;
@@ -407,6 +418,7 @@ body::-webkit-scrollbar {
     position: relative;
     margin: 2em 0;
     padding: 1.5em 0 0 1.25em;
+    color: var(--blockquote-color);
 
     .icon {
       display: block !important;
@@ -570,11 +582,11 @@ body.homepage {
   main {
     width: 100%;
     max-width: var(--homepage-max-width);
-    min-height: 75vh;
+    min-height: 80vh;
     padding: 4em 0;
     @media screen and (max-width: 425px) {
       & {
-        padding: 2em 0;
+        padding-top: 2em;
       }
     }
   }
@@ -595,6 +607,7 @@ body.homepage {
       flex-direction: column;
       justify-content: space-around;
       line-height: 1.5;
+      gap: 0.5em;
     }
 
     #name, #id {
@@ -607,18 +620,19 @@ body.homepage {
     }
 
     #bio {
-      font-size: 1em;
+      color: var(--text-pale-color);
+      font-weight: 300;
     }
   }
 
   #links {
     padding: 0 15px;
-    margin: 1em 0 1.75em;
+    margin: 1.75em 0 1.75em;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.5em 1em;
+    gap: 1em;
     font-size: 1.1em;
 
     a,
@@ -647,13 +661,6 @@ body.homepage {
     #right {
       display: flex;
       gap: 0.5em;
-      margin-left: auto;
-
-      a,
-      button {
-        width: var(--icon-size);
-        height: var(--icon-size);
-      }
 
       button {
         padding: 0;
@@ -671,14 +678,9 @@ body.homepage {
   }
 
   #brief {
-    padding: 0 15px 3em;
+    padding: 0 15px;
     font-size: 1em;
     line-height: var(--homepage-line-height);
-    @media (max-width: 425px) {
-      & {
-        padding-bottom: 1.5em;
-      }
-    }
   }
 }
 
@@ -694,7 +696,6 @@ header {
   background-color: var(--bg-color);
   border-bottom: 1.5px solid var(--primary-color);
 
-
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     &.blur {
       background-color: initial;
@@ -703,7 +704,6 @@ header {
     }
 
     #rss-mask {
-      // background-color: initial;
       -webkit-backdrop-filter: blur(32px);
       backdrop-filter: blur(32px);
     }
@@ -735,6 +735,8 @@ header {
     }
 
     .separator {
+      font-size: 0.9em;
+      font-weight: 600;
       width: 24px;
       text-align: center;
       line-height: 1;
@@ -742,16 +744,16 @@ header {
       border: none;
       padding: 0;
       background: transparent;
-      margin: 0 0.1em;
+      margin: 0 0.3em;
       color: var(--text-color);
       -webkit-tap-highlight-color: transparent;
     }
     .wrap {
       &.left {
-        margin: 0 0.3em 0 -0.1em;
+        margin: 0 0.4em 0 -0.1em;
       }
       &.right {
-        margin: 0 0 0 0.3em;
+        margin: 0 0 0 0.4em;
       }
     }
     .wrap-separator {
@@ -770,12 +772,10 @@ header {
     display: flex;
     gap: 1em;
     align-items: center;
-    padding-top: 1.5px;
+    padding-top: 3px;
 
     a,
     button {
-      width: var(--icon-size);
-      height: var(--icon-size);
       border: none;
       background-color: transparent;
       padding: 0;
@@ -841,8 +841,6 @@ dialog#rss-mask {
   }
 
   button {
-    width: var(--icon-size);
-    height: var(--icon-size);
     background: transparent;
     border: none;
     color: var(--text-pale-color);
@@ -858,7 +856,7 @@ dialog#rss-mask {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 footer {
-  font-size: 0.95em;
+  font-size: 0.9em;
   padding: 15px;
   display: flex;
   justify-content: center;
@@ -873,10 +871,16 @@ footer {
 
   .credits {
     margin-left: auto;
+    font-style: italic;
   }
 
   a {
     color: var(--text-pale-color);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
   }
 
   @media (max-width: 374px) {
@@ -953,6 +957,7 @@ body.post {
 
     #date {
       color: var(--text-pale-color);
+      font-style: italic;
       margin-bottom: 1em;
 
       #publish,
@@ -984,8 +989,11 @@ body.post {
       }
     }
 
-    #outdate_alert.hidden {
-      display: none;
+    #outdate_alert {
+      font-style: italic;
+      &.hidden {
+        display: none;
+      }
     }
   }
 
@@ -1226,38 +1234,90 @@ body.projects {
 
   main {
     width: 100%;
-    margin: 75px auto 0px;
+    margin: 95px auto 0px;
   }
 
   .proj {
-    margin: 0px 15px 45px;
+    margin: 0px 15px 1.5em;
+
+    .meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      margin-bottom: 0.25em;
+    }
+
+    .name {
+      white-space: nowrap;
+      color: var(--primary-color);
+    }
+
+    .links {
+      flex-grow: 1;
+      font-size: 0.9em;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      justify-content: end;
+      gap: 0.5em 1em;
+      color: var(--text-pale-color);
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        &:visited {
+          color: inherit;
+        }
+        span,
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+
+    .tags,
+    .tags-narrow {
+      font-size: 0.9em;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5em 0.75em;
+      color: var(--text-pale-color);
+
+      div {
+        span {
+          font-size: 0.9em;
+          margin-right: 2px;
+        }
+      }
+    }
+    .tags-narrow {
+      display: none;
+    }
+
+    @media screen and (max-width: 425px) {
+      .tags {
+        display: none;
+      }
+      .tags-narrow {
+        display: flex;
+      }
+    }
 
     .content {
       display: flex;
       justify-content: space-between;
       gap: 1em;
-
-      img {
-        max-height: 125px;
-        margin-bottom: 1em;
-
-        @media screen and (max-width: 425px) {
-          & {
-            max-height: 100px;
-          }
-        }
-      }
-    }
-
-    .name {
-      font-size: 1.2em;
-      margin: 0 0 15px 0;
-      color: var(--primary-color);
+      margin-top: 0.25em;
     }
 
     .desc {
       line-height: 1.5;
       margin: 0 0 10px 0;
+      p {
+        margin: 0.25em 0;
+      }
 
       a {
         border-bottom: 1.5px solid var(--primary-color);
@@ -1275,52 +1335,16 @@ body.projects {
       }
     }
 
-    .more {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1em;
+    img {
+      max-height: 125px;
+      margin-top: 0.5em;
 
-      .tags {
-        display: flex;
-        gap: 0.5em 1em;
-        flex-wrap: wrap;
-
-        div {
-          color: var(--text-pale-color);
-          span {
-            font-size: 0.9em;
-            margin-right: 1.5px;
-          }
-        }
-      }
-
-      .links {
-        margin-left: auto;
-        display: flex;
-        justify-content: end;
-        gap: 0.5em 1em;
-
-        a {
-          text-decoration: none;
-          border-bottom: 1.5px solid var(--primary-color);
-          padding: 0 2px;
-          cursor: pointer;
-          color: inherit;
-          line-height: 1.5;
-
-          &:visited {
-            color: inherit;
-          }
-
-          &:hover {
-            color: var(--primary-color);
-          }
+      @media screen and (max-width: 425px) {
+        & {
+          max-height: 100px;
         }
       }
     }
-
   }
 }
 
@@ -1338,14 +1362,16 @@ body.not-found {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3em;
+    gap: 2em;
+    margin-bottom: 5em;
   }
 
   .error {
+    margin: 0;
     display: flex;
     align-items: center;
     gap: 1em;
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: var(--text-pale-color);
   }
 

@@ -100,10 +100,6 @@
         <blockquote id="outdate_alert" class="callout alert hidden" data-days="{{ outdate_alert_days }}"
           data-alert-text-before="{{ config.extra.outdate_alert_text_before }}"
           data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
-          {% set icon = load_data(path="static/icon/alert.svg") %}
-          <div class="icon">
-            {{ icon | safe }}
-          </div>
           <div class="content"></div>
         </blockquote>
         {% endif %}
