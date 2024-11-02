@@ -20,7 +20,7 @@ git submodule add -b latest https://github.com/isunjn/serene.git themes/serene
 
 ## 区块和页面
 
-`config.toml` 中有一个 `sections` 配置项，它列举了网站都有哪几部分, 你应该至少有一个“博客”部分。名称和路径可以更改，注意如果你更改了博客 section 的路径（例如从 `/blog` 到 `/posts`），那么你还应该同步更改 `blog_section_path` 配置项
+`config.toml` 中有一个 `sections` 配置项，它列举了网站都有哪几部分, 你应该至少有一个“博客”部分。名称和路径可以更改，注意如果你更改了博客 section 的路径（例如从 `/posts` 到 `/blog`），那么你还应该同步更改 `blog_section_path` 配置项
 
 myblog 目录此时像这样：
 
@@ -34,7 +34,7 @@ myblog 目录此时像这样：
     └── serene/
 ```
 
-创建 `myblog/content/_index.md` 和 `myblog/content/blog/_index.md`, 文件内容如下:
+创建 `myblog/content/_index.md` 和 `myblog/content/posts/_index.md`, 文件内容如下:
 
 `myblog/content/_index.md`：
 
@@ -49,7 +49,7 @@ lang = 'en'
 Words about you
 ```
 
-`myblog/content/blog/_index.md`:
+`myblog/content/posts/_index.md`:
 
 ```
 +++
@@ -66,7 +66,7 @@ lang = 'en'
 +++
 ```
 
-路径和目录应该匹配。如果你将博客 section 的 path 更改为 `/posts`，那么你创建的是 `myblog/content/posts/_index.md`，而不是 `myblog/content/blog/_index.md` 别的 section 也一样
+路径和目录应该匹配。如果你将博客 section 的 path 更改为 `/blog`，那么你创建的是 `myblog/content/blog/_index.md`，而不是 `myblog/content/posts/_index.md` 别的 section 也一样
 
 如果你还想要 Projects 页面，创建 `myblog/content/projects/_index.md`
 
@@ -99,6 +99,7 @@ math = false
 mermaid = false
 copy = false
 comment = false
+reaction = false
 +++
 
 Hi, My name is ....
@@ -107,15 +108,12 @@ Hi, My name is ....
 
 ```
 
-你还可以创建一个 `friends` 页面来列出你在互联网上的朋友，一个 `collections/bookmarks` 页面来列出你认为有价值的书签，一个 `cat` 页面来放几张你家可爱猫咪的照片...... 未来 serene 可能会添加更多特定的模板
-
-
 现在目录可能长这样:
 
 ```
 ├── config.toml
 ├── content/
-│   ├── blog/
+│   ├── posts/
 │   │   └── _index.md
 │   ├── projects/
 │   │   └── _index.md
@@ -174,11 +172,11 @@ Hi, My name is ....
 
 ### RSS
 
-- 你可以为你的站点添加 RSS，Zola 默认的 feed 文件位于站点的根目录，在 `config.toml` 设置 `generate_feeds = true` ，`feed_filenames` 可以设置为 `["atom.xml"]` 或 `["rss.xml"]` ，对应两种不同的 rss 文件标准， `myblog/content/blog/_index.md` 中设置 `generate_feeds = false`
+- 你可以为你的站点添加 RSS，Zola 默认的 feed 文件位于站点的根目录，在 `config.toml` 设置 `generate_feeds = true` ，`feed_filenames` 可以设置为 `["atom.xml"]` 或 `["rss.xml"]` ，对应两种不同的 rss 文件标准， `myblog/content/posts/_index.md` 中设置 `generate_feeds = false`
 
-- Serene 主题风格更像个人网站，文章在 `/blog` 目录下，你可能希望 feed 文件在 `/blog` 目录下而不是根目录下，这需要你在 `config.toml` 中设置 `generate_feeds = false`、 `feed_filenames = ["feed.xml"]` 并在 `myblog/content/blog/_index.md` 中设置 `generate_feeds = true`
+- Serene 主题风格更像个人网站，文章在 `/posts` 目录下，你可能希望 feed 文件在 `/posts` 目录下而不是根目录下，这需要你在 `config.toml` 中设置 `generate_feeds = false`、 `feed_filenames = ["feed.xml"]` 并在 `myblog/content/posts/_index.md` 中设置 `generate_feeds = true`
 
-- `feed.xml` 使用 `myblog/content/blog/_index.md` 中的 `title` 和 `description`，其他两个则是使用 `config.toml` 中的
+- `feed.xml` 使用 `myblog/content/posts/_index.md` 中的 `title` 和 `description`，其他两个则是使用 `config.toml` 中的
 
 ### Projects 页面
 
@@ -224,6 +222,48 @@ Hi, My name is ....
 
 - `config.toml` 中的 `comment = true` 设置所有文章开启评论，可以在文章的 front matter 中 `[extra]` 下设置 `comment = false` 控制单篇文章是否显示评论
 
+### 匿名 Reactions
+
+- 主题支持一个叫匿名 emoji reactions 的功能，你的站点访客可以使用 emoji 对你的文章表达反馈，无需登录或注册
+
+- 你需要设置一个后端 api 端点来启用它。端点应该处理 `GET` 和 `POST` 两种请求：
+
+    - `Get`
+
+      request query: `slug`，文章的 slug
+
+      response:
+      ```jsonc
+      {
+        "👍": [123, true], // emoji: [count, reacted]
+        "👀": [456, false]
+      }
+      ```
+
+    - `Post`
+
+      request body:
+      ```json
+      {
+        "slug": "post-slug",
+        "target": "👍",
+        "reacted": true
+      }
+      ```
+
+      response:
+      ```json
+      {
+        "success": true
+      }
+      ```
+
+- 方便起见，你可以使用[这个模版仓库](https://github.com/isunjn/reaction)来设置你自己的端点。你只需要一个 [Cloudflare](https://cloudflare.com) 账号，免费套餐对于低流量的个人博客来说足够了
+
+- 设置好端点后，在 `config.toml` 将 `reaction_endpoint = "<your-endpoint>"` 和 `reaction = true` 来开启
+
+- Giscus 也支持一个 reaction 功能，但需要访客登录 GitHub，你也可以在 giscus 的设置中关闭它
+
 ### Analytics
 
 - 如需放置 Analytics 工具（如 Google Analytics、Umami 等）的脚本，可以新建 `myblog/templates/_head_extend.html` 并将相应内容放入其中，该文件的内容将被添加到每个页面的 html head 中
@@ -245,13 +285,10 @@ Hi, My name is ....
 
 - 如果你想修改更多的内容，你只需要将相应的 `themes/serene` 中 `templates`、`static`、`sass` 目录下的文件复制到 myblog 同名目录下，并进行修改。注意不要直接修改 serene 目录下的文件，因为如果更新主题，这些修改可能导致冲突
 
-### 首页布局
+### 首页显示最近文章
 
-- 可通过 `config.toml` 中的 `homepage_layout` 改变首页布局
+- 在 `config.toml` 中设置 `recent = true`，首页将显示最近的几篇文章
 
-  - `about`: 显示 `myblog/content/_index.md` 的 markdown 内容
-  - `list`: 显示和 `/blog` 相同的文章列表, 支持按 category 分类
-  - `recent`: 只显示最近的几篇文章
 
 ## 写作
 
@@ -281,6 +318,7 @@ Hi, My name is ....
   display_tags = true
   truncate_summary = false
   featured = false
+  reaction = false
   +++
 
   new post about something...
@@ -296,7 +334,7 @@ Hi, My name is ....
 
 - 如果设置了文章列表按分类展示, 默认会按字母序排序, 可以在分类名前方加上 `__[0-9]{2}__` 这种形式的前缀来手动设置顺序, 例如 `categories = ["__01__Balabala"]`
 
-- 文章文件在 `myblog/content/blog` 下创建，写完后将 draft 改为 false 即可
+- 文章文件在 `myblog/content/posts` 下创建，写完后将 draft 改为 false 即可
 
 ### Shortcodes
 
@@ -344,7 +382,7 @@ Hi, My name is ....
 
 ### Callout
 
-- Serene 还使用 Shortcodes 实现了 Callout, 效果如示例站点的 [这个页面](https://serene-demo.pages.dev/blog/callouts) 所示，目前共有 6 种：`note` `important` `warning` `alert` `question` `tip`，格式如下，header 属性是可选的：
+- Serene 还使用 Shortcodes 实现了 Callout, 效果如示例站点的 [这个页面](https://serene-demo.pages.dev/posts/callouts) 所示，目前共有 6 种：`note` `important` `warning` `alert` `question` `tip`，格式如下，header 属性是可选的：
 
   ```md
   {% note(header="Note") %}
@@ -403,6 +441,8 @@ git submodule update --remote themes/serene
 ```
 
 <br />
+
+如果你喜欢这个主题，欢迎 [star](https://github.com/isunjn/serene)
 
 *Happy blogging :)*
 
