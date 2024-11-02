@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.4.0] - 2024-11-02
+
+### Add:
+
+- New feature: Anonymous emoji reactions
+- New options: `display_bio` `display_avatar` `recent`
+
+### Remove:
+
+- Removed options: `homepage_layout` `recent_more`
+
+### UI:
+
+- A few tweaks
+
 ## [4.3.0] - 2024-10-13
 
 ### Add:
@@ -252,6 +267,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[4.4.0]: https://github.com/isunjn/serene/compare/v4.3.0...v4.4.0
 [4.3.0]: https://github.com/isunjn/serene/compare/v4.2.0...v4.3.0
 [4.2.0]: https://github.com/isunjn/serene/compare/v4.1.0...v4.2.0
 [4.1.0]: https://github.com/isunjn/serene/compare/v4.0.0...v4.1.0
