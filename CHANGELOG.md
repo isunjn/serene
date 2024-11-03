@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.5.0] - 2024-11-03
+
+### UI:
+
+- A few tweaks
+
 ## [4.4.0] - 2024-11-02
 
 ### Add:
@@ -11,7 +17,8 @@ All notable changes to this project will be documented in this file.
 
 ### Remove:
 
-- Removed options: `homepage_layout` `recent_more`
+- Removed options: `homepage_layout` (use `recent` instead), `recent_more`
+- Removed css variable: `--icon-size`
 
 ### UI:
 
@@ -267,6 +274,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[4.5.0]: https://github.com/isunjn/serene/compare/v4.4.0...v4.5.0
 [4.4.0]: https://github.com/isunjn/serene/compare/v4.3.0...v4.4.0
 [4.3.0]: https://github.com/isunjn/serene/compare/v4.2.0...v4.3.0
 [4.2.0]: https://github.com/isunjn/serene/compare/v4.1.0...v4.2.0
