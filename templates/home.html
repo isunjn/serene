@@ -53,8 +53,9 @@
 		    {% if not config.extra.force_theme %}
         {% set moon_icon = load_data(path="static/icon/moon.svg") %}
         {% set sun_icon = load_data(path="static/icon/sun.svg") %}
-        <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
-          {{ moon_icon | safe }}
+        <button id="theme-toggle" aria-label="theme switch">
+          <span class="moon-icon">{{ moon_icon | safe }}</span>
+          <span class="sun-icon">{{ sun_icon | safe }}</span>
         </button>
 		    {% endif %}
       </div>

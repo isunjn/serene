@@ -6,7 +6,6 @@ function enableThemeToggle() {
   function toggleTheme(theme) {
     if (theme == "dark") document.body.classList.add('dark'); else document.body.classList.remove('dark');
     if (hlLink) hlLink.href = `/hl-${theme}.css`;
-    themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
     sessionStorage.setItem("theme", theme);
     toggleGiscusTheme(theme);
   }

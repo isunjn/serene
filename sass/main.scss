@@ -566,6 +566,24 @@ body.prose-page {
   }
 }
 
+/* theme toggle
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#theme-toggle {
+  .sun-icon {
+    display: none;
+  }
+}
+
+body.dark #theme-toggle {
+  .sun-icon {
+    display: initial;
+  }
+  .moon-icon {
+    display: none;
+  }
+}
+
 /* homepage
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -573,6 +591,7 @@ body.homepage {
   #wrapper {
     width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -582,11 +601,12 @@ body.homepage {
   main {
     width: 100%;
     max-width: var(--homepage-max-width);
-    min-height: 80vh;
+    min-height: 75vh;
+    min-height: 75dvh;
     padding: 4em 0;
     @media screen and (max-width: 425px) {
       & {
-        padding-top: 2em;
+        padding: 2em 0;
       }
     }
   }
@@ -953,6 +973,7 @@ body.post {
       align-items: center;
       flex-wrap: wrap;
       margin-bottom: 1em;
+      font-size: 0.9em;
     }
 
     #date {
@@ -1212,8 +1233,8 @@ body.tag-single {
     padding: 0 0 0 60px;
 
     a {
-      margin-left: 30px;
-      font-size: 0.7em;
+      margin-left: 2em;
+      font-size: 0.75em;
       color: var(--primary-color);
     }
   }
@@ -1234,29 +1255,30 @@ body.projects {
 
   main {
     width: 100%;
-    margin: 95px auto 0px;
+    margin: 85px auto 0px;
   }
 
   .proj {
-    margin: 0px 15px 1.5em;
+    margin: 0px 15px 2em;
 
     .meta {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       gap: 1.5em;
-      margin-bottom: 0.25em;
+      margin-bottom: 0.5em;
     }
 
     .name {
       white-space: nowrap;
       color: var(--primary-color);
+      font-size: 1.1em;
     }
 
     .links {
       flex-grow: 1;
-      font-size: 0.9em;
       display: flex;
+      font-weight: 300;
       align-items: center;
       flex-wrap: nowrap;
       justify-content: end;
@@ -1279,6 +1301,7 @@ body.projects {
     .tags,
     .tags-narrow {
       font-size: 0.9em;
+      font-weight: 300;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
@@ -1309,7 +1332,7 @@ body.projects {
       display: flex;
       justify-content: space-between;
       gap: 1em;
-      margin-top: 0.25em;
+      margin-top: 0.5em;
     }
 
     .desc {
