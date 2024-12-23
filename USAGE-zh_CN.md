@@ -260,6 +260,8 @@ Hi, My name is ....
 
 - 方便起见，你可以使用[这个模版仓库](https://github.com/isunjn/reaction)来设置你自己的端点。你只需要一个 [Cloudflare](https://cloudflare.com) 账号，免费套餐对于低流量的个人博客来说足够了
 
+    - 另一个模版是 [mildronize/reaction](https://github.com/mildronize/reaction), 使用了 Azure 平台, 感谢 [@mildronize](https://github.com/mildronize).
+
 - 设置好端点后，在 `config.toml` 将 `reaction_endpoint = "<your-endpoint>"` 和 `reaction = true` 来开启
 
 - Giscus 也支持一个 reaction 功能，但需要访客登录 GitHub，你也可以在 giscus 的设置中关闭它
