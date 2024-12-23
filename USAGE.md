@@ -260,6 +260,7 @@ Now the myblog directory may looks like this:
       ```
 
 - For conivence, you can use [this template repo](https://github.com/isunjn/reaction) to setup your own endpoint. All you need is a [Cloudflare](https://cloudflare.com) account. The free tier is good enough for a low-traffic personal blog.
+    - For Azure, you can use [mildronize/reaction repo](https://github.com/mildronize/reaction) to setup your own endpoint
 
 - After you setup your endpoint, set `reaction_endpoint = "<your-endpoint>"` and `reaction = true` in `config.toml` to enable it.
 
