@@ -10,7 +10,11 @@
 
 {% block head %}
 {% if config.markdown.highlight_theme == "css" %}
-<link id="hl" rel="stylesheet" type="text/css" href="/hl-{% if config.extra.force_theme == "dark" %}dark{% else %}light{% endif %}.css" />
+  {% if config.extra.force_theme == "dark" %}
+    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='hl-dark.css') }}" />
+  {% else %}
+    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='hl-light.css') }}" />
+  {% endif %}
 {% endif %}
 {% if section.extra.math %}
   {{ macro_math::math_render(style = section.extra.math) }}
@@ -22,7 +26,7 @@
   <main>
     <section id="info">
       {% if config.extra.display_avatar %}
-      <img src="{{ config.extra.avatar }}" alt="avatar">
+      <img src="{{ get_url(path=config.extra.avatar) }}" alt="avatar">
       {% endif %}
       <div id="text">
         <div>
@@ -39,7 +43,7 @@
     <section id="links">
       <div id="left">
         {% for section in config.extra.sections %}
-        <a href="{{ section.path }}" {% if section.is_external %}target="_blank" rel='noreferrer noopener'{% else %}class="instant"{% endif %}>{{ section.name }}</a>
+        <a href="{{ get_url(path=section.path) }}" {% if section.is_external %}target="_blank" rel='noreferrer noopener'{% else %}class="instant"{% endif %}>{{ section.name }}</a>
         {% endfor %}
       </div>
       <div id="right">
@@ -50,44 +54,44 @@
           {{ icon | safe }}
         </a>
         {% endfor %}
-		    {% if not config.extra.force_theme %}
+        {% if not config.extra.force_theme %}
         {% set moon_icon = load_data(path="static/icon/moon.svg") %}
         {% set sun_icon = load_data(path="static/icon/sun.svg") %}
         <button id="theme-toggle" aria-label="theme switch">
           <span class="moon-icon">{{ moon_icon | safe }}</span>
           <span class="sun-icon">{{ sun_icon | safe }}</span>
         </button>
-		    {% endif %}
+        {% endif %}
       </div>
     </section>
-      <section id="brief" class="prose">
-        {{ section.content | trim | safe }}
-      </section>
+    <section id="brief" class="prose">
+      {{ section.content | trim | safe }}
+    </section>
     {% if config.extra.recent %}
-      {% set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") %}
-      {% set section_md_path = blog_section_path ~ "/_index.md" %}
-      {% set blog_section = get_section(path=section_md_path) %}
-      <section class="layout-list">
-        <div class="post-list">
-          {% for post in blog_section.pages | slice(end=config.extra.recent_max) %}
-          <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
-            <span>{{ post.title }}</span>
-            <span class="line"></span>
-            <span class="date">{{ post.date | date}}</span>
-          </a>
-          {% endfor %}
-        </div>
-        <div class="read-more">
-          <a class="instant" href="{{ config.extra.blog_section_path }}">{{ config.extra.recent_more_text }}</a>
-        </div>
-      </section>
-    {% endif %}
+    {% set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") %}
+    {% set section_md_path = blog_section_path ~ "/_index.md" %}
+    {% set blog_section = get_section(path=section_md_path) %}
+    <section class="layout-list">
+      <div class="post-list">
+        {% for post in blog_section.pages | slice(end=config.extra.recent_max) %}
+        <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
+          <span>{{ post.title }}</span>
+          <span class="line"></span>
+          <span class="date">{{ post.date | date}}</span>
+        </a>
+        {% endfor %}
+      </div>
+      <div class="read-more">
+        <a class="instant" href="{{ config.extra.blog_section_path }}">{{ config.extra.recent_more_text }}</a>
+      </div>
+    </section>
+  {% endif %}
   </main>
 </div>
 {% endblock content %}
 
 {% block script %}
-<script src="/js/lightense.min.js"></script>
+<script src="{{ get_url(path='js/lightense.min.js') }}"></script>
 {% if section.extra.mermaid %}
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
