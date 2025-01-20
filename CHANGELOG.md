@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [FORK] - 2025-01-19
+
+### Remove:
+- Math rendering with Typst removed
+- Math rendering with Katex removed
+- Mermaid support removed
+
+# Pre-Fork
+
 ## [4.5.0] - 2024-11-03
 
 ### UI:

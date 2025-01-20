@@ -13,7 +13,7 @@ cd myblog
 Add the serene theme:
 
 ```sh
-git submodule add -b latest https://github.com/isunjn/serene.git themes/serene
+git submodule add -b latest https://github.com/alexanderacker-com/serene.git themes/serene
 ```
 
 Copy the content of `myblog/themes/serene/config.example.toml` to `myblog/config.toml`, refer to the comments in the file and Zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/) to modify accordingly
@@ -94,8 +94,6 @@ insert_anchor_links = "none"
 
 [extra]
 lang = 'en'
-math = false
-mermaid = false
 copy = false
 comment = false
 reaction = false
@@ -314,8 +312,6 @@ Now the myblog directory may looks like this:
   toc = true
   comment = true
   copy = true
-  math = false
-  mermaid = false
   outdate_alert = true
   outdate_alert_days = 120
   display_tags = true
@@ -393,25 +389,6 @@ Now the myblog directory may looks like this:
 
 - If people read your posts via rss reader, these callouts will appear as normal `<blockquote>`
 
-### Math
-
-- Set `math = true` or `math = "katex"`in the front matter to enable formula rending with [KaTeX](https://katex.org/): `$...$` for inline formula, `$$...$$` for block-level formula.
-
-- Set `math = "typst"` to enable formula rendering with [Typst](https://typst.app/): `$...$` for inline formula, `$ ... $` (insert space at start and end) for block-level formula.
-
-### Mermaid
-
-- Set `mermaid = true` in the front matter to enable [Mermaid](https://github.com/mermaid-js/mermaid) support, and then insert a chart in the following format:
-
-  ```md
-  {% mermaid() %}
-  flowchart LR
-  A[Hard] -->|Text| B(Round)
-  B --> C{Decision}
-  C -->|One| D[Result 1]
-  C -->|Two| E[Result 2]
-  {% end %}
-  ```
 
 ## Build & Deploy
 
@@ -431,7 +408,7 @@ To deploy a static site, please refer to zola's [documentation about deployment]
 
 ## Update
 
-- Please check the [CHANGELOG.md](https://github.com/isunjn/serene/blob/main/CHANGELOG.md) on github for breaking changes before updating the theme
+- Please check the [CHANGELOG.md](https://github.com/alexanderacker-com/serene/blob/main/CHANGELOG.md) on github for breaking changes before updating the theme
 
 - If you copied some files from `myblog/themes/serene` to `myblog/` for customization, such as `_custom_css.html` or `main.scss`, then you should record what you have modified before you update, re-copy those files and re-apply your modification after updating. The `config.toml` should be re-copied too.
 
@@ -443,7 +420,7 @@ git submodule update --remote themes/serene
 
 <br />
 
-If you like this theme, you may [give it a star](https://github.com/isunjn/serene)
+If you like this theme, you may [give it a star](https://github.com/alexanderacker-com/serene)
 
 *Happy blogging :)*
 

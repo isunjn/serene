@@ -1,12 +1,12 @@
 name = "serene"
 description = "A spiffy blog theme for zola"
 license = "MIT"
-homepage = "https://github.com/isunjn/serene"
+homepage = "https://github.com/alexanderacker-com/serene"
 min_version = "0.19.0"
-demo = "https://serene-demo.pages.dev"
+#demo = "https://serene-demo.pages.dev"
 
 [author]
-name = "isunjn"
-homepage = "https://github.com/isunjn"
+name = "xenon"
+homepage = "https://github.com/xenon"
 
 [extra]

@@ -169,7 +169,6 @@ function addCopyBtns() {
   const copyIcon = cfg.dataset.copyIcon;
   const checkIcon = cfg.dataset.checkIcon;
   document.querySelectorAll('pre').forEach(block => {
-    if (block.classList.contains('mermaid')) return;
     const wrapper = document.createElement('div');
     wrapper.className = 'codeblock';
     const btn = document.createElement('button');
@@ -239,7 +238,7 @@ function enableReaction() {
   const slug = location.pathname.split('/').filter(Boolean).pop();
   let state = { error: false, reaction: {} };
   const render = () => {
-    const btns = Object.entries(state.reaction).map(([emoji, [count, reacted]])=> {
+    const btns = Object.entries(state.reaction).map(([emoji, [count, reacted]]) => {
       const span = document.createElement('span');
       span.textContent = count;
       const btn = document.createElement('button');

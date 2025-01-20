@@ -257,10 +257,6 @@ a:focus-visible {
         background-color: var(--highlight-mark-color);
       }
     }
-
-    &.mermaid {
-      border: none;
-    }
   }
 
   pre > code > mark::before {
@@ -455,18 +451,11 @@ a:focus-visible {
       margin-left: 0.25em;
     }
   }
-
-  .mermaid {
-    background: #fff;
-  }
 }
 
 body.dark .prose {
   img {
     filter: brightness(var(--dark-mode-img-brightness));
-  }
-  .mermaid {
-    filter: brightness(var(--dark-mode-chart-brightness));
   }
 }
 
@@ -1016,10 +1005,6 @@ body.post {
         display: none;
       }
     }
-  }
-
-  .mermaid {
-    background: #fff;
   }
 
   .giscus {
