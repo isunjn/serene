@@ -56,18 +56,6 @@ function enablePrerender() {
   });
 }
 
-function enableNavFold() {
-  const nav = document.querySelector('header nav');
-  if (!nav) return;
-  const toggler = nav.querySelector('#toggler');
-  if (!toggler) return;
-  const foldItems = nav.querySelectorAll('.fold');
-  toggler.addEventListener('click', () => {
-    if (window.innerWidth < 768 && [...foldItems].every(item => !item.classList.contains('shown'))) return;
-    foldItems.forEach(item => item.classList.toggle('shown'));
-  });
-}
-
 function enableRssMask() {
   const rssBtn = document.querySelector('#rss-btn');
   const mask = document.querySelector('#rss-mask');
@@ -110,22 +98,6 @@ function enableOutdateAlert() {
     alert.querySelector('.content').textContent = msg;
     alert.classList.remove('hidden');
   }
-}
-
-function enableTocToggle() {
-  const tocToggle = document.querySelector('#toc-toggle');
-  if (!tocToggle) return;
-  const header = document.querySelector('header');
-  const blurred = header.classList.contains('blur');
-  const aside = document.querySelector('aside');
-  const anchors = aside.querySelectorAll('a');
-  const toggle = () => {
-    tocToggle.classList.toggle('active');
-    aside.classList.toggle('shown');
-    if (blurred) header.classList.toggle('blur');
-  };
-  tocToggle.addEventListener('click', toggle);
-  anchors.forEach(header => header.addEventListener('click', toggle));
 }
 
 function enableTocIndicate() {
@@ -289,11 +261,9 @@ function enableReaction() {
 
 enableThemeToggle();
 enablePrerender();
-enableNavFold();
 enableRssMask();
 if (document.body.classList.contains('post')) {
   enableOutdateAlert();
-  enableTocToggle();
   enableTocIndicate();
   addBackToTopBtn();
   enableTocTooltip();

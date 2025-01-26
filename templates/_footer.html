@@ -2,12 +2,47 @@
   <div class="copyright">
     {{ config.extra.footer_copyright | trim | markdown | safe }}
   </div>
-  {% if config.extra.footer_credits %}
-  <div class="credits">
-    powered by
-    <a href="https://www.getzola.org" target="_blank" rel='noreferrer noopener'>zola</a>
-    and
-    <a href="https://github.com/isunjn/serene" target="_blank" rel='noreferrer noopener'>serene</a>
-  </div>
+
+  {% if config.extra.blog_section_path is defined %}
+  {% set blog_section_path = config.extra.blog_section_path %}
   {% endif %}
+
+  <div class="btns">
+    {% if blog_section_path is defined and section.path is starting_with(blog_section_path) %}
+    {% set rss_icon = load_data(path="static/icon/rss.svg") %}
+    {% if section.generate_feeds %}
+      {% set_global rss_path = blog_section_path ~ "/" ~ config.feed_filenames.0 %}
+    {% elif config.generate_feeds %}
+      {% set_global rss_path = "/" ~ config.feed_filenames.0 %}
+    {% endif %}
+    {% if section.generate_feeds or config.generate_feeds %}
+    <a id="rss-btn" href="{{ get_url(path=rss_path) }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+    {% endif %}
+    {% endif %}
+
+    {% if not config.extra.force_theme and config.extra.display_theme_button %}
+    {% set moon_icon = load_data(path="static/icon/moon.svg") %}
+    {% set sun_icon = load_data(path="static/icon/sun.svg") %}
+    <button id="theme-toggle" aria-label="theme switch">
+      <span class="moon-icon">{{ moon_icon | safe }}</span>
+      <span class="sun-icon">{{ sun_icon | safe }}</span>
+    </button>
+    {% endif %}
+  </div>
 </footer>
+
+{% if blog_section_path is defined and section.path is starting_with(blog_section_path) %}
+{% if section.generate_feeds or config.generate_feeds %}
+{% set link = get_url(path=rss_path) %}
+<dialog id="rss-mask">
+  <div>
+    <a href="{{ link }}">{{ link }}</a>
+    {% set copy_icon = load_data(path="static/icon/copy.svg") %}
+    {% set check_icon = load_data(path="static/icon/check.svg") %}
+    <button autofocus aria-label="copy" data-link="{{ link }}" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}" >
+      {{ copy_icon | safe }}
+    </button>
+  </div>
+</dialog>
+{% endif %}
+{% endif %}

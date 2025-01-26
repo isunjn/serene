@@ -1,3 +1,4 @@
+{% import "macros/back_link.html" as macro_back_link %}
 {% extends "_base.html" %}
 
 {% block page %}post{% endblock page %}
@@ -45,7 +46,6 @@
 {% endblock head %}
 
 {% block content %}
-{% include "_header.html" %}
 <div id="wrapper">
   <div id="blank"></div>
   <aside>
@@ -78,6 +78,8 @@
     {% endif %}
   </aside>
   <main>
+    {{ macro_back_link::back_link(path = get_url(path=section.path)) }}
+
     <div>
       {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
       {% if allow_copy %}

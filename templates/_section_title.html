@@ -1,0 +1,10 @@
+{% if section.extra.title or section.extra.subtitle %}
+<div class="section-title">
+  {% if section.extra.title %}
+  <h1>{{ section.extra.title }}</h1>
+  {% endif %}
+  {% if section.extra.subtitle %}
+  <p>{{ section.extra.subtitle }}</p>
+  {% endif %}
+</div>
+{% endif %}
