@@ -1,4 +1,4 @@
-{% import "macros/back_link.html" as macro_back_link %}
+{% import "macros/prose.html" as macros %}
 {% extends "_base.html" %}
 
 {% block page %}tag-single{% endblock page %}
@@ -12,7 +12,7 @@
 
 {% block content %}
 <div id="wrapper">
-  {{ macro_back_link::back_link(path = get_url(path="/tags")) }}
+  {{ macros::back_link(path = get_url(path="/tags")) }}
   <main class="layout-list">
     <div class="title">
       <span># {{ term.name }}</span>

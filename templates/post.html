@@ -1,4 +1,4 @@
-{% import "macros/back_link.html" as macro_back_link %}
+{% import "macros/prose.html" as macros %}
 {% extends "_base.html" %}
 
 {% block page %}post{% endblock page %}
@@ -78,7 +78,7 @@
     {% endif %}
   </aside>
   <main>
-    {{ macro_back_link::back_link(path = get_url(path=section.path)) }}
+    {{ macros::back_link(path = get_url(path=section.path)) }}
 
     <div>
       {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
@@ -114,7 +114,7 @@
         {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = config.extra.outdate_alert_days %}{% endif %}
 
         {% if show_outdate_alert -%}
-        <blockquote id="outdate_alert" class="callout alert hidden" data-days="{{ outdate_alert_days }}"
+        <blockquote id="outdate_alert" class="callout caution hidden" data-days="{{ outdate_alert_days }}"
           data-alert-text-before="{{ config.extra.outdate_alert_text_before }}"
           data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
           <div class="content"></div>

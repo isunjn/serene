@@ -1,0 +1,32 @@
+{% macro back_link(path) %}
+<header>
+  <nav>
+    <a href="{{ path }}">← Back</a>
+  </nav>
+</header>
+{% endmacro %}
+
+
+{% macro callout(name) %}
+<blockquote class="callout {{ name }} {% if title %}has-title{% else %}no-title{% endif %}">
+  {% set icon = load_data(path="static/icon/" ~ name ~ ".svg") %}
+  {% if title %}
+  <p class="title">
+    <span class="icon">
+      {{ icon | safe }}
+    </span>
+    <strong>{{ title }}</strong>
+  </p>
+  <div class="content">
+    {{ body | markdown | safe }}
+  </div>
+  {% else %}
+  <div class="icon">
+    {{ icon | safe }}
+  </div>
+  <div class="content">
+    {{ body | markdown | safe }}
+  </div>
+  {% endif %}
+</blockquote>
+{% endmacro %}

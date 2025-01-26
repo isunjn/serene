@@ -346,17 +346,7 @@ a:focus-visible {
   }
 
   .callout {
-    line-height: inherit;
-    margin: 1.25em 0;
-    padding: 0px 12px;
-    display: flex;
-    gap: 8px;
-
-    .title {
-      display: flex;
-      align-items: center;
-      gap:12px;
-    }
+    margin: 1.5em 0;
 
     .icon {
       height: 1.75em;
@@ -364,20 +354,39 @@ a:focus-visible {
       align-items: center;
     }
 
-    .content {
-      max-width: calc(100% - 32px);
-      p {
-        margin: 0;
-
-        +p {
-          margin: 0.2em 0 0.5em;
-        }
+    p {
+      margin: 0;
+      +p {
+        margin: 1em 0;
       }
+    }
+
+    &.has-title {
+      padding-left: 1.25em;
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        margin-bottom: 0.5em;
+      }
+    }
+
+    &.no-title {
+      padding-left: 0.5em;
+      border: none;
+      display: flex;
+      align-items: start;
+      gap: 0.75em;
     }
 
     &.note {
       color: var(--callout-note-color);
       border-color: var(--callout-note-color);
+    }
+
+    &.tip {
+      color: var(--callout-tip-color);
+      border-color: var(--callout-tip-color);
     }
 
     &.important {
@@ -390,19 +399,9 @@ a:focus-visible {
       border-color: var(--callout-warning-color);
     }
 
-    &.alert {
-      color: var(--callout-alert-color);
-      border-color: var(--callout-alert-color);
-    }
-
-    &.question {
-      color: var(--callout-question-color);
-      border-color: var(--callout-question-color);
-    }
-
-    &.tip {
-      color: var(--callout-tip-color);
-      border-color: var(--callout-tip-color);
+    &.caution {
+      color: var(--callout-caution-color);
+      border-color: var(--callout-caution-color);
     }
   }
 
@@ -1267,7 +1266,7 @@ body.not-found {
 
   &.error {
     button {
-      border-color: var(--callout-alert-color) !important;
+      border-color: var(--callout-caution-color) !important;
     }
   }
 

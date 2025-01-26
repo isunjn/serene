@@ -1,4 +1,4 @@
-{% import "macros/back_link.html" as macro_back_link %}
+{% import "macros/prose.html" as macros %}
 {% extends "_base.html" %}
 
 {% block page %}prose-page{% endblock page %}
@@ -38,7 +38,7 @@
 {% block content %}
 <div id="wrapper">
   <main>
-    {{ macro_back_link::back_link(path = get_url(path="/")) }}
+    {{ macros::back_link(path = get_url(path="/")) }}
     {% include "_section_title.html" %}
     <div>
       {% if section.extra.copy is defined %}{% set allow_copy = section.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
