@@ -13,6 +13,7 @@ body {
   color: var(--text-color);
   font-size: var(--font-size);
   line-height: var(--line-height);
+  overflow-y: scroll;
 }
 
 button:focus-visible,
@@ -34,19 +35,18 @@ a:focus-visible {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--text-pale-color);
+  background: var(--scrollbar-color);
   background-clip: padding-box;
   border-radius: 4px;
   border: 2px solid transparent;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-color);
-  background-clip: padding-box;
-}
 @supports not selector(::-webkit-scrollbar) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--text-pale-color) transparent;
+    scrollbar-color: var(--scrollbar-color) transparent;
+  }
+  body {
+    overflow-y: auto;
   }
 }
 
@@ -147,15 +147,15 @@ a:focus-visible {
   hr {
     border: none;
     background-color: var(--text-pale-color);
-    opacity: 0.3;
-    height: 3px;
+    opacity: 0.4;
+    height: 2px;
     margin: 2.5em 0;
   }
 
   table {
     width: 100%;
     border-spacing: 0;
-    border: 1px solid var(--primary-color);
+    border: 1.5px solid var(--primary-color);
   }
 
   thead {
@@ -166,7 +166,7 @@ a:focus-visible {
   td {
     line-height: 2;
     text-align: center;
-    border: 0.5px solid var(--primary-color);
+    border: 0.75px solid var(--primary-pale-color);
     padding: 1px 10px;
   }
 
@@ -372,7 +372,7 @@ a:focus-visible {
     }
 
     &.no-title {
-      padding-left: 0.5em;
+      padding-left: 0;
       border: none;
       display: flex;
       align-items: start;
@@ -489,15 +489,15 @@ body.prose-page {
 
 .layout-list {
   .category {
-    font-size: 1em;
-    margin: 3em 15px 1em;
+    font-size: 0.9em;
+    margin: 1em 15px;
   }
 
   .post-list {
     padding: 0 15px;
 
     &.categorized {
-      margin-top: 1em;
+      margin: 1em 0 3em 0;
     }
   }
 
@@ -507,7 +507,7 @@ body.prose-page {
     align-items: flex-end;
     gap: 0.5em;
     padding: 4px 0px;
-    margin: 4px 0;
+    margin: 6px 0;
     line-height: 1.2;
     text-decoration: none;
     color: var(--primary-color);
@@ -576,17 +576,17 @@ body.dark #theme-toggle {
 
 body.homepage {
   #wrapper {
-    width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
+    max-width: var(--homepage-max-width);
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
   }
 
   main {
     width: 100%;
-    max-width: var(--homepage-max-width);
     min-height: 75vh;
     min-height: 75dvh;
     padding: 4em 0;
@@ -616,10 +616,6 @@ body.homepage {
       gap: 0.75em;
     }
 
-    #name, #id {
-      font-size: 1.1em;
-    }
-
     #id {
       margin-left: 0.75em;
       color: var(--primary-color);
@@ -633,13 +629,12 @@ body.homepage {
 
   #links {
     padding: 0 15px;
-    margin: 1.75em 0 1.75em;
+    margin: 2em 0 2.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1em;
-    font-size: 1.1em;
 
     a,
     button {
@@ -698,8 +693,8 @@ header {
   padding: 0 15px;
   a {
     display: inline-block;
-    margin-top: 1em;
-    padding: 2em 2em 1em 0;
+    margin-top: 2em;
+    padding: 1em 1em 1em 0;
     color: var(--text-pale-color);
     text-decoration: none;
     &:hover {
@@ -980,8 +975,7 @@ body.post {
       padding: 0 1em;
 
       &.h3 {
-        padding-left: 2.5em;
-        font-size: 0.95em;
+        padding-left: 2em;
       }
 
       &::before {
@@ -1009,7 +1003,7 @@ body.post {
       line-height: 0;
       z-index: 99;
       position: fixed;
-      bottom: 18px;
+      bottom: 1.4em;
       margin-left: 2em;
       color: var(--text-pale-color);
       background: transparent;
@@ -1242,24 +1236,24 @@ body.not-found {
     flex-direction: column;
     align-items: center;
     gap: 2em;
-    margin-bottom: 5em;
+    margin-bottom: 6em;
   }
 
   .error {
     margin: 0;
     display: flex;
     align-items: center;
-    gap: 1em;
-    font-size: 1.1em;
+    gap: 0.75em;
     color: var(--text-pale-color);
   }
 
   a {
+    font-size: 0.9em;
     color: var(--primary-color);
-    text-decoration-color: var(--primary-pale-color);
-
-    &:hover, &:active {
-      text-decoration-color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1.5px solid transparent;
+    &:hover {
+      border-color: var(--primary-color);
     }
   }
 }

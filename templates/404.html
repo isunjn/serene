@@ -10,6 +10,6 @@
     <span>404</span>
     <span>{{ config.extra.not_found_error_text }}</span>
   </p>
-  <a class="instant" href="/">{{ config.extra.not_found_recover_text }}</a>
+  <a class="instant" href="{{ get_url(path='/') }}">{{ config.extra.not_found_recover_text }}</a>
 </div>
 {% endblock %}

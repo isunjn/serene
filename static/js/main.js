@@ -175,9 +175,11 @@ function addBackToTopBtn() {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     if (scrollTop > 200 && !backBtn.classList.contains('shown')) {
       backBtn.classList.add('shown');
+      backBtn.setAttribute('tabindex', 0);
       backBtn.addEventListener('click', toTop);
     } else if (scrollTop <= 200 && backBtn.classList.contains('shown')) {
       backBtn.classList.remove('shown');
+      backBtn.setAttribute('tabindex', -1);
       backBtn.removeEventListener('click', toTop);
     }
   };

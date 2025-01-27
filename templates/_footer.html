@@ -25,7 +25,7 @@
     {% endif %}
     {% endif %}
 
-    {% if not config.extra.force_theme and config.extra.display_theme_button %}
+    {% if not config.extra.force_theme %}
     {% set moon_icon = load_data(path="static/icon/moon.svg") %}
     {% set sun_icon = load_data(path="static/icon/sun.svg") %}
     <button id="theme-toggle" aria-label="theme switch">
