@@ -57,19 +57,22 @@ a:focus-visible {
   h1 {
     font-size: 1.3em;
     font-weight: bolder;
-    margin: 1em 0 0.5em 0;
+    margin: 1em 0 0.5em;
   }
 
   h2 {
     font-size: 1.2em;
+    margin: 2.5em 0 1em;
   }
 
   h3 {
     font-size: 1.1em;
+    margin: 2em 0 1em;
   }
 
   h4 {
     font-size: 1.05em;
+    margin: 1.5em 0 1em;
   }
 
   .zola-anchor {
@@ -129,6 +132,10 @@ a:focus-visible {
     padding-left: 16px;
     margin: 1em 0;
     color: var(--text-pale-color);
+
+    p {
+      margin: 1em 0;
+    }
   }
 
   ol,
@@ -362,7 +369,7 @@ a:focus-visible {
     }
 
     &.has-title {
-      padding-left: 1.25em;
+      padding-left: 1em;
       .title {
         display: flex;
         align-items: center;
@@ -377,6 +384,9 @@ a:focus-visible {
       display: flex;
       align-items: start;
       gap: 0.75em;
+      .content {
+        max-width: calc(100% - 30px);
+      }
     }
 
     &.note {
@@ -693,7 +703,7 @@ header {
   padding: 0 15px;
   a {
     display: inline-block;
-    margin-top: 2em;
+    margin-top: 1em;
     padding: 1em 1em 1em 0;
     color: var(--text-pale-color);
     text-decoration: none;
@@ -873,13 +883,13 @@ body.post {
   }
 
   article {
-    padding: 0 15px 30px;
+    padding: 0 15px 2em;
 
     #post-info {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      margin-bottom: 1em;
+      margin-bottom: 2em;
       font-size: 0.9em;
     }
 
@@ -889,7 +899,7 @@ body.post {
 
       #publish,
       #updated {
-        margin-right: 20px;
+        margin-right: 1em;
       }
     }
 
