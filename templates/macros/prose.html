@@ -1,7 +1,7 @@
 {% macro back_link(path) %}
 <header>
   <nav>
-    <a href="{{ path }}">← Back</a>
+    <a href="{{ path }}">← {{ config.extra.back_link_text }}</a>
   </nav>
 </header>
 {% endmacro %}

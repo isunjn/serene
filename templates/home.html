@@ -40,18 +40,18 @@
 <div id="wrapper">
   <main>
     <section id="info">
-      {% if config.extra.display_avatar %}
-      <img src="{{ get_url(path=config.extra.avatar) }}" alt="avatar">
+      {% if section.extra.avatar %}
+      <img src="{{ get_url(path=section.extra.avatar) }}" alt="avatar">
       {% endif %}
       <div id="text">
         <div>
-          <span id="name">{{ config.extra.name }}</span>
-          {% if config.extra.display_id %}
-          <span id="id">@{{ config.extra.id }}</span>
+          <span id="name">{{ section.extra.name }}</span>
+          {% if section.extra.id %}
+          <span id="id">@{{ section.extra.id }}</span>
           {% endif %}
         </div>
-        {% if config.extra.display_bio %}
-        <div id="bio"> {{ config.extra.bio }} </div>
+        {% if section.extra.bio %}
+        <div id="bio"> {{ section.extra.bio }} </div>
         {% endif %}
       </div>
     </section>
@@ -62,7 +62,7 @@
         {% endfor %}
       </div>
       <div id="right">
-        {% for link in config.extra.links %}
+        {% for link in section.extra.links %}
         <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
           {% set icon_path = "static/icon/" ~ link.icon ~ ".svg" %}
           {% set icon = load_data(path=icon_path) %}
@@ -82,13 +82,13 @@
     <section id="brief" class="prose">
       {{ section.content | trim | safe }}
     </section>
-    {% if config.extra.recent %}
+    {% if sectionextra.recent %}
     {% set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") %}
     {% set section_md_path = blog_section_path ~ "/_index.md" %}
     {% set blog_section = get_section(path=section_md_path) %}
     <section class="layout-list">
       <div class="post-list">
-        {% for post in blog_section.pages | slice(end=config.extra.recent_max) %}
+        {% for post in blog_section.pages | slice(end=sectionextra.recent_max) %}
         <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
           <span>{{ post.title }}</span>
           <span class="line"></span>
@@ -97,7 +97,7 @@
         {% endfor %}
       </div>
       <div class="read-more">
-        <a class="instant" href="{{ config.extra.blog_section_path }}">{{ config.extra.recent_more_text }}</a>
+        <a class="instant" href="{{ config.extra.blog_section_path }}">{{ sectionextra.recent_more_text }}</a>
       </div>
     </section>
   {% endif %}

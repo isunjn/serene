@@ -49,7 +49,7 @@
 <div id="wrapper">
   <div id="blank"></div>
   <aside>
-    {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc %}{% endif %}
+    {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = section.extra.toc %}{% endif %}
     {% if show_toc and page.toc %}
     <nav>
       <ul>
@@ -70,7 +70,7 @@
       </ul>
     </nav>
     {% endif %}
-    {% if config.extra.back_to_top %}
+    {% if section.extra.back_to_top %}
     <button id="back-to-top" aria-label="back to top">
       {% set icon = load_data(path="static/icon/arrow-up.svg") %}
       {{ icon | safe }}
@@ -81,7 +81,7 @@
     {{ macros::back_link(path = get_url(path=section.path)) }}
 
     <div>
-      {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
+      {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = section.extra.copy %}{% endif %}
       {% if allow_copy %}
       {% set copy_icon = load_data(path="static/icon/copy.svg") %}
       {% set check_icon = load_data(path="static/icon/check.svg") %}
@@ -110,13 +110,13 @@
           {% endif %}
         </div>
 
-        {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% else %}{% set show_outdate_alert = config.extra.outdate_alert %}{% endif %}
-        {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = config.extra.outdate_alert_days %}{% endif %}
+        {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% else %}{% set show_outdate_alert = section.extra.outdate_alert %}{% endif %}
+        {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = section.extra.outdate_alert_days %}{% endif %}
 
         {% if show_outdate_alert -%}
         <blockquote id="outdate_alert" class="callout caution hidden" data-days="{{ outdate_alert_days }}"
-          data-alert-text-before="{{ config.extra.outdate_alert_text_before }}"
-          data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
+          data-alert-text-before="{{ section.extra.outdate_alert_text_before }}"
+          data-alert-text-after="{{ section.extra.outdate_alert_text_after }}">
           <div class="content"></div>
         </blockquote>
         {% endif %}
@@ -135,7 +135,7 @@
       <div class="reaction {{ config.extra.reaction_align }}" data-endpoint="{{ config.extra.reaction_endpoint }}"></div>
       {% endif %}
 
-      {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
+      {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = section.extra.comment %}{% endif %}
       {% if show_comment %}
       <div class="giscus"></div>
       {% include "_giscus_script.html" %}
