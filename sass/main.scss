@@ -772,30 +772,44 @@ dialog#rss-mask {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 footer {
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin-top: auto;
   padding: 15px;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 0 0.5em;
   color: var(--text-pale-color);
 
-  .copyright {
+  .left {
+    margin: 15px 0;
     margin-right: auto;
+    display: flex;
+    align-items: center;
+    span {
+      padding: 0 0.5em;
+    }
+    a {
+      color: var(--text-pale-color);
+      text-decoration: none;
+      text-underline-offset: 4px;
+      &:hover {
+        color: var(--text-pale-color);
+        text-decoration: underline;
+      }
+    }
   }
 
-  .btns {
+  .right {
+    margin: 15px 0;
     display: flex;
     gap: 1em;
     align-items: center;
-    transform: translateX(5px) translateY(4px);
+    transform: translateX(4px);
+    line-height: 1;
 
-    a,
-    button {
-      line-height: 1;
-      scale: 0.8;
+    #rss-btn,
+    #theme-toggle {
       border: none;
       background-color: transparent;
       padding: 0;
@@ -805,6 +819,15 @@ footer {
       &:hover {
         color: var(--primary-color);
       }
+    }
+
+    #rss-btn {
+      font-size: 0.9em;
+      padding-top: 2px;
+    }
+    #theme-toggle {
+      scale: 0.7;
+      line-height: 0;
     }
   }
 }
@@ -983,20 +1006,21 @@ body.post {
     }
 
     #back-to-top {
+      line-height: 0;
       z-index: 99;
       position: fixed;
-      bottom: 12px;
+      bottom: 18px;
       margin-left: 2em;
       color: var(--text-pale-color);
       background: transparent;
       border: none;
       cursor: pointer;
-      padding: 1em;
+      padding: 12px;
       transform: translateY(-5px) scale(0);
       transition: transform 0.2s;
 
       &.shown {
-        transform: translateY(0px) scale(1);
+        transform: translateY(0px) scale(0.8);
       }
 
       &:hover {
@@ -1092,7 +1116,7 @@ body.projects {
 
   main {
     width: 100%;
-    margin: 1em 0;
+    margin: 2em 0;
   }
 
   .proj {

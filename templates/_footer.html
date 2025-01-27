@@ -1,13 +1,18 @@
+{% if config.extra.blog_section_path is defined %}
+{% set blog_section_path = config.extra.blog_section_path %}
+{% endif %}
 <footer>
-  <div class="copyright">
-    {{ config.extra.footer_copyright | trim | markdown | safe }}
+  <div class="left">
+    <div class="copyright">
+      {{ config.extra.footer_copyright }}
+      {% if config.extra.footer_credits %}
+      <span>|</span>
+      Built with <a href="https://www.getzola.org" rel="noreferrer">zola</a> and <a href="https://github.com/isunjn/serene" rel="noreferrer">serene</a>
+      {% endif %}
+    </div>
   </div>
 
-  {% if config.extra.blog_section_path is defined %}
-  {% set blog_section_path = config.extra.blog_section_path %}
-  {% endif %}
-
-  <div class="btns">
+  <div class="right">
     {% if blog_section_path is defined and section.path is starting_with(blog_section_path) %}
     {% set rss_icon = load_data(path="static/icon/rss.svg") %}
     {% if section.generate_feeds %}
@@ -16,7 +21,7 @@
       {% set_global rss_path = "/" ~ config.feed_filenames.0 %}
     {% endif %}
     {% if section.generate_feeds or config.generate_feeds %}
-    <a id="rss-btn" href="{{ get_url(path=rss_path) }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+    <a id="rss-btn" href="{{ get_url(path=rss_path) }}">RSS</a>
     {% endif %}
     {% endif %}
 
