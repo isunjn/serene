@@ -170,7 +170,7 @@ function addCopyBtns() {
 function addBackToTopBtn() {
   const backBtn = document.querySelector('#back-to-top');
   if (!backBtn) return;
-  const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const toTop = () => window.scrollTo({ top: 0 });
   const toggle = () => {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     if (scrollTop > 200 && !backBtn.classList.contains('shown')) {
@@ -188,15 +188,14 @@ function addBackToTopBtn() {
 }
 
 function addFootnoteBacklink() {
-  const backlinkIcon = document.querySelector('.prose').dataset.backlinkIcon;
   const footnotes = document.querySelectorAll('.footnote-definition');
   footnotes.forEach(footnote => {
     const backlink = document.createElement('button');
     backlink.className = 'backlink';
     backlink.ariaLabel = 'backlink';
-    backlink.innerHTML = backlinkIcon;
+    backlink.innerHTML = '↩︎';
     backlink.addEventListener('click', () => window.scrollTo({
-      top: document.querySelector(`.footnote-reference a[href="#${footnote.id}"]`).getBoundingClientRect().top + window.scrollY - 50,
+      top: document.querySelector(`.footnote-reference a[href="#${footnote.id}"]`).getBoundingClientRect().top + window.scrollY,
     }));
     footnote.appendChild(backlink);
   });
