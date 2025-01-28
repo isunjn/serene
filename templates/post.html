@@ -91,9 +91,9 @@
         <h1>{{ page.title }}</h1>
         <div id="post-info">
           <div id="date">
-            <span id="publish">{{ page.date | date }}</span>
+            <span id="publish">{{ page.date | date(format=section.extra.date_format) }}</span>
             {% if page.updated and page.updated != page.date -%}
-            <span>Updated on <span id="updated">{{ page.updated | date }}</span></span>
+            <span>Updated on <span id="updated">{{ page.updated | date(format=section.extra.date_format) }}</span></span>
             {% endif -%}
           </div>
 
