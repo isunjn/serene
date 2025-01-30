@@ -1,0 +1,50 @@
+{% macro card(item) %}
+<div class="collection card{% if item.featured %} featured{% endif %}">
+  <div class="meta">
+    {% if item.icon %}
+    <img class="icon no-lightense" src="{{ item.icon }}" alt="icon">
+    {% endif %}
+    {% if item.link %}
+    <a class="title" href="{{ item.link }}" rel="noreferrer noopener">{{ item.title }}</a>
+    {% else %}
+    <div class="title">{{ item.title }}</div>
+    {% endif %}
+    {% if item.date %}
+    <div class="date">{{ item.date }}</div>
+    {% endif %}
+  </div>
+  {% if item.subtitle %}
+    <div class="subtitle">{{ item.subtitle }}</div>
+  {% endif %}
+  <div class="content">
+    {{ item.content | trim | markdown | safe }}
+  </div>
+  {% if item.tags %}
+  <div class="tags">
+    {% for tag in item.tags %}
+    <div><span>#</span>{{ tag }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}
+
+
+{% macro entry(item) %}
+<div class="collection entry">
+  <img class="icon no-lightense" src="{{ item.icon }}" alt="" />
+  <span class="title">{{ item.title }}</span>
+  <span class="subtitle">{{ item.subtitle }}</span>
+</div>
+{% endmacro %}
+
+
+{% macro box(item) %}
+<div class="collection box">
+  <img class="no-lightense" src="{{ item.img }}" alt="" />
+  <div class="text">
+    <div class="title">{{ item.title }}</div>
+    <div class="subtitle">{{ item.subtitle }}</div>
+  </div>
+</div>
+{% endmacro %}

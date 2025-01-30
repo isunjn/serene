@@ -1,0 +1,15 @@
+{% import 'macros/collection.html' as marcos -%}
+
+{% set data = load_data(path="content" ~ section.path ~ file, format="toml") %}
+
+<div class="collection-wrapper">
+{% for item in data.collection %}
+  {% if item.type == "card" %}
+    {{ marcos::card(item=item) }}
+  {% elif item.type == "entry" %}
+    {{ marcos::entry(item=item) }}
+  {% elif item.type == "box" %}
+    {{ marcos::box(item=item) }}
+  {% endif %}
+{% endfor %}
+</div>

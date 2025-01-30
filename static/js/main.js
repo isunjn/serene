@@ -202,7 +202,7 @@ function addFootnoteBacklink() {
 }
 
 function enableImgLightense() {
-  window.addEventListener("load", () => Lightense(".prose img", { background: 'rgba(43, 43, 43, 0.19)' }));
+  window.addEventListener("load", () => Lightense(".prose img:not(.no-lightense)", { background: 'rgba(43, 43, 43, 0.19)' }));
 }
 
 function enableReaction() {
