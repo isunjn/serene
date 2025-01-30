@@ -514,7 +514,7 @@ body.prose-page {
   }
 
   .collection.card {
-    margin: 2.5em 0;
+    margin: 3em 0;
     position: relative;
 
     &.featured::before {
@@ -628,36 +628,70 @@ body.prose-page {
 }
 
   .collection.box {
-    width: fit-content;
-    max-width: 45%;
-    display: inline-flex;
+    width: 100%;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     border: 1px solid var(--primary-color);
     overflow: hidden;
-    margin-right: 0.5em;
-    margin-bottom: 0.85em;
 
     img {
-      width: 32px;
-      height: 32px;
-      transform: rotate(-25deg) scale(1.6);
+      width: 48px;
+      height: 48px;
+      &.rotate {
+        transform: rotate(-20deg) translate(-2px, 12px);
+        margin-left: 0.5em
+      }
+    }
+    .placehold {
+      height: 48px;
     }
 
     .text {
-      font-size: 0.8em;
+      min-height: 48px;
       line-height: 1;
-      padding: 6px 16px 6px 32px;
+      padding: 0 1em;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      justify-content: space-between;
-      gap: 6px;
+      gap: 0.5em;
+      overflow: hidden;
 
-      .intro {
+      .title {
         font-size: 0.9em;
+        color: var(--text-color);
+      }
+
+      .subtitle {
+        font-size: 0.8em;
         color: var(--text-pale-color);
+        overflow: hidden;
         text-wrap: nowrap;
         text-overflow: ellipsis;
+      }
+    }
+  }
+  a.collection.box {
+    &:hover {
+      opacity: unset;
+    }
+  }
+  .box-wrapper {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.5px solid transparent;
+    overflow: hidden;
+    margin-right: 0.5em;
+    margin-bottom: 0.8em;
+    &:has(a):hover {
+      border-color: var(--primary-color);
+    }
+    @media (min-width: 425px) {
+      & {
+        width: fit-content;
+        display: inline-flex;
       }
     }
   }

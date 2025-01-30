@@ -2,10 +2,10 @@
 <div class="collection card{% if item.featured %} featured{% endif %}">
   <div class="meta">
     {% if item.icon %}
-    <img class="icon no-lightense" src="{{ item.icon }}" alt="icon">
+    <img class="icon no-lightense" src="{{ item.icon }}" alt="icon" width="16" height="16">
     {% endif %}
     {% if item.link %}
-    <a class="title" href="{{ item.link }}" rel="noreferrer noopener">{{ item.title }}</a>
+    <a class="title" href="{{ item.link }}" target="_blank" rel="noreferrer noopener">{{ item.title }}</a>
     {% else %}
     <div class="title">{{ item.title }}</div>
     {% endif %}
@@ -32,13 +32,13 @@
 
 {% macro entry(item) %}
 {% if item.link %}
-<a href="{{ item.link }}" rel="noreferrer noopener" class="collection entry">
+<a href="{{ item.link }}" target="_blank" rel="noreferrer noopener" class="collection entry">
 {% else %}
 <div class="collection entry">
 {% endif %}
   {% if item.icon %}
   <div class="icon-wrapper">
-    <img class="icon no-lightense" src="{{ item.icon }}" alt="icon" />
+    <img class="icon no-lightense" src="{{ item.icon }}" alt="icon" width="16" height="16" />
   </div>
   {% endif %}
   {% if item.title or item.subtitle %}
@@ -60,11 +60,27 @@
 
 
 {% macro box(item) %}
+<div class="box-wrapper">
+{% if item.link %}
+<a href="{{ item.link }}" target="_blank" rel="noreferrer noopener" class="collection box">
+{% else %}
 <div class="collection box">
-  <img class="no-lightense" src="{{ item.img }}" alt="" />
+{% endif %}
   <div class="text">
     <div class="title">{{ item.title }}</div>
+    {% if item.subtitle %}
     <div class="subtitle">{{ item.subtitle }}</div>
+    {% endif %}
   </div>
+  {% if item.img %}
+    <img class="no-lightense{% if item.rotate %} rotate{% endif %}" src="{{ item.img }}" alt="" width="48" height="48" />
+    {% else %}
+    <div class="placehold"></div>
+    {% endif %}
+{% if item.link %}
+</a>
+{% else %}
+</div>
+{% endif %}
 </div>
 {% endmacro %}
