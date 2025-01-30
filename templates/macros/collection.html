@@ -31,11 +31,31 @@
 
 
 {% macro entry(item) %}
+{% if item.link %}
+<a href="{{ item.link }}" rel="noreferrer noopener" class="collection entry">
+{% else %}
 <div class="collection entry">
-  <img class="icon no-lightense" src="{{ item.icon }}" alt="" />
-  <span class="title">{{ item.title }}</span>
-  <span class="subtitle">{{ item.subtitle }}</span>
+{% endif %}
+  {% if item.icon %}
+  <div class="icon-wrapper">
+    <img class="icon no-lightense" src="{{ item.icon }}" alt="icon" />
+  </div>
+  {% endif %}
+  {% if item.title or item.subtitle %}
+  <div class="text-wrappr">
+    {% if item.title %}
+    <span class="title">{{ item.title }}</span>
+    {% endif %}
+    {% if item.subtitle %}
+    <span class="subtitle">{{ item.subtitle }}</span>
+    {% endif %}
+  </div>
+  {% endif %}
+{% if item.link %}
+</a>
+{% else %}
 </div>
+{% endif %}
 {% endmacro %}
 
 
