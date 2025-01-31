@@ -197,7 +197,8 @@ function addFootnoteBacklink() {
     backlink.addEventListener('click', () => window.scrollTo({
       top: document.querySelector(`.footnote-reference a[href="#${footnote.id}"]`).getBoundingClientRect().top + window.scrollY,
     }));
-    footnote.appendChild(backlink);
+    const lastEl = footnote.lastElementChild || footnote;
+    lastEl.appendChild(backlink);
   });
 }
 

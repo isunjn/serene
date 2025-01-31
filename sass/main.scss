@@ -14,6 +14,9 @@ body {
   font-size: var(--font-size);
   line-height: var(--line-height);
   overflow-y: scroll;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button:focus-visible,
@@ -35,7 +38,7 @@ a:focus-visible {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-color);
+  background: var(--text-decoration-color);
   background-clip: padding-box;
   border-radius: 4px;
   border: 2px solid transparent;
@@ -43,7 +46,7 @@ a:focus-visible {
 @supports not selector(::-webkit-scrollbar) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-color) transparent;
+    scrollbar-color: var(--text-decoration-color) transparent;
   }
   body {
     overflow-y: auto;
@@ -62,12 +65,12 @@ a:focus-visible {
 
   h2 {
     font-size: 1.1em;
-    margin: 2.5em 0 1em;
+    margin: 3em 0 1.5em;
   }
 
   h3, h4, h5, h6 {
     font-size: 1em;
-    margin: 2em 0 1em;
+    margin: 2.5em 0 1.5em;
   }
 
   .zola-anchor {
@@ -123,7 +126,7 @@ a:focus-visible {
   }
 
   blockquote {
-    border-left: 1.5px var(--text-pale-color) solid;
+    border-left: 1.5px var(--text-decoration-color) solid;
     padding-left: 16px;
     margin: 1em 0;
     color: var(--text-pale-color);
@@ -161,7 +164,7 @@ a:focus-visible {
   }
 
   thead {
-    background-color: var(--primary-pale-color);
+    background-color: var(--primary-descoration-color);
   }
 
   th,
@@ -319,39 +322,37 @@ a:focus-visible {
   }
 
   .footnote-definition {
-    display: flex;
+    position: relative;
+    padding-left: 1.5em;
     font-size: 0.9em;
-    margin: 4em 0 1em;
+    margin: 3em 0 1em;
     + .footnote-definition {
       margin: 1em 0;
     }
 
     .footnote-definition-label {
-      position: static;
+      position: absolute;
+      top: 0;
+      left: 0;
       font-size: 1em;
       line-height: inherit;
       vertical-align: auto;
-      margin-right: 0.5em;
       &::after {
         content: ".";
       }
     }
 
     p {
-      margin: 0;
+      margin: 1em 0;
     }
 
     button.backlink {
-      align-self: start;
       border: none;
       background: none;
-      display: flex;
-      align-items: center;
-      margin-left: 0.5em;
       color: var(--primary-color);
-      cursor: pointer;
-      line-height: var(--line-height);
+      line-height: inherit;
       &:hover {
+        cursor: pointer;
         text-decoration: underline;
       }
     }
@@ -428,6 +429,7 @@ a:focus-visible {
     color: var(--text-pale-color);
 
     .icon {
+      color: var(--text-decoration-color);
       display: block !important;
       position: absolute;
       left: 0;
@@ -928,7 +930,6 @@ body.homepage {
 
     #bio {
       color: var(--text-pale-color);
-      font-weight: 300;
     }
   }
 
@@ -1034,23 +1035,26 @@ dialog#rss-mask {
 
   &::backdrop {
     background-color: initial;
-    -webkit-backdrop-filter: blur(24px);
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
   div {
+    pointer-events: none;
     height: 100vh;
     height: 100dvh;
-    padding: 2em 0;
+    padding: 4em 0;
     width: fit-content;
     display: flex;
     justify-content: center;
     align-items: end;
     flex-wrap: wrap;
     gap: 1em;
+    font-size: 0.9em;
   }
 
   a {
+    pointer-events: auto;
     border-bottom: 1.5px solid var(--primary-color);
     color: var(--primary-color);
     text-decoration: none;
@@ -1059,6 +1063,7 @@ dialog#rss-mask {
   }
 
   button {
+    pointer-events: auto;
     background: transparent;
     border: none;
     color: var(--text-pale-color);
@@ -1075,6 +1080,7 @@ dialog#rss-mask {
 
 footer {
   font-size: 0.8em;
+  line-height: 18px;
   margin-top: auto;
   padding: 15px;
   display: flex;
@@ -1103,18 +1109,15 @@ footer {
   }
 
   .right {
-    margin: 15px 0;
     display: flex;
-    gap: 1em;
     align-items: center;
-    transform: translateX(4px);
-    line-height: 1;
+    gap: 4px;
+    margin: 11px 0;
 
     #rss-btn,
     #theme-toggle {
       border: none;
       background-color: transparent;
-      padding: 0;
       text-decoration: none;
       cursor: pointer;
       color: var(--text-pale-color);
@@ -1124,11 +1127,16 @@ footer {
     }
 
     #rss-btn {
-      font-size: 0.9em;
-      padding-top: 2px;
+      padding: 4px 0;
+      font-size: 0.85em;
+      line-height: 18px;
     }
     #theme-toggle {
-      scale: 0.7;
+      padding: 4px;
+      transform: translateX(6px);
+      svg {
+        scale: 0.7;
+      }
       line-height: 0;
     }
   }
@@ -1186,7 +1194,7 @@ body.post {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      margin-bottom: 2em;
+      margin-bottom: 1.5em;
       font-size: 0.9em;
     }
 
@@ -1243,8 +1251,8 @@ body.post {
     order: 3;
     width: calc((100% - var(--main-max-width)) / 2);
     position: sticky;
-    margin-top: 175px;
-    top: 1em;
+    margin-top: 13em;
+    top: 0;
     height: min-content;
     font-size: 0.9em;
 
@@ -1288,9 +1296,9 @@ body.post {
       &::before {
         display: block;
         content: "";
-        width: 2px;
+        width: 1.5px;
         position: absolute;
-        top: 0.6em;
+        top: 0.7em;
         bottom: 0.7em;
         left: 0em;
         background: transparent;
@@ -1310,18 +1318,22 @@ body.post {
       line-height: 0;
       z-index: 99;
       position: fixed;
-      bottom: 1.4em;
-      margin-left: 2em;
+      bottom: 15px;
+      margin-left: 1.5em;
       color: var(--text-pale-color);
       background: transparent;
       border: none;
       cursor: pointer;
-      padding: 12px;
+      padding: 15px;
       transform: translateY(-5px) scale(0);
-      transition: transform 0.2s;
+      transition: transform 0.15s;
+
+      svg {
+        scale: 0.75;
+      }
 
       &.shown {
-        transform: translateY(0px) scale(0.8);
+        transform: translateY(0px) scale(1);
       }
 
       &:hover {
@@ -1351,11 +1363,12 @@ body.tag-list {
   }
 
   main {
-    margin: 1em 15px;
+    margin: 0 15px;
   }
 
   .title {
-    margin: 1em 0;
+    font-size: 1.1em;
+    margin: 1.5em 0 0.75em;
   }
 
   .tags {
@@ -1394,11 +1407,11 @@ body.tag-single {
 
   main {
     width: 100%;
-    margin: 1em auto;
   }
 
   .title {
-    margin: 1em 15px 3em;
+    font-size: 1.1em;
+    margin: 1.5em 15px 2em;
   }
 }
 
