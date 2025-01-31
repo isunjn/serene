@@ -2,7 +2,9 @@
 <div class="collection card{% if item.featured %} featured{% endif %}">
   <div class="meta">
     {% if item.icon %}
-    <img class="icon no-lightense" src="{{ item.icon }}" alt="icon" width="16" height="16">
+    <div class="icon-wrapper">
+      <img class="icon no-lightense" src="{{ item.icon }}" alt="icon" width="16" height="16">
+    </div>
     {% endif %}
     {% if item.link %}
     <a class="title" href="{{ item.link }}" target="_blank" rel="noreferrer noopener">{{ item.title }}</a>
@@ -16,9 +18,7 @@
   {% if item.subtitle %}
     <div class="subtitle">{{ item.subtitle }}</div>
   {% endif %}
-  <div class="content">
-    {{ item.content | trim | markdown | safe }}
-  </div>
+  <div class="content">{{ item.content | trim | markdown | safe }}</div>
   {% if item.tags %}
   <div class="tags">
     {% for tag in item.tags %}
@@ -26,6 +26,29 @@
     {% endfor %}
   </div>
   {% endif %}
+</div>
+{% endmacro %}
+
+
+{% macro card_simple(item) %}
+<div class="collection card-simple{% if item.featured %} featured{% endif %}">
+  <div class="meta">
+    {% if item.icon %}
+    <div class="icon-wrapper">
+      <img class="icon no-lightense" src="{{ item.icon }}" alt="icon" width="16" height="16">
+    </div>
+    {% endif %}
+    {% if item.link %}
+    <a class="title" href="{{ item.link }}" target="_blank" rel="noreferrer noopener">{{ item.title }}</a>
+    {% else %}
+    <div class="title">{{ item.title }}</div>
+    {% endif %}
+    <div class="content">{{ item.content | trim | markdown | safe }}</div>
+    {% if item.date %}
+    <div class="date">{{ item.date }}</div>
+    {% endif %}
+  </div>
+  <div class="content-narrow">{{ item.content | trim | markdown | safe }}</div>
 </div>
 {% endmacro %}
 

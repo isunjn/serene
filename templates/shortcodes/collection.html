@@ -6,6 +6,8 @@
 {% for item in data.collection %}
   {% if item.type == "card" %}
     {{ marcos::card(item=item) }}
+  {% elif item.type == "card_simple" %}
+    {{ marcos::card_simple(item=item) }}
   {% elif item.type == "entry" %}
     {{ marcos::entry(item=item) }}
   {% elif item.type == "box" %}

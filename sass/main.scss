@@ -535,9 +535,13 @@ body.prose-page {
 
     .meta {
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
       gap: 0.5em;
+      .icon-wrapper {
+        height: calc(1em * var(--line-height));
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
       .icon {
         height: 16px;
         width: 16px;
@@ -591,6 +595,89 @@ body.prose-page {
     }
   }
 
+  .collection.card-simple {
+    margin: 0.5em 0;
+    position: relative;
+
+    &.featured::before {
+      content: '*';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-200%);
+      line-height: 2;
+      color: var(--primary-color);
+    }
+    @media (max-width: 768px) {
+      &.featured::before {
+        transform: translateX(-150%);
+      }
+    }
+
+    .meta {
+      display: flex;
+      align-items: start;
+      gap: 0.5em;
+    }
+
+    .icon-wrapper {
+      height: calc(1em * var(--line-height));
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .icon {
+      height: 16px;
+      width: 16px;
+    }
+    .title {
+      flex-shrink: 0;
+      max-width: 100%;
+      color: var(--primary-color);
+      margin-right: 0.5em;
+    }
+    a.title {
+      text-decoration: none;
+      border-bottom: 1.5px solid transparent;
+      &:hover {
+        opacity: unset;
+        border-color: var(--primary-color);
+      }
+    }
+    .content,
+    .content-narrow {
+      p {
+        margin: 0;
+        + p {
+          margin-top: 0.5em;
+        }
+      }
+    }
+    .content {
+      display: none;
+    }
+    .content-narrow {
+      margin: 0.25em 0 2em;
+    }
+    @media (min-width: 425px) {
+      .content-narrow {
+        display: none;
+      }
+      .content {
+        display: block;
+      }
+    }
+    .date {
+      margin-left: auto;
+      flex-shrink: 0;
+      font-size: 0.9em;
+      line-height: calc(var(--line-height) * 1.111);
+      color: var(--text-pale-color);
+    }
+
+  }
+
   .collection.entry {
     display: inline-flex;
     width: fit-content;
@@ -625,7 +712,7 @@ body.prose-page {
       opacity: unset;
       cursor: pointer;
     }
-}
+  }
 
   .collection.box {
     width: 100%;
