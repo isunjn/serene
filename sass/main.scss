@@ -639,6 +639,7 @@ body.prose-page {
       width: 48px;
       height: 48px;
       &.rotate {
+        transition: transform 0.15s;
         transform: rotate(-20deg) translate(-2px, 12px);
         margin-left: 0.5em
       }
@@ -674,6 +675,9 @@ body.prose-page {
   a.collection.box {
     &:hover {
       opacity: unset;
+      img.rotate {
+        transform: rotate(0deg) translate(0px, 0px);
+      }
     }
   }
   .box-wrapper {
