@@ -100,25 +100,6 @@ function enableOutdateAlert() {
   }
 }
 
-function enableTocIndicate() {
-  const toc = document.querySelector('aside nav');
-  if (!toc) return;
-  const headers = document.querySelectorAll('h2, h3');
-  const tocMap = new Map();
-  headers.forEach(header => tocMap.set(header, toc.querySelector(`a[href="#${header.id}"]`)));
-  let activated = null;
-  const observer = new IntersectionObserver((entries) => entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const target = tocMap.get(entry.target);
-      if (target == activated) return;
-      if (activated) activated.classList.remove('active');
-      target.classList.add('active');
-      activated = target;
-    }
-  }), { rootMargin: '-9% 0px -90% 0px' });
-  headers.forEach(header => observer.observe(header));
-}
-
 function enableTocTooltip() {
   const anchors = document.querySelectorAll('aside nav a');
   if (anchors.length == 0) return;
@@ -266,7 +247,6 @@ enablePrerender();
 enableRssMask();
 if (document.body.classList.contains('post')) {
   enableOutdateAlert();
-  enableTocIndicate();
   addBackToTopBtn();
   enableTocTooltip();
 }
