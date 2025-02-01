@@ -118,13 +118,7 @@
         </blockquote>
         {% endif %}
 
-        {% if page.extra.truncate_summary is defined %}{% set truncate_summary = page.extra.truncate_summary %}{% elif config.extra.truncate_summary is defined %}{% set truncate_summary = config.extra.truncate_summary %}{% else %}{% set truncate_summary = false %}{% endif %}
-
-        {% if truncate_summary == true and page.summary %}
-          {{ page.content | trim_start_matches(pat=page.summary) | safe }}
-        {% else %}
-          {{ page.content | safe }}
-        {% endif %}
+        {{ page.content | safe }}
       </article>
 
       {% if page.extra.reaction is defined %}{% set show_reaction = page.extra.reaction %}{% else %}{% set show_reaction = config.extra.reaction %}{% endif %}
