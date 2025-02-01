@@ -967,16 +967,12 @@ body.prose-page {
     line-height: 1.2;
     text-decoration: none;
     color: var(--primary-color);
-    -webkit-tap-highlight-color: transparent;
 
     border-bottom: 1.5px solid transparent;
     @media (hover: hover) {
       &:hover {
         border-bottom-color: var(--primary-color);
       }
-    }
-    &:active {
-      border-bottom-color: var(--primary-color);
     }
 
     .date {
@@ -1089,7 +1085,7 @@ body.homepage {
 
   #links {
     padding: 0 15px;
-    margin: 2em 0 2.5em;
+    margin: 2em 0 2em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1559,11 +1555,12 @@ body.tag-single {
 
   main {
     width: 100%;
+    margin: 1em 0;
   }
 
   .title {
     font-size: 1.1em;
-    margin: 1.5em 15px 2em;
+    margin: 0.5em 15px 2em;
   }
 }
 
