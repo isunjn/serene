@@ -1,5 +1,5 @@
 {% macro card(item) %}
-<div class="collection card{% if item.featured %} featured{% endif %}">
+<blockquote class="collection card{% if item.featured %} featured{% endif %}">
   <div class="meta">
     {% if item.icon %}
     <div class="icon-wrapper">
@@ -26,12 +26,12 @@
     {% endfor %}
   </div>
   {% endif %}
-</div>
+</blockquote>
 {% endmacro %}
 
 
 {% macro card_simple(item) %}
-<div class="collection card-simple{% if item.featured %} featured{% endif %}">
+<blockquote class="collection card-simple{% if item.featured %} featured{% endif %}">
   <div class="meta">
     {% if item.icon %}
     <div class="icon-wrapper">
@@ -49,7 +49,7 @@
     {% endif %}
   </div>
   <div class="content-narrow">{{ item.content | trim | markdown | safe }}</div>
-</div>
+</blockquote>
 {% endmacro %}
 
 
@@ -57,7 +57,7 @@
 {% if item.link %}
 <a href="{{ item.link }}" target="_blank" rel="noreferrer noopener" class="collection entry">
 {% else %}
-<div class="collection entry">
+<blockquote class="collection entry">
 {% endif %}
   {% if item.icon %}
   <div class="icon-wrapper">
@@ -65,19 +65,19 @@
   </div>
   {% endif %}
   {% if item.title or item.subtitle %}
-  <div class="text-wrappr">
+  <div class="text">
     {% if item.title %}
-    <span class="title">{{ item.title }}</span>
+    <div class="title">{{ item.title }}</div>
     {% endif %}
     {% if item.subtitle %}
-    <span class="subtitle">{{ item.subtitle }}</span>
+    <div class="subtitle">{{ item.subtitle }}</div>
     {% endif %}
   </div>
   {% endif %}
 {% if item.link %}
 </a>
 {% else %}
-</div>
+</blockquote>
 {% endif %}
 {% endmacro %}
 
@@ -87,7 +87,7 @@
 {% if item.link %}
 <a href="{{ item.link }}" target="_blank" rel="noreferrer noopener" class="collection box">
 {% else %}
-<div class="collection box">
+<blockquote class="collection box">
 {% endif %}
   <div class="text">
     <div class="title">{{ item.title }}</div>
@@ -103,20 +103,20 @@
 {% if item.link %}
 </a>
 {% else %}
-</div>
+</blockquote>
 {% endif %}
 </div>
 {% endmacro %}
 
 
 {% macro art(item) %}
-<div class="collection art">
+<blockquote class="collection art">
   <div class="img-wrapper">
     <img src="{{ item.img }}" alt="{{ item.title }}" height="175">
   </div>
   <div class="text">
     {% if item.link %}
-    <a class="title" href="{{ item.link }}" rel="noreferrer noopener" >{{ item.title }}</a>
+    <a class="title" href="{{ item.link }}" target="_blank" rel="noreferrer noopener" >{{ item.title }}</a>
     {% else %}
     <div class="title">{{ item.title }}</div>
     {% endif %}
@@ -130,18 +130,18 @@
     <div class="footer">{{ item.footer }}</div>
     {% endif %}
   </div>
-</div>
+</blockquote>
 {% endmacro %}
 
 
 {% macro art_simple(item) %}
-<div class="collection art-simple">
+<blockquote class="collection art-simple">
   <div class="img-wrapper">
     <img src="{{ item.img }}" alt="{{ item.title }}" height="175">
   </div>
   <div class="text">
     {% if item.link %}
-    <a class="title" href="{{ item.link }}" rel="noreferrer noopener" >{{ item.title }}</a>
+    <a class="title" href="{{ item.link }}" target="_blank" rel="noreferrer noopener" >{{ item.title }}</a>
     {% else %}
     <div class="title">{{ item.title }}</div>
     {% endif %}
@@ -149,5 +149,5 @@
       <div class="subtitle">{{ item.subtitle }}</div>
     {% endif %}
   </div>
-</div>
+</blockquote>
 {% endmacro %}

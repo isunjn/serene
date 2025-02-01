@@ -19,7 +19,7 @@
     {% if category is matching("^__[0-9]{2}__") %}
       {% set category_name = category | split(pat="") | slice(start=7) | join(sep="") %}
     {% endif %}
-    <div class="category">{{ category_name }}</div>
+    <h2 class="category">{{ category_name }}</h2>
     <div class="post-list categorized">
       {% for post in posts %}
       <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">

@@ -153,9 +153,9 @@ a:focus-visible {
 
   hr {
     border: none;
-    background-color: var(--text-pale-color);
+    background-color: var(--text-decoration-color);
     opacity: 0.25;
-    height: 1.5px;
+    height: 2px;
     margin: 3em 0;
   }
 
@@ -515,6 +515,10 @@ body.prose-page {
   }
 
   .collection {
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
     img {
       margin: 0;
     }
@@ -704,6 +708,9 @@ body.prose-page {
       height: 16px;
     }
 
+    .text div {
+      display: inline;
+    }
     .title:has(+.subtitle) {
       margin-right: 0.5em;
     }
@@ -936,6 +943,7 @@ body.prose-page {
   .category {
     font-size: 0.9em;
     margin: 1em 15px;
+    font-weight: 400;
   }
 
   .post-list {
