@@ -970,13 +970,17 @@ body.prose-page {
     -webkit-tap-highlight-color: transparent;
 
     border-bottom: 1.5px solid transparent;
-    &:hover {
+    @media (hover: hover) {
+      &:hover {
+        border-bottom-color: var(--primary-color);
+      }
+    }
+    &:active {
       border-bottom-color: var(--primary-color);
     }
 
     .date {
       white-space: nowrap;
-      font-size: 0.9em;
     }
 
     position: relative;
