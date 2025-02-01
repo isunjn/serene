@@ -64,7 +64,7 @@ a:focus-visible {
   }
 
   h2 {
-    font-size: 1.1em;
+    font-size: 1.05em;
     margin: 3em 0 1.5em;
   }
 
@@ -145,6 +145,9 @@ a:focus-visible {
 
   li {
     margin: 1em 0;
+    p {
+      margin: 1em 0;
+    }
   }
 
   li::marker {
@@ -184,7 +187,6 @@ a:focus-visible {
     font-family: var(--code-font);
     font-size: 0.85em;
     padding: 1px 6px;
-    margin: 0 2px;
     color: var(--primary-color);
     background-color: var(--inline-code-bg-color);
     border-radius: var(--inline-code-border-radius);
@@ -220,7 +222,7 @@ a:focus-visible {
 
 
     table tr td:first-of-type {
-      color: var(--text-pale-color);
+      color: var(--text-decoration-color);
     }
 
     table td {
@@ -269,7 +271,7 @@ a:focus-visible {
   }
 
   .codeblock {
-    margin: 1em 0;
+    margin: 1.5em 0;
     position: relative;
     overflow: auto;
 
@@ -305,16 +307,16 @@ a:focus-visible {
   }
 
   .codeblock-with-filename {
-    margin-top: calc(0px - 1.2em - 24px - 1em - 1.5px);
+    margin-top: calc(0px - 1.2em - 24px - 1.5em - 1.5px);
 
     .filename {
       z-index: 1;
       position: relative;
-      top: calc(1.2em + 24px + 1em + 1.5px);
+      top: calc(1.2em + 24px + 1.5em + 1.5px);
       padding: 12px 16px;
       line-height: 1.2;
       color: var(--text-pale-color);
-      border-bottom: 1.5px solid var(--primary-pale-color);
+      border-bottom: 1px solid var(--primary-pale-color);
       pointer-events: none;
     }
 
@@ -373,7 +375,7 @@ a:focus-visible {
 
     p {
       margin: 0;
-      +p {
+      + p {
         margin: 1em 0;
       }
     }
@@ -490,6 +492,7 @@ body.dark .prose {
 body.prose-page {
   main {
     min-height: 100vh;
+    min-height: 100dvh;
     margin: 0 auto;
     max-width: var(--main-max-width);
     display: flex;
@@ -973,6 +976,7 @@ body.prose-page {
 
     .date {
       white-space: nowrap;
+      font-size: 0.9em;
     }
 
     position: relative;
@@ -1473,7 +1477,7 @@ body.post {
       transition: transform 0.15s;
 
       svg {
-        scale: 0.75;
+        scale: 0.8;
       }
 
       &.shown {
@@ -1520,7 +1524,7 @@ body.tag-list {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2em;
+    gap: 1em 2em;
 
     a {
       color: var(--primary-color);
