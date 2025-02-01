@@ -14,6 +14,8 @@
     {{ marcos::box(item=item) }}
   {% elif item.type == "art" %}
     {{ marcos::art(item=item) }}
+  {% elif item.type == "art_simple" %}
+    {{ marcos::art_simple(item=item) }}
   {% elif item.type == "br" %}
     <br />
   {% endif %}

@@ -132,3 +132,22 @@
   </div>
 </div>
 {% endmacro %}
+
+
+{% macro art_simple(item) %}
+<div class="collection art-simple">
+  <div class="img-wrapper">
+    <img src="{{ item.img }}" alt="{{ item.title }}" height="175">
+  </div>
+  <div class="text">
+    {% if item.link %}
+    <a class="title" href="{{ item.link }}" rel="noreferrer noopener" >{{ item.title }}</a>
+    {% else %}
+    <div class="title">{{ item.title }}</div>
+    {% endif %}
+    {% if item.subtitle %}
+      <div class="subtitle">{{ item.subtitle }}</div>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
