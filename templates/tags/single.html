@@ -21,7 +21,7 @@
       {% for post in term.pages %}
       <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
-        <span class="date">{{ post.date | date }}</span>
+        <span class="date">{{ post.date | date(format=section.extra.date_format) }}</span>
       </a>
       {% endfor %}
     </div>
