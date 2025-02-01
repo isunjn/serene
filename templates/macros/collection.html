@@ -96,7 +96,7 @@
     {% endif %}
   </div>
   {% if item.img %}
-    <img class="no-lightense{% if item.rotate %} rotate{% endif %}" src="{{ item.img }}" alt="" width="48" height="48" />
+    <img class="no-lightense{% if item.rotate %} rotate{% endif %}" src="{{ item.img }}" alt="{{ item.title }}" width="48" height="48" />
     {% else %}
     <div class="placehold"></div>
     {% endif %}
@@ -105,5 +105,30 @@
 {% else %}
 </div>
 {% endif %}
+</div>
+{% endmacro %}
+
+
+{% macro art(item) %}
+<div class="collection art">
+  <div class="img-wrapper">
+    <img src="{{ item.img }}" alt="{{ item.title }}" height="175">
+  </div>
+  <div class="text">
+    {% if item.link %}
+    <a class="title" href="{{ item.link }}" rel="noreferrer noopener" >{{ item.title }}</a>
+    {% else %}
+    <div class="title">{{ item.title }}</div>
+    {% endif %}
+    {% if item.subtitle %}
+    <div class="subtitle">{{ item.subtitle }}</div>
+    {% endif %}
+    {% if item.content %}
+    <div class="content">{{ item.content }}</div>
+    {% endif %}
+    {% if item.footer %}
+    <div class="footer">{{ item.footer }}</div>
+    {% endif %}
+  </div>
 </div>
 {% endmacro %}

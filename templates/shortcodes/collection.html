@@ -2,7 +2,7 @@
 
 {% set data = load_data(path="content" ~ section.path ~ file, format="toml") %}
 
-<div class="collection-wrapper">
+<section class="collection-wrapper">
 {% for item in data.collection %}
   {% if item.type == "card" %}
     {{ marcos::card(item=item) }}
@@ -12,8 +12,10 @@
     {{ marcos::entry(item=item) }}
   {% elif item.type == "box" %}
     {{ marcos::box(item=item) }}
+  {% elif item.type == "art" %}
+    {{ marcos::art(item=item) }}
   {% elif item.type == "br" %}
     <br />
   {% endif %}
 {% endfor %}
-</div>
+</section>

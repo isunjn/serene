@@ -789,6 +789,81 @@ body.prose-page {
     }
   }
 
+  .collection.art {
+    --art-h: 160px;
+    --art-w: 115px;
+
+    margin: 2em 0;
+    display: flex;
+    gap: 1.5em;
+
+    .img-wrapper {
+      flex-shrink: 0;
+      width: var(--art-w);
+      height: var(--art-h);
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    .text {
+      height: var(--art-h);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .title {
+      color: var(--primary-color);
+    }
+    a.title {
+      width: fit-content;
+      border-color: transparent;
+      &:hover {
+        opacity: unset;
+        border-color: var(--primary-color);
+      }
+    }
+    .subtitle,
+    .footer {
+      font-size: 0.8em;
+      color: var(--text-pale-color);
+    }
+    .content {
+      font-size: 0.9em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+    .footer {
+      margin-top: auto;
+    }
+
+    @media (max-width: 425px) {
+      & {
+        --art-h: 120px;
+        --art-w: 85px;
+        gap: 0.75em;
+        .text {
+          gap: 2px;
+        }
+        .title {
+          font-size: 1em;
+        }
+        .subtitle,
+        .footer {
+          font-size: 0.7em;
+        }
+        .content {
+          font-size: 0.8em;
+          -webkit-line-clamp: 2;
+        }
+      }
+    }
+
+  }
+
 }
 
 /* layout post list ( home / blog / tag )
@@ -897,7 +972,7 @@ body.homepage {
     min-height: 75vh;
     min-height: 75dvh;
     padding: 4em 0;
-    @media screen and (max-width: 425px) {
+    @media (max-width: 425px) {
       & {
         padding: 2em 0;
       }
