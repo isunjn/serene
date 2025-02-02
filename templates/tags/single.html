@@ -9,6 +9,9 @@
 {%- if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ lang }}{% endif -%}
 {%- endblock lang %}
 {% block title %}{{section.title}}{% endblock title %}
+{% block desc %}
+  <meta name="description" content="{{ term.name }}">
+{% endblock desc %}
 
 {% block content %}
 <div id="wrapper">

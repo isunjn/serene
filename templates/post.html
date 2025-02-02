@@ -14,10 +14,12 @@
     {% set desc = page.summary %}
   {% elif page.description %}
     {% set desc = page.description %}
+  {% elif section.description %}
+    {% set desc = section.description %}
+  {% else %}
+    {% set desc = config.description %}
   {% endif %}
-  {% if desc %}
   <meta name="description" content="{{ desc }}">
-  {% endif %}
 {% endblock desc %}
 
 {% block head %}
