@@ -261,7 +261,12 @@ a:focus-visible {
     }
 
     &.mermaid {
+      padding-right: 16px;
       border: none;
+      svg {
+        display: block;
+        margin: 0 auto;
+      }
     }
   }
 
@@ -776,9 +781,7 @@ body.prose-page {
         text-overflow: ellipsis;
       }
     }
-  }
-  a.collection.box {
-    -webkit-tap-highlight-color: transparent;
+
     @media (hover: hover) {
       &:hover {
         opacity: unset;
@@ -787,6 +790,9 @@ body.prose-page {
         }
       }
     }
+  }
+  a.collection.box {
+    -webkit-tap-highlight-color: transparent;
   }
   .collection-box-wrapper {
     max-width: 100%;
@@ -1070,7 +1076,7 @@ body.homepage {
       flex-direction: column;
       justify-content: space-around;
       line-height: 1.5;
-      gap: 0.75em;
+      gap: 1em;
     }
 
     #id {
