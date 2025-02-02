@@ -180,10 +180,7 @@ a:focus-visible {
     padding: 1px 10px;
   }
 
-  p>code,
-  li>code,
-  td>code,
-  th>code {
+  :not(pre) > code {
     font-family: var(--code-font);
     font-size: 0.85em;
     padding: 1px 6px;
