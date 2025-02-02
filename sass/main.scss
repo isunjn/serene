@@ -760,12 +760,11 @@ body.prose-page {
 
     .text {
       min-height: 48px;
-      line-height: 1;
+      line-height: 1.5;
       padding: 0 1em;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.5em;
       overflow: hidden;
 
       .title {
@@ -894,8 +893,8 @@ body.prose-page {
       --art-h: 160px;
       --art-w: 115px;
 
-      max-width: calc(50vw - 15px);
-      margin: 1.5em 1em;
+      max-width: calc(50vw - 30px);
+      margin: 1.5em 0.75em;
       display: inline-flex;
       flex-direction: column;
       align-items: center;
@@ -939,6 +938,7 @@ body.prose-page {
         & {
           --art-h: 120px;
           --art-w: 85px;
+          width: calc(50vw - 50px);
         }
       }
 
