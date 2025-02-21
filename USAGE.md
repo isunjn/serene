@@ -259,9 +259,10 @@ Now the myblog directory may looks like this:
       }
       ```
 
-- For conivence, you can use [this template repo](https://github.com/isunjn/reaction) to setup your own endpoint. All you need is a [Cloudflare](https://cloudflare.com) account. The free tier is good enough for a low-traffic personal blog.
+- For conivence, you can use [this template repo](https://github.com/isunjn/reaction) to setup your own endpoint. All you need is a [Cloudflare](https://cloudflare.com) account. The free tier is good enough for a low-traffic personal blog. Other APIs available:
 
-    - Another template repo is [mildronize/reaction](https://github.com/mildronize/reaction), specific to [Azure](https://azure.microsoft.com/) platform, thanks to [@mildronize](https://github.com/mildronize).
+    - [mildronize/reaction](https://github.com/mildronize/reaction), specific to [Azure](https://azure.microsoft.com/) platform, thanks to [@mildronize](https://github.com/mildronize).
+    - [sorokya/reaction](https://github.com/sorokya/reaction), self contained API for easy self hosting powered by SQLite, thanks to [@sorokya](https://github.com/sorokya).
 
 - After you setup your endpoint, set `reaction_endpoint = "<your-endpoint>"` and `reaction = true` in `config.toml` to enable it.
 
