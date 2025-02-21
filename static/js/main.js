@@ -217,6 +217,9 @@ function enableReaction() {
     try {
       const resp = await fetch(endpoint, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ slug, target, reacted: !reacted }),
       });
       if (resp.status === 200) {
