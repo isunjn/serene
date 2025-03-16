@@ -58,13 +58,13 @@ a:focus-visible {
 
 .prose {
   h1 {
-    font-size: 1.1em;
+    font-size: 1.15em;
     font-weight: bolder;
     margin: 1.5em 0 0.75em;
   }
 
   h2 {
-    font-size: 1.05em;
+    font-size: 1.1em;
     margin: 3em 0 1.5em;
   }
 
@@ -165,18 +165,15 @@ a:focus-visible {
   table {
     width: 100%;
     border-spacing: 0;
-    border: 1.5px solid var(--primary-color);
-  }
-
-  thead {
-    background-color: var(--primary-descoration-color);
+    border-collapse: collapse;
+    margin: 1.5em 0;
   }
 
   th,
   td {
     line-height: 2;
     text-align: center;
-    border: 0.75px solid var(--primary-pale-color);
+    border: 1px solid var(--primary-color);
     padding: 1px 10px;
   }
 
@@ -210,6 +207,7 @@ a:focus-visible {
 
     table {
       width: 100%;
+      margin: 0;
       border-collapse: collapse;
       border: none;
       th, td {
@@ -1167,7 +1165,7 @@ header {
 .section-title {
   padding: 0 15px;
   h1 {
-    font-size: 1.1em;
+    font-size: 1.15em;
     margin: 1.5em 0 0.75em;
   }
   p {
@@ -1413,7 +1411,7 @@ body.post {
     font-size: 0.9em;
 
     nav {
-      padding: 5px 15px 5px 2em;
+      padding: 12px 1em 12em 2em;
       min-width: 60%;
       overflow-y: auto;
       max-height: calc(100vh - 6em);
