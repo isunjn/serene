@@ -1196,7 +1196,7 @@ dialog#rss-mask {
     pointer-events: none;
     height: 100vh;
     height: 100dvh;
-    padding: 4em 0;
+    padding: 2em 0;
     width: fit-content;
     display: flex;
     justify-content: center;
@@ -1411,7 +1411,7 @@ body.post {
     font-size: 0.9em;
 
     nav {
-      padding: 12px 1em 12em 2em;
+      padding: 10px 1em 10px 2em;
       min-width: 60%;
       overflow-y: auto;
       max-height: calc(100vh - 6em);
