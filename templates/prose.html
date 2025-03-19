@@ -3,7 +3,7 @@
 
 {% block page %}prose-page{% endblock page %}
 {% block lang -%}
-{%- if section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif -%}
+{%- if section.extra.lang %}{{section.extra.lang}}{% else %}{{section.lang}}{% endif -%}
 {%- endblock lang %}
 {% block title %}{{ section.title }}{% endblock title %}
 {% block desc %}
