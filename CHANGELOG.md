@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.0] - 2025-03-20
+
+> **Warning**
+>
+> This version is a big redesign and contains lots of breaking changes.
+> If you came from a previous version and want to upgrade, I suggest you start all over again.
+
+- New style: headerless, section title and subtitle, improved typography...
+- Collections: special blocks for showcasing your list (a more general form of previous 'projects' page)
+- Default icon size changed from 20 to 18
+- Some config options are moved from `config.toml` to specific `_index.md`
+- Added options: `date_format` `back_link_text`, (section) `title` `subtitle`, (homepage) `footer`
+- Removed options: `display_*` `nav_*` `blur_effect` `display_tags` `truncate_summary` `not_found_title`
+- Callouts: `question` removed, `alert` renamed to `caution`, attribution `header` renamed to `title`
+- Typst math rendering removed
+- Added CSS variables: `--primary-decoration-color` `--text-decoration-color` `--highlight-mark-color` `--font-size` `--line-height`
+- Removed CSS variables: `--homepage-font-size` `--homepage-line-height` `--paragraph-font-size` `--paragraph-line-height` `--aside-font-size`
+- Lots of UI tweaks
+- feat: Support subpath `base_url` [@b-d-e](https://github.com/b-d-e) ([#68](https://github.com/isunjn/serene/pull/68))
+- fix: `force_theme` option [@teh-banana](https://github.com/teh-banana) ([#71](https://github.com/isunjn/serene/pull/71))
+- fix: Add content-type header to reaction fetch [@sorokya](https://github.com/sorokya) ([#72](https://github.com/isunjn/serene/pull/72))
+
 ## [4.5.0] - 2024-11-03
 
 ### UI:
@@ -102,6 +124,7 @@ All notable changes to this project will be documented in this file.
 ## [3.0.0] - 2024-01-14
 
 > **Warning**
+>
 > This version contains several breaking changes.
 > If you came from a previous version and want to upgrade, I suggest you start all over again.
 
@@ -177,6 +200,7 @@ All notable changes to this project will be documented in this file.
 ## [2.0.0] - 2023-09-01
 
 > **Warning**
+>
 > This version contains several breaking changes.
 > If you came from a previous version and want to upgrade, I suggest you start all over again.
 
@@ -274,6 +298,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.0.0]: https://github.com/isunjn/serene/compare/v4.5.0...v5.0.0
 [4.5.0]: https://github.com/isunjn/serene/compare/v4.4.0...v4.5.0
 [4.4.0]: https://github.com/isunjn/serene/compare/v4.3.0...v4.4.0
 [4.3.0]: https://github.com/isunjn/serene/compare/v4.2.0...v4.3.0

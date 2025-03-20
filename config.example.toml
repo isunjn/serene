@@ -1,21 +1,21 @@
-# serene v4.5.0
+# serene v5.0.0
 #
 # - docs: https://github.com/isunjn/serene/blob/latest/USAGE.md
 # - check for updates: https://github.com/isunjn/serene/releases
 #
 #=========================================================================================
 
-base_url = "https://example.com"      # Domain name of your website
+base_url = "https://example.com"
 title = "xxxx"
 description = "xxxx xxxx xxxx"
 default_language = "en"
 theme = "serene"
 output_dir = "public"
 compile_sass = true
-minify_html = true
-build_search_index = false            # Keep this false, search is temporarily unsupported
-generate_feeds = false                # Whether to generate a feed file in root, read docs for more info about rss feed
-feed_filenames = ["feed.xml"]         # The file name of feed, "feed.xml" / "atom.xml" / "rss.xml", read docs for more info
+minify_html = false # Keep this false, as it may cause issues with some styles
+build_search_index = false # Keep this false, search is temporarily unsupported
+generate_feeds = false # Whether to generate a feed file in root, read docs for more info about rss feed
+feed_filenames = ["feed.xml"] # "feed.xml" | "atom.xml" | "rss.xml", read docs for more info
 taxonomies = [{ name = "tags" }, { name = "categories" }]
 
 [markdown]
@@ -23,8 +23,8 @@ highlight_code = true
 highlight_theme = "css"
 extra_syntaxes_and_themes = ["highlight_themes"]
 highlight_themes_css = [
-    { theme = "serene-light", filename = "hl-light.css"},
-    { theme = "serene-dark", filename = "hl-dark.css"},
+  { theme = "serene-light", filename = "hl-light.css" },
+  { theme = "serene-dark", filename = "hl-dark.css" },
 ]
 render_emoji = false
 external_links_target_blank = false
@@ -41,60 +41,22 @@ anchors = "on"
 
 [extra]
 
-name = "xxxx"
-id = "xxxx"
-bio = "xxxx"
-avatar = "img/avatar.webp"
-
-display_id = true
-display_bio = true
-display_avatar = true
-
-recent = false
-recent_max = 5
-recent_more_text = "more »"
-
 sections = [
-    { name = "posts", path = "/posts", is_external = false },
-    { name = "projects", path = "/projects", is_external = false },
-    # { name = "about", path = "/about", is_external = false },
-    # { name = "github", path = "https://github.com/<your-username>", is_external = true },
+  { name = "posts", path = "/posts", is_external = false },
+  # { name = "tags", path = "/tags", is_external = false },
+  # { name = "github", path = "https://github.com/<your-username>", is_external = true },
 ]
 blog_section_path = "/posts"
 
-links = [
-    { name = "GitHub", icon = "github", url = "https://github.com/<your-username>" },
-    { name = "Twitter", icon = "twitter", url = "https://twitter.com/<your-username>" },
-    { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
-]
+back_link_text = "Back" # Text of the back button
+force_theme = false # false | "light" | "dark"
 
-force_theme = false                   # false | "light" | "dark"
-blog_categorized = true               # Whether to categorize blog posts
-blur_effect = false                   # Whether to turn on blur effect on navigation bar
-back_to_top = true                    # Whether to show back-to-top button on post pages
-toc = true                            # Whether to show Table-of-Contents by default
-copy = true                           # Whether to add a copy button on code blocks by default
-display_tags = true                   # Whether to display tags on post pages by default
-truncate_summary = false              # Whether to truncate the summary of a post by default
-comment = false                       # Whether to show giscus comment section by default, see https://giscus.app for more info
+footer_copyright = "© 2025 <your-name>"
+footer_credits = true # Whether to show "Built with zola and serene" in footer
 
-reaction = false                      # Whether to show anonymous reactions (Note: You need to set up a working api endpoint to enable anonymous reaction)
-reaction_align = "right"              # "left" | "center" | "right"
-reaction_endpoint = "https://example.com/api/reaction"
-
-outdate_alert = false                 # Whether to show outdate alert by default
-outdate_alert_days = 120              # How many days will a post be outdated by default
-outdate_alert_text_before = "This article was last updated "
-outdate_alert_text_after = " days ago and may be out of date."
-
-nav_separator = "::"
-nav_wrapper_left = "{"
-nav_wrapper_right = "} ;"
-nav_wrapper_separator = ","
-
-footer_copyright = "© 2023 <your-name>"
-footer_credits = true                 # Whether to show "powered by zola and serene" in footer
-
-not_found_title = "404"
-not_found_error_text = "Not Found"
+not_found_error_text = "404 Not Found"
 not_found_recover_text = "« back to home »"
+
+reaction = false # Whether to enable anonymous emoji reactions (Note: You need to set up a working api endpoint to enable this feature)
+reaction_align = "right" # "left" | "center" | "right"
+reaction_endpoint = "https://example.com/api/reaction"

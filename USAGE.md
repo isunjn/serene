@@ -1,42 +1,25 @@
-If you haven't created a zola site yet, create a new zola site with the following command (assuming your site is called `myblog`):
+This is the detailed guide on how to use zola-theme-serene. You should also check zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/).
+
+## Installation
+
+Create a zola site and add serene theme (assuming your site is called `myblog`):
 
 ```sh
 zola init myblog
-```
-
-Enter the directory:
-
-```sh
 cd myblog
-```
-
-Add the serene theme:
-
-```sh
+git init
 git submodule add -b latest https://github.com/isunjn/serene.git themes/serene
 ```
 
-Copy the content of `myblog/themes/serene/config.example.toml` to `myblog/config.toml`, refer to the comments in the file and Zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/) to modify accordingly
+Copy the content of `myblog/themes/serene/config.example.toml` to `myblog/config.toml`.
 
-## Sections and pages
+## Sections and Pages
 
-There is a `sections` config item in your `config.toml`, which enumerates the sections your website has. You should have at least one `blog` section. The name and path can be changed, be noticed that if you changed the blog section path (e.g. from `/posts` to `/blog`), then you should also change `blog_section_path` config item.
+There is a `sections` config option in your `config.toml`, which enumerates the sections your site has. You should have at least one `blog` section.
 
-The myblog directory now looks like this:
+The name and path can be changed, be noticed that if you changed the blog section path (e.g. from `/posts` to `/blog`), then you should also change `blog_section_path` option.
 
-```
-├── config.toml
-├── content/
-├── sass/
-├── static/
-├── templates/
-└── themes/
-    └── serene/
-```
-
-Create `myblog/content/_index.md` and `myblog/content/posts/_index.md` with the following content:
-
-`myblog/content/_index.md`:
+For home page, create `myblog/content/_index.md`:
 
 ```
 +++
@@ -44,12 +27,32 @@ template = 'home.html'
 
 [extra]
 lang = 'en'
+
+# Show footer in home page
+footer = false
+
+# If you don't want to display id/bio/avatar, simply comment out that line
+name = "Serene Demo"
+id = "serene"
+bio = "programmer, he/him, we are young and life is fun"
+avatar = "img/avatar.webp"
+links = [
+    { name = "GitHub", icon = "github", url = "https://github.com/<your-username>" },
+    { name = "Twitter", icon = "twitter", url = "https://twitter.com/<your-username>" },
+    { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
+]
+
+# Show a few recent posts in home page
+recent = false
+recent_max = 15
+recent_more_text = "more »"
+date_format = "%b %-d, %Y"
 +++
 
-Words about you
+Hi, I'm ...
 ```
 
-`myblog/content/posts/_index.md`:
+For blog section, create `myblog/content/posts/_index.md`:
 
 ```
 +++
@@ -62,38 +65,41 @@ insert_anchor_links = "right"
 generate_feeds = true
 
 [extra]
-lang = 'en'
+lang = "en"
+
+title = "Posts"
+subtitle = "I write about ...."
+
+date_format = "%b %-d, %Y"
+
+categorized = false # posts can be categorized
+back_to_top = true # show back-to-top button
+toc = true # show table-of-contents
+comment = false # enable comment
+copy = true # show copy button in code block
+
+outdate_alert = false
+outdate_alert_days = 12
+outdate_alert_text_before = "This article was last updated "
+outdate_alert_text_after = " days ago and may be out of date."
 +++
 ```
 
-The path and the directory should match. If you changed the blog section path to `/blog`, then you create `myblog/content/blog/_index.md`, rather than `myblog/content/posts/_index.md`. The same goes for the others.
-
-If you want to display a projects page (as you see in the demo site), create `myblog/content/projects/_index.md`:
-
-```
-+++
-title = "My Projects"
-description = "My projects page."
-template = "projects.html"
-
-[extra]
-lang = 'en'
-+++
-```
-
-The `blog` and `projects` are two sections that serene supports by default, they have specific structures and styles, defined in template `blog.html` and `projects.html`.
-
-Serene also support a special template called `prose.html`, it applies the same styles of blog post page and you can use it as a section template for a custom section page, for example if you want a separate `about` page, you can add a `{ name = "about", path = "/about", is_external = false }` to the `sections` config item and create a `myblog/content/about/_index.md` with the following content:
+Blog section is defined by `blog.html` and `post.html`. Serene also has a special template called `prose.html`, it applies the same styles of blog post page. You can use it as a section template for a custom section page, for example if you want a separate `about` page, you can add a `{ name = "about", path = "/about", is_external = false }` to the `sections` and create a `myblog/content/about/_index.md`:
 
 ```
 +++
 title = "About me"
-description = "A about page of ..."
+description = "About page of ..."
 template = "prose.html"
 insert_anchor_links = "none"
 
 [extra]
 lang = 'en'
+
+title = "Posts"
+subtitle = "I write about ...."
+
 math = false
 mermaid = false
 copy = false
@@ -102,10 +108,9 @@ reaction = false
 +++
 
 Hi, My name is ....
-
-(more markdown content goes here)
-
 ```
+
+The default date format is "%b %-d, %Y", e.g. "Dec 13, 2025", check [this page](https://docs.rs/chrono/0.4.40/chrono/format/strftime/index.html) if you want to customize it, for example change to "%Y-%-m-%-d", e.g. "2025-2-13".
 
 Now the myblog directory may looks like this:
 
@@ -113,8 +118,6 @@ Now the myblog directory may looks like this:
 ├── config.toml
 ├── content/
 │   ├── posts/
-│   │   └── _index.md
-│   ├── projects/
 │   │   └── _index.md
 │   ├── about/
 │   │   └── _index.md
@@ -126,246 +129,215 @@ Now the myblog directory may looks like this:
     └── serene/
 ```
 
-## Configuration
+## Favicon
 
-### Favicon
+Create a new directory `img` under `myblog/static`, put favicon related files here, you can use tools like [favicon.io](https://favicon.io/favicon-converter/) to generate those files. If you want to display avatar in home page, also put your avatar picture file `avatar.webp` here, webp format is recommended.
 
-- Create a new directory `img` under `myblog/static`, put favicon related files here, you can use tools like [favicon.io](https://favicon.io/favicon-converter/) to generate those files
+```
+...
+├── static/
+│   └── img/
+│       ├── favicon-16x16.png
+│       ├── favicon-32x32.png
+│       ├── apple-touch-icon.png
+│       └── avatar.webp
+...
+```
 
-- Also put your avatar picture file `avatar.webp` here, webp format is recommended
+## Icon
 
-  ```
-  ...
-  ├── static/
-  │   └── img/
-  │       ├── favicon-16x16.png
-  │       ├── favicon-32x32.png
-  │       ├── apple-touch-icon.png
-  │       └── avatar.webp
-  ...
-  ```
+Copy `myblog/themes/serene/static/icon` directory to `myblog/static/icon`, the icon value in `links` of home section is the file name of the svg file.
 
-### Icon
+To customize, find the svg file you want, modify (in case you don't kown, a svg file is just a plian text file) its width and height to 18, and the color to `currentColor`:
 
-- Copy `myblog/themes/serene/static/icon` directory to `myblog/static/icon`, the icon value in `links` is the file name of the svg file in it, without the `.svg` suffix
+`... width="18" height="18" ... fill="currentColor" ...`
 
-- Find the svg file of the icon you want, modify (in case you don't kown, svg is just a plian text files) its width and height to 20, and the color to `currentColor`:
+The default icons mostly came from [Remix Icon](https://remixicon.com/).
 
-  `... width="20" height="20" ... fill="currentColor" ...`
+## Theme
 
-- The default icons came from [Remix Icon](https://remixicon.com/)
+By default there is theme toggle button to switch between light and dark mode, you can set `force_theme` in `config.toml` to force a specific mode only.
 
-### Code highlight
+## Code Highlighting
 
-- Copy `myblog/themes/serene/highlight_themes` directory to `myblog/highlight_themes`.
+Copy `myblog/themes/serene/highlight_themes` directory to `myblog/highlight_themes`.
 
-- If you set `highlight_theme` in `config.toml` to one of zola's [built-in highlight themes](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting), you will get that theme used in both light and dark mode.
+By default serene use different highlight themes for light/dark mode, configured by `highlight_theme`, `extra_syntaxes_and_themes` and `highlight_themes_css`. The default highlight theme `serene-light` `serene-dark` is a modified version of [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) theme.
 
-- By default serene use different themes for light/dark modes, configured by `highlight_theme`, `extra_syntaxes_and_themes` and `highlight_themes_css`. The default highlight theme `serene-light` `serene-dark` is a modified version of [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) theme.
+If you set `highlight_theme` in `config.toml` to one of zola's [built-in highlight themes](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting), you will get that theme used in both light and dark mode.
 
-- If you want a different theme, find the `.tmTheme` TextMate file of your theme, put it in `myblog/static/highlight_themes`, and then modify the `theme` value of `highlight_themes_css` to that file's name, without `.tmTheme` extension. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so zola can re-generate.
+If you want a different theme, find the `.tmTheme` TextMate file of your theme, put it in `myblog/static/highlight_themes`, and then modify the `theme` value of `highlight_themes_css` to that file's name. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so zola can re-generate. You can find some TextMate themes on [this website](https://tmtheme-editor.glitch.me/).
 
-- You can find some TextMate themes on [this website](https://tmtheme-editor.glitch.me/).
+## RSS
 
-### Force light or dark
+Zola's default feed file is located in the root directory of the site, set `generate_feeds = true` in `config.toml`, `feed_filenames` can be set to `["atom.xml"]` or `["rss.xml"] ` , corresponding to two different rss file standards, you should also set `generate_feeds = false` in `myblog/content/posts/_index.md`
 
-- By default there is theme toggle button to switch between light and dark theme, you can set `force_theme` in `config.toml` to force a specific theme
+The serene theme looks more like a personal website, the posts are in the `/posts` directory, you may want the feed file to be in the `/posts` directory instead of the root directory, this requires you to set `generate_feeds = false ` `feed_filenames = ["feed.xml"]` in `config.toml`, and set `generate_feeds = true` in `myblog/content/posts/_index.md`.
 
-### RSS
+`feed.xml` uses `title` and `description` from `myblog/content/posts/_index.md`, the other two use `config.toml`'s.
 
-- You can add rss to your site, Zola's default feed file is located in the root directory of the site, set `generate_feeds = true` in `config.toml`, `feed_filenames` can be set to `["atom.xml"]` or `["rss.xml"] ` , corresponding to two different rss file standards, you should also set `generate_feeds = false` in `myblog/content/posts/_index.md`
+## Analytics
 
-- The serene theme looks more like a personal website, the posts are in the `/posts` directory, you may want the feed file to be in the `/posts` directory instead of the root directory, this requires you to set `generate_feeds = false ` `feed_filenames = ["feed.xml"]` in `config.toml`, and set `generate_feeds = true` in `myblog/content/posts/_index.md`
+To add scripts for analytics tools (such as Google Analytics, Umami, etc.), you can create  `myblog/templates/_head_extend.html`. The content of this file will be added to the html head of each page.
 
-- `feed.xml` uses `title` and `description` from `myblog/content/posts/_index.md`, the other two use `config.toml`'s
+## Custom CSS
 
-### Projects page
+Copy `myblog/themes/serene/templates/_custom_css.html` to `myblog/templates/_custom_css.html`, variables in this file are used to control styles, such as the theme color `--primary-color`, modify them as you want.
 
-- Serene has a projects page where you can showcase your projects, products, etc.
+If you want to customize more, you need to copy that file under the `templates`, `static`, `sass` directory in the corresponding `themes/serene` to the same name directory of `myblog`, and modify it. Be careful not to directly modify the files under the serene directory, because these modifications may cause conflicts if the theme is updated.
 
-- Create a new `data.toml` under `myblog/content/projects/`, add projects information in it, the format is as follows, `img` is optional:
+If you want to use a custom font, create a new `myblog/templates/_custom_font.html` and put the font link tags (for eample, from [google fonts](https://fonts.google.com/)) into it, and then modify `--main-font` or `--code-font` in `myblog/sass/templates/_custom_css.html`. For performance reason, you may want to self-host font files, but it's optional:
 
-  ```toml
-  [[project]]
-  name = ""
-  desc = ""
-  tags = ["", ""]
-  img = ""
-  links = [
-    { name = "", url = "" },
-    { name = "", url = "" },
-  ]
+1. Open [google-webfonts-helper](https://gwfh.mranftl.com) and choose your font.
+2. Modify `Customize folder prefix` of step 3 to `/font/` and then copy the css.
+3. Replace the content of `myblog/templates/_custom_font.html` with a `<style> </style>` tag, with the css you just copied.
+4. Download step 4 font files and put them in `myblog/static/font/` folder.
 
-  [[project]]
-  name = ""
-  desc = ""
-  tags = ["", ""]
-  img = ""
-  links = [
-    { name = "", url = "" },
-    { name = "", url = "" },
-  ]
-  ```
+## Front Matter
 
-### Outdated alert
+The content inside the two `+++` at the top of the post markdown file is called front matter, used to provide metadata and config options of that post. Supported options:
 
-- If one of your posts has strong timeliness, you can set an outdated alert to be displayed on the page after certain days
+```md
++++
+title = ""
+description = ""
+date = 2022-01-01
+updated = 2025-01-01
+draft = true
 
-- `outdate_alert` and `outdate_alert_days` in `config.toml` set the default whether to be outdated and how many days to be outdated. These two can also be configured on a separate post, you can set `outdate_alert` in `config.toml` to `false`, and then enable it separately in the front matter of time-sensitive posts
+[taxonomies]
+categories = ["one"]
+tags = ["one", "two", "three"]
 
-- `outdate_alert_text_before` and `outdate_alert_text_after` are the specific content of the alert, before and after the number of days respectively
+[extra]
+lang = "en"
+toc = true
+comment = false
+copy = true
+outdate_alert = true
+outdate_alert_days = 120
+math = false
+mermaid = false
+featured = false
+reaction = false
++++
 
-### Comments
+new post about something...
+```
 
-- Serene supports using [giscus](https://giscus.app) as the comment system
+Some of these options can also be configured in `myblog/content/posts/_index.md`, as the default value for all posts.
 
-- To enable it, you need to create `myblog/templates/_giscus_script.html` and put the script configured on the giscus website into it, then change the value of `data-theme` to `https://<your-domain-name>/giscus_light.css`, replace `<your-domain-name>` with you domain name, same as `base_url` in `config.toml`, if you set `force_theme` to `dark`, replace `giscus_light.css` with `giscus_dark.css`
+If you set `blog_categorized = true`, posts will be sorted alphabetically by default, you can manually set the order by adding a prefix  `__[0-9]{2}__` in front of the category name, for example, `categories = ["__01__CatXXX"]`
 
-- `comment = true` in `config.toml` sets all posts to enable comments, you can set `comment = false` under `[extra]` in the front matter of the post to control whether a specific post displays comments
+## Table of Contents
 
-### Anonymous reactions
+Set `toc = true` to display of table-of-contents.
 
-- Serene supports a feature called anonymous emoji reactions, visitors of you site can react to your posts with emojis, without the need to log in or register.
+## Math & Chart
 
-- You need to setup a backend api endpoint to enable it. The endpoint should handle both `GET` and `POST`:
+Set `math = true` to enable formula rendering with KaTeX.
 
-    - `Get`
+Set `mermaid = true` to enable chart rendering with Mermaid.
 
-      request query: `slug`, the slug of the post
+## Featured Mark
 
-      response:
-      ```jsonc
-      {
-        "👍": [123, true], // emoji: [count, reacted]
-        "👀": [456, false]
-      }
-      ```
+Set `featured = true` to display an asterisk(*) mark in front of the title.
 
-    - `Post`
+## Outdate Alert
 
-      request body:
-      ```json
-      {
-        "slug": "post-slug",
-        "target": "👍",
-        "reacted": true
-      }
-      ```
+If one of your posts has strong timeliness, you can display an outdate alert after certain days.
 
-      response:
-      ```json
-      {
-        "success": true
-      }
-      ```
+Set `outdate_alert` and `outdate_alert_days` to enable the alert.
 
-- For conivence, you can use [this template repo](https://github.com/isunjn/reaction) to setup your own endpoint. All you need is a [Cloudflare](https://cloudflare.com) account. The free tier is good enough for a low-traffic personal blog.
+In `myblog/content/posts/_index.md`, options `outdate_alert_text_before` and `outdate_alert_text_after` are the text content of the alert.
 
-    - Another template repo is [mildronize/reaction](https://github.com/mildronize/reaction), specific to [Azure](https://azure.microsoft.com/) platform, thanks to [@mildronize](https://github.com/mildronize).
+## Comment
 
-- After you setup your endpoint, set `reaction_endpoint = "<your-endpoint>"` and `reaction = true` in `config.toml` to enable it.
+You can use [giscus](https://giscus.app) as the comment system.
 
-- Giscus also support a reaction feature, but it requires visitors to log in to GitHub, you can also disable it in giscus's settings.
+To enable it, you need to create `myblog/templates/_giscus_script.html` and put the script configured on the giscus website into it, then change the value of `data-theme` to `https://<your-domain-name>/giscus_light.css`, replace `<your-domain-name>` with you domain name, same as `base_url` in `config.toml`, if you set `force_theme` to `dark`, replace `giscus_light.css` with `giscus_dark.css`.
 
-### Analytics
+Then set `comment = true` to enable comment.
 
-- To place scripts for analytics tools (such as Google Analytics, Umami, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page
+## Reaction
 
-### Fonts
+This theme supports a feature called anonymous emoji reaction, visitors of you site can react to your post with emojis, without the need to log in or register.
 
-- <del>Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default.</del> If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`.
+You need to setup a backend api endpoint to enable it. Your endpoint should handle both `GET` and `POST` request:
 
-- For performance reason, you may want to self-host font files (optional):
-  1. Open [google-webfonts-helper](https://gwfh.mranftl.com) and choose your font
-  2. Modify `Customize folder prefix` of step 3 to `/font/` and then copy the css
-  3. Replace the content of `myblog/templates/_custom_font.html` with a `<style> </style>` tag, with the css you just copied in it.
-  4. Download step 4 font files and put them in `myblog/static/font/` folder
+- `GET`
 
+    Request query:
 
-### Custom CSS
+     `slug`: the slug of the post
 
-- Copy `myblog/themes/serene/templates/_custom_css.html` to `myblog/templates/_custom_css.html`, variables in this file are used to control styles, such as the theme color `--primary-color`, you can modify them as you want
+    Response:
 
-- If you want to customize more, you only need to copy that file under the `templates`, `static`, `sass` directory in the corresponding `themes/serene` to the same name directory of `myblog`, and modify it. Be careful not to directly modify the files under the serene directory, because these modifications may cause conflicts if the theme is updated
+    ```jsonc
+    {
+      "👍": [123, true], // emoji: [count, reacted]
+      "👀": [456, false]
+    }
+    ```
 
-### Show recent posts on homepage
+- `POST`
 
-- Show a few recent posts on homepage by settng `recent = true` in `config.toml`
+    Request body:
 
+    ```json
+    {
+      "slug": "post-slug",
+      "target": "👍",
+      "reacted": true
+    }
+    ```
 
-## Writing
+    Response:
 
-### front matter
+    ```json
+    {
+      "success": true
+    }
+    ```
 
-- The content inside the two `+++` at the top of the post markdown file is called front matter, and the supported configuration items are as follows:
+For conivence, you can use one template repo to to setup your own endpoint:
 
-  ```md
-  +++
-  title = ""
-  date = 2022-01-01
-  draft = true
+-  [isunjn/reaction](https://github.com/isunjn/reaction): All you need is a [Cloudflare](https://cloudflare.com) account. The free tier is good enough for a low-traffic personal blog.
 
-  [taxonomies]
-  categories = ["one"]
-  tags = ["one", "two", "three"]
+- [mildronize/reaction](https://github.com/mildronize/reaction): Specific to [Azure](https://azure.microsoft.com/) platform.
+- [sorokya/reaction](https://github.com/sorokya/reaction): A self-contained one, you can run it with docker.
 
-  [extra]
-  lang = "en"
-  toc = true
-  comment = true
-  copy = true
-  math = false
-  mermaid = false
-  outdate_alert = true
-  outdate_alert_days = 120
-  display_tags = true
-  truncate_summary = false
-  featured = false
-  reaction = false
-  +++
+After you setup your endpoint, set `reaction_endpoint = "<your-endpoint>"` and `reaction = true` to enable it.
 
-  new post about something...
+Giscus also support a reaction feature, but it requires visitors to log in to GitHub, you can disable it in giscus's settings.
 
-  <!-- more -->
+## Shortcodes
 
-  more post content...
-  ```
+[Shortcodes](https://www.getzola.org/documentation/content/shortcodes/) are some special templates.
 
-- You can add a `<!-- more -->` line, the content before it will become the summary/description of the post. You can set `truncate_summary = true` to remove the summary from the post webpage.
-
-- A post marked `featured = true` will display a `*` mark in front of it in list, you can use this to mark a post as "most worthy to read"
-
-- If you set `blog_categorized = true`, posts will be sorted alphabetically by default, you can manually set the order by adding the prefix of `__[0-9]{2}__` in front of the category name, for example, `categories = ["__01__Balabala"]`
-
-- Post files are created under `myblog/content/posts`, after done writing, change `draft` to false
-
-### Shortcodes
-
-- Zola supports 'shortcodes', which can be used to add some extra styles or templates in addition to the standard markdown format
-
-- Zola support some [annotations for code blocks](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations). Serene add another one to display the file name: `codeblock`, use it like this:
+- Use  `codeblock` to display a code block with a file name:
 
   ```md
   {% codeblock(name="path/to/file") %}
-  // a markdown code block ...
+  let var = 42;
   {% end %}
   ```
 
-- In addition to `![img](/path/to/img)` of standard markdown, serene also supports a `figure` shortcode to add some explanatory text to the image:
+  Zola itself supports some [annotations for code blocks](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations).
+
+- Use `figure` to add caption to the image:
 
   ```md
   {{ figure(src="/path/to/img", alt="alt text", caption="caption text") }}
   ```
 
-  This will be displayed as `<figure></figure>` in HTML on the web page instead of `<img>`, and the content of the caption will be centered below the image. The alt attribute is optional but recommended to help enhance accessibility
-
-  Adding attribution information to a image is very common, you can directly use the `via` attribute, which will display a link named via below the image:
+  Adding attribution information to an image is very common, you can directly use the `via` attribute, which will display a link named 'via' below the image:
 
   ```md
   {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
   ```
 
-- Special quote, `cite` is optional:
+- Use `quote` to display a special quote block, `cite` is optional:
 
   ```md
   {% quote(cite="") %}
@@ -373,7 +345,7 @@ Now the myblog directory may looks like this:
   {% end %}
   ```
 
-- Expandable detail, `default_open` is optional:
+- Use `detail` to add an expandable detail block, `default_open` is optional:
 
   ```md
   {% detail(title="", default_open=false) %}
@@ -381,27 +353,17 @@ Now the myblog directory may looks like this:
   {% end %}
   ```
 
-### Callout
+- As you can see in [this page](https://serene-demo.pages.dev/posts/callouts) of the demo site, callouts are special blockquote blocks, just like [github's](https://github.com/orgs/community/discussions/16925). There are currently 5 types: `note` `tip` `important` `warning`  `caution`.
 
-- Serene also uses shortcodes to implement callouts, the effect is shown in [this page](https://serene-demo.pages.dev/posts/callouts) of the demo site, there are currently 6 types: `note` `important ` `warning` `alert` `question` `tip`, the format is as follows, the header attribute is optional:
+   `title` is optional:
 
   ```md
-  {% note(header="Note") %}
+  {% note(title="Note") %}
   note text
   {% end %}
   ```
 
-- If people read your posts via rss reader, these callouts will appear as normal `<blockquote>`
-
-### Math
-
-- Set `math = true` or `math = "katex"`in the front matter to enable formula rending with [KaTeX](https://katex.org/): `$...$` for inline formula, `$$...$$` for block-level formula.
-
-- Set `math = "typst"` to enable formula rendering with [Typst](https://typst.app/): `$...$` for inline formula, `$ ... $` (insert space at start and end) for block-level formula.
-
-### Mermaid
-
-- Set `mermaid = true` in the front matter to enable [Mermaid](https://github.com/mermaid-js/mermaid) support, and then insert a chart in the following format:
+- Use `mermaid` to add a mermaid chart:
 
   ```md
   {% mermaid() %}
@@ -412,6 +374,142 @@ Now the myblog directory may looks like this:
   C -->|Two| E[Result 2]
   {% end %}
   ```
+
+## Collection
+
+This theme has several special shortcodes for creating a collection of items. These collections can be used to showcase various types of your list, such as projects, publications, blogroll, bookmarks, etc. Check [this page](http://serene-demo.pages.dev/collections) on demo site to see some examples.
+
+Currently, there are 7 types of collection item:
+
+- `card`
+
+    ```toml
+    [[collection]]
+    type = "card"
+    title = "Title"
+    subtitle = "Subtitle" # optional
+    date = "Date" # optional
+    link = "https://example.com" # optional
+    icon = "https://example.com/image.png" # optional
+    content = "Content"
+    tags = ["tag1", "tag2"] # optional
+    featured = false  # optional
+    ```
+
+- `card_simple`
+
+    ```toml
+    [[collection]]
+    type = "card_simple"
+    title = "Title"
+    date = "Date" # optional
+    link = "https://example.com" # optional
+    icon = "https://example.com/image.png" # optional
+    content = "Content"
+    featured = false  # optional
+    ```
+
+- `entry`
+
+    ```toml
+    [[collection]]
+    type = "entry"
+    title = "Title" # optional
+    subtitle = "Subtitle" # optional
+    link = "https://example.com" # optional
+    icon = "https://example.com/image.png" # optional
+    ```
+
+- `box`
+
+    ```toml
+    [[collection]]
+    type = "box"
+    title = "Title"
+    subtitle = "Subtitle" # optional
+    link = "https://example.com" # optional
+    img = "https://example.com/image.png" # optional
+    ```
+
+- `art`
+
+    ```toml
+    [[collection]]
+    type = "art"
+    title = "Title"
+    subtitle = "Subtitle" # optional
+    link = "https://example.com" # optional
+    img = "https://example.com/image.png"
+    content = "Content" # optional
+    footer = "Footer" # optional
+    ```
+
+- `art_simple`
+
+    ```toml
+    [[collection]]
+    type = "art_simple"
+    title = "Title"
+    subtitle = "Subtitle" # optional
+    link = "https://example.com" # optional
+    img = "https://example.com/image.png"
+    ```
+
+
+List your items in a toml file and then use a `collection` shortcode to render them.
+
+For example, to create a "projects" section page:
+
+1. Create `myblog/content/projects/projects.toml`:
+
+    ```toml
+    [[collection]]
+    type = "card"
+    title = "Tokio"
+    link = "https://example.com"
+    content = "Tokio is an asynchronous runtime for the Rust programming language. It provides the building blocks needed for writing network applications. It gives the flexibility to target a wide range of systems, from large servers with dozens of cores to small embedded devices."
+    tags = ["rust", "async", "runtime"]
+
+    [[collection]]
+    type = "card"
+    title = "Kubernetes"
+    link = "https://example.com"
+    content = "Kubernetes, also known as K8s, is an open source system for managing containerized applications across multiple hosts. It provides basic mechanisms for the deployment, maintenance, and scaling of applications."
+    tags = ["k8s", "golang"]
+
+    [[collection]]
+    type = "card"
+    title = "Next.js"
+    link = "https://example.com"
+    content = "Next.js is a React framework for building full-stack web applications. You use React Components to build user interfaces, and Next.js for additional features and optimizations."
+    tags = ["typescript", "react", "frontend"]
+
+    ```
+
+2. Create `myblog/content/projects/_index.md`:
+
+    ```
+    +++
+    title = "My projects"
+    description = "Projects page of ..."
+    template = "prose.html"
+
+    [extra]
+    title = "Projects"
+    subtitle = "Some cool projects I made"
+    +++
+
+    {{ collection(file="projects.toml") }}
+    ```
+
+3. Add projects section in `sections` of `config.toml`
+
+    ```toml
+    sections = [
+      # ...
+      { name = "projects", path = "/projects", is_external = false },
+    ]
+    ```
 
 ## Build & Deploy
 
@@ -427,24 +525,16 @@ Build the site:
 zola build
 ```
 
-To deploy a static site, please refer to zola's [documentation about deployment](https://www.getzola.org/documentation/deployment/overview/)
+To deploy a static site, refer to zola's [documentation about deployment](https://www.getzola.org/documentation/deployment/overview/).
 
 ## Update
 
-- Please check the [CHANGELOG.md](https://github.com/isunjn/serene/blob/main/CHANGELOG.md) on github for breaking changes before updating the theme
+Check the [CHANGELOG.md](https://github.com/isunjn/serene/blob/main/CHANGELOG.md) on github for breaking changes before you update.
 
-- If you copied some files from `myblog/themes/serene` to `myblog/` for customization, such as `_custom_css.html` or `main.scss`, then you should record what you have modified before you update, re-copy those files and re-apply your modification after updating. The `config.toml` should be re-copied too.
+If you copied some files from `myblog/themes/serene` to `myblog/` for customization, such as `_custom_css.html` or `main.scss`, then you should record what you have modified before you update, re-copy those files and re-apply your modification after updating. The `config.toml` should be re-copied too.
 
-- You can watch (`watch > custom > releases > apply`) this project on github to be reminded of a new release
+You can watch (`watch > custom > releases > apply`) this project on github to be reminded of a new release.
 
 ```sh
 git submodule update --remote themes/serene
 ```
-
-<br />
-
-If you like this theme, you may [give it a star](https://github.com/isunjn/serene)
-
-*Happy blogging :)*
-
-<br />
