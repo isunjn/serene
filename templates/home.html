@@ -58,7 +58,7 @@
     <section id="links">
       <div id="left">
         {% for section in config.extra.sections %}
-        <a href="{{ get_url(path=section.path) }}" {% if section.is_external %}target="_blank" rel='noreferrer noopener'{% else %}class="instant"{% endif %}>{{ section.name }}</a>
+        <a {% if section.is_external %}href="{{ section.path }}" target="_blank" rel='noreferrer noopener'{% else %}href="{{ get_url(path=section.path) }}" class="instant"{% endif %}>{{ section.name }}</a>
         {% endfor %}
       </div>
       <div id="right">
