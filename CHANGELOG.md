@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.1] - 2025-03-31
+
+- fix: external links & recent posts on the homepage [@Hiramiya](https://github.com/Hiramiya) ([#74](https://github.com/isunjn/serene/pull/74))
+
 ## [5.0.0] - 2025-03-20
 
 > **Warning**
@@ -298,6 +302,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.0.1]: https://github.com/isunjn/serene/compare/v5.0.0...v5.0.1
 [5.0.0]: https://github.com/isunjn/serene/compare/v4.5.0...v5.0.0
 [4.5.0]: https://github.com/isunjn/serene/compare/v4.4.0...v4.5.0
 [4.4.0]: https://github.com/isunjn/serene/compare/v4.3.0...v4.4.0
