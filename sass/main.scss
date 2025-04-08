@@ -202,7 +202,7 @@ a:focus-visible {
     }
 
     &[data-linenos] {
-      padding: 12px 48px 12px 8px;
+      padding-left: 0px;
     }
 
     table {
@@ -278,6 +278,20 @@ a:focus-visible {
     pre {
       margin: 0;
     }
+    pre[data-name] {
+      padding-top: calc(36px + 1em * var(--line-height));
+      &::before {
+        content: attr(data-name);
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        padding: 12px 16px;
+        color: var(--text-pale-color);
+        width: 100%;
+        border-bottom: 1px solid var(--primary-pale-color);
+      }
+    }
 
     .copy {
       display: none;
@@ -303,27 +317,6 @@ a:focus-visible {
       &:hover .copy {
         display: block;
       }
-    }
-  }
-
-  .codeblock-with-filename {
-    margin-top: calc(0px - 1.2em - 24px - 1.5em - 1.5px);
-
-    .filename {
-      z-index: 1;
-      position: relative;
-      top: calc(1.2em + 24px + 1.5em + 1.5px);
-      padding: 12px 16px;
-      line-height: 1.2;
-      color: var(--text-pale-color);
-      border-bottom: 1px solid var(--primary-pale-color);
-      pointer-events: none;
-    }
-
-    pre>code {
-      display: inline-block;
-      min-width: 100%;
-      margin-top: 3.2em;
     }
   }
 
