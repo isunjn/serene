@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.1.0] - 2025-04-08
+
+- feat: add support for zola v0.20.0 codeblock [name annotation](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations), previous `codeblock` shortcode is deprecated
+- refactor: remove `static/` prefix from icon paths, eliminates the need to copy icon files [@koyokr](https://github.com/koyokr) ([#76](https://github.com/isunjn/serene/pull/76))
+
 ## [5.0.1] - 2025-03-31
 
 - fix: external links & recent posts on the homepage [@Hiramiya](https://github.com/Hiramiya) ([#74](https://github.com/isunjn/serene/pull/74))
@@ -302,6 +307,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.1.0]: https://github.com/isunjn/serene/compare/v5.0.1...v5.1.0
 [5.0.1]: https://github.com/isunjn/serene/compare/v5.0.0...v5.0.1
 [5.0.0]: https://github.com/isunjn/serene/compare/v4.5.0...v5.0.0
 [4.5.0]: https://github.com/isunjn/serene/compare/v4.4.0...v4.5.0

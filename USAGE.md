@@ -146,11 +146,13 @@ Create a new directory `img` under `myblog/static`, put favicon related files he
 
 ## Icon
 
-Copy `myblog/themes/serene/static/icon` directory to `myblog/static/icon`, the icon value in `links` of home section is the file name of the svg file.
+The default icons are placed in `myblog/themes/serene/static/icon`, the `icon` value in `links` of home section is the file name of the svg file.
 
-To customize, find the svg file you want, modify (in case you don't kown, a svg file is just a plian text file) its width and height to 18, and the color to `currentColor`:
+To customize, find the svg file you want, modify (in case you don't kown, a svg file is just a plian text file) its width and height to `18`, and the color to `currentColor`:
 
 `... width="18" height="18" ... fill="currentColor" ...`
+
+and then put it in `myblog/static/icon`, file in this folder with the same name will override the default one.
 
 The default icons mostly came from [Remix Icon](https://remixicon.com/).
 
@@ -311,19 +313,13 @@ After you setup your endpoint, set `reaction_endpoint = "<your-endpoint>"` and `
 
 Giscus also support a reaction feature, but it requires visitors to log in to GitHub, you can disable it in giscus's settings.
 
+## Codeblock
+
+Zola supports some [annotations for code blocks](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations).
+
 ## Shortcodes
 
 [Shortcodes](https://www.getzola.org/documentation/content/shortcodes/) are some special templates.
-
-- Use  `codeblock` to display a code block with a file name:
-
-  ```md
-  {% codeblock(name="path/to/file") %}
-  let var = 42;
-  {% end %}
-  ```
-
-  Zola itself supports some [annotations for code blocks](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations).
 
 - Use `figure` to add caption to the image:
 
