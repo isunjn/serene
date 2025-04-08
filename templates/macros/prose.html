@@ -9,7 +9,7 @@
 
 {% macro callout(name) %}
 <blockquote class="callout {{ name }} {% if title %}has-title{% else %}no-title{% endif %}">
-  {% set icon = load_data(path="static/icon/" ~ name ~ ".svg") %}
+  {% set icon = load_data(path="icon/" ~ name ~ ".svg") %}
   {% if title %}
   <p class="title">
     <span class="icon">

@@ -74,7 +74,7 @@
     {% endif %}
     {% if section.extra.back_to_top %}
     <button id="back-to-top" aria-label="back to top">
-      {% set icon = load_data(path="static/icon/arrow-up.svg") %}
+      {% set icon = load_data(path="icon/arrow-up.svg") %}
       {{ icon | safe }}
     </button>
     {% endif %}
@@ -85,8 +85,8 @@
     <div>
       {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = section.extra.copy %}{% endif %}
       {% if allow_copy %}
-      {% set copy_icon = load_data(path="static/icon/copy.svg") %}
-      {% set check_icon = load_data(path="static/icon/check.svg") %}
+      {% set copy_icon = load_data(path="icon/copy.svg") %}
+      {% set check_icon = load_data(path="icon/check.svg") %}
       <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
       {% endif %}
       <article class="prose">

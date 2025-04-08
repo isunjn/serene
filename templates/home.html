@@ -64,14 +64,14 @@
       <div id="right">
         {% for link in section.extra.links %}
         <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
-          {% set icon_path = "static/icon/" ~ link.icon ~ ".svg" %}
+          {% set icon_path = "icon/" ~ link.icon ~ ".svg" %}
           {% set icon = load_data(path=icon_path) %}
           {{ icon | safe }}
         </a>
         {% endfor %}
         {% if not section.extra.footer and not config.extra.force_theme %}
-        {% set moon_icon = load_data(path="static/icon/moon.svg") %}
-        {% set sun_icon = load_data(path="static/icon/sun.svg") %}
+        {% set moon_icon = load_data(path="icon/moon.svg") %}
+        {% set sun_icon = load_data(path="icon/sun.svg") %}
         <button id="theme-toggle" aria-label="theme switch">
           <span class="moon-icon">{{ moon_icon | safe }}</span>
           <span class="sun-icon">{{ sun_icon | safe }}</span>
