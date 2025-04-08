@@ -47,8 +47,8 @@
     {% include "_section_title.html" %}
     <div>
       {% if section.extra.copy %}
-      {% set copy_icon = load_data(path="static/icon/copy.svg") %}
-      {% set check_icon = load_data(path="static/icon/check.svg") %}
+      {% set copy_icon = load_data(path="icon/copy.svg") %}
+      {% set check_icon = load_data(path="icon/check.svg") %}
       <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
       {% endif %}
       <article class="prose">

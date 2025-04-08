@@ -25,8 +25,8 @@
     {% endif %}
 
     {% if not config.extra.force_theme %}
-    {% set moon_icon = load_data(path="static/icon/moon.svg") %}
-    {% set sun_icon = load_data(path="static/icon/sun.svg") %}
+    {% set moon_icon = load_data(path="icon/moon.svg") %}
+    {% set sun_icon = load_data(path="icon/sun.svg") %}
     <button id="theme-toggle" aria-label="theme switch">
       <span class="moon-icon">{{ moon_icon | safe }}</span>
       <span class="sun-icon">{{ sun_icon | safe }}</span>
@@ -41,8 +41,8 @@
 <dialog id="rss-mask">
   <div>
     <a href="{{ link }}">{{ link }}</a>
-    {% set copy_icon = load_data(path="static/icon/copy.svg") %}
-    {% set check_icon = load_data(path="static/icon/check.svg") %}
+    {% set copy_icon = load_data(path="icon/copy.svg") %}
+    {% set check_icon = load_data(path="icon/check.svg") %}
     <button autofocus aria-label="copy" data-link="{{ link }}" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}" >
       {{ copy_icon | safe }}
     </button>
