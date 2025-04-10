@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.2.0] - 2025-04-10
+
+- ui: a few tweaks
+
 ## [5.1.0] - 2025-04-08
 
 - feat: add support for zola v0.20.0 codeblock [name annotation](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations), previous `codeblock` shortcode is deprecated
@@ -307,6 +311,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.2.0]: https://github.com/isunjn/serene/compare/v5.1.0...v5.2.0
 [5.1.0]: https://github.com/isunjn/serene/compare/v5.0.1...v5.1.0
 [5.0.1]: https://github.com/isunjn/serene/compare/v5.0.0...v5.0.1
 [5.0.0]: https://github.com/isunjn/serene/compare/v4.5.0...v5.0.0
