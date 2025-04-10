@@ -124,7 +124,9 @@ a:focus-visible {
   figcaption {
     width: 100%;
     text-align: center;
-    margin: 5px auto;
+    margin: 1em auto 2em;
+    color: var(--text-pale-color);
+    font-size: 0.9em;
   }
 
   blockquote {
@@ -1079,7 +1081,7 @@ body.homepage {
 
   #links {
     padding: 0 15px;
-    margin: 2em 0 2em;
+    margin: 2em 0 2.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
