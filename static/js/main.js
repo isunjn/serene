@@ -243,8 +243,6 @@ function enableReaction() {
   init();
 }
 
-//--------------------------------------------
-
 enableThemeToggle();
 enablePrerender();
 enableRssMask();
