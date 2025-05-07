@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.3.0] - 2025-05-07
+
+- ui: a few tweaks
+
 ## [5.2.1] - 2025-04-19
 
 - fix: homepage avatar style
@@ -315,6 +319,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.3.0]: https://github.com/isunjn/serene/compare/v5.2.1...v5.3.0
 [5.2.1]: https://github.com/isunjn/serene/compare/v5.2.0...v5.2.1
 [5.2.0]: https://github.com/isunjn/serene/compare/v5.1.0...v5.2.0
 [5.1.0]: https://github.com/isunjn/serene/compare/v5.0.1...v5.1.0

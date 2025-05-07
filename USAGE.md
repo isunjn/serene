@@ -32,9 +32,9 @@ lang = 'en'
 footer = false
 
 # If you don't want to display id/bio/avatar, simply comment out that line
-name = "Serene Demo"
-id = "serene"
-bio = "programmer, he/him, we are young and life is fun"
+name = "Jhon Wick"
+id = "jhonwick"
+bio = "dog person, killer"
 avatar = "img/avatar.webp"
 links = [
     { name = "GitHub", icon = "github", url = "https://github.com/<your-username>" },
