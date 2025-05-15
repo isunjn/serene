@@ -26,7 +26,7 @@
     {% endif %}
     <h2 class="category">{{ category_name }}</h2>
     <div class="post-list categorized">
-      {% for post in posts %}
+      {% for post in posts | filter(attribute="draft", value=false) %}
       <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
         <span class="date">{{ post.date | date(format=section.extra.date_format) }}</span>
@@ -36,7 +36,7 @@
     {% endfor %}
     {% else %}
     <div class="post-list">
-      {% for post in section.pages %}
+      {% for post in section.pages | filter(attribute="draft", value=false) %}
       <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
         <span>{{ post.title }}</span>
         <span class="date">{{ post.date | date(format=section.extra.date_format) }}</span>
