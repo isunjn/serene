@@ -162,13 +162,11 @@ By default there is theme toggle button to switch between light and dark mode, y
 
 ## Code Highlighting
 
-Copy `myblog/themes/serene/highlight_themes` directory to `myblog/highlight_themes`.
-
-By default serene use different highlight themes for light/dark mode, configured by `highlight_theme`, `extra_syntaxes_and_themes` and `highlight_themes_css`. The default highlight theme `serene-light` `serene-dark` is a modified version of [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) theme.
+By default serene use different code highlight themes for light/dark mode, configured by `highlight_theme`, `extra_syntaxes_and_themes` and `highlight_themes_css`. The default highlight theme `serene-light` `serene-dark` is a modified version of [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) theme.
 
 If you set `highlight_theme` in `config.toml` to one of zola's [built-in highlight themes](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting), you will get that theme used in both light and dark mode.
 
-If you want a different theme, find the `.tmTheme` TextMate file of your theme, put it in `myblog/static/highlight_themes`, and then modify the `theme` value of `highlight_themes_css` to that file's name. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so zola can re-generate. You can find some TextMate themes on [this website](https://tmtheme-editor.glitch.me/).
+If you want a different theme, create `myblog/highlight_themes`, set `extra_syntaxes_and_themes` to `["highlight_themes"]`, find the `.tmTheme` TextMate file of your theme, put it there, and then modify the `theme` value of `highlight_themes_css` to that file's name. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so zola can re-generate. You can find some TextMate themes on [this website](https://tmtheme-editor.glitch.me/).
 
 ## RSS
 
