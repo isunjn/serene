@@ -99,6 +99,11 @@
             {% endif -%}
           </div>
 
+          <div id="stats">
+            <span id="reading-time">{{ page.reading_time }} min read</span>
+            <span id="word-count">{{ page.word_count }} words</span>
+          </div>
+
           {% if page.taxonomies.tags is defined %}
           <div id="tags">
             {% for tag in page.taxonomies.tags -%}

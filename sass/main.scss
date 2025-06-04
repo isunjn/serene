@@ -1364,6 +1364,16 @@ body.post {
       }
     }
 
+    #stats {
+      color: var(--text-pale-color);
+      margin-bottom: 1em;
+
+      #reading-time,
+      #word-count {
+        margin-right: 1em;
+      }
+    }
+
     #tags {
       margin-bottom: 1em;
       display: flex;
