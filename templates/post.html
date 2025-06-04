@@ -99,10 +99,13 @@
             {% endif -%}
           </div>
 
+          {% if page.extra.stats is defined %}{% set show_stats = page.extra.stats %}{% else %}{% set show_stats = section.extra.stats %}{% endif %}
+          {% if show_stats %}
           <div id="stats">
             <span id="reading-time">{{ page.reading_time }} min read</span>
             <span id="word-count">{{ page.word_count }} words</span>
           </div>
+          {% endif %}
 
           {% if page.taxonomies.tags is defined %}
           <div id="tags">

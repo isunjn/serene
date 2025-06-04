@@ -77,6 +77,7 @@ back_to_top = true # show back-to-top button
 toc = true # show table-of-contents
 comment = false # enable comment
 copy = true # show copy button in code block
+stats = true # show reading time and word count
 
 outdate_alert = false
 outdate_alert_days = 12
@@ -214,6 +215,7 @@ lang = "en"
 toc = true
 comment = false
 copy = true
+stats = true
 outdate_alert = true
 outdate_alert_days = 120
 math = false
@@ -242,6 +244,10 @@ Set `mermaid = true` to enable chart rendering with Mermaid.
 ## Featured Mark
 
 Set `featured = true` to display an asterisk(*) mark in front of the title.
+
+## Stats
+
+Set `stats = true` to show reading time and word count of a post.
 
 ## Outdate Alert
 
