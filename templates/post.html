@@ -23,6 +23,24 @@
 {% endblock desc %}
 
 {% block head %}
+<!-- Open Graph tags -->
+<meta property="og:title" content="{{ page.title }}" />
+{% if page.summary %}
+  {% set desc = page.summary %}
+{% elif page.description %}
+  {% set desc = page.description %}
+{% elif section.description %}
+  {% set desc = section.description %}
+{% else %}
+  {% set desc = config.description %}
+{% endif %}
+<meta property="og:description" content="{{ desc }}" />
+{% if page.extra.image %}
+<meta property="og:image" content="{{ get_url(path=page.extra.image) }}" />
+{% endif %}
+<meta property="og:url" content="{{ page.permalink | safe }}" />
+<meta property="og:type" content="article" />
+
 {% if config.markdown.highlight_theme == "css" %}
 <link id="hl" rel="stylesheet" type="text/css" href="/hl-{% if config.extra.force_theme == "dark" %}dark{% else %}light{% endif %}.css" />
 {% endif %}
