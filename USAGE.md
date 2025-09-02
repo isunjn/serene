@@ -331,6 +331,11 @@ Zola supports some [annotations for code blocks](https://www.getzola.org/documen
   {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
   ```
 
+  You can specify custom width and height for your figures:
+   ```md
+  {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com", height="500", width="500") }}
+  ```
+
 - Use `quote` to display a special quote block, `cite` is optional:
 
   ```md
