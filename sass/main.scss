@@ -140,9 +140,12 @@ a:focus-visible {
     }
   }
 
-  ol,
+  ol {
+    padding-left: 1.5em;
+  }
+
   ul {
-    padding-left: 2em;
+    padding-left: 1.25em;
   }
 
   li {
@@ -169,6 +172,7 @@ a:focus-visible {
     border-spacing: 0;
     border-collapse: collapse;
     margin: 1.5em 0;
+    border: 1.5px solid var(--primary-color);
   }
 
   th,
