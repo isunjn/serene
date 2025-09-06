@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.4.0] - 2025-09-06
+
+- ui: a few tweaks
+- feat: back link button now do `history.back()` if appropriate
+- feat: add custom height and width options for `figure` shortcode [@znxftw](https://github.com/znxftw) ([#83](https://github.com/isunjn/serene/pull/83))
+
 ## [5.3.1] - 2025-05-22
 
 - fix: `extra_syntaxes_and_themes` defaults to theme's, so you don't need to copy that path [@makai410](https://github.com/makai410) ([#80](https://github.com/isunjn/serene/pull/80))
@@ -323,6 +329,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.4.0]: https://github.com/isunjn/serene/compare/v5.3.1...v5.4.0
 [5.3.1]: https://github.com/isunjn/serene/compare/v5.3.0...v5.3.1
 [5.3.0]: https://github.com/isunjn/serene/compare/v5.2.1...v5.3.0
 [5.2.1]: https://github.com/isunjn/serene/compare/v5.2.0...v5.2.1
