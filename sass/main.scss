@@ -1421,11 +1421,20 @@ body.post {
       min-width: 60%;
       overflow-y: auto;
       max-height: calc(100vh - 6em);
-      scrollbar-width: none;
 
+      scrollbar-width: none;
       &::-webkit-scrollbar {
         width: 0;
       }
+
+      background:
+        linear-gradient(var(--bg-color) 50%, transparent) center top,
+        linear-gradient(transparent, var(--bg-color) 50%) center bottom,
+        radial-gradient(farthest-side at 50% 0, var(--primary-decoration-color), var(--bg-color)) center top,
+        radial-gradient(farthest-side at 50% 100%, var(--primary-decoration-color), var(--bg-color)) center bottom;
+      background-repeat: no-repeat;
+      background-size: 100% 4em, 100% 4em, 100% 1.5em, 100% 1.5em;
+      background-attachment: local, local, scroll, scroll;
     }
 
     ul {
