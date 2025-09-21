@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.4.1] - 2025-09-21
+
+- feat: add overflow scroll indicator for table-of-contents
+
 ## [5.4.0] - 2025-09-06
 
 - ui: a few tweaks
@@ -329,6 +333,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.4.1]: https://github.com/isunjn/serene/compare/v5.4.0...v5.4.1
 [5.4.0]: https://github.com/isunjn/serene/compare/v5.3.1...v5.4.0
 [5.3.1]: https://github.com/isunjn/serene/compare/v5.3.0...v5.3.1
 [5.3.0]: https://github.com/isunjn/serene/compare/v5.2.1...v5.3.0
