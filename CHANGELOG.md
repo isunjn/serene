@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.4.2] - 2025-09-27
+
+- fix: feed.xml template build error when there is no post
+
 ## [5.4.1] - 2025-09-21
 
 - feat: add overflow scroll indicator for table-of-contents
@@ -333,6 +337,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.4.2]: https://github.com/isunjn/serene/compare/v5.4.1...v5.4.2
 [5.4.1]: https://github.com/isunjn/serene/compare/v5.4.0...v5.4.1
 [5.4.0]: https://github.com/isunjn/serene/compare/v5.3.1...v5.4.0
 [5.3.1]: https://github.com/isunjn/serene/compare/v5.3.0...v5.3.1
