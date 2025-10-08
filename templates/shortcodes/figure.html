@@ -5,7 +5,7 @@
   {% set image = resize_image(path=src, width=width, height=height, op=op) %}
   {% set dynamic_src = image.url %}
 {% else %}
-  {% set dynamic_src = path %}
+  {% set dynamic_src = src %}
 {% endif %}
 
 <figure>
