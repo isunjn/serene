@@ -1,6 +1,16 @@
+{% if width is defined and height is defined %}
+  {% if not op is defined %}
+    {% set op = "fill" %}
+  {% endif %}
+  {% set image = resize_image(path=src, width=width, height=height, op=op) %}
+  {% set dynamic_src = image.url %}
+{% else %}
+  {% set dynamic_src = path %}
+{% endif %}
+
 <figure>
-    <img 
-        src="{{ src }}" 
+    <img
+        src="{{ dynamic_src }}"
         {% if alt %} alt="{{ alt }}"{% endif %}
         {% if height %} height="{{ height }}"{% endif %}
         {% if width %} width="{{ width }}"{% endif %}
