@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.5.0] - 2025-10-18
+
+- feat: shortcode `figure`'s `caption` can use markdown now, the `via` prop is removed, use `caption="[via](https://example.com)"` instead
+- fix: shortcode `figure` now will keep img's ratio on small screens when `width` and `height` is set
+- ui: a few tweaks
+
 ## [5.4.3] - 2025-09-29
 
 - fix: correct back link button behavior when there is a hash in url
@@ -341,6 +347,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.5.0]: https://github.com/isunjn/serene/compare/v5.4.3...v5.5.0
 [5.4.3]: https://github.com/isunjn/serene/compare/v5.4.2...v5.4.3
 [5.4.2]: https://github.com/isunjn/serene/compare/v5.4.1...v5.4.2
 [5.4.1]: https://github.com/isunjn/serene/compare/v5.4.0...v5.4.1
