@@ -140,18 +140,14 @@ a:focus-visible {
     }
   }
 
-  ol {
-    padding-left: 1.5em;
-  }
-
-  ul {
-    padding-left: 1.25em;
+  ol, ul {
+    padding-left: 1.4em;
   }
 
   li {
-    margin: 1em 0;
+    margin: 0.5em 0;
     p {
-      margin: 1em 0;
+      margin: 0.5em 0;
     }
   }
 
@@ -959,13 +955,11 @@ body.prose-page {
 
   .post {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 0.5em;
-    padding: 4px 0px;
-    margin: 6px 0;
-    line-height: 1.2;
+    gap: 2em;
+    padding: 0.25em 0px;
+    /* margin: 0.25em 0; */
     text-decoration: none;
     color: var(--primary-color);
 
@@ -978,7 +972,6 @@ body.prose-page {
 
     .date {
       white-space: nowrap;
-      margin-left: auto;
     }
 
     position: relative;
@@ -988,13 +981,27 @@ body.prose-page {
       top: 0;
       bottom: 0;
       left: 0;
-      transform: translateX(-200%);
-      line-height: 2;
-      height: 100%;
+      transform: translate(-200%, 6px);
+      height: calc(var(--line-height) * 1em);
     }
     @media (max-width: 768px) {
       &.featured::before {
-        transform: translateX(-150%);
+        transform: translate(-150%, 6px);
+      }
+    }
+
+    @media (max-width: 425px) {
+      flex-direction: column-reverse;
+      align-items: start;
+      gap: 0.25em;
+      margin: 1em 0;
+      .date {
+        margin-left: initial;
+        color: var(--text-pale-color);
+        font-size: 0.8em;
+      }
+      &.featured::before {
+        transform: translate(-150%, 115%);
       }
     }
   }
@@ -1455,26 +1462,12 @@ body.post {
       padding: 0 1em;
 
       &.h3 {
-        padding-left: 2em;
-      }
-
-      &::before {
-        display: block;
-        content: "";
-        width: 1.5px;
-        position: absolute;
-        top: 0.7em;
-        bottom: 0.7em;
-        left: 0em;
-        background: transparent;
+        margin-left: 1.5em;
+        border-left: 1px solid var(--text-decoration-color);
       }
 
       &:hover {
         color: var(--primary-color);
-      }
-
-      &:hover::before {
-        background-color: var(--primary-color);
       }
     }
 
