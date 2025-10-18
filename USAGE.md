@@ -319,22 +319,15 @@ Zola supports some [annotations for code blocks](https://www.getzola.org/documen
 
 [Shortcodes](https://www.getzola.org/documentation/content/shortcodes/) are some special templates.
 
-- Use `figure` to add caption to the image:
+- Use `figure` to add caption or width/height to an image, `alt` `caption` `width` `height` are all optional:
 
   ```md
-  {{ figure(src="/path/to/img", alt="alt text", caption="caption text") }}
+  {{ figure(src="/path/to/img", alt="alt text", caption="caption text", width="600", height="400") }}
   ```
 
-  Adding attribution information to an image is very common, you can directly use the `via` attribute, which will display a link named 'via' below the image:
+  The caption is parsed as markdown so you can use bold / italic / link, for example `caption="[via](https://example.com)"`
 
-  ```md
-  {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
-  ```
-
-  You can specify custom width and height for your figures:
-   ```md
-  {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com", height="500", width="500") }}
-  ```
+  Adding height to an image is always recommended, as this can avoid page layout shift. When you use `[](https://exmaple.com/img.png)`, browser cannot determine the image's dimensions before it loads.
 
 - Use `quote` to display a special quote block, `cite` is optional:
 

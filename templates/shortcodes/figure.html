@@ -1,13 +1,11 @@
 <figure>
-    <img 
-        src="{{ src }}" 
+    <img
+        src="{{ src }}"
         {% if alt %} alt="{{ alt }}"{% endif %}
         {% if height %} height="{{ height }}"{% endif %}
         {% if width %} width="{{ width }}"{% endif %}
     >
-    {% if via %}
-    <figcaption><a href="{{via}}">via</a></figcaption>
-    {% else %}
-    <figcaption>{{ caption }}</figcaption>
+    {% if caption %}
+    <figcaption>{{ caption | trim | markdown | safe }}</figcaption>
     {% endif %}
 </figure>
