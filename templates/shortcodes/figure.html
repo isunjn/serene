@@ -1,3 +1,10 @@
+{% set src = src | default(value=path) %}
+{% if width is defined and height is defined %}
+  {% set op = op | default(value="fill") %}
+  {% set image = resize_image(path=path, width=width, height=height, op=op) %}
+  {% set src = image.url %}
+{% endif %}
+
 <figure>
     <img 
         src="{{ src }}" 
