@@ -367,6 +367,32 @@ Zola supports some [annotations for code blocks](https://www.getzola.org/documen
   {% end %}
   ```
 
+- Use `youtube` to embed a Youtube video:
+
+  You can embed a responsive Youtube player using the `Youtube` shortcode:
+
+  ```md
+  {{ youtube(id="jNQXAC9IVRw") }}
+  ```
+
+  The `id` parameter is the unique video ID — it’s the part after v= in a YouTube URL.
+
+  For example, for `https://www.youtube.com/watch?v=jNQXAC9IVRw`
+
+  the video ID is `jNQXAC9IVRw`.
+
+  You can also enable autoplay by adding the `autoplay` option:
+
+  ```md
+  {{ youtube(id="cTseYpgtnPw", autoplay=true) }}
+  ```
+
+  When `autoplay=true` is set, the player will start automatically **with sound muted**.
+  This behavior follows modern browser policies (Chrome, Firefox, Safari, etc.), which **block autoplay if audio is enabled**.
+  By default, the shortcode automatically applies `mute=1` together with `autoplay=1` to ensure autoplay works consistently.
+
+  The player maintains a 16:9 aspect ratio and scales automatically to fit any device size, ensuring proper display on desktop, tablet, and mobile screens.
+
 ## Collection
 
 This theme has several special shortcodes for creating a collection of items. These collections can be used to showcase various types of your list, such as projects, publications, blogroll, bookmarks, etc. Check [this page](http://serene-demo.pages.dev/collections) on demo site to see some examples.
