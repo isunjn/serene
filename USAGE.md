@@ -369,29 +369,21 @@ Zola supports some [annotations for code blocks](https://www.getzola.org/documen
 
 - Use `youtube` to embed a Youtube video:
 
-  You can embed a responsive Youtube player using the `Youtube` shortcode:
-
   ```md
   {{ youtube(id="jNQXAC9IVRw") }}
   ```
 
-  The `id` parameter is the unique video ID — it’s the part after v= in a YouTube URL.
+  The `id` is the video’s unique identifier (the part after `v=` in the URL).
 
-  For example, for `https://www.youtube.com/watch?v=jNQXAC9IVRw`
+  Example: `https://www.youtube.com/watch?v=jNQXAC9IVRw` → `jNQXAC9IVRw`.
 
-  the video ID is `jNQXAC9IVRw`.
-
-  You can also enable autoplay by adding the `autoplay` option:
+  To enable autoplay (muted by default to meet browser policies):
 
   ```md
-  {{ youtube(id="cTseYpgtnPw", autoplay=true) }}
+  {{ youtube(id="jNQXAC9IVRw", autoplay=true) }}
   ```
 
-  When `autoplay=true` is set, the player will start automatically **with sound muted**.
-  This behavior follows modern browser policies (Chrome, Firefox, Safari, etc.), which **block autoplay if audio is enabled**.
-  By default, the shortcode automatically applies `mute=1` together with `autoplay=1` to ensure autoplay works consistently.
-
-  The player maintains a 16:9 aspect ratio and scales automatically to fit any device size, ensuring proper display on desktop, tablet, and mobile screens.
+  The player keeps a 16:9 aspect ratio and scales automatically on all screen sizes.
 
 ## Collection
 
