@@ -362,17 +362,11 @@ Zola supports some [annotations for code blocks](https://www.getzola.org/documen
   {% end %}
   ```
 
-- Use `youtube` to embed a responsive 16:9 Youtube video, `autoplay` is optional:
+- Use `youtube` to embed a youtube video, `autoplay` is optional, default to `false`:
 
   ```md
-  {{ youtube(id="jNQXAC9IVRw", autoplay=true) }}
+  {{ youtube(id="<youtube-video-id>", autoplay=true) }}
   ```
-
-  The `id` is the video’s unique identifier (the part after `v=` in the URL).
-
-  Example: `https://www.youtube.com/watch?v=jNQXAC9IVRw` → `jNQXAC9IVRw`.
-
-  When `autoplay` is enabled, the video automatically starts with sound muted, as most browsers block autoplay with audio.
 
 ## Collection
 
