@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.6.1] - 2026-02-01
+
+- fix: codeblock with filename
+
 ## [5.6.0] - 2026-02-01
 
 - feat: adapt zola v0.22 new code highlighting, custom highlight themes (`serene-light`/`serene-dark`) are removed in favor of built-in themes
@@ -389,6 +393,7 @@ The new generated css files for code highlighting will be `giallo-light.css` and
 
 First release 🎉
 
+[5.6.1]: https://github.com/isunjn/serene/compare/v5.6.0...v5.6.1
 [5.6.0]: https://github.com/isunjn/serene/compare/v5.5.0...v5.6.0
 [5.5.0]: https://github.com/isunjn/serene/compare/v5.4.3...v5.5.0
 [5.4.3]: https://github.com/isunjn/serene/compare/v5.4.2...v5.4.3
