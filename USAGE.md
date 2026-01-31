@@ -113,7 +113,7 @@ Hi, My name is ....
 
 The default date format is "%b %-d, %Y", e.g. "Dec 13, 2025", check [this page](https://docs.rs/chrono/0.4.40/chrono/format/strftime/index.html) if you want to customize it, for example change to "%Y-%-m-%-d", e.g. "2025-2-13".
 
-Now the myblog directory may looks like this:
+Now the myblog directory may look like this:
 
 ```
 ├── config.toml
@@ -179,7 +179,7 @@ Copy `myblog/themes/serene/templates/_custom_css.html` to `myblog/templates/_cus
 
 If you want to customize more, you need to copy that file under the `templates`, `static`, `sass` directory in the corresponding `themes/serene` to the same name directory of `myblog`, and modify it. Be careful not to directly modify the files under the serene directory, because these modifications may cause conflicts if the theme is updated.
 
-If you want to use a custom font, create a new `myblog/templates/_custom_font.html` and put the font link tags (for eample, from [google fonts](https://fonts.google.com/)) into it, and then modify `--main-font` or `--code-font` in `myblog/sass/templates/_custom_css.html`. For performance reason, you may want to self-host font files, but it's optional:
+If you want to use a custom font, create a new `myblog/templates/_custom_font.html` and put the font link tags (for example, from [google fonts](https://fonts.google.com/)) into it, and then modify `--main-font` or `--code-font` in `myblog/sass/templates/_custom_css.html`. For performance reasons, you may want to self-host font files, but it's optional:
 
 1. Open [google-webfonts-helper](https://gwfh.mranftl.com) and choose your font.
 2. Modify `Customize folder prefix` of step 3 to `/font/` and then copy the css.
@@ -293,7 +293,7 @@ You need to setup a backend api endpoint to enable it. Your endpoint should hand
     }
     ```
 
-For conivence, you can use one template repo to to setup your own endpoint:
+For conivence, you can use one template repo to setup your own endpoint:
 
 -  [isunjn/reaction](https://github.com/isunjn/reaction): All you need is a [Cloudflare](https://cloudflare.com) account. The free tier is good enough for a low-traffic personal blog.
 
