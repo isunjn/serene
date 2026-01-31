@@ -1,8 +1,8 @@
 public/
 content/
 static/img/
-static/hl-light.css
-static/hl-dark.css
+static/giallo-light.css
+static/giallo-dark.css
 config.toml
 
 .DS_Store

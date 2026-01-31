@@ -38,8 +38,9 @@ bio = "dog person, killer"
 avatar = "img/avatar.webp"
 links = [
     { name = "GitHub", icon = "github", url = "https://github.com/<your-username>" },
-    { name = "Twitter", icon = "twitter", url = "https://twitter.com/<your-username>" },
     { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
+    { name = "Twitter", icon = "twitter", url = "https://twitter.com/<your-username>" },
+    { name = "Mastodon", icon = "mastodon", url = "https://mastodon.social/<your-username>", rel_me = true },
 ]
 
 # Show a few recent posts in home page
@@ -159,14 +160,6 @@ The default icons mostly came from [Remix Icon](https://remixicon.com/).
 ## Theme
 
 By default there is theme toggle button to switch between light and dark mode, you can set `force_theme` in `config.toml` to force a specific mode only.
-
-## Code Highlighting
-
-By default serene use different code highlight themes for light/dark mode, configured by `highlight_theme`, `extra_syntaxes_and_themes` and `highlight_themes_css`. The default highlight theme `serene-light` `serene-dark` is a modified version of [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) theme.
-
-If you set `highlight_theme` in `config.toml` to one of zola's [built-in highlight themes](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting), you will get that theme used in both light and dark mode.
-
-If you want a different theme, create `myblog/highlight_themes`, set `extra_syntaxes_and_themes` to `["highlight_themes"]`, find the `.tmTheme` TextMate file of your theme, put it there, and then modify the `theme` value of `highlight_themes_css` to that file's name. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so zola can re-generate. You can find some TextMate themes on [this website](https://tmtheme-editor.glitch.me/).
 
 ## RSS
 
@@ -354,6 +347,8 @@ Zola supports some [annotations for code blocks](https://www.getzola.org/documen
   note text
   {% end %}
   ```
+
+  ***Update: [github callout/alert syntax](https://github.com/orgs/community/discussions/16925) is supported since zola v0.21 (however it doesn't display icon and title), the callout shortcodes will be deprecated in this theme's next major release***
 
 - Use `mermaid` to add a mermaid chart:
 

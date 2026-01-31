@@ -8,11 +8,11 @@
 {% endblock desc %}
 
 {% block head %}
-{% if config.markdown.highlight_theme == "css" %}
+{% if config.markdown.highlighting.style == "class" %}
   {% if config.extra.force_theme == "dark" %}
-    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='hl-dark.css') }}" />
+    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='giallo-dark.css') }}" />
   {% else %}
-    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='hl-light.css') }}" />
+    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='giallo-light.css') }}" />
   {% endif %}
 {% endif %}
 {% if section.extra.math %}
@@ -63,7 +63,7 @@
       </div>
       <div id="right">
         {% for link in section.extra.links %}
-        <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
+        <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener{% if link.rel_me%} me{% endif %}'>
           {% set icon_path = "icon/" ~ link.icon ~ ".svg" %}
           {% set icon = load_data(path=icon_path) %}
           {{ icon | safe }}
