@@ -22,11 +22,11 @@
   {% if not config.extra.force_theme %}
   <script>
     const theme = sessionStorage.getItem('theme');
-    const match = window.matchMedia("(prefers-color-scheme: dark)").matches
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches;
     if ((theme && theme == 'dark') || (!theme && match)) {
       document.body.classList.add('dark');
       const hl = document.querySelector('link#hl');
-      if (hl) hl.href = '{{ get_url(path="hl-dark.css") }}';
+      if (hl) hl.href = '{{ get_url(path="giallo-dark.css") }}';
     }
   </script>
   {% endif %}

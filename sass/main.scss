@@ -229,58 +229,12 @@ a:focus-visible {
       font-family: var(--code-font);
     }
 
-    &[data-linenos] {
-      padding-left: 0px;
+    .giallo-ln {
+      padding-right: 12px;
     }
 
-    table {
-      width: 100%;
-      margin: 0;
-      border-collapse: collapse;
-      border: none;
-      th, td {
-        line-height: 1.5;
-      }
-    }
-
-
-    table tr td:first-of-type {
-      color: var(--text-decoration-color);
-    }
-
-    table td {
-      padding: 0;
-      padding-right: 48px;
-      text-align: initial;
-      border: initial;
-    }
-
-    table td:nth-of-type(1) {
-      text-align: right;
-      user-select: none;
-      padding-right: 1em;
-      mark::before {
-        left: -8px;
-        width: calc(100% + 1em + 8px);
-      }
-    }
-
-    mark {
-      display: block;
-      color: inherit;
-      background-color: transparent;
-      position: relative;
-      overflow: visible;
-
-      &::before {
-        pointer-events: none;
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: calc(100% + 48px + 48px);
-        background-color: var(--highlight-mark-color);
-      }
+    &.z-code {
+      background-color: var(--bg-color);
     }
 
     &.mermaid {
@@ -291,11 +245,6 @@ a:focus-visible {
         margin: 0 auto;
       }
     }
-  }
-
-  pre > code > mark::before {
-    width: calc(100% + 48px + 16px);
-    left: -16px;
   }
 
   .codeblock {

@@ -8,11 +8,11 @@
 {% endblock desc %}
 
 {% block head %}
-{% if config.markdown.highlight_theme == "css" %}
+{% if config.markdown.highlighting.style == "class" %}
   {% if config.extra.force_theme == "dark" %}
-    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='hl-dark.css') }}" />
+    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='giallo-dark.css') }}" />
   {% else %}
-    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='hl-light.css') }}" />
+    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='giallo-light.css') }}" />
   {% endif %}
 {% endif %}
 {% if section.extra.math %}
