@@ -1,8 +1,8 @@
 name = "serene"
-description = "A spiffy blog theme for zola"
+description = "A minimal blog theme for zola, well crafted"
 license = "MIT"
 homepage = "https://github.com/isunjn/serene"
-min_version = "0.20.0"
+min_version = "0.22.1"
 demo = "https://serene-demo.pages.dev"
 
 [author]
