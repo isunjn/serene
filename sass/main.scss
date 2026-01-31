@@ -139,6 +139,31 @@ a:focus-visible {
     p {
       margin: 1em 0;
     }
+
+    &.markdown-alert-note {
+      color: var(--callout-note-color);
+      border-color: var(--callout-note-color);
+    }
+
+    &.markdown-alert-tip {
+      color: var(--callout-tip-color);
+      border-color: var(--callout-tip-color);
+    }
+
+    &.markdown-alert-important {
+      color: var(--callout-important-color);
+      border-color: var(--callout-important-color);
+    }
+
+    &.markdown-alert-warning {
+      color: var(--callout-warning-color);
+      border-color: var(--callout-warning-color);
+    }
+
+    &.markdown-alert-caution {
+      color: var(--callout-caution-color);
+      border-color: var(--callout-caution-color);
+    }
   }
 
   ol, ul {

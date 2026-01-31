@@ -31,6 +31,7 @@ external_links_target_blank = false
 external_links_no_follow = true
 external_links_no_referrer = true
 smart_punctuation = false
+github_alerts = true
 
 [slugify]
 paths = "on"
