@@ -362,6 +362,12 @@ Zola supports some [annotations for code blocks](https://www.getzola.org/documen
   {% end %}
   ```
 
+- Use `youtube` to embed a youtube video, `autoplay` is optional, default to `false`:
+
+  ```md
+  {{ youtube(id="<youtube-video-id>", autoplay=true) }}
+  ```
+
 ## Collection
 
 This theme has several special shortcodes for creating a collection of items. These collections can be used to showcase various types of your list, such as projects, publications, blogroll, bookmarks, etc. Check [this page](http://serene-demo.pages.dev/collections) on demo site to see some examples.
