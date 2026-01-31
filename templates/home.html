@@ -63,7 +63,7 @@
       </div>
       <div id="right">
         {% for link in section.extra.links %}
-        <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
+        <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener{% if link.rel_me%} me{% endif %}'>
           {% set icon_path = "icon/" ~ link.icon ~ ".svg" %}
           {% set icon = load_data(path=icon_path) %}
           {{ icon | safe }}
