@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.6.0] - 2026-02-01
+
+- feat: adapt zola v0.22 new code highlighting, custom highlight themes (`serene-light`/`serene-dark`) are removed in favor of built-in themes
+- feat: add `github_alerts` color styling (zola v0.21+ feature)
+- feat: add `rel_me` option for links (useful for Mastodon verification)
+- feat: add `youtube` shortcode [@gloomydumber](https://github.com/gloomydumber) ([#92](https://github.com/isunjn/serene/pull/92))
+- fix: input element color scheme should be changed along with light/dark mode change
+
+### Migrate from zola v0.21
+
+Since this version, the minimum zola version required has changed to `v0.22.1`.
+
+Replace the old `[markdown]` section in your `config.toml`:
+
+```toml
+# Old (remove these)
+[markdown]
+highlight_code = true
+highlight_theme = "css"
+extra_syntaxes_and_themes = ["themes/serene/highlight_themes"]
+highlight_themes_css = [
+  { theme = "serene-light", filename = "hl-light.css" },
+  { theme = "serene-dark", filename = "hl-dark.css" },
+]
+```
+
+With the new format:
+
+```toml
+# New
+[markdown]
+github_alerts = true  # optional, enables GitHub-style callout syntax
+
+[markdown.highlighting]
+style = "class"
+light_theme = "github-light"  # or any zola built-in theme
+dark_theme = "github-dark"    # or any zola built-in theme
+```
+
+You should also delete the generated `hl-light.css` and `hl-dark.css` files from your `static/` directory if you have them.
+The new generated css files for code highlighting will be `giallo-light.css` and `giallo-dark.css`. (giallo is zola's new syntax highlighter)
+
 ## [5.5.0] - 2025-10-18
 
 - feat: shortcode `figure`'s `caption` can use markdown now, the `via` prop is removed, use `caption="[via](https://example.com)"` instead
@@ -347,6 +389,7 @@ All notable changes to this project will be documented in this file.
 
 First release 🎉
 
+[5.6.0]: https://github.com/isunjn/serene/compare/v5.5.0...v5.6.0
 [5.5.0]: https://github.com/isunjn/serene/compare/v5.4.3...v5.5.0
 [5.4.3]: https://github.com/isunjn/serene/compare/v5.4.2...v5.4.3
 [5.4.2]: https://github.com/isunjn/serene/compare/v5.4.1...v5.4.2
