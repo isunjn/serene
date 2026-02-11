@@ -127,7 +127,7 @@
     <div class="content">{{ item.content | trim | markdown | safe }}</div>
     {% endif %}
     {% if item.footer %}
-    <div class="footer">{{ item.footer }}</div>
+    <div class="footer">{{ item.footer | trim | markdown(inline=true) | safe }}</div>
     {% endif %}
   </div>
 </blockquote>
