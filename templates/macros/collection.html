@@ -124,7 +124,7 @@
     <div class="subtitle">{{ item.subtitle }}</div>
     {% endif %}
     {% if item.content %}
-    <div class="content">{{ item.content }}</div>
+    <div class="content">{{ item.content | trim | markdown | safe }}</div>
     {% endif %}
     {% if item.footer %}
     <div class="footer">{{ item.footer }}</div>
