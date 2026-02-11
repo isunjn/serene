@@ -430,11 +430,11 @@ Currently, there are 7 types of collection item:
     [[collection]]
     type = "art"
     title = "Title"
-    subtitle = "Subtitle" # optional
+    subtitle = "Subtitle" # optional; support Markdown
     link = "https://example.com" # optional
     img = "https://example.com/image.png"
     content = "Content" # optional; supports Markdown
-    footer = "Footer" # optional
+    footer = "Footer" # optional; supports Markdown
     ```
 
 - `art_simple`
