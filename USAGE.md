@@ -384,7 +384,7 @@ Currently, there are 7 types of collection item:
     date = "Date" # optional
     link = "https://example.com" # optional
     icon = "https://example.com/image.png" # optional
-    content = "Content"
+    content = "Content" # supports Markdown
     tags = ["tag1", "tag2"] # optional
     featured = false  # optional
     ```
@@ -398,7 +398,7 @@ Currently, there are 7 types of collection item:
     date = "Date" # optional
     link = "https://example.com" # optional
     icon = "https://example.com/image.png" # optional
-    content = "Content"
+    content = "Content" # supports Markdown
     featured = false  # optional
     ```
 
@@ -433,7 +433,7 @@ Currently, there are 7 types of collection item:
     subtitle = "Subtitle" # optional
     link = "https://example.com" # optional
     img = "https://example.com/image.png"
-    content = "Content" # optional
+    content = "Content" # optional; supports Markdown
     footer = "Footer" # optional
     ```
 
