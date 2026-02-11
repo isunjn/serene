@@ -16,7 +16,7 @@
     {% endif %}
   </div>
   {% if item.subtitle %}
-    <div class="subtitle">{{ item.subtitle }}</div>
+    <div class="subtitle">{{ item.subtitle | trim | markdown(inline=true) | safe }}</div>
   {% endif %}
   <div class="content">{{ item.content | trim | markdown | safe }}</div>
   {% if item.tags %}
@@ -70,7 +70,7 @@
     <div class="title">{{ item.title }}</div>
     {% endif %}
     {% if item.subtitle %}
-    <div class="subtitle">{{ item.subtitle }}</div>
+    <div class="subtitle">{{ item.subtitle | trim | markdown(inline=true) | safe }}</div>
     {% endif %}
   </div>
   {% endif %}
@@ -146,7 +146,7 @@
     <div class="title">{{ item.title }}</div>
     {% endif %}
     {% if item.subtitle %}
-      <div class="subtitle">{{ item.subtitle }}</div>
+      <div class="subtitle">{{ item.subtitle | trim | markdown(inline=true) | safe }}</div>
     {% endif %}
   </div>
 </blockquote>
