@@ -380,7 +380,7 @@ Currently, there are 7 types of collection item:
     [[collection]]
     type = "card"
     title = "Title"
-    subtitle = "Subtitle" # optional
+    subtitle = "Subtitle" # optional; supports Markdown
     date = "Date" # optional
     link = "https://example.com" # optional
     icon = "https://example.com/image.png" # optional
@@ -443,7 +443,7 @@ Currently, there are 7 types of collection item:
     [[collection]]
     type = "art_simple"
     title = "Title"
-    subtitle = "Subtitle" # optional
+    subtitle = "Subtitle" # optional; supports Markdown
     link = "https://example.com" # optional
     img = "https://example.com/image.png"
     ```
