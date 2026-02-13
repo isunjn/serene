@@ -380,11 +380,11 @@ Currently, there are 7 types of collection item:
     [[collection]]
     type = "card"
     title = "Title"
-    subtitle = "Subtitle" # optional
+    subtitle = "Subtitle" # optional; supports Markdown
     date = "Date" # optional
     link = "https://example.com" # optional
     icon = "https://example.com/image.png" # optional
-    content = "Content"
+    content = "Content" # supports Markdown
     tags = ["tag1", "tag2"] # optional
     featured = false  # optional
     ```
@@ -398,7 +398,7 @@ Currently, there are 7 types of collection item:
     date = "Date" # optional
     link = "https://example.com" # optional
     icon = "https://example.com/image.png" # optional
-    content = "Content"
+    content = "Content" # supports Markdown
     featured = false  # optional
     ```
 
@@ -430,11 +430,11 @@ Currently, there are 7 types of collection item:
     [[collection]]
     type = "art"
     title = "Title"
-    subtitle = "Subtitle" # optional
+    subtitle = "Subtitle" # optional; support Markdown
     link = "https://example.com" # optional
     img = "https://example.com/image.png"
-    content = "Content" # optional
-    footer = "Footer" # optional
+    content = "Content" # optional; supports Markdown
+    footer = "Footer" # optional; supports Markdown
     ```
 
 - `art_simple`
@@ -443,7 +443,7 @@ Currently, there are 7 types of collection item:
     [[collection]]
     type = "art_simple"
     title = "Title"
-    subtitle = "Subtitle" # optional
+    subtitle = "Subtitle" # optional; supports Markdown
     link = "https://example.com" # optional
     img = "https://example.com/image.png"
     ```
