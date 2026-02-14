@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.6.3] - 2026-02-14
+
+- fix: back link behavior on new tab
+
 ## [5.6.2] - 2026-02-13
 
 - feat: add markdown support for collection's content and subtitle [@paulhdk](https://github.com/paulhdk) ([#104](https://github.com/isunjn/serene/pull/104))
@@ -397,6 +401,7 @@ The new generated css files for code highlighting will be `giallo-light.css` and
 
 First release 🎉
 
+[5.6.3]: https://github.com/isunjn/serene/compare/v5.6.2...v5.6.3
 [5.6.2]: https://github.com/isunjn/serene/compare/v5.6.1...v5.6.2
 [5.6.1]: https://github.com/isunjn/serene/compare/v5.6.0...v5.6.1
 [5.6.0]: https://github.com/isunjn/serene/compare/v5.5.0...v5.6.0
