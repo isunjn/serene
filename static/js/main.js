@@ -247,7 +247,7 @@ function enableBackLink() {
   const backLink = document.querySelector('#back-link');
   if (!backLink) return;
   backLink.addEventListener('click', (e) => {
-    if (document.referrer && location.href.startsWith(document.referrer) && !location.hash) {
+    if (document.referrer && location.href.startsWith(document.referrer) && !location.hash && history.length > 1) {
       e.preventDefault();
       history.back();
     }
