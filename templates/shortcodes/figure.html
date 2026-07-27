@@ -1,6 +1,15 @@
+{% if src is starting_with("/") or src is starting_with("http://") or src is starting_with("https://") or src is starting_with("//") or src is starting_with("data:") %}
+    {% set image_src = src %}
+{% elif page is defined and page.colocated_path %}
+    {% set image_src = get_url(path=page.colocated_path ~ src) %}
+{% elif section is defined and section.colocated_path %}
+    {% set image_src = get_url(path=section.colocated_path ~ src) %}
+{% else %}
+    {% set image_src = src %}
+{% endif %}
 <figure>
     <img
-        src="{{ src }}"
+        src="{{ image_src }}"
         {% if alt %} alt="{{ alt }}"{% endif %}
         {% if height %} height="{{ height }}"{% endif %}
         {% if width %} width="{{ width }}"{% endif %}
