@@ -1717,7 +1717,9 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
-
+kbd {
+  white-space: nowrap;
+}
 small {
   font-size: 80%;
 }
