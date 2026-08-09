@@ -2,9 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [5.7.0] - 2026-08-09
 
-- feat: add Open Graph & Twitter Card meta tags and canonical link, with a configurable share image (`og_image` in `config.toml` or in post front matter)
+- feat: add open graph & twitter card meta tags and canonical link
+- fix: resolve colocated figure image URLs [@uchouT](https://github.com/uchouT) ([#109](https://github.com/isunjn/serene/pull/109))
+- fix: art collection content margin
 
 ## [5.6.3] - 2026-02-14
 
