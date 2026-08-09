@@ -1,10 +1,17 @@
+{% import "macros/seo.html" as seo %}
 {% extends "_base.html" %}
 
 {% block page %}homepage{% endblock page%}
 {% block lang %}{% if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ section.lang }}{% endif %}{% endblock lang %}
 {% block title %}{{ config.title }}{% endblock title %}
 {% block desc %}
-  <meta name="description" content="{{ config.description }}">
+  {%- if section.extra.lang %}{% set og_lang = section.extra.lang %}{% else %}{% set og_lang = section.lang %}{% endif -%}
+  {{ seo::seo(
+      title=config.title,
+      desc=config.description,
+      url=get_url(path="/"),
+      lang=og_lang
+  ) }}
 {% endblock desc %}
 
 {% block head %}

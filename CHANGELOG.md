@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+- feat: add Open Graph & Twitter Card meta tags and canonical link, with a configurable share image (`og_image` in `config.toml` or in post front matter)
+
 ## [5.6.3] - 2026-02-14
 
 - fix: back link behavior on new tab

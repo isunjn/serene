@@ -1,4 +1,5 @@
 {% import "macros/prose.html" as macros %}
+{% import "macros/seo.html" as seo %}
 {% extends "_base.html" %}
 
 {% block page %}tag-single{% endblock page %}
@@ -10,7 +11,15 @@
 {%- endblock lang %}
 {% block title %}{{section.title}}{% endblock title %}
 {% block desc %}
-  <meta name="description" content="{{ term.name }}">
+  {%- set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") -%}
+  {%- set section = get_section(path=blog_section_path ~ "/_index.md", metadata_only=true) -%}
+  {%- if section.extra.lang %}{% set og_lang = section.extra.lang %}{% else %}{% set og_lang = lang %}{% endif -%}
+  {{ seo::seo(
+      title=section.title,
+      desc=term.name,
+      url=term.permalink,
+      lang=og_lang
+  ) }}
 {% endblock desc %}
 
 {% block content %}

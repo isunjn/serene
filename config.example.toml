@@ -50,6 +50,8 @@ blog_section_path = "/posts"
 back_link_text = "Back" # Text of the back button
 force_theme = false # false | "light" | "dark"
 
+# og_image = "img/og.png" # The default image for social media sharing (Open Graph), a path in static folder or a full URL
+
 footer_copyright = "© 2025 <your-name>"
 footer_credits = true # Whether to show "Built with zola and serene" in footer
 

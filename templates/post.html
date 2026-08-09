@@ -1,4 +1,5 @@
 {% import "macros/prose.html" as macros %}
+{% import "macros/seo.html" as seo %}
 {% extends "_base.html" %}
 
 {% block page %}post{% endblock page %}
@@ -10,6 +11,8 @@
 {%- endblock lang %}
 {% block title %}{{ page.title }}{% endblock title %}
 {% block desc %}
+  {%- set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") -%}
+  {%- set section = get_section(path=blog_section_path ~ "/_index.md", metadata_only=true) -%}
   {% if page.summary %}
     {% set desc = page.summary %}
   {% elif page.description %}
@@ -19,7 +22,19 @@
   {% else %}
     {% set desc = config.description %}
   {% endif %}
-  <meta name="description" content="{{ desc }}">
+  {%- if page.extra.lang %}{% set og_lang = page.extra.lang %}{% elif section.extra.lang %}{% set og_lang = section.extra.lang %}{% else %}{% set og_lang = page.lang %}{% endif -%}
+  {{ seo::seo(
+      title=page.title,
+      desc=desc,
+      url=page.permalink,
+      page_type="article",
+      image=page.extra.og_image | default(value=""),
+      colocated_path=page.colocated_path | default(value=""),
+      published=page.date,
+      updated=page.updated | default(value=""),
+      tags=page.taxonomies.tags | default(value=""),
+      lang=og_lang
+  ) }}
 {% endblock desc %}
 
 {% block head %}

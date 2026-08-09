@@ -1,4 +1,5 @@
 {% import "macros/prose.html" as macros %}
+{% import "macros/seo.html" as seo %}
 {% extends "_base.html" %}
 
 {% block page %}blog{% endblock page%}
@@ -10,7 +11,13 @@
   {% else %}
     {% set desc = config.description %}
   {% endif %}
-  <meta name="description" content="{{ desc }}">
+  {%- if section.extra.lang %}{% set og_lang = section.extra.lang %}{% else %}{% set og_lang = section.lang %}{% endif -%}
+  {{ seo::seo(
+      title=section.title,
+      desc=desc,
+      url=section.permalink,
+      lang=og_lang
+  ) }}
 {% endblock desc %}
 
 {% block content %}

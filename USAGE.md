@@ -169,6 +169,18 @@ The serene theme looks more like a personal website, the posts are in the `/post
 
 `feed.xml` uses `title` and `description` from `myblog/content/posts/_index.md`, the other two use `config.toml`'s.
 
+## Open Graph
+
+Each page has [Open Graph](https://ogp.me/) and Twitter Card meta tags (plus a canonical link), so links shared to social media and chat apps can show a rich preview card with title, description and image.
+
+Title and description come from the same sources as the page's `<title>` and meta description. The preview image is resolved as follows:
+
+- Post pages use `og_image` in the `[extra]` section of front matter, if set. It can be a full URL, a path in the `static` folder (starting with `/`), or the filename of a [colocated asset](https://www.getzola.org/documentation/content/overview/#asset-colocation) of the post.
+- Otherwise, the site-wide default `og_image` in the `[extra]` section of `config.toml` is used, if set. It can be a full URL or a path in the `static` folder, e.g. `og_image = "img/og.png"`.
+- If neither is set, image related tags are omitted.
+
+An image around 1200x630 is recommended for the best display on most platforms.
+
 ## Analytics
 
 To add scripts for analytics tools (such as Google Analytics, Umami, etc.), you can create  `myblog/templates/_head_extend.html`. The content of this file will be added to the html head of each page.
@@ -213,6 +225,7 @@ math = false
 mermaid = false
 featured = false
 reaction = false
+og_image = "cover.png"
 +++
 
 new post about something...

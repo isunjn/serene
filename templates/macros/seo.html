@@ -1,0 +1,39 @@
+{% macro seo(title, desc, url="", page_type="website", image="", colocated_path="", published="", updated="", tags="", lang="") %}
+{%- set og_image = "" -%}
+{%- if image -%}
+  {%- if image is starting_with("http://") or image is starting_with("https://") or image is starting_with("//") -%}
+    {%- set og_image = image -%}
+  {%- elif image is starting_with("/") -%}
+    {%- set og_image = get_url(path=image) -%}
+  {%- elif colocated_path -%}
+    {%- set og_image = get_url(path=colocated_path ~ image) -%}
+  {%- else -%}
+    {%- set og_image = get_url(path=image) -%}
+  {%- endif -%}
+{%- elif config.extra.og_image -%}
+  {%- if config.extra.og_image is starting_with("http://") or config.extra.og_image is starting_with("https://") or config.extra.og_image is starting_with("//") -%}
+    {%- set og_image = config.extra.og_image -%}
+  {%- else -%}
+    {%- set og_image = get_url(path=config.extra.og_image) -%}
+  {%- endif -%}
+{%- endif -%}
+<meta name="description" content="{{ desc | striptags | trim }}">
+{% if url %}<link rel="canonical" href="{{ url | safe }}">{% endif %}
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:type" content="{{ page_type }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ desc | striptags | trim }}">
+{% if url %}<meta property="og:url" content="{{ url | safe }}">{% endif %}
+{% if lang %}<meta property="og:locale" content="{{ lang | replace(from="-", to="_") }}">{% endif %}
+{% if og_image %}<meta property="og:image" content="{{ og_image | safe }}">{% endif %}
+{% if page_type == "article" %}
+{% if published %}<meta property="article:published_time" content="{{ published }}">{% endif %}
+{% if updated %}<meta property="article:modified_time" content="{{ updated }}">{% endif %}
+{% if tags %}{% for tag in tags %}<meta property="article:tag" content="{{ tag }}">
+{% endfor %}{% endif %}
+{% endif %}
+<meta name="twitter:card" content="{% if og_image %}summary_large_image{% else %}summary{% endif %}">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ desc | striptags | trim }}">
+{% if og_image %}<meta name="twitter:image" content="{{ og_image | safe }}">{% endif %}
+{% endmacro %}
