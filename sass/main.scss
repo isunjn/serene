@@ -851,6 +851,9 @@ body.prose-page {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
+      p {
+        margin: 0;
+      }
     }
     .footer {
       margin-top: auto;
